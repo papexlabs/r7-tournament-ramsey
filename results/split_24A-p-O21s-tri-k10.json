@@ -1,0 +1,46 @@
+{
+ "name": "24A-p-O21s-tri-k10",
+ "cnf": "cnf/24A-p-O21s.tri.cnf",
+ "k": 10,
+ "split_vars": [
+  442,
+  443,
+  444,
+  445,
+  446,
+  447,
+  448,
+  449,
+  450,
+  451
+ ],
+ "samples": 4,
+ "limit": 90,
+ "solved": 4,
+ "sat": 0,
+ "mean_seconds_capped": 31.0,
+ "estimate_total_seconds": 31744,
+ "estimate_is_lower_bound": false,
+ "rows": [
+  {
+   "piece": 0,
+   "status": "UNSAT",
+   "seconds": 60.04
+  },
+  {
+   "piece": 1,
+   "status": "UNSAT",
+   "seconds": 53.92
+  },
+  {
+   "piece": 2,
+   "status": "UNSAT",
+   "seconds": 4.96
+  },
+  {
+   "piece": 3,
+   "status": "UNSAT",
+   "seconds": 5.08
+  }
+ ]
+}

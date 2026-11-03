@@ -1,0 +1,48 @@
+{
+ "m": 22,
+ "seed": 7,
+ "timeout": 20,
+ "splits": [
+  [
+   8,
+   13
+  ],
+  [
+   9,
+   12
+  ],
+  [
+   10,
+   11
+  ]
+ ],
+ "tries": 16,
+ "sat": 1,
+ "unsat": 14,
+ "unknown": 1,
+ "classes": 1,
+ "with_Y8": 1,
+ "without_Y8": 0,
+ "without_Y8_and_revY8": 0,
+ "sub_of_known23": 1,
+ "solve_seconds": 83.7,
+ "per_split": {
+  "9,12": {
+   "sat": 1,
+   "unsat": 5,
+   "unknown": 0
+  },
+  "8,13": {
+   "sat": 0,
+   "unsat": 6,
+   "unknown": 0
+  },
+  "10,11": {
+   "sat": 0,
+   "unsat": 3,
+   "unknown": 1
+  }
+ },
+ "wall_seconds": 84.8,
+ "examples_without_Y8_d6": []
+}

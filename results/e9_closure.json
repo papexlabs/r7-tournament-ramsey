@@ -1,0 +1,16 @@
+{
+ "23->22": {
+  "n_big": 25,
+  "distinct_subs": 89,
+  "subs_missing_from_small_file": 0,
+  "small_file_size": 89,
+  "small_members_extendable": 89
+ },
+ "22->21": {
+  "n_big": 89,
+  "distinct_subs": 305,
+  "subs_missing_from_small_file": 0,
+  "small_file_size": 17040,
+  "small_members_extendable": 305
+ }
+}

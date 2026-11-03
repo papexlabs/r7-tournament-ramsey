@@ -1,0 +1,132 @@
+{
+ "27": {
+  "count": 1,
+  "all_tt6free": true,
+  "distinct_classes": 1,
+  "closed_under_reversal": true,
+  "self_converse_computed": 1,
+  "sc_file_count": 0
+ },
+ "26": {
+  "count": 1,
+  "all_tt6free": true,
+  "distinct_classes": 1,
+  "closed_under_reversal": true,
+  "self_converse_computed": 1,
+  "sc_file_count": 0
+ },
+ "25": {
+  "count": 1,
+  "all_tt6free": true,
+  "distinct_classes": 1,
+  "closed_under_reversal": true,
+  "self_converse_computed": 1,
+  "sc_file_count": 0
+ },
+ "24": {
+  "count": 5,
+  "all_tt6free": true,
+  "distinct_classes": 5,
+  "closed_under_reversal": true,
+  "self_converse_computed": 1,
+  "sc_file_count": 1,
+  "matches_NMH_classes": true
+ },
+ "23": {
+  "count": 25,
+  "all_tt6free": true,
+  "distinct_classes": 25,
+  "closed_under_reversal": true,
+  "self_converse_computed": 3,
+  "sc_file_count": 3,
+  "matches_NMH_classes": true
+ },
+ "22": {
+  "count": 89,
+  "all_tt6free": true,
+  "distinct_classes": 89,
+  "closed_under_reversal": true,
+  "self_converse_computed": 3,
+  "sc_file_count": 3,
+  "with_Y8": 89,
+  "with_revY8": 89,
+  "outdegree_sets": [
+   [
+    8,
+    9,
+    10,
+    11,
+    12
+   ],
+   [
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   [
+    8,
+    9,
+    10,
+    11,
+    13
+   ],
+   [
+    8,
+    10,
+    11,
+    12,
+    13
+   ],
+   [
+    9,
+    10,
+    11,
+    12
+   ],
+   [
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   [
+    9,
+    10,
+    12
+   ],
+   [
+    9,
+    11,
+    12
+   ],
+   [
+    10,
+    11
+   ]
+  ],
+  "subs_of_known_23": 89,
+  "not_sub_of_any_23": 0
+ },
+ "21": {
+  "count": 17040,
+  "all_tt6free": true,
+  "distinct_classes": 17040,
+  "closed_under_reversal": true,
+  "self_converse_computed": null,
+  "sc_file_count": 364,
+  "with_H6": 17040,
+  "with_W7": 16,
+  "with_H6_or_W7": 17040,
+  "with_Y8": 17039,
+  "max_outdeg_hist": {
+   "11": 16757,
+   "12": 229,
+   "13": 48,
+   "10": 6
+  }
+ }
+}

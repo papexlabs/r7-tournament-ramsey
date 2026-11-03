@@ -1,0 +1,26 @@
+{
+ "10": {
+  "n_TT5free": 369,
+  "w->X contains Y8": 0,
+  "w->X contains H6": 368,
+  "w->X contains W7": 213
+ },
+ "11": {
+  "n_TT5free": 45,
+  "w->X contains Y8": 0,
+  "w->X contains H6": 44,
+  "w->X contains W7": 26
+ },
+ "12": {
+  "n_TT5free": 1,
+  "w->X contains Y8": 0,
+  "w->X contains H6": 1,
+  "w->X contains W7": 0
+ },
+ "13": {
+  "n_TT5free": 1,
+  "w->X contains Y8": 0,
+  "w->X contains H6": 1,
+  "w->X contains W7": 0
+ }
+}

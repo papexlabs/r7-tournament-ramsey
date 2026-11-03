@@ -1,0 +1,124 @@
+c cmd: nice -n 10 cadical -t 60 --lrat=true --binary=false cnf/ST6-p-ST7.cnf proofs/val-ST6-p-ST7.lrat
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2026
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 3.0.1
+c Apple clang version 21.0.0 (clang-2100.3.34.2) -Wall -Wextra -O3 -DNDEBUG -DNCLOSEFROM
+c Sun Jul 19 15:40:55 UTC 2026 Darwin Golden-Gate-arm64.local 27.0.0 arm64
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 60 seconds real time (due to '-t 60')
+c 
+c --- [ proof tracing ] ------------------------------------------------------
+c 
+c opening file to write 'proofs/val-ST6-p-ST7.lrat'
+c writing non-binary proof trace to 'proofs/val-ST6-p-ST7.lrat'
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from 'cnf/ST6-p-ST7.cnf'
+c opening file to read 'cnf/ST6-p-ST7.cnf'
+c found 'p cnf 42 3360' header
+c parsed 3360 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c   --binary=false                 (different from default 'true')
+c   --lrat=true                    (different from default 'false')
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reduction conflicts       size tier2     variables
+c         MB    restarts   redundant    glue  trail      remaining
+c          level     rate       size/glu tier1 irredundant
+c 
+c *  0.00  0  0 0   0  0    0    0 0.0 0 0 2 6  0% 3360  42 100%
+c )  0.00  0  0 0   0  0    0    0 0.0 0 0 2 6  0% 3360  42 100%
+c {  0.00  0  0 0   0  0    0    0 0.0 0 0 2 6  0% 3360  42 100%
+c i  0.00  0  3 0   0  1   29   13 1.7 4 3 2 6 58% 3360  41 98%
+c i  0.00  0  3 0   0  1   50   26 1.7 4 2 2 6 59% 3360  40 95%
+c i  0.00  0  3 0   0  1   64   33 1.7 4 2 2 6 59% 3360  39 93%
+c i  0.00  0  3 0   0  1   73   37 1.7 4 2 2 6 60% 3360  35 83%
+c }  0.00  0  3 0   0  1   75   37 1.7 4 2 2 6 59% 3360  26 62%
+c 0  0.00  0  3 0   0  1   75   37 1.7 4 2 2 6 59% 3360  26 62%
+c 
+c --- [ closing proof ] ------------------------------------------------------
+c 
+c LRAT proof file 'proofs/val-ST6-p-ST7.lrat' closed
+c LRAT 86 added clauses 72.88%
+c LRAT 32 deleted clauses 27.12%
+c LRAT 5947 bytes (0.01 MB)
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+s UNSATISFIABLE
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.00  102.36% parse
+c         0.00   94.20% search
+c         0.00   74.26% unstable
+c         0.00   18.37% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.00   38.69% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:                 4         5.33 %  of conflicts
+c conflicts:                    75     73673.87    per second
+c decisions:                    74     72691.55    per second
+c fixed:                        16        38.10 %  of all variables
+c learned:                      67        89.33 %  per conflict
+c learned_lits:                343       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                     86        25.07 %  learned literals
+c minishrunken:                  2         0.58 %  learned literals
+c otfs:                          7         9.33 %  of conflict
+c propagations:                605         0.59 M  per second
+c subsumed:                     25         0.73 %  of all clauses
+c strengthened:                  7         0.20 %  of all clauses
+c ticks:                     47039        77.75    propagation
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 2 used 25 clauses 37.87% accumulated 62.12% tier1
+c focused glue 3 used 19 clauses 28.78% accumulated 90.90% tier2
+c 
+c stable glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c stable glue 3 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 4 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 5 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.00    seconds
+c total real time since initialization:            0.00    seconds
+c maximum resident set size of process:            2.98    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 20
+c lrat-check output:
+c parsed a formula with 42 variables and 3360 clauses
+c VERIFIED
+c allocated 1024 22680 420
+c Added clauses = 3446.  Deleted clauses = 32.  Max live clauses = 3414
+c verification time = 0.00 secs

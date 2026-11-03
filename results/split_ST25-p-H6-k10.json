@@ -1,0 +1,56 @@
+{
+ "name": "ST25-p-H6-k10",
+ "cnf": "cnf/ST25-p-H6.cnf",
+ "k": 10,
+ "split_vars": [
+  74,
+  80,
+  86,
+  56,
+  38,
+  134,
+  73,
+  79,
+  85,
+  55
+ ],
+ "samples": 6,
+ "limit": 60,
+ "solved": 6,
+ "sat": 0,
+ "mean_seconds_capped": 4.79,
+ "estimate_total_seconds": 4910,
+ "estimate_is_lower_bound": false,
+ "rows": [
+  {
+   "piece": 0,
+   "status": "UNSAT",
+   "seconds": 1.72
+  },
+  {
+   "piece": 1,
+   "status": "UNSAT",
+   "seconds": 4.5
+  },
+  {
+   "piece": 2,
+   "status": "UNSAT",
+   "seconds": 3.45
+  },
+  {
+   "piece": 3,
+   "status": "UNSAT",
+   "seconds": 1.02
+  },
+  {
+   "piece": 4,
+   "status": "UNSAT",
+   "seconds": 10.34
+  },
+  {
+   "piece": 5,
+   "status": "UNSAT",
+   "seconds": 7.74
+  }
+ ]
+}

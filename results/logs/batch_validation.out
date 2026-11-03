@@ -1,0 +1,6 @@
+val-TT5free13,cadical,,SAT,0.03,4691,,,mac-m5,2026-11-03T16:45:30
+val-TT6free27,cadical,,UNKNOWN,176.79,3403162,,,mac-m5,2026-11-03T16:48:30
+val-TT5free14,cadical,,UNKNOWN,290.02,6133355,,1833105884,mac-m5,2026-11-03T16:50:30
+val-TT6free28,cadical,,UNKNOWN,174.06,2537423,,,mac-m5,2026-11-03T16:51:30
+calib-ST25-p-H6-nmh,cadical,--stabilize=false_--walk=false,UNKNOWN,582.39,1462103,,,mac-m5,2026-11-03T16:55:30
+val-ST26-p-TT5,cadical,,UNKNOWN,581.96,1817472,,351957925,mac-m5,2026-11-03T16:55:30

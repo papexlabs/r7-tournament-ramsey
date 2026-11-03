@@ -1,0 +1,13 @@
+{
+ "start": "Y",
+ "m": 22,
+ "steps": 3000,
+ "tried": 3000,
+ "accepted": 0,
+ "classes_checked": 0,
+ "with_Y8": 0,
+ "without_Y8": 0,
+ "without_Y8_and_revY8": 0,
+ "seconds": 0.0,
+ "first_without_Y8": null
+}

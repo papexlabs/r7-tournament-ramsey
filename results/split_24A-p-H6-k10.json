@@ -1,0 +1,66 @@
+{
+ "name": "24A-p-H6-k10",
+ "cnf": "cnf/24A-p-H6.cnf",
+ "k": 10,
+ "split_vars": [
+  127,
+  139,
+  133,
+  128,
+  140,
+  134,
+  129,
+  141,
+  135,
+  57
+ ],
+ "samples": 8,
+ "limit": 60,
+ "solved": 5,
+ "sat": 1,
+ "mean_seconds_capped": 29.54,
+ "estimate_total_seconds": 30249,
+ "estimate_is_lower_bound": true,
+ "rows": [
+  {
+   "piece": 0,
+   "status": "UNKNOWN",
+   "seconds": 60.02
+  },
+  {
+   "piece": 1,
+   "status": "UNSAT",
+   "seconds": 1.7
+  },
+  {
+   "piece": 2,
+   "status": "UNSAT",
+   "seconds": 46.16
+  },
+  {
+   "piece": 3,
+   "status": "UNSAT",
+   "seconds": 1.12
+  },
+  {
+   "piece": 4,
+   "status": "UNSAT",
+   "seconds": 2.61
+  },
+  {
+   "piece": 5,
+   "status": "SAT",
+   "seconds": 4.73
+  },
+  {
+   "piece": 6,
+   "status": "UNKNOWN",
+   "seconds": 60.04
+  },
+  {
+   "piece": 7,
+   "status": "UNKNOWN",
+   "seconds": 60.01
+  }
+ ]
+}

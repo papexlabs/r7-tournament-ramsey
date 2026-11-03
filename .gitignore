@@ -1,0 +1,18 @@
+# third-party downloads (fetched by scripts/fetch_refs.sh; not redistributed)
+refs/*.pdf
+refs/*.html
+refs/*.txt
+!refs/SHA256SUMS.txt
+refs/directed-ramsey-src/
+refs/rival/
+# generated instances, proofs, binaries
+build/
+cnf/
+proofs/
+cubes/
+*.cnf
+*.lrat
+*.drat
+*.icnf
+__pycache__/
+refs/digraph-isolators-src/
