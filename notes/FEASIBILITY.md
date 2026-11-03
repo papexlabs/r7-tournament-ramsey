@@ -164,8 +164,8 @@ All checks below were run by us (`scripts/e5_lohn_catalogue.py` and `e9_closure.
 
 - Every member is a tournament, TT6-free and pairwise non-isomorphic under nauty.
 - Each file is closed under reversal.
-- The self-converse counts match the `_sc` files.
-- The n = 23 and n = 24 files equal NMH's classes, and the n = 25 to 27 files are ST25, ST26 and ST27.
+- For n = 22–24, the self-converse counts match the `_sc` files. This was not checked for n = 20 or 21.
+- The n = 23 and n = 24 files equal NMH's classes, and the n = 25 to 27 files are isomorphic to ST25, ST26 and ST27 (checked by canonical form).
 - The 22-vertex subtournaments of the 25 tournaments on 23 vertices are exactly the 89.
 - The 21-vertex subtournaments of the 89 form 305 classes, all present in the 17,040.
 
