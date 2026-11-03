@@ -1,0 +1,38 @@
+{
+ "k": 6,
+ "n": 22,
+ "jobs_total": 17673,
+ "jobs_selected": 353,
+ "jobs_recorded": 353,
+ "all_complete": true,
+ "raw_models": 39,
+ "classes": 1,
+ "solver_seconds": 7062.5,
+ "per_d": {
+  "11": {
+   "jobs": 326,
+   "secs": 6913.724999999995,
+   "max_secs": 95.94,
+   "sat_jobs": 0,
+   "models": 0,
+   "not_complete": 0
+  },
+  "12": {
+   "jobs": 17,
+   "secs": 126.03999999999999,
+   "max_secs": 12.9,
+   "sat_jobs": 0,
+   "models": 0,
+   "not_complete": 0
+  },
+  "13": {
+   "jobs": 10,
+   "secs": 22.727999999999998,
+   "max_secs": 3.681,
+   "sat_jobs": 1,
+   "models": 39,
+   "not_complete": 0
+  }
+ },
+ "wall_seconds_this_run": 3549.7
+}

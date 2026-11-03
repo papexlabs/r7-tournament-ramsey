@@ -1,0 +1,14 @@
+{"d": 5, "ia": 0, "ib": 0, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.01}
+{"d": 5, "ia": 0, "ib": 1, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.01}
+{"d": 5, "ia": 0, "ib": 2, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.01}
+{"d": 5, "ia": 1, "ib": 0, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.01}
+{"d": 5, "ia": 1, "ib": 1, "models": 3, "status": "UNSAT", "check": "VERIFIED", "secs": 0.01}
+{"d": 5, "ia": 1, "ib": 2, "models": 5, "status": "UNSAT", "check": "VERIFIED", "secs": 0.01}
+{"d": 5, "ia": 2, "ib": 0, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.01}
+{"d": 5, "ia": 2, "ib": 1, "models": 5, "status": "UNSAT", "check": "VERIFIED", "secs": 0.01}
+{"d": 5, "ia": 2, "ib": 2, "models": 15, "status": "UNSAT", "check": "VERIFIED", "secs": 0.01}
+{"d": 6, "ia": 0, "ib": 0, "models": 42, "status": "UNSAT", "check": "VERIFIED", "secs": 0.01}
+{"d": 6, "ia": 1, "ib": 0, "models": 156, "status": "UNSAT", "check": "VERIFIED", "secs": 0.01}
+{"d": 6, "ia": 2, "ib": 0, "models": 18, "status": "UNSAT", "check": "VERIFIED", "secs": 0.01}
+{"d": 7, "ia": 0, "ib": 0, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.01}
+{"d": 7, "ia": 1, "ib": 0, "models": 399, "status": "UNSAT", "check": "VERIFIED", "secs": 0.01}

@@ -1,0 +1,4 @@
+{"d": 6, "ia": 0, "ib": 0, "arcs": 36, "clauses": 2553, "status": "complete", "models": 3, "secs": 0.002}
+{"d": 7, "ia": 0, "ib": 0, "arcs": 35, "clauses": 2511, "status": "complete", "models": 0, "secs": 0.002}
+{"d": 7, "ia": 1, "ib": 0, "arcs": 35, "clauses": 2511, "status": "complete", "models": 0, "secs": 0.002}
+{"d": 7, "ia": 2, "ib": 0, "arcs": 35, "clauses": 2399, "status": "complete", "models": 0, "secs": 0.002}

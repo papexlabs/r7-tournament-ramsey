@@ -341,3 +341,133 @@ Instance matrices are built in `cnf/mat/` by `src/instances.py` (see `results/e*
 - It did not solve any of the five decisive instances.
 - It did not measure Graviton4 speed.
 - It did not read the Springer, SIAM or Sanchez-Flores full texts.
+
+## 11. Stage 0 results and the AWS launch plan
+
+This section was added on 3 Nov 2026 after the go decision. The Stage 0 work ran on the Mac at `nice 10` with at most 3 jobs at a time. Nothing has been launched on AWS.
+
+### 11.1 Built and validated
+
+- **TT5-free catalogue for n ≤ 13 (A0)** — `scripts/a0_catalogue.py`, writing `data/tt5free/`.
+  - It is built by one-vertex extension with nauty canonical forms.
+  - The counts are 1, 1, 2, 4, 11, 35, 121, 376, 692, 369, 45, 1, 1, and 0 at n = 14.
+  - For every n ≤ 10 it is identical, by canonical form, to an independent `gentourng` run filtered for TT5.
+  - For every n ≤ 13 it is identical to the authors' files.
+  - The same procedure for TT4 gives 1, 1, 2, 3, 3, 1, 1, 0, which matches `gentourng`.
+- **Pivot AllSAT enumerator** — `src/pivenum.cpp` (libcadical), driven by `scripts/pivot_enum.py`.
+  - A TT_k-free tournament on n vertices is A -w- B, where w has maximum out-degree d ≥ ⌈(n−1)/2⌉ and A, B come from the complete TT_{k−1}-free catalogue.
+  - Sequential-counter constraints keep every out-degree ≤ d.
+  - Every model is re-checked for TT_k-freeness and for the degree bound, then blocked.
+  - Its CNF equals `build/encode`'s clause set exactly; checked on 6 random jobs, `tests/test_pivenum.py`.
+  - It reproduces the TT5-free catalogue for n = 10–13 exactly.
+  - It **independently re-derives NMH's classifications: exactly 1 TT6-free tournament on 25 vertices (ST25; 46 jobs, 145 s) and exactly the 5 classes 24A–E on 24 vertices (414 jobs, 1,470 s).**
+- **Certification of an enumeration** — `scripts/certify_enum.py`.
+  - For each job, the formula is the job's CNF plus one blocking clause per recorded model.
+  - It is solved with CaDiCaL `--lrat`, and the proof is streamed into lrat-check.
+  - VERIFIED means the job has no completions other than the recorded ones.
+  - Tested on the TT5-free runs (all jobs VERIFIED).
+  - A negative test, dropping one model, makes that job SAT and the run is reported as not verified.
+- **Cube-and-conquer pipeline:**
+  - `scripts/stream_solve.py` streams the CNF and the cube units through named pipes into CaDiCaL and lrat-check, and streams the LRAT proof through a third pipe. Nothing large touches the disk.
+  - `scripts/make_cubes.py` makes a static 2^K split on arc variables.
+  - `scripts/run_cubes.py` handles hierarchical re-splits of timed-out cubes, a MemAvailable gate, resumption, and SAT-model capture.
+  - `scripts/cnc_summary.py` checks the cover with LRAT (cubes alone, or with the CNF), checks that every split is structurally complete, and checks that every leaf is VERIFIED. It prints "ALL CLOSED" or "NOT CLOSED".
+  - End-to-end tests: `ST6-p-ST7` (16 cubes) and a 22-vertex pivot job, with forced splits and 14 verified leaves, both ALL CLOSED. `ST6-p-ST6` stops at the SAT cube.
+- **Stage 3 at full size.** Two level-0 cubes of `I24A -p- O21*` were run on the Mac (1 GB CNF, streamed LRAT).
+  - Both were UNSAT **VERIFIED**, in 94 s and 177 s, against 54 s and 60 s without LRAT. The 177 s run had other load on the machine.
+  - Peak RSS: CaDiCaL 2.8 GB, lrat-check 0.09 GB (macOS RSS).
+  - lrat-check used about 3% CPU, so it keeps pace and costs almost nothing.
+
+### 11.2 Go/no-go 0: A1 timing on a random 2% sample
+
+We ran 353 of the 17,673 pivot jobs for TT6-free tournaments on 22 vertices (`results/enum/k6n22_sample2pct/`, seed 22, 2 workers).
+
+| d = max out-degree | Jobs in the sample | Mean s per job | Max s | SAT jobs |
+|---|---|---|---|---|
+| 11 (A on 10, B on 11 vertices) | 326 | 21.2 | 96 | 0 |
+| 12 (9, 12) | 17 | 7.4 | 13 | 0 |
+| 13 (8, 13) | 10 | 2.3 | 4 | 1 (39 models, 1 class) |
+
+- The one class found is in Lohn's 89 and contains Y8.
+- **Projection for A1:** 16,605 × 21.2 + 692 × 7.4 + 376 × 2.3 s ≈ 358,000 s ≈ **100 Mac-core-hours** to enumerate.
+- LRAT certification of the same jobs costs 0.8–0.95× the enumeration time.
+  - 24 random 22-vertex sample jobs and 23 random 21-vertex sample jobs were certified, all VERIFIED.
+  - The one SAT job (d = 13, 39 models) was certified with its 39 blocking clauses: VERIFIED.
+- With certification that is about 190 Mac-core-hours, or **≈ 100–190 vCPU-hours on Graviton4**. kobon measured one Graviton4 vCPU at 1.86× a loaded Mac worker; we use the range 1.0–1.86×.
+- **Go/no-go 0 = GO** (the threshold was 300 vCPU-hours).
+
+A2 sample for 21 vertices: 168 of the 167,798 jobs (0.1%).
+
+- d = 10 jobs (all out-degrees 10, regular): 140 jobs, mean 6.6 s.
+- d = 11 jobs: 28 jobs, mean 40.7 s, max 95 s.
+- No models were found in the sample.
+- **Projection for A2:** 136,161 × 6.6 + 31,140 × 40.7 s (+ small d = 12, 13) ≈ 2.16M s ≈ **600 Mac-core-hours**, plus about 0.9× for certification. That is **≈ 610–1,140 vCPU-hours**.
+- A2 costs about 6× A1. That is the main change from §5, where we assumed A2 ≈ 200–2,000 vCPU-hours.
+
+### 11.3 Instance choice (spot prices in eu-north-1, read on 3 Nov 2026 with `describe-spot-price-history`)
+
+| Type | vCPU / GiB | Spot $/h by AZ (1a / 1b / 1c) | Note |
+|---|---|---|---|
+| c8g.48xlarge | 192 / 384 | 1.11 / 1.15 / 1.49 | Stages 1–2: small memory per job (pivenum about 0.25 GB; certify about 0.2 GB) |
+| c8g.metal-48xl | 192 / 384 | 0.82 everywhere | Cheaper, but in Nov 2026 kobon found no spot capacity |
+| m8g.48xlarge | 192 / 768 | 1.79 / 1.00 / 1.00 | **Stage 3** |
+| r8g.48xlarge | 192 / 1536 | 2.99 / 1.20 / 1.20 | Stage 3 alternative |
+
+**Stage 3 memory.** On the Mac, a Stage-3 cube peaked at 2.8 GB for CaDiCaL plus 0.1 GB for lrat-check. The single unsplit 300 s run peaked at 4.6 GB. Planning with 3–4.6 GB per worker:
+
+| Type | Workers | $ per worker-hour |
+|---|---|---|
+| c8g.48xlarge | about 80–120 | 0.0095–0.014 |
+| m8g.48xlarge (1b/1c) | about 165–180 | **0.0056–0.006** |
+| r8g.48xlarge | 186 | 0.0065 |
+
+So m8g.48xlarge in 1b or 1c is the default for Stage 3. `run_cubes.py --min-free-gb 24` holds back new cubes if memory gets tight.
+
+### 11.4 Launch plan, expected hours and dollars
+
+The account limit is 192 spot vCPU, so one 192-vCPU box runs at a time. Stages 1 and 2 run back to back on one box (`stage12`), which also re-derives NMH's 23/24/25 classifications by direct pivot enumeration (this replaces the one-vertex-extension A3). Stage 3 runs only after go/no-go 1 and 2.
+
+| Run | Type, AZ, MaxPrice | Work (vCPU-h) | Expected hours | Expected $ | Hard cap ($) / auto power-off |
+|---|---|---|---|---|---|
+| stage12 | c8g.48xlarge, 1a, 1.30 | 725–1,350 (n = 22, 23, 24, 25 and 21; enumeration + LRAT certification) | 3.9–7.3 | 4.3–8.4 | 18 / 820 min |
+| stage3 | m8g.48xlarge, 1b or 1c, 1.40 | 180–1,550, central 350–650 | 1–9, central 2–4 | 1–9, central 2–4; tail with hour-long cubes up to about 27 | 40 / 1,704 min |
+
+Expected total is about US$7–13, at most US$58 with every cap hit, against about US$98 of credit, which we cannot verify ourselves (see below).
+
+Three stops do not depend on the Mac:
+
+1. The spot MaxPrice.
+2. `shutdown -h +N`, armed first thing in user-data, with `--instance-initiated-shutdown-behavior terminate`. Power-off then means termination, and the disk is deleted with the instance.
+3. `run_stage.sh` moves the power-off to 60 minutes after the stage ends, which leaves time for the final sync.
+
+On the Mac, `cost_meter.py --enforce` integrates the public spot-price history from launch time. It terminates the stage's instance at its cap, or when the total reaches $95. The kobon IAM user cannot read the bill or the credit balance; the AWS console is the authority on both.
+
+Exact commands, run by the owner from the repo root. `bash` is needed because zsh does not split words.
+
+```bash
+# 0. optional re-check (nothing is created): bash scripts/cloud/launch.sh stage12 --az eu-north-1a --dry-run
+bash scripts/cloud/launch.sh stage12 --az eu-north-1a          # prints INSTANCE_ID and IP
+IP=<printed IP>
+bash scripts/cloud/push.sh $IP
+ssh -i ~/.ssh/kobon-aws.pem ubuntu@$IP 'cd tr && bash scripts/cloud/setup.sh'          # ~5-8 min incl. tool build
+ssh -i ~/.ssh/kobon-aws.pem ubuntu@$IP 'cd tr && nohup bash scripts/cloud/run_stage.sh stage12 186 > results/stage12.log 2>&1 < /dev/null &'
+nohup bash scripts/cloud/sync_back.sh $IP stage12 600 > results/stage12.sync.log 2>&1 &
+nohup python3 scripts/cloud/cost_meter.py --enforce --loop 600 > results/aws_meter.log 2>&1 &
+bash scripts/cloud/watch.sh $IP stage12 600 90                  # exits on DONE, failure or stall
+python3 scripts/stage12_check.py                                # go/no-go 1 and 2 (needs refs/, scripts/fetch_refs.sh)
+# Stage 3 (only after GO 1 and GO 2):
+bash scripts/cloud/launch.sh stage3 --az eu-north-1c            # m8g.48xlarge, MaxPrice 1.40, cap 40
+# push, setup as above, then:
+ssh -i ~/.ssh/kobon-aws.pem ubuntu@$IP 'cd tr && nohup bash scripts/cloud/run_stage.sh stage3 170 > results/stage3.log 2>&1 < /dev/null &'
+# sync_back / cost_meter / watch with "stage3"; at the end results/stage3/*/run/summary.json must say ALL CLOSED
+```
+
+If the home IP changes, the security group must allow it first. `curl checkip.amazonaws.com` shows the IP; the group currently lists [home IP range removed], [home IP removed] and [IP removed] (the IP today). Before a spot request in AZ 1a, check `describe-spot-price-history` again. If capacity is missing, use `--az eu-north-1b`.
+
+### 11.5 What changed in the plan
+
+- **Every enumeration job is now certified with LRAT** (job CNF plus blocking clauses, streamed check). This was not in §6. The catalogue step of the proof is then proof-checked, not just re-computed. It costs about 0.9× the enumeration.
+- **A2 (21 vertices) is about 6× A1.** The d = 11 jobs average 41 s. Stage 2 is the most expensive part of Stages 1–2 (about US$4–7).
+- **Stages 1 and 2 run on one box.** NMH's 23-, 24- and 25-vertex classifications are re-derived directly; the 24 and 25 cases are already done on the Mac and match exactly.
+- **Stage 3 runs on m8g.48xlarge, with the five instances side by side** (34 workers each), after the memory measurement.
+- **Two speed-ups did not pay off:** minimum out-degree bounds (out-degree ≥ n−14) and the CaDiCaL "unsat" configuration. Each changed time by about 10% at most on the slowest jobs, so the defaults stay. The 3-cycle encoding (31k instead of 136k clauses) was about 10% faster on one job.

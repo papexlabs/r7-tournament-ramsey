@@ -1,0 +1,6 @@
+{"d": 7, "ia": 0, "ib": 0, "arcs": 28, "clauses": 1398, "status": "complete", "models": 0, "secs": 0.002}
+{"d": 7, "ia": 1, "ib": 0, "arcs": 28, "clauses": 1286, "status": "complete", "models": 0, "secs": 0.002}
+{"d": 7, "ia": 2, "ib": 0, "arcs": 28, "clauses": 1398, "status": "complete", "models": 0, "secs": 0.001}
+{"d": 6, "ia": 0, "ib": 0, "arcs": 30, "clauses": 1627, "status": "complete", "models": 0, "secs": 0.002}
+{"d": 6, "ia": 1, "ib": 0, "arcs": 30, "clauses": 1627, "status": "complete", "models": 6, "secs": 0.003}
+{"d": 6, "ia": 2, "ib": 0, "arcs": 30, "clauses": 1546, "status": "complete", "models": 0, "secs": 0.002}

@@ -1,0 +1,14 @@
+{"d": 5, "ia": 2, "ib": 2, "arcs": 25, "clauses": 865, "status": "complete", "models": 15, "secs": 0.003}
+{"d": 6, "ia": 0, "ib": 0, "arcs": 24, "clauses": 941, "status": "complete", "models": 42, "secs": 0.005}
+{"d": 6, "ia": 1, "ib": 0, "arcs": 24, "clauses": 860, "status": "complete", "models": 156, "secs": 0.014}
+{"d": 6, "ia": 2, "ib": 0, "arcs": 24, "clauses": 941, "status": "complete", "models": 18, "secs": 0.003}
+{"d": 5, "ia": 0, "ib": 0, "arcs": 25, "clauses": 975, "status": "complete", "models": 0, "secs": 0.001}
+{"d": 5, "ia": 0, "ib": 1, "arcs": 25, "clauses": 975, "status": "complete", "models": 0, "secs": 0.001}
+{"d": 5, "ia": 0, "ib": 2, "arcs": 25, "clauses": 920, "status": "complete", "models": 0, "secs": 0.001}
+{"d": 5, "ia": 1, "ib": 0, "arcs": 25, "clauses": 975, "status": "complete", "models": 0, "secs": 0.001}
+{"d": 7, "ia": 0, "ib": 0, "arcs": 21, "clauses": 736, "status": "complete", "models": 0, "secs": 0.001}
+{"d": 7, "ia": 1, "ib": 0, "arcs": 21, "clauses": 624, "status": "complete", "models": 399, "secs": 0.024}
+{"d": 5, "ia": 1, "ib": 1, "arcs": 25, "clauses": 975, "status": "complete", "models": 3, "secs": 0.001}
+{"d": 5, "ia": 1, "ib": 2, "arcs": 25, "clauses": 920, "status": "complete", "models": 5, "secs": 0.002}
+{"d": 5, "ia": 2, "ib": 0, "arcs": 25, "clauses": 920, "status": "complete", "models": 0, "secs": 0.001}
+{"d": 5, "ia": 2, "ib": 1, "arcs": 25, "clauses": 920, "status": "complete", "models": 5, "secs": 0.002}

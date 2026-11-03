@@ -1,0 +1,23 @@
+k=6 n=21 jobs_total=167798 selected=168 todo=168
+  8/168 jobs, 0 models, 209s
+  16/168 jobs, 0 models, 255s
+  24/168 jobs, 0 models, 285s
+  32/168 jobs, 0 models, 353s
+  40/168 jobs, 0 models, 419s
+  48/168 jobs, 0 models, 483s
+  56/168 jobs, 0 models, 564s
+  64/168 jobs, 0 models, 742s
+  72/168 jobs, 0 models, 784s
+  80/168 jobs, 0 models, 932s
+  88/168 jobs, 0 models, 992s
+  96/168 jobs, 0 models, 1048s
+  104/168 jobs, 0 models, 1266s
+  112/168 jobs, 0 models, 1414s
+  120/168 jobs, 0 models, 1448s
+  128/168 jobs, 0 models, 1498s
+  136/168 jobs, 0 models, 1541s
+  144/168 jobs, 0 models, 1773s
+  152/168 jobs, 0 models, 1844s
+  160/168 jobs, 0 models, 2017s
+  168/168 jobs, 0 models, 2058s
+{"k": 6, "n": 21, "jobs_total": 167798, "jobs_selected": 168, "jobs_recorded": 168, "all_complete": true, "raw_models": 0, "classes": 0, "solver_seconds": 2056.8, "per_d": {"10": {"jobs": 140, "secs": 917.6809999999999, "max_secs": 19.08, "sat_jobs": 0, "models": 0, "not_complete": 0}, "11": {"jobs": 28, "secs": 1139.101, "max_secs": 95.299, "sat_jobs": 0, "models": 0, "not_complete": 0}}, "wall_seconds_this_run": 2057.9}

@@ -1,0 +1,22 @@
+k=6 n=22 jobs_total=17673 selected=353 todo=353
+  20/353 jobs, 0 models, 347s
+  36/353 jobs, 0 models, 485s
+  51/353 jobs, 0 models, 835s
+  71/353 jobs, 0 models, 1061s
+  86/353 jobs, 0 models, 1196s
+  106/353 jobs, 0 models, 1293s
+  121/353 jobs, 0 models, 1497s
+  136/353 jobs, 0 models, 1649s
+  156/353 jobs, 0 models, 1922s
+  171/353 jobs, 0 models, 2026s
+  191/353 jobs, 0 models, 2270s
+  206/353 jobs, 0 models, 2392s
+  221/353 jobs, 0 models, 2468s
+  241/353 jobs, 0 models, 2593s
+  256/353 jobs, 0 models, 2719s
+  276/353 jobs, 0 models, 2925s
+  291/353 jobs, 0 models, 3001s
+  308/353 jobs, 39 models, 3124s
+  323/353 jobs, 39 models, 3278s
+  343/353 jobs, 39 models, 3484s
+{"k": 6, "n": 22, "jobs_total": 17673, "jobs_selected": 353, "jobs_recorded": 353, "all_complete": true, "raw_models": 39, "classes": 1, "solver_seconds": 7062.5, "per_d": {"11": {"jobs": 326, "secs": 6913.724999999995, "max_secs": 95.94, "sat_jobs": 0, "models": 0, "not_complete": 0}, "12": {"jobs": 17, "secs": 126.03999999999999, "max_secs": 12.9, "sat_jobs": 0, "models": 0, "not_complete": 0}, "13": {"jobs": 10, "secs": 22.727999999999998, "max_secs": 3.681, "sat_jobs": 1, "models": 39, "not_complete": 0}}, "wall_seconds_this_run": 3549.7}
