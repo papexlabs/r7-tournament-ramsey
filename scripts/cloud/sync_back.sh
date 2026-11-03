@@ -8,7 +8,7 @@ cd "$(dirname "$0")/../.."
 HOST="ubuntu@$1"; STAGE="$2"; EVERY="${3:-600}"
 SSH="ssh -i $HOME/.ssh/kobon-aws.pem -o BatchMode=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=20"
 while true; do
-  rsync -az -e "$SSH" --exclude 'body.cnf' --exclude 'tmp/' --exclude '*.fifo' \
+  rsync -az -e "$SSH" --exclude 'body.cnf' --exclude 'tmp/' --exclude '*.fifo' --exclude 'aws_*' \
       "$HOST:tr/results/" results/ \
     && $SSH "$HOST" 'ps -axo etime=,pcpu=,rss=,args= | grep -E "^ *[0-9:-]+ .*(pivenum|cadical|lrat-check|python3 -I scripts)" | grep -v grep | head -400' \
          > "results/$STAGE.remote_ps.tmp" \

@@ -16,6 +16,6 @@ if [ "${2:-}" = "--results" ]; then
   if $SSH "$HOST" "pgrep -f '^(bash scripts/cloud/run_stage|python3 -I scripts/)' > /dev/null"; then
     echo "a stage is running on $1: refusing to push results/"; exit 1
   fi
-  rsync -az -e "$SSH" --exclude 'body.cnf' --exclude 'tmp/' --exclude '*.fifo' results "$HOST:tr/"
+  rsync -az -e "$SSH" --exclude 'body.cnf' --exclude 'tmp/' --exclude '*.fifo' --exclude 'aws_*' results "$HOST:tr/"
 fi
 echo "pushed to $1:tr/ ${2:-(code only)}"
