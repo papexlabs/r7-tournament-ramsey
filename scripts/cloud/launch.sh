@@ -30,6 +30,7 @@ case "$STAGE" in
   stage2) : "${TYPE:=c8g.48xlarge}" "${MAXP:=1.30}" "${CAP:=14}" ; DISK=60 ;;
   stage12) : "${TYPE:=c8g.48xlarge}" "${MAXP:=1.30}" "${CAP:=18}" ; DISK=60 ;;
   stage3) : "${TYPE:=m8g.48xlarge}" "${MAXP:=1.40}" "${CAP:=40}" ; DISK=60 ;;
+  stage3-*) : "${TYPE:=m8g.24xlarge}" "${MAXP:=0.70}" "${CAP:=25}" ; DISK=40 ;;
   *) echo "unknown stage"; exit 2 ;;
 esac
 SHUT=$(python3 -c "print(max(30, int($CAP / $MAXP * 60) - 10))")

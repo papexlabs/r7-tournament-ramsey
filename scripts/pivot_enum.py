@@ -37,6 +37,30 @@ def catalogue(k1, m):
     return p, [l for l in p.read_text().splitlines() if l.strip()]
 
 
+def make_jobs(k, n, sample=0.0, seed=1):
+    """All pivot jobs (d, ia, ib) for TT_k-free tournaments on n vertices (optionally a seeded sample)."""
+    k1 = k - 1
+    # R(k-1)-1 = largest order of a TT_{k-1}-free tournament
+    rmax = max(m for m in range(1, 64) if (ROOT / f"data/tt{k1}free/tt{k1}free{m}.d6").exists()
+               and catalogue(k1, m)[1])
+    dmin = (n - 1 + 1) // 2  # ceil((n-1)/2)
+    jobs = []  # (d, ia, ib)
+    for d in range(dmin, rmax + 1):
+        asz = n - 1 - d
+        if asz <= 0 or asz > rmax:
+            continue
+        _, CA = catalogue(k1, asz)
+        _, CB = catalogue(k1, d)
+        for ia in range(len(CA)):
+            for ib in range(len(CB)):
+                jobs.append((d, ia, ib))
+    total = len(jobs)
+    if sample:
+        rng = random.Random(seed)
+        jobs = sorted(rng.sample(jobs, max(1, round(sample * total))))
+    return jobs, total
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("k", type=int)
@@ -52,26 +76,7 @@ def main():
     k1 = a.k - 1
     out = Path(a.out)
     (out / "models").mkdir(parents=True, exist_ok=True)
-    # R(k-1)-1 = largest order of a TT_{k-1}-free tournament
-    rmax = max(m for m in range(1, 64) if (ROOT / f"data/tt{k1}free/tt{k1}free{m}.d6").exists()
-               and catalogue(k1, m)[1])
-    dmin = (a.n - 1 + 1) // 2  # ceil((n-1)/2)
-    jobs = []  # (d, ia, ib)
-    for d in range(dmin, rmax + 1):
-        asz = a.n - 1 - d
-        if asz < 0 or asz > rmax:
-            continue
-        _, CA = catalogue(k1, asz) if asz > 0 else (None, [])
-        _, CB = catalogue(k1, d)
-        if asz == 0:
-            continue
-        for ia in range(len(CA)):
-            for ib in range(len(CB)):
-                jobs.append((d, ia, ib))
-    total = len(jobs)
-    if a.sample:
-        rng = random.Random(a.seed)
-        jobs = sorted(rng.sample(jobs, max(1, round(a.sample * total))))
+    jobs, total = make_jobs(a.k, a.n, a.sample, a.seed)
     rec_path = out / "records.jsonl"
     done = set()
     if rec_path.exists():

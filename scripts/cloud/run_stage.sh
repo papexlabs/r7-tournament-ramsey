@@ -5,7 +5,7 @@
 #        stage2 (TT6-free n=21 enumeration + certification)
 #        stage12 (stage1 then stage2 on the same instance)
 #        stage3 (the five instances I24X -p- O21*, cube-and-conquer with streamed LRAT checks)
-#        stage3:X (only instance X in A..E)
+#        stage3-XYZ (only instances X, Y, Z of A..E, e.g. stage3-ABC and stage3-DE on two boxes)
 # When the stage ends (success or failure) it writes results/<STAGE>.DONE and moves the
 # power-off to GRACE_MIN minutes from now (default 60) -- never later than the hard stop
 # armed by user-data -- so the Mac has time to sync results back.
@@ -43,8 +43,9 @@ case "$STAGE" in
     enum_and_certify 6 23 "$W" || rc=1
     enum_and_certify 6 21 "$W" || rc=1
     ;;
-  stage3|stage3:*)
-    LIST="A B C D E"; [ "$STAGE" != stage3 ] && LIST="${STAGE#stage3:}"
+  stage3|stage3-*)
+    # stage3 = all five; stage3-ABC = instances A, B, C only (e.g. one of two 96-vCPU boxes)
+    LIST="A B C D E"; [ "$STAGE" != stage3 ] && LIST=$(echo "${STAGE#stage3-}" | sed 's/./& /g')
     NX=$(echo $LIST | wc -w); WX=$(( W / NX ))
     for X in $LIST; do   # prepare all instances first (encode ~5 s each, 1 GB CNF each)
       d="results/stage3/24$X-p-O21s"; mkdir -p "$d"

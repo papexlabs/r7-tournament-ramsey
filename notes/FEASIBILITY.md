@@ -471,3 +471,100 @@ If the home IP changes, the security group must allow it first. `curl checkip.am
 - **Stages 1 and 2 run on one box.** NMH's 23-, 24- and 25-vertex classifications are re-derived directly; the 24 and 25 cases are already done on the Mac and match exactly.
 - **Stage 3 runs on m8g.48xlarge, with the five instances side by side** (34 workers each), after the memory measurement.
 - **Two speed-ups did not pay off:** minimum out-degree bounds (out-degree ≥ n−14) and the CaDiCaL "unsat" configuration. Each changed time by about 10% at most on the slowest jobs, so the defaults stay. The 3-cycle encoding (31k instead of 136k clauses) was about 10% faster on one job.
+
+## 12. Re-plan after the first AWS hours (3 Nov 2026, 18:30 UTC)
+
+### 12.1 Measured speed factor
+
+stage12 runs on c8g.24xlarge, because no 48xl or metal spot capacity was available in eu-north-1. It has 93 workers and is in 1b. On that box the n = 22 pivot jobs take **2.5× (d = 11), 1.9× (d = 12) and 1.7× (d = 13)** their Mac time:
+
+| d | Server mean | Mac mean |
+|---|---|---|
+| 11 | 52.5 s | 21.2 s |
+| 12 | 14.2 s | 7.4 s |
+| 13 | 3.9 s | 2.3 s |
+
+So one fully loaded Graviton4 vCPU runs at about **0.4× an M5 core with little other load**. §11 had assumed 1.0–1.86×, taken from kobon, where the Mac side was a heavily loaded worker. All projections below use **2.5×**.
+
+### 12.2 Certify-first enumeration (new)
+
+`scripts/certify_first.py` makes one LRAT-checked solve per job, on the job's exact CNF (`pivenum dumpcnf --maxdeg`).
+
+- UNSAT and VERIFIED: the job is complete with 0 models, recorded in both records.jsonl and certify.jsonl.
+- Anything else: the job falls back to pivenum AllSAT. `certify_enum.py` then certifies it with its blocking clauses.
+- The unchanged `pivot_enum.py` (aggregation) and `certify_enum.py` produce summary.json, classes.d6 and certify_summary.json with the same meaning. `stage12_check.py` needs no change.
+
+Tests (`tests/test_certify_first.py`):
+
+- **TT5-free, n = 10–13:** classes are identical to the catalogue. Every job is complete and VERIFIED. The run mixes 14 first-solve UNSAT jobs with 22 fallback jobs.
+- **Negative test:** with one model dropped, the job is reported as not verified.
+
+On the 168-job sample for 21 vertices, every job was UNSAT and VERIFIED on the first solve:
+
+| Path | Solver time |
+|---|---|
+| Certify-first | 1,577 s |
+| Classic: enumeration + certification | 2,057 s + 0.81 × 2,057 s ≈ 3,722 s |
+
+That is a **58% saving**: 0.45× for d = 10 jobs and 0.41× for d = 11 jobs. For 23 vertices, a 0.5% sample (15 jobs) averaged 2.1 s per job, all UNSAT VERIFIED.
+
+### 12.3 stage12 takeover and new projection (93 workers on c8g.24xlarge, about US$0.445/h)
+
+`scripts/cloud/run_stage12b.sh` replaces run_stage.sh for the rest of stage12:
+
+1. It waits for the inherited n = 22 pivot_enum.py to finish.
+2. n = 22: classic certification.
+3. n = 23, then n = 21: certify-first.
+
+It checks `all_complete` and `all_jobs_verified` for 25, 24, 22, 23 and 21, writes `results/stage12.DONE`, and moves the power-off forward exactly as run_stage.sh does. Every step skips finished jobs, so after a spot reclaim it resumes from the synced results (`push.sh IP --results`). By default `push.sh` now pushes code only, so it cannot overwrite the files a running stage appends to.
+
+| Step | vCPU-h | Hours on 93 workers | Ends (UTC, approx.) |
+|---|---|---|---|
+| n = 22 enumeration (running) | 245 | 2.6 | 20:00, 3 Nov |
+| n = 22 certification (classic) | about 233 | 2.5 | 22:30 |
+| n = 23 certify-first | about 5 | 0.1 | 22:40 |
+| n = 21 certify-first | 1,150–1,320 (+0–15% for SAT-job fallbacks) | 12.4–14.2 | 11:00–13:00, 4 Nov |
+
+- The hard stop is 23:11 UTC on 4 Nov (1,790 min from 17:21), so there is a margin of about 10 h.
+- **stage12 cost: about US$9.** Hard ceiling: US$18 (cap).
+- Without certify-first, n = 21 alone would need about 2,780 vCPU-h, or 30 h. That is past the hard stop.
+
+### 12.4 Stage 3 re-projected
+
+Inputs:
+
+- **Speed factor:** 2.5×.
+- **LRAT overhead,** from three measured cubes:
+
+  | Cube | Without LRAT | With LRAT | Ratio |
+  |---|---|---|---|
+  | 1 | 54 s | 94 s | 1.74× |
+  | 2 | 60 s | 177 s | 2.95× (with other load) |
+  | 3 | 351 s | 565 s | 1.61×; 4.4 GB peak, VERIFIED |
+
+  We use 1.75× centrally and up to 3× in the range.
+- **Work:** 1,420 worker-hours centrally, a range of 720–5,800, and a heavy-tail case of 2,840.
+- **Memory:** up to 4.4 GB per worker. That limits workers per box:
+  - c8g.24xlarge (185 GiB): about 40;
+  - m8g.24xlarge (384 GiB): about 75–80;
+  - m8g.48xlarge (768 GiB): about 160.
+
+| Box | Spot $/h (3 Nov) | Central | Tail (2×) | Range |
+|---|---|---|---|---|
+| **m8g.24xlarge**, 77 workers | 0.49–0.51 | 18 h, **$9.2** | 37 h, $18 | $4.6–37 |
+| c8g.24xlarge, 40 workers | 0.445 | 36 h, $16 | 71 h, $32 | $8–65 |
+| m8g.48xlarge, 160 workers (no capacity today) | 1.00 | 9 h, $8.9 | $18 | $4.5–36 |
+
+**Total against the US$95 meter cap:**
+
+- Expected: stage12 about $9 + Stage 3 about $9, so **about US$18**.
+- Tail case: about $29.
+- Worst case with every cap hit: stage12 $18 + one Stage-3 box $25 = **$43**, or $68 with two Stage-3 boxes.
+
+If Stage 3 reaches the top of its range (5,800 worker-h), the US$25 cap of an m8g.24xlarge box stops it before the end. It then resumes from the synced results on a new box, within the US$95 total.
+
+### 12.5 Splitting Stage 3 over 96-vCPU boxes
+
+`run_stage.sh` and `launch.sh` now accept `stage3-XYZ`: only instances X, Y, Z, defaulting to m8g.24xlarge, MaxPrice 0.70, cap US$25. Two boxes such as `stage3-ABC` and `stage3-DE` write disjoint result directories, so they can run side by side and sync without clashing.
+
+Two 96-vCPU boxes use the whole 192-vCPU spot quota. While stage12 runs, only **one** Stage-3 box fits. Stage 3 does not depend on the stage12 results (the five instances are needed in any case), so it can start now on one m8g.24xlarge as `stage3-ABCDE` (75 workers, 15 per instance). A second box for some of the instances can follow when stage12 ends: stop that instance's run_cubes on the first box, sync, `push.sh IP --results`, and start `stage3-DE` on the new box.

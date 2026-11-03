@@ -1,0 +1,15 @@
+{"d": 11, "ia": 1, "ib": 24, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.32, "via": "certify-first"}
+{"d": 11, "ia": 7, "ib": 27, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.64, "via": "certify-first"}
+{"d": 11, "ia": 1, "ib": 12, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.72, "via": "certify-first"}
+{"d": 11, "ia": 24, "ib": 15, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.49, "via": "certify-first"}
+{"d": 11, "ia": 11, "ib": 38, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 1.09, "via": "certify-first"}
+{"d": 11, "ia": 26, "ib": 17, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.83, "via": "certify-first"}
+{"d": 11, "ia": 17, "ib": 21, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 1.6, "via": "certify-first"}
+{"d": 11, "ia": 34, "ib": 23, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.82, "via": "certify-first"}
+{"d": 11, "ia": 32, "ib": 26, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.97, "via": "certify-first"}
+{"d": 11, "ia": 40, "ib": 20, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.65, "via": "certify-first"}
+{"d": 11, "ia": 38, "ib": 25, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 0.77, "via": "certify-first"}
+{"d": 13, "ia": 30, "ib": 0, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 1.61, "via": "certify-first"}
+{"d": 13, "ia": 579, "ib": 0, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 2.55, "via": "certify-first"}
+{"d": 11, "ia": 27, "ib": 41, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 10.54, "via": "certify-first"}
+{"d": 12, "ia": 146, "ib": 0, "models": 0, "status": "UNSAT", "check": "VERIFIED", "secs": 8.31, "via": "certify-first"}

@@ -49,7 +49,9 @@ def main():
             f = line.split()
             if len(f) != 4:
                 raise SystemExit(f"{p}: model lines must be 'd ia ib d6' (re-run pivot_enum.py)")
-            models.setdefault((int(f[0]), int(f[1]), int(f[2])), []).append(f[3])
+            models.setdefault((int(f[0]), int(f[1]), int(f[2])), set()).add(f[3])
+    # a job re-run after an interruption may have written its (identical) model set twice
+    models = {key: sorted(v) for key, v in models.items()}
     for key, r in recs.items():
         if r["models"] != len(models.get(key, [])):
             raise SystemExit(f"job {key}: {r['models']} models recorded, {len(models.get(key, []))} found")
