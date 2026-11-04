@@ -24,6 +24,7 @@ input data/<name>.txt, TT_K, limit K!.
 
 usage:
   stage4_instances.py st26                    write data/ST26-p-TT5.txt (our input for ST26-p-TT5)
+  stage4_instances.py encoder                 compile build/nmh-tour-encode if missing
   stage4_instances.py list [--only N1,N2,..]  names (deduplicated), longest expected first
   stage4_instances.py param NAME              "TT_K CUBE_K MAXVAR INPUT" for run_stage4.sh
   stage4_instances.py build NAME...           input -> cnf/stage4/NAME.cnf (kept if its sha256 is
@@ -110,9 +111,12 @@ def make_st26_input() -> Path:
 
 
 def ensure_encoder() -> None:
+    """Compile NMH's encoder as in their Makefile (gcc -O2), atomically (parallel builds may race)."""
     if not ENC_BIN.exists():
         ENC_BIN.parent.mkdir(exist_ok=True)
-        subprocess.run(["gcc", str(ENC_SRC), "-O2", "-o", str(ENC_BIN)], check=True)
+        tmp = ENC_BIN.with_name(f"{ENC_BIN.name}.{os.getpid()}.tmp")
+        subprocess.run(["gcc", str(ENC_SRC), "-O2", "-o", str(tmp)], check=True)
+        os.replace(tmp, ENC_BIN)
 
 
 def build(name: str, out: Path | None = None) -> Path:
@@ -250,7 +254,7 @@ def load_manifest() -> dict:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["list", "param", "build", "verify", "st26"])
+    ap.add_argument("cmd", choices=["list", "param", "build", "verify", "st26", "encoder"])
     ap.add_argument("names", nargs="*")
     ap.add_argument("--only", default="")
     ap.add_argument("--manifest", action="store_true")
@@ -259,6 +263,10 @@ def main():
     inst = man["instances"]
     if a.cmd == "st26":
         print(make_st26_input())
+        return
+    if a.cmd == "encoder":
+        ensure_encoder()
+        print(ENC_BIN)
         return
     if a.cmd == "list":
         names = list(dict.fromkeys(a.only.split(","))) if a.only else list(NAMES)

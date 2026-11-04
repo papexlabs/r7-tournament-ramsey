@@ -80,6 +80,7 @@ prep() {  # build + sha256 check, cubes; writes results/stage4/NAME/prep.ok on s
 closed() { grep -q '"ALL CLOSED"' "results/stage4/$1/run/summary.json" 2>/dev/null; }
 
 log "prepare (NMH encoder, sha256 against the manifest, cubes)"
+python3 -I scripts/stage4_instances.py encoder || log "ENCODER BUILD FAILED"
 for name in $NAMES; do
   closed "$name" && continue
   prep "$name" > "results/stage4/$name.prep.log" 2>&1 &

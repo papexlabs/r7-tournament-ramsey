@@ -14,7 +14,7 @@ Checks:
     results/STAGE.SAT is written and DONE = 1; a rerun refuses to start;
  5. a CNF whose sha256 differs from the manifest is refused (PREPARE FAILED, DONE = 1);
  6. verify_model.py --model rejects a corrupted model.
-Run: python3 tests/test_stage4_driver.py   (needs build/nmh-tour-encode, build/lrat-check,
+Run: python3 tests/test_stage4_driver.py   (needs gcc, build/lrat-check,
 build/cnf_sound, cadical on PATH and refs/directed-ramsey-src from scripts/fetch_refs.sh)
 """
 import json
@@ -49,7 +49,7 @@ def main():
         shutil.copytree(ROOT / "scripts", r / "scripts", ignore=shutil.ignore_patterns("__pycache__"))
         shutil.copytree(ROOT / "src", r / "src", ignore=shutil.ignore_patterns("__pycache__"))
         (r / "build").mkdir()
-        for b in ("nmh-tour-encode", "lrat-check", "cnf_sound"):
+        for b in ("lrat-check", "cnf_sound"):     # nmh-tour-encode is compiled by the driver itself
             shutil.copy2(ROOT / "build" / b, r / "build" / b)
         (r / "refs").mkdir()
         os.symlink(ROOT / "refs/directed-ramsey-src", r / "refs/directed-ramsey-src")
@@ -67,6 +67,7 @@ def main():
         nout = [u for u in range(13) if (st13[v] >> u) & 1]
         T.write_matrix(I.pivot_matrix(T.induced(st13, nin), T.induced(st13, nout)), r / "data/test-s-k5.txt")
         p = run([sys.executable, "scripts/stage4_instances.py", "verify", "test-u-k5", "test-v-k5", "test-s-k5", "--manifest"], r)
+        (r / "build/nmh-tour-encode").unlink()   # the driver must compile it (once, before the parallel builds)
         check(p.returncode == 0, f"manifest step accepts the test instances ({p.stdout.strip()[-120:]})")
         man = json.loads((r / "data/stage4_manifest.json").read_text())
         for e in man["instances"].values():
