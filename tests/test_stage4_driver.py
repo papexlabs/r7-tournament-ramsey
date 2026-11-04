@@ -3,6 +3,7 @@ run in a temporary copy of the repository (the real results/ is never touched).
 
   test-u-k5: TT4-free 6-vertex -p- TT4-free 7-vertex (14 vertices, so UNSAT since R(5) = 14)
   test-v-k5: the reversed 6-vertex part -p- the same 7-vertex one
+  test-e-k5: TT5-free 6 -p- TT5-free 7 whose fixed arcs already contain TT5 (failed-check path)
   test-s-k5: N-(v) -p- N+(v) of the 13-vertex TT5-free tournament (SAT: the tournament itself)
 
 Checks:
@@ -10,6 +11,7 @@ Checks:
  2. stage on test-u: DONE = 0 and cnc_summary ALL CLOSED;
  3. rerun of the same stage resumes: no new cube records, still DONE = 0; a stage with two
     instances and one slot runs the open one and skips the closed one;
+ 3b. a failed LRAT check is logged and the stage ends NOT CLOSED with DONE = 1;
  4. stage on test-s + test-u: the SAT cube is found, verify_model.py confirms a TT5-free model,
     results/STAGE.SAT is written and DONE = 1; a rerun refuses to start;
  5. a CNF whose sha256 differs from the manifest is refused (PREPARE FAILED, DONE = 1);
@@ -59,6 +61,11 @@ def main():
         tt6 = T.from_d6((ROOT / "data/tt4free/tt4free6.d6").read_text().split()[0])
         tt7 = T.from_d6((ROOT / "data/tt4free/tt4free7.d6").read_text().split()[0])
         T.write_matrix(I.pivot_matrix(tt6, tt7), r / "data/test-u-k5.txt")
+        # test-e: TT5-free (not TT4-free) parts, so the fixed arcs contain TT5s, the CNF has empty
+        # clauses, and lrat-check reports these trivial UNSATs as not verified (a failed check)
+        t5a = T.from_d6((ROOT / "data/tt5free/tt5free6.d6").read_text().split()[0])
+        t5b = T.from_d6((ROOT / "data/tt5free/tt5free7.d6").read_text().split()[0])
+        T.write_matrix(I.pivot_matrix(t5a, t5b), r / "data/test-e-k5.txt")
         tt6b = T.reverse(tt6)
         T.write_matrix(I.pivot_matrix(tt6b, tt7), r / "data/test-v-k5.txt")
         st13 = T.from_d6((ROOT / "data/tt5free/tt5free13.d6").read_text().split()[0])
@@ -66,7 +73,7 @@ def main():
         nin = [u for u in range(13) if (st13[u] >> v) & 1]
         nout = [u for u in range(13) if (st13[v] >> u) & 1]
         T.write_matrix(I.pivot_matrix(T.induced(st13, nin), T.induced(st13, nout)), r / "data/test-s-k5.txt")
-        p = run([sys.executable, "scripts/stage4_instances.py", "verify", "test-u-k5", "test-v-k5", "test-s-k5", "--manifest"], r)
+        p = run([sys.executable, "scripts/stage4_instances.py", "verify", "test-u-k5", "test-v-k5", "test-s-k5", "test-e-k5", "--manifest"], r)
         (r / "build/nmh-tour-encode").unlink()   # the driver must compile it (once, before the parallel builds)
         check(p.returncode == 0, f"manifest step accepts the test instances ({p.stdout.strip()[-120:]})")
         man = json.loads((r / "data/stage4_manifest.json").read_text())
@@ -97,6 +104,11 @@ def main():
         check(done == "0" and "test-u-k5 already ALL CLOSED" in p.stdout and "conquer test-v-k5 finished" in p.stdout
               and "test-v-k5 ALL CLOSED" in p.stdout and "test-u-k5 ALL CLOSED" in p.stdout,
               f"queue through one slot: DONE={done}")
+        # 2c. failed LRAT checks are reported and the stage does not close
+        p = run(drv + ["stage4-te", "2", "1"], r, dict(env, STAGE4_NAMES="test-e-k5"))
+        done = (r / "results/stage4-te.DONE").read_text().strip()
+        check(done == "1" and "LRAT CHECK FAILED in test-e-k5" in p.stdout and "test-e-k5 NOT CLOSED" in p.stdout,
+              f"failed LRAT check reported, NOT CLOSED (DONE={done})")
         # 4. SAT instance stops the stage
         p = run(drv + ["stage4-ts", "2", "1"], r, dict(env, STAGE4_NAMES="test-s-k5 test-u-k5"))
         done = (r / "results/stage4-ts.DONE").read_text().strip()

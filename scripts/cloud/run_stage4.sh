@@ -100,6 +100,7 @@ stop_all() {  # kill every run_cubes / cadical / lrat-check of this stage
 conquer() {  # one instance; returns 0 (finished), 3 (SAT), 1 (other failure)
   local name=$1 d="results/stage4/$1" tk ck mv inp f
   read -r tk ck mv inp < "$d/prep.ok"
+  local n0; n0=$(cat "$d/conquer.log" 2>/dev/null | wc -l)
   python3 -I scripts/run_cubes.py "cnf/stage4/$name.cnf" "$d/cubes.icnf" "$d/run" \
     --workers "$WX" --timeouts "$TIMEOUTS" --split 4 --maxvar "$mv" --nice 5 --min-free-gb "$MINFREE" \
     >> "$d/conquer.log" 2>&1
@@ -113,7 +114,8 @@ conquer() {  # one instance; returns 0 (finished), 3 (SAT), 1 (other failure)
     } >> "$SATFLAG" 2>&1
     return 3
   done
-  grep -q "CHECK FAILED" "$d/conquer.log" && log "LRAT CHECK FAILED in $name (rerun retries it): $(grep 'CHECK FAILED' "$d/conquer.log" | tail -1)"
+  local cf; cf=$(tail -n +"$((n0 + 1))" "$d/conquer.log" | grep "CHECK FAILED" | tail -1)
+  [ -n "$cf" ] && log "LRAT CHECK FAILED in $name (a rerun retries it): $cf"
   [ "$r" -eq 0 ] || { log "run_cubes for $name exited $r"; return 1; }
   return 0
 }
