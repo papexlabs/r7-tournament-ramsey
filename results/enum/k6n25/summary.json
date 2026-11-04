@@ -7,24 +7,24 @@
  "all_complete": true,
  "raw_models": 78,
  "classes": 1,
- "solver_seconds": 144.8,
+ "solver_seconds": 171.1,
  "per_d": {
   "12": {
    "jobs": 1,
-   "secs": 0.946,
-   "max_secs": 0.946,
+   "secs": 1.293,
+   "max_secs": 1.293,
    "sat_jobs": 0,
    "models": 0,
    "not_complete": 0
   },
   "13": {
    "jobs": 45,
-   "secs": 143.893,
-   "max_secs": 7.494,
+   "secs": 169.85600000000002,
+   "max_secs": 8.48,
    "sat_jobs": 2,
    "models": 78,
    "not_complete": 0
   }
  },
- "wall_seconds_this_run": 50.2
+ "wall_seconds_this_run": 41.4
 }

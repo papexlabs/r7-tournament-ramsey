@@ -1,0 +1,23 @@
+certify-first k=6 n=21 jobs_total=167798 selected=168 todo=168
+  8/168 jobs: 8 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 39s
+  16/168 jobs: 16 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 77s
+  24/168 jobs: 24 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 109s
+  32/168 jobs: 32 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 124s
+  40/168 jobs: 40 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 139s
+  48/168 jobs: 48 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 165s
+  56/168 jobs: 56 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 187s
+  64/168 jobs: 64 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 203s
+  72/168 jobs: 72 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 219s
+  80/168 jobs: 80 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 237s
+  88/168 jobs: 88 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 248s
+  96/168 jobs: 96 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 268s
+  104/168 jobs: 104 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 292s
+  112/168 jobs: 112 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 316s
+  120/168 jobs: 120 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 335s
+  128/168 jobs: 128 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 359s
+  136/168 jobs: 136 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 373s
+  144/168 jobs: 144 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 425s
+  152/168 jobs: 152 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 615s
+  160/168 jobs: 160 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 712s
+  168/168 jobs: 168 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 802s
+{"jobs": 168, "unsat_verified": 168, "fallback": 0, "secs": 1577.4, "wall_seconds": 802.1}

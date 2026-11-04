@@ -1,0 +1,53 @@
+{
+ "25": {
+  "jobs": 46,
+  "enum_complete": true,
+  "certified": true,
+  "classes": 1,
+  "equals_lohn": true,
+  "missing_from_lohn": 0,
+  "missing_from_ours": 0,
+  "equals_nmh": true
+ },
+ "24": {
+  "jobs": 414,
+  "enum_complete": true,
+  "certified": true,
+  "classes": 5,
+  "equals_lohn": true,
+  "missing_from_lohn": 0,
+  "missing_from_ours": 0,
+  "equals_nmh": true
+ },
+ "23": {
+  "jobs": 3086,
+  "enum_complete": true,
+  "certified": true,
+  "classes": 25,
+  "equals_lohn": true,
+  "missing_from_lohn": 0,
+  "missing_from_ours": 0,
+  "equals_nmh": true
+ },
+ "22": {
+  "jobs": 17673,
+  "enum_complete": true,
+  "certified": true,
+  "classes": 89,
+  "equals_lohn": true,
+  "missing_from_lohn": 0,
+  "missing_from_ours": 0,
+  "without_Y8": 0
+ },
+ "21": {
+  "jobs": 167798,
+  "enum_complete": true,
+  "certified": true,
+  "classes": 17040,
+  "equals_lohn": true,
+  "missing_from_lohn": 0,
+  "missing_from_ours": 0,
+  "without_Y8": 1,
+  "without_Y8_is_exactly_O21star": true
+ }
+}

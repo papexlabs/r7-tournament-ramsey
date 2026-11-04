@@ -1,0 +1,197 @@
+2026-11-03 17:23:25 enumerate k=6 n=25
+k=6 n=25 jobs_total=46 selected=46 todo=46
+  6/46 jobs, 0 models, 16s
+  16/46 jobs, 0 models, 35s
+  26/46 jobs, 39 models, 37s
+  36/46 jobs, 78 models, 41s
+  46/46 jobs, 78 models, 41s
+{"k": 6, "n": 25, "jobs_total": 46, "jobs_selected": 46, "jobs_recorded": 46, "all_complete": true, "raw_models": 78, "classes": 1, "solver_seconds": 171.1, "per_d": {"12": {"jobs": 1, "secs": 1.293, "max_secs": 1.293, "sat_jobs": 0, "models": 0, "not_complete": 0}, "13": {"jobs": 45, "secs": 169.85600000000002, "max_secs": 8.48, "sat_jobs": 2, "models": 78, "not_complete": 0}}, "wall_seconds_this_run": 41.4}
+2026-11-03 17:24:07 certify k=6 n=25
+{"jobs": 46, "verified": 46, "this_run": 46, "failed_this_run": 0, "solve_seconds_this_run": 269.8, "all_jobs_verified": true}
+2026-11-03 17:24:18 n=25 done: {
+ "k": 6,
+ "n": 25,
+ "jobs_total": 46,
+ "jobs_selected": 46,
+ "jobs_recorded": 46,
+ "all_complete": true,
+ "raw_models": 78,
+ "classes": 1,
+ "solver_seconds": 171.1,
+ "per_d": {
+  "12": {
+   "jobs": 1,
+   "secs": 1.293,
+   "max_secs": 1.293,
+   "sat_jobs": 0,
+   "models": 0,
+   "not_complete": 0
+  
+2026-11-03 17:24:18 enumerate k=6 n=24
+k=6 n=24 jobs_total=414 selected=414 todo=414
+  20/414 jobs, 0 models, 38s
+  49/414 jobs, 0 models, 39s
+  69/414 jobs, 0 models, 40s
+  89/414 jobs, 0 models, 41s
+  109/414 jobs, 0 models, 42s
+  129/414 jobs, 0 models, 42s
+  149/414 jobs, 0 models, 43s
+  169/414 jobs, 39 models, 43s
+  189/414 jobs, 78 models, 43s
+  209/414 jobs, 78 models, 44s
+  229/414 jobs, 117 models, 45s
+  249/414 jobs, 156 models, 45s
+  269/414 jobs, 234 models, 45s
+  289/414 jobs, 234 models, 45s
+  309/414 jobs, 312 models, 46s
+  329/414 jobs, 312 models, 47s
+  349/414 jobs, 312 models, 47s
+  369/414 jobs, 390 models, 47s
+  384/414 jobs, 390 models, 116s
+  404/414 jobs, 390 models, 121s
+{"k": 6, "n": 24, "jobs_total": 414, "jobs_selected": 414, "jobs_recorded": 414, "all_complete": true, "raw_models": 390, "classes": 5, "solver_seconds": 2133.0, "per_d": {"12": {"jobs": 45, "secs": 541.9040000000001, "max_secs": 20.751, "sat_jobs": 0, "models": 0, "not_complete": 0}, "13": {"jobs": 369, "secs": 1591.0789999999995, "max_secs": 9.475, "sat_jobs": 10, "models": 390, "not_complete": 0}}, "wall_seconds_this_run": 121.4}
+2026-11-03 17:26:19 certify k=6 n=24
+{"jobs": 414, "verified": 414, "this_run": 414, "failed_this_run": 0, "solve_seconds_this_run": 2965.9, "all_jobs_verified": true}
+2026-11-03 17:27:06 n=24 done: {
+ "k": 6,
+ "n": 24,
+ "jobs_total": 414,
+ "jobs_selected": 414,
+ "jobs_recorded": 414,
+ "all_complete": true,
+ "raw_models": 390,
+ "classes": 5,
+ "solver_seconds": 2133.0,
+ "per_d": {
+  "12": {
+   "jobs": 45,
+   "secs": 541.9040000000001,
+   "max_secs": 20.751,
+   "sat_jobs": 0,
+   "models": 0,
+   "
+2026-11-03 17:27:06 enumerate k=6 n=22
+k=6 n=22 jobs_total=17673 selected=17673 todo=17673
+  892/17673 jobs, 117 models, 675s
+  1772/17673 jobs, 383 models, 1157s
+  2652/17673 jobs, 656 models, 1642s
+  3532/17673 jobs, 656 models, 2146s
+  4422/17673 jobs, 872 models, 2607s
+  5302/17673 jobs, 872 models, 3161s
+  6182/17673 jobs, 1017 models, 3627s
+  7072/17673 jobs, 1134 models, 4112s
+  7952/17673 jobs, 1368 models, 4579s
+  8832/17673 jobs, 1378 models, 5098s
+  9713/17673 jobs, 1427 models, 5533s
+  10603/17673 jobs, 1661 models, 6030s
+  11483/17673 jobs, 1749 models, 6525s
+  12363/17673 jobs, 1777 models, 7003s
+  13253/17673 jobs, 1816 models, 7462s
+  14133/17673 jobs, 1933 models, 7970s
+  15013/17673 jobs, 1964 models, 8430s
+  15903/17673 jobs, 1975 models, 8915s
+  16783/17673 jobs, 2098 models, 9404s
+  17663/17673 jobs, 2098 models, 9904s
+{"k": 6, "n": 22, "jobs_total": 17673, "jobs_selected": 17673, "jobs_recorded": 17673, "all_complete": true, "raw_models": 2098, "classes": 89, "solver_seconds": 893890.0, "per_d": {"11": {"jobs": 16605, "secs": 882314.637000001, "max_secs": 468.244, "sat_jobs": 8, "models": 181, "not_complete": 0}, "12": {"jobs": 692, "secs": 10107.335000000003, "max_secs": 25.064, "sat_jobs": 21, "models": 630, "not_complete": 0}, "13": {"jobs": 376, "secs": 1468.0180000000007, "max_secs": 9.231, "sat_jobs": 33, "models": 1287, "not_complete": 0}}, "wall_seconds_this_run": 9910.8}
+ration/certification: 18203 python3 -I scripts/pivot_enum.py 6 22 results/enum/k6n22 --workers 93 --batch 10 --n;
+2026-11-03 19:09:01 [stage12b] waiting for running enumeration/certification: 18203 python3 -I scripts/pivot_enum.py 6 22 results/enum/k6n22 --workers 93 --batch 10 --n;
+2026-11-03 19:14:01 [stage12b] waiting for running enumeration/certification: 18203 python3 -I scripts/pivot_enum.py 6 22 results/enum/k6n22 --workers 93 --batch 10 --n;
+2026-11-03 19:19:01 [stage12b] waiting for running enumeration/certification: 18203 python3 -I scripts/pivot_enum.py 6 22 results/enum/k6n22 --workers 93 --batch 10 --n;
+2026-11-03 19:24:01 [stage12b] waiting for running enumeration/certification: 18203 python3 -I scripts/pivot_enum.py 6 22 results/enum/k6n22 --workers 93 --batch 10 --n;
+2026-11-03 19:29:01 [stage12b] waiting for running enumeration/certification: 18203 python3 -I scripts/pivot_enum.py 6 22 results/enum/k6n22 --workers 93 --batch 10 --n;
+2026-11-03 19:34:01 [stage12b] waiting for running enumeration/certification: 18203 python3 -I scripts/pivot_enum.py 6 22 results/enum/k6n22 --workers 93 --batch 10 --n;
+2026-11-03 19:39:01 [stage12b] waiting for running enumeration/certification: 18203 python3 -I scripts/pivot_enum.py 6 22 results/enum/k6n22 --workers 93 --batch 10 --n;
+2026-11-03 19:44:01 [stage12b] waiting for running enumeration/certification: 18203 python3 -I scripts/pivot_enum.py 6 22 results/enum/k6n22 --workers 93 --batch 10 --n;
+2026-11-03 19:49:01 [stage12b] waiting for running enumeration/certification: 18203 python3 -I scripts/pivot_enum.py 6 22 results/enum/k6n22 --workers 93 --batch 10 --n;
+2026-11-03 19:54:01 [stage12b] waiting for running enumeration/certification: 18203 python3 -I scripts/pivot_enum.py 6 22 results/enum/k6n22 --workers 93 --batch 10 --n;
+2026-11-03 19:59:02 [stage12b] waiting for running enumeration/certification: 18203 python3 -I scripts/pivot_enum.py 6 22 results/enum/k6n22 --workers 93 --batch 10 --n;
+2026-11-03 20:04:02 [stage12b] waiting for running enumeration/certification: 18203 python3 -I scripts/pivot_enum.py 6 22 results/enum/k6n22 --workers 93 --batch 10 --n;
+2026-11-03 20:09:02 [stage12b] waiting for running enumeration/certification: 18203 python3 -I scripts/pivot_enum.py 6 22 results/enum/k6n22 --workers 93 --batch 10 --n;
+2026-11-03 20:14:02 [stage12b] n=22: pivot_enum (resume/aggregate)
+k=6 n=22 jobs_total=17673 selected=17673 todo=0
+{"k": 6, "n": 22, "jobs_total": 17673, "jobs_selected": 17673, "jobs_recorded": 17673, "all_complete": true, "raw_models": 2098, "classes": 89, "solver_seconds": 893890.0, "per_d": {"11": {"jobs": 16605, "secs": 882314.637000001, "max_secs": 468.244, "sat_jobs": 8, "models": 181, "not_complete": 0}, "12": {"jobs": 692, "secs": 10107.335000000003, "max_secs": 25.064, "sat_jobs": 21, "models": 630, "not_complete": 0}, "13": {"jobs": 376, "secs": 1468.0180000000007, "max_secs": 9.231, "sat_jobs": 33, "models": 1287, "not_complete": 0}}, "wall_seconds_this_run": 0.1}
+2026-11-03 20:14:02 [stage12b] n=22: certify_enum
+{"jobs": 17673, "verified": 17673, "this_run": 17673, "failed_this_run": 0, "solve_seconds_this_run": 932957.8, "all_jobs_verified": true}
+2026-11-03 23:02:01 [stage12b] n=23: certify_first
+certify-first k=6 n=23 jobs_total=3086 selected=3086 todo=3086
+  154/3086 jobs: 155 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 5s
+  308/3086 jobs: 309 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 9s
+  462/3086 jobs: 463 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 14s
+  616/3086 jobs: 616 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 20s
+  770/3086 jobs: 770 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 26s
+  924/3086 jobs: 924 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 32s
+  1078/3086 jobs: 1078 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 38s
+  1232/3086 jobs: 1232 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 44s
+  1386/3086 jobs: 1386 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 51s
+  1540/3086 jobs: 1540 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 58s
+  1694/3086 jobs: 1694 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 64s
+  1848/3086 jobs: 1851 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 70s
+  2002/3086 jobs: 2002 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 86s
+  2156/3086 jobs: 2150 UNSAT-VERIFIED first, 6 fallback (SAT or unchecked), 120s
+  2310/3086 jobs: 2297 UNSAT-VERIFIED first, 13 fallback (SAT or unchecked), 151s
+  2464/3086 jobs: 2450 UNSAT-VERIFIED first, 14 fallback (SAT or unchecked), 165s
+  2618/3086 jobs: 2602 UNSAT-VERIFIED first, 16 fallback (SAT or unchecked), 174s
+  2772/3086 jobs: 2752 UNSAT-VERIFIED first, 20 fallback (SAT or unchecked), 183s
+  2926/3086 jobs: 2901 UNSAT-VERIFIED first, 25 fallback (SAT or unchecked), 191s
+  3080/3086 jobs: 3046 UNSAT-VERIFIED first, 34 fallback (SAT or unchecked), 199s
+{"jobs": 3086, "unsat_verified": 3052, "fallback": 34, "secs": 17698.2, "wall_seconds": 199.6}
+2026-11-03 23:05:21 [stage12b] n=23: pivot_enum (aggregation; enumerates nothing if certify_first finished)
+k=6 n=23 jobs_total=3086 selected=3086 todo=0
+{"k": 6, "n": 23, "jobs_total": 3086, "jobs_selected": 3086, "jobs_recorded": 3086, "all_complete": true, "raw_models": 1068, "classes": 25, "solver_seconds": 17667.1, "per_d": {"11": {"jobs": 2025, "secs": 7190.567000000007, "max_secs": 65.499, "sat_jobs": 4, "models": 141, "not_complete": 0}, "12": {"jobs": 369, "secs": 6945.716000000002, "max_secs": 34.14, "sat_jobs": 9, "models": 108, "not_complete": 0}, "13": {"jobs": 692, "secs": 3530.772999999997, "max_secs": 10.68, "sat_jobs": 21, "models": 819, "not_complete": 0}}, "wall_seconds_this_run": 0.0}
+2026-11-03 23:05:21 [stage12b] n=23: certify_enum (the SAT jobs, with their blocking clauses)
+{"jobs": 3086, "verified": 3086, "this_run": 34, "failed_this_run": 0, "solve_seconds_this_run": 222.7, "all_jobs_verified": true}
+2026-11-03 23:05:39 [stage12b] n=21: certify_first
+certify-first k=6 n=21 jobs_total=167798 selected=167798 todo=167798
+  8389/167798 jobs: 8389 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 787s
+  16778/167798 jobs: 16778 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 1803s
+  25167/167798 jobs: 25163 UNSAT-VERIFIED first, 4 fallback (SAT or unchecked), 2817s
+  33556/167798 jobs: 33548 UNSAT-VERIFIED first, 8 fallback (SAT or unchecked), 3918s
+  41945/167798 jobs: 41937 UNSAT-VERIFIED first, 8 fallback (SAT or unchecked), 5019s
+  50334/167798 jobs: 50326 UNSAT-VERIFIED first, 8 fallback (SAT or unchecked), 6199s
+  58723/167798 jobs: 58715 UNSAT-VERIFIED first, 8 fallback (SAT or unchecked), 7179s
+  67112/167798 jobs: 67104 UNSAT-VERIFIED first, 8 fallback (SAT or unchecked), 8303s
+  75501/167798 jobs: 75493 UNSAT-VERIFIED first, 8 fallback (SAT or unchecked), 9436s
+  83890/167798 jobs: 83878 UNSAT-VERIFIED first, 12 fallback (SAT or unchecked), 10324s
+  92279/167798 jobs: 92267 UNSAT-VERIFIED first, 12 fallback (SAT or unchecked), 11524s
+  100668/167798 jobs: 100652 UNSAT-VERIFIED first, 16 fallback (SAT or unchecked), 12862s
+  109057/167798 jobs: 109041 UNSAT-VERIFIED first, 16 fallback (SAT or unchecked), 13871s
+  117446/167798 jobs: 117430 UNSAT-VERIFIED first, 16 fallback (SAT or unchecked), 15021s
+  125835/167798 jobs: 125819 UNSAT-VERIFIED first, 16 fallback (SAT or unchecked), 16301s
+  134224/167798 jobs: 134208 UNSAT-VERIFIED first, 16 fallback (SAT or unchecked), 17596s
+  142613/167798 jobs: 142584 UNSAT-VERIFIED first, 29 fallback (SAT or unchecked), 23076s
+  151002/167798 jobs: 150955 UNSAT-VERIFIED first, 47 fallback (SAT or unchecked), 30575s
+  159391/167798 jobs: 159331 UNSAT-VERIFIED first, 60 fallback (SAT or unchecked), 37500s
+2026-11-04 11:03:03 [stage12b] n=21: certify_first
+certify-first k=6 n=21 jobs_total=167798 selected=167798 todo=5259
+  262/5259 jobs: 262 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 273s
+  524/5259 jobs: 524 UNSAT-VERIFIED first, 0 fallback (SAT or unchecked), 483s
+  786/5259 jobs: 784 UNSAT-VERIFIED first, 2 fallback (SAT or unchecked), 705s
+  1048/5259 jobs: 1046 UNSAT-VERIFIED first, 2 fallback (SAT or unchecked), 922s
+  1310/5259 jobs: 1305 UNSAT-VERIFIED first, 5 fallback (SAT or unchecked), 1144s
+  1572/5259 jobs: 1566 UNSAT-VERIFIED first, 6 fallback (SAT or unchecked), 1384s
+  1834/5259 jobs: 1828 UNSAT-VERIFIED first, 6 fallback (SAT or unchecked), 1620s
+  2096/5259 jobs: 2090 UNSAT-VERIFIED first, 6 fallback (SAT or unchecked), 1861s
+  2358/5259 jobs: 2352 UNSAT-VERIFIED first, 6 fallback (SAT or unchecked), 2094s
+  2620/5259 jobs: 2614 UNSAT-VERIFIED first, 6 fallback (SAT or unchecked), 2328s
+  2882/5259 jobs: 2875 UNSAT-VERIFIED first, 7 fallback (SAT or unchecked), 2561s
+  3144/5259 jobs: 3137 UNSAT-VERIFIED first, 7 fallback (SAT or unchecked), 2798s
+  3406/5259 jobs: 3398 UNSAT-VERIFIED first, 8 fallback (SAT or unchecked), 3041s
+  3668/5259 jobs: 3660 UNSAT-VERIFIED first, 8 fallback (SAT or unchecked), 3260s
+  3930/5259 jobs: 3922 UNSAT-VERIFIED first, 8 fallback (SAT or unchecked), 3481s
+  4192/5259 jobs: 4184 UNSAT-VERIFIED first, 8 fallback (SAT or unchecked), 3686s
+  4454/5259 jobs: 4445 UNSAT-VERIFIED first, 9 fallback (SAT or unchecked), 3995s
+  4716/5259 jobs: 4704 UNSAT-VERIFIED first, 12 fallback (SAT or unchecked), 4320s
+  4978/5259 jobs: 4945 UNSAT-VERIFIED first, 33 fallback (SAT or unchecked), 4387s
+  5240/5259 jobs: 5152 UNSAT-VERIFIED first, 88 fallback (SAT or unchecked), 4420s
+{"jobs": 5259, "unsat_verified": 5171, "fallback": 88, "secs": 411027.4, "wall_seconds": 4546.3}
+2026-11-04 12:18:50 [stage12b] n=21: pivot_enum (aggregation; enumerates nothing if certify_first finished)
+k=6 n=21 jobs_total=167798 selected=167798 todo=0
+{"k": 6, "n": 21, "jobs_total": 167798, "jobs_selected": 167798, "jobs_recorded": 167798, "all_complete": true, "raw_models": 200677, "classes": 17040, "solver_seconds": 4122264.7, "per_d": {"10": {"jobs": 136161, "secs": 1652788.5630000466, "max_secs": 97.75, "sat_jobs": 16, "models": 48, "not_complete": 0}, "11": {"jobs": 31140, "secs": 2464340.2890000143, "max_secs": 650.07, "sat_jobs": 70, "models": 197116, "not_complete": 0}, "12": {"jobs": 376, "secs": 4731.1879999999965, "max_secs": 25.18, "sat_jobs": 34, "models": 1212, "not_complete": 0}, "13": {"jobs": 121, "secs": 404.638, "max_secs": 7.665, "sat_jobs": 45, "models": 2301, "not_complete": 0}}, "wall_seconds_this_run": 1.3}
+2026-11-04 12:18:52 [stage12b] n=21: certify_enum (the SAT jobs, with their blocking clauses)
+{"jobs": 167798, "verified": 167798, "this_run": 166, "failed_this_run": 0, "solve_seconds_this_run": 4302.2, "all_jobs_verified": true}
+2026-11-04 12:21:23 [stage12b] n=25 complete and VERIFIED: {  "k": 6,  "n": 25,  "jobs_total": 46,  "jobs_selected": 46,  "jobs_recorded": 46,  "all_complete": true,  "raw_models": 78,  "classes": 1,  "solver_seconds": 171.1,  "per_d": {   "12": {    "jobs": 
+2026-11-04 12:21:23 [stage12b] n=24 complete and VERIFIED: {  "k": 6,  "n": 24,  "jobs_total": 414,  "jobs_selected": 414,  "jobs_recorded": 414,  "all_complete": true,  "raw_models": 390,  "classes": 5,  "solver_seconds": 2133.0,  "per_d": {   "12": {    "jo
+2026-11-04 12:21:23 [stage12b] n=22 complete and VERIFIED: {  "k": 6,  "n": 22,  "jobs_total": 17673,  "jobs_selected": 17673,  "jobs_recorded": 17673,  "all_complete": true,  "raw_models": 2098,  "classes": 89,  "solver_seconds": 893890.0,  "per_d": {   "11"
+2026-11-04 12:21:23 [stage12b] n=23 complete and VERIFIED: {  "k": 6,  "n": 23,  "jobs_total": 3086,  "jobs_selected": 3086,  "jobs_recorded": 3086,  "all_complete": true,  "raw_models": 1068,  "classes": 25,  "solver_seconds": 17667.1,  "per_d": {   "11": { 
+2026-11-04 12:21:23 [stage12b] n=21 complete and VERIFIED: {  "k": 6,  "n": 21,  "jobs_total": 167798,  "jobs_selected": 167798,  "jobs_recorded": 167798,  "all_complete": true,  "raw_models": 200677,  "classes": 17040,  "solver_seconds": 4122264.7,  "per_d":
+2026-11-04 12:21:23 [stage12b] stage12 (takeover) finished rc=0
