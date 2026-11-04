@@ -24,13 +24,14 @@ while [ $# -gt 0 ]; do
     *) echo "unknown option $1"; exit 2 ;;
   esac; shift
 done
-# defaults per stage (derivation: notes/FEASIBILITY.md section 11)
+# defaults per stage (derivation: notes/FEASIBILITY.md section 11; stage4: notes/STAGE4.md)
 case "$STAGE" in
   stage1) : "${TYPE:=c8g.48xlarge}" "${MAXP:=1.30}" "${CAP:=5}"  ; DISK=40 ;;
   stage2) : "${TYPE:=c8g.48xlarge}" "${MAXP:=1.30}" "${CAP:=14}" ; DISK=60 ;;
   stage12) : "${TYPE:=c8g.48xlarge}" "${MAXP:=1.30}" "${CAP:=18}" ; DISK=60 ;;
   stage3) : "${TYPE:=m8g.48xlarge}" "${MAXP:=1.40}" "${CAP:=40}" ; DISK=60 ;;
   stage3-*) : "${TYPE:=m8g.24xlarge}" "${MAXP:=0.70}" "${CAP:=25}" ; DISK=40 ;;
+  stage4|stage4-*) : "${TYPE:=c8g.24xlarge}" "${MAXP:=0.60}" "${CAP:=25}" ; DISK=40 ;;  # notes/STAGE4.md
   *) echo "unknown stage"; exit 2 ;;
 esac
 SHUT=$(python3 -c "print(max(30, int($CAP / $MAXP * 60) - 10))")
@@ -58,11 +59,12 @@ echo "$STAGE,$IID,$TYPE,$MAXP,$CAP,$DISK,$(date -u +%FT%TZ)" >> results/aws_ledg
 aws ec2 wait instance-running --instance-ids "$IID"
 IP=$(aws ec2 describe-instances --instance-ids "$IID" --query 'Reservations[0].Instances[0].PublicIpAddress' --output text)
 echo "launched $IID at $IP"
+DRIVER=run_stage.sh; case "$STAGE" in stage4|stage4-*) DRIVER=run_stage4.sh ;; esac
 cat <<EOF
 next (from the Mac, in this repo):
   bash scripts/cloud/push.sh $IP
   ssh -i ~/.ssh/kobon-aws.pem ubuntu@$IP 'cd tr && bash scripts/cloud/setup.sh'
-  ssh -i ~/.ssh/kobon-aws.pem ubuntu@$IP 'cd tr && nohup bash scripts/cloud/run_stage.sh $STAGE WORKERS > results/$STAGE.log 2>&1 < /dev/null &'
+  ssh -i ~/.ssh/kobon-aws.pem ubuntu@$IP 'cd tr && nohup bash scripts/cloud/$DRIVER $STAGE WORKERS > results/$STAGE.log 2>&1 < /dev/null &'
   nohup bash scripts/cloud/sync_back.sh $IP $STAGE 600 > results/$STAGE.sync.log 2>&1 &
   nohup python3 scripts/cloud/cost_meter.py --enforce --loop 600 > results/aws_meter.log 2>&1 &
 EOF

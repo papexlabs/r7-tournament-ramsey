@@ -30,7 +30,9 @@
     "satisfied_by_fixed_arcs=366 tautologies=0 witness_v6=82381 witness_v7=1016535 witnessed=1098916 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 7.6,
+   "cube_k": 10
   },
   "ST25-p-H6": {
    "name": "ST25-p-H6",
@@ -76,7 +78,9 @@
     "satisfied_by_fixed_arcs=346 tautologies=0 witness_v6=108696 witness_v7=1578021 witnessed=1686717 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 23.6,
+   "cube_k": 10
   },
   "ST25-p-W7": {
    "name": "ST25-p-W7",
@@ -122,7 +126,9 @@
     "satisfied_by_fixed_arcs=353 tautologies=0 witness_v6=154904 witness_v7=2448018 witnessed=2602922 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 16.6,
+   "cube_k": 10
   },
   "23A-p-Y8": {
    "name": "23A-p-Y8",
@@ -165,7 +171,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145967 witness_v7=2206971 witnessed=2352938 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 36.7,
+   "cube_k": 10
   },
   "23B-p-Y8": {
    "name": "23B-p-Y8",
@@ -208,7 +216,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=146448 witness_v7=2217614 witnessed=2364062 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 42.0,
+   "cube_k": 10
   },
   "23C-p-Y8": {
    "name": "23C-p-Y8",
@@ -251,7 +261,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=146448 witness_v7=2217614 witnessed=2364062 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 32.0,
+   "cube_k": 10
   },
   "23D-p-Y8": {
    "name": "23D-p-Y8",
@@ -294,7 +306,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145967 witness_v7=2206971 witnessed=2352938 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 44.4,
+   "cube_k": 10
   },
   "23E-p-Y8": {
    "name": "23E-p-Y8",
@@ -337,7 +351,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145546 witness_v7=2197869 witnessed=2343415 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 56.4,
+   "cube_k": 10
   },
   "23F-p-Y8": {
    "name": "23F-p-Y8",
@@ -380,7 +396,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145546 witness_v7=2197869 witnessed=2343415 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 63.2,
+   "cube_k": 10
   },
   "23G-p-Y8": {
    "name": "23G-p-Y8",
@@ -423,7 +441,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145546 witness_v7=2197869 witnessed=2343415 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 58.1,
+   "cube_k": 10
   },
   "23H-p-Y8": {
    "name": "23H-p-Y8",
@@ -466,7 +486,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145546 witness_v7=2197869 witnessed=2343415 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 64.3,
+   "cube_k": 10
   },
   "23I-p-Y8": {
    "name": "23I-p-Y8",
@@ -509,7 +531,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145967 witness_v7=2206971 witnessed=2352938 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 51.4,
+   "cube_k": 10
   },
   "23J-p-Y8": {
    "name": "23J-p-Y8",
@@ -552,7 +576,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145967 witness_v7=2206971 witnessed=2352938 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 61.2,
+   "cube_k": 10
   },
   "23K-p-Y8": {
    "name": "23K-p-Y8",
@@ -595,7 +621,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145967 witness_v7=2206971 witnessed=2352938 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 42.3,
+   "cube_k": 10
   },
   "23L-p-Y8": {
    "name": "23L-p-Y8",
@@ -638,7 +666,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145546 witness_v7=2197869 witnessed=2343415 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 53.7,
+   "cube_k": 10
   },
   "23M-p-Y8": {
    "name": "23M-p-Y8",
@@ -681,7 +711,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=146448 witness_v7=2217614 witnessed=2364062 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 31.1,
+   "cube_k": 10
   },
   "23N-p-Y8": {
    "name": "23N-p-Y8",
@@ -724,7 +756,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=146448 witness_v7=2217614 witnessed=2364062 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 40.5,
+   "cube_k": 10
   },
   "23O-p-Y8": {
    "name": "23O-p-Y8",
@@ -767,7 +801,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145967 witness_v7=2206971 witnessed=2352938 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 44.4,
+   "cube_k": 10
   },
   "23P-p-Y8": {
    "name": "23P-p-Y8",
@@ -810,7 +846,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=146448 witness_v7=2217614 witnessed=2364062 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 35.5,
+   "cube_k": 10
   },
   "23Q-p-Y8": {
    "name": "23Q-p-Y8",
@@ -853,7 +891,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145967 witness_v7=2206971 witnessed=2352938 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 46.6,
+   "cube_k": 10
   },
   "23R-p-Y8": {
    "name": "23R-p-Y8",
@@ -896,7 +936,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=146448 witness_v7=2217614 witnessed=2364062 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 30.4,
+   "cube_k": 10
   },
   "23S-p-Y8": {
    "name": "23S-p-Y8",
@@ -939,7 +981,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145967 witness_v7=2206971 witnessed=2352938 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 56.4,
+   "cube_k": 10
   },
   "23T-p-Y8": {
    "name": "23T-p-Y8",
@@ -982,7 +1026,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=146448 witness_v7=2217614 witnessed=2364062 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 32.3,
+   "cube_k": 10
   },
   "23U-p-Y8": {
    "name": "23U-p-Y8",
@@ -1025,7 +1071,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145967 witness_v7=2206971 witnessed=2352938 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 41.6,
+   "cube_k": 10
   },
   "23V-p-Y8": {
    "name": "23V-p-Y8",
@@ -1068,7 +1116,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=145967 witness_v7=2206971 witnessed=2352938 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 50.1,
+   "cube_k": 10
   },
   "23W-p-Y8": {
    "name": "23W-p-Y8",
@@ -1111,7 +1161,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=139481 witness_v7=2056472 witnessed=2195953 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 16.9,
+   "cube_k": 10
   },
   "23X-p-Y8": {
    "name": "23X-p-Y8",
@@ -1154,7 +1206,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=139481 witness_v7=2056472 witnessed=2195953 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 15.0,
+   "cube_k": 10
   },
   "23Y-p-Y8": {
    "name": "23Y-p-Y8",
@@ -1197,7 +1251,9 @@
     "satisfied_by_fixed_arcs=312 tautologies=0 witness_v6=140185 witness_v7=2078648 witnessed=2218833 unsupported=0 fail=0",
     "SOUND"
    ],
-   "ok": true
+   "ok": true,
+   "expected_vcpu_h": 7.0,
+   "cube_k": 10
   }
  },
  "y8_x_classes_distinct": true

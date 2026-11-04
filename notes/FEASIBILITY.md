@@ -29,7 +29,7 @@ Conditions for spending money:
 - **(b)** Before any long AWS run, a better cube-and-conquer estimate for the five instances must project at most about 6k vCPU-hours, or 12k if Stage 4 is dropped (§4.4, §6).
   - Today's crude split of `I24A -p- O21*` gives a central estimate of about 1,600 vCPU-hours (US$8.5) for all five.
   - The range is US$2–37, with a tail risk of about US$80.
-- **(c)** State the result as resting on NMH's published computations. Their 27 long runs (about 4,800 CPU-hours in 2020–22) published no DRAT or LRAT proofs. Re-running them with proofs is optional (Stage 4) and fits only if Stage 3 is cheap.
+- **(c)** State the result as resting on NMH's published computations. Their 27 long runs (about 4,800 CPU-hours in 2020–22) published no DRAT or LRAT proofs. Re-running them with proofs is optional (Stage 4) and fits only if Stage 3 is cheap. *(4 Nov 2026: Stage 4 is now planned and fits the raised budget; see §13 and `notes/STAGE4.md`. It is 28 computations: ST26-p-TT5 has no NMH log.)*
 
 ## 1. Rival status as of 3 Nov 2026
 
@@ -105,7 +105,7 @@ R(6) = 28 bounds every in-degree by 27, and reversing all arcs swaps in- and out
   - orderings reduced by self-subsuming resolution. This form is arc-consistent and was best in most of their runs.
 - **What `encoding/tour-encode.c` does.** For each k-set it skips the set if it contains a fixed 3-cycle. Otherwise it uses reduced direct clauses when at most `limit` orderings are compatible, and the triangle clause otherwise.
   - The ST25 instances are direct only (496 variables).
-  - The Y8 instances use triangle variables.
+  - The Y8 instances are direct only as well (limit 5040, 184 free arc variables). Their header's 5456 = C(32,2) + C(32,3) is only the encoder's placeholder variable count. *(Corrected on 4 Nov 2026; this line used to say "triangle variables". `notes/STAGE4.md` §3 reproduces all 27 logged CNFs.)*
 - **No proofs.** Their repo has the inputs, the C encoders and the 27 logs. No DRAT or LRAT proofs were published.
 
 We rebuilt their exact `ST25-p-H6` CNF with their encoder. It has 1,687,063 clauses and 74,752,227 bytes, identical to the counts in their log.
@@ -246,7 +246,7 @@ Cost assumptions:
 | A2 | Re-enumerate the 21-vertex tournaments, S21: about 168k pivot instances (d = 10 forces a regular tournament; d = 11–13), AllSAT with max-degree constraints | 200–2,000 | 1–10 |
 | A3 | One-vertex extensions 22 → 23 → 24 → 25: an independent cross-check of NMH's classifications | < 20 | ≈ 0 |
 | B / 3 | Five instances `I24X -p- O21*`, with cube-and-conquer and LRAT per cube (checking included) | **400–7,000 (central ~1,600); tail risk up to ~15,000** | **2–37 (central ~8.5); tail up to ~80** |
-| C / 4 (optional) | Re-run NMH's 27 long instances with CnC and checked LRAT. They took 4,800 m5d-hours; solving plus checking is estimated at 2× that, scaled to Graviton4. | 5,000–10,000 | 26–52 |
+| C / 4 (optional) | Re-run NMH's 27 long instances with CnC and checked LRAT. They took 4,800 m5d-hours; solving plus checking is estimated at 2× that, scaled to Graviton4. *Measured on 4 Nov 2026 (§13): 28 instances, about 1,100 vCPU-h central and 2,200–2,640 in the tail, US$6–16.* | 5,000–10,000 | 26–52 |
 
 **How the Stage 3 range was derived.** Five instances at 33–155 M5-core-hours each (central ~65) gives 160–780 core-hours. That is multiplied by:
 
@@ -291,10 +291,10 @@ The tail case covers pieces that take hours. Instances B–E were not measured. 
   - Any SAT piece is checked independently with `scripts/verify_model.py` (no TT7 on 46 vertices). That would show R(7) = 47; this is very unlikely.
   - All pieces UNSAT, with a valid cover, gives R(7) ≤ 46, conditional on NMH.
 
-**Stage 4 — optional, only with at least US$40 left.** Re-verify NMH's 27 instances (ST26-p-TT5, ST25-p-{H6,W7} and 25 × I23-p-Y8) with checked LRAT. The result then rests on no unchecked computation, apart from the TT5-free base catalogue, which Stage 0 verifies.
+**Stage 4 — optional, only with at least US$40 left.** Re-verify NMH's instances (ST26-p-TT5, ST25-p-{H6,W7} and 25 × I23-p-Y8; that is 28, not 27) with checked LRAT. Plan and projection: §13 and `notes/STAGE4.md`. The result then rests on no unchecked computation, apart from the TT5-free base catalogue, which Stage 0 verifies.
 
 **Stop rules.**
-- Hard cap of US$100.
+- Hard cap of US$100. *(Raised to US$200 on 4 Nov 2026; the meter runs with `--cap 195`. See §13.)*
 - Any stage that exceeds twice its projection stops and reports.
 - No AWS resource starts before go/no-go 0 and an explicit owner OK.
 
@@ -568,3 +568,42 @@ If Stage 3 reaches the top of its range (5,800 worker-h), the US$25 cap of an m8
 `run_stage.sh` and `launch.sh` now accept `stage3-XYZ`: only instances X, Y, Z, defaulting to m8g.24xlarge, MaxPrice 0.70, cap US$25. Two boxes such as `stage3-ABC` and `stage3-DE` write disjoint result directories, so they can run side by side and sync without clashing.
 
 Two 96-vCPU boxes use the whole 192-vCPU spot quota. While stage12 runs, only **one** Stage-3 box fits. Stage 3 does not depend on the stage12 results (the five instances are needed in any case), so it can start now on one m8g.24xlarge as `stage3-ABCDE` (75 workers, 15 per instance). A second box for some of the instances can follow when stage12 ends: stop that instance's run_cubes on the first box, sync, `push.sh IP --results`, and start `stage3-DE` on the new box.
+
+## 13. Budget raised; Stage 4 planned (4 Nov 2026)
+
+**Budget.** On 4 Nov 2026 the owner raised the R(7) AWS cap from US$100 to US$200, because AWS Activate credit arrived. `cost_meter.py --enforce` now runs with `--cap 195`.
+
+- Spent so far: about US$13 (meter, morning of 4 Nov).
+- Projected: Stage 3 about US$20–25 in total, stage12 about US$8.
+- That leaves about US$100–120 for Stage 4, including its tail.
+
+**Stage 4 is 28 computations, not 27.** The 27 are NMH's Fig. 6 runs: 25 × `23X -p- Y8` and `ST25 -p- {H6, W7}`. `ST26 -p- TT5` (their §5.2.1) is the 28th; it has no published input or log, and §3.1 needs it.
+
+**Instances and equivalence** (details in `notes/STAGE4.md` §3):
+
+- We use NMH's own encoder on NMH's own inputs, at limit 5040. All 27 logged CNFs reproduce the header, the clause count and the byte count in NMH's logs. This also corrects §2.4: the Y8 instances are direct encodings.
+- An independent clause-soundness checker (`src/cnf_sound.c`) accepts all 28 CNFs, so an UNSAT means no TT7-free completion.
+- The inputs are checked against our own classes, up to isomorphism.
+- The sha256 of every CNF is recorded in `data/stage4_manifest.json`, and the server refuses any mismatch.
+
+**Measured projection** (`scripts/stage4_project.py`, 136 cubes from 12 instances, 1.86 Mac core-hours):
+
+| Case | vCPU-h | One c8g.24xlarge | US$ |
+|---|---|---|---|
+| Central | 1,100 | 13.5 h | 6.0–6.7 |
+| Tail (2×; with a Graviton factor of 3) | 2,200–2,640 | 27–32 h | 12–16 |
+
+On two boxes the hours halve. The per-box cap is US$25 (hard stop 41.5 h), so the worst case with one resume box is US$50. That is well inside the US$100–120 allowance. The plan is one c8g.24xlarge with all 28 instances, next to the Stage 3 box once stage12 has terminated.
+
+So §5's figure of 5,000–10,000 vCPU-hours for Stage 4 was far too high. Cube-and-conquer on these direct encodings is much cheaper than NMH's single runs. §4.4 showed the same for `ST25-p-H6`.
+
+**Box.** c8g.24xlarge. Memory per worker is at most 1.7 GB (cadical plus lrat-check, Mac peak), so 90 workers fit in 185 GiB. m8g is not needed.
+
+**Stop rules** (from 4 Nov):
+
+- US$200 overall, with the meter's cap at 195.
+- US$25 per Stage 4 box (`launch.sh` default).
+- Stop and report at twice the projection.
+- Any SAT cube stops the stage. A SAT would contradict NMH.
+
+Launch commands: `notes/STAGE4.md` §6.
