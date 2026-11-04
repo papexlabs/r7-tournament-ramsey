@@ -19,3 +19,5 @@ refs/digraph-isolators-src/
 results/enum/*/models/
 results/stage3/*/run/body.cnf
 results/stage3/*/run/tmp/
+results/stage4/*/run/body.cnf
+results/stage4/*/run/tmp/
