@@ -19,5 +19,10 @@ python3 tests/test_lrat_check.py
 python3 tests/test_tri_sound.py
 python3 tests/test_encode.py
 python3 tests/test_pivenum.py
+# second proof check, run on a sample after the main run (scripts/audit/cake_sample.py): build the
+# formally verified checker build/cake_lpr from tools/cake_lpr and self-test it, then test
+# scripts/audit/dualcheck.sh (lrat-check and cake_lpr side by side); setup fails if either fails
+bash scripts/audit/cake_build.sh
+python3 tests/test_dualcheck.py
 ulimit -n
 echo "setup OK on $(nproc) vCPUs, $(free -g | awk '/Mem/{print $2}') GiB"
