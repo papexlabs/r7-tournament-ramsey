@@ -1,0 +1,1148 @@
+% r7le46.tex -- R(7) <= 46 for tournaments (draft)
+% Build: tectonic paper/r7le46.tex
+% Every number in this file is taken from the result files of the repository
+% (results/, data/, notes/); see Section 8 and the comments next to each table.
+\documentclass[11pt]{amsart}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\setlist{itemsep=2pt,topsep=4pt}
+\setcounter{MaxMatrixCols}{10}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{fact}[theorem]{Fact}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\TT}[1]{\mathrm{TT}_{#1}}
+\newcommand{\ST}[1]{\mathrm{ST}_{#1}}
+\newcommand{\RT}{\mathrm{RT}_5}
+\newcommand{\Ostar}{O_{21}^{*}}
+\newcommand{\cl}[1]{\textsf{#1}}
+\newcommand{\Piv}[2]{\Pi(#1,#2)}
+\newcommand{\dom}{\Rightarrow}
+\newcommand{\Np}{N^{+}}
+\newcommand{\Nm}{N^{-}}
+\newcommand{\dpl}{d^{+}}
+\newcommand{\dmi}{d^{-}}
+
+\begin{document}
+
+\title{The directed Ramsey number $R(7)$ is at most $46$}
+
+\author{Ahmet Tahir Mat}
+\address{Papex Labs}
+% TODO: full postal address; no e-mail address in this draft.
+
+\date{Draft, 5 November 2026}
+
+% TODO: check the MSC codes.
+\subjclass[2020]{05C20, 05C55, 68V05}
+\keywords{Tournament, transitive subtournament, directed Ramsey number,
+  SAT solving, cube-and-conquer, LRAT proof checking}
+
+\begin{abstract}
+Let $R(k)$ be the least $n$ such that every tournament on $n$ vertices
+contains a transitive subtournament on $k$ vertices. In 2022 Neiman, Mackey
+and Heule proved $34 \le R(7) \le 47$. We prove $R(7) \le 46$. The argument
+looks at the in-degree of a single vertex of a hypothetical counterexample.
+It uses three computations. (i)~Complete lists of the tournaments on $21$ to
+$25$ vertices that contain no transitive subtournament on $6$ vertices. We
+obtain them by a SAT-based enumeration in which every job carries a checked
+LRAT certificate; the lists agree with previously published, uncertified
+files. (ii)~Five new SAT instances on $46$ vertices with $504$ free arcs each.
+We solve them by cube-and-conquer; each of the $48{,}995$ leaf cubes is closed
+by an LRAT proof that is checked while it is produced, and the cube cover is
+checked as well. (iii)~The $28$ SAT computations of Neiman, Mackey and Heule.
+They were published without proofs; we re-ran all of them with the same
+checked method ($31{,}942$ leaf cubes). We list explicitly the parts of the
+argument that the proof checker does not cover.
+\end{abstract}
+
+\maketitle
+
+% =====================================================================
+\section{Introduction}\label{sec:intro}
+
+A \emph{tournament} is an orientation of a complete graph. It is
+\emph{transitive} if its vertices can be ordered so that every arc points
+forward. We write $\TT{k}$ for the transitive tournament on $k$ vertices. Let
+$R(k)$ be the least $n$ such that every tournament on $n$ vertices contains
+$\TT{k}$ as a subtournament. These numbers go back to Erd\H{o}s and
+Moser~\cite{EM64}. The values $R(2),\dots,R(6)$ are $2,4,8,14,28$; see
+\cite[\S2]{NMH22} and the references there, in particular~\cite{RP70} for
+$R(5)=14$ and~\cite{SF94} for $R(6)=28$.
+% TODO: confirm that [RP70] is the right source for R(5) = 14 (the erdosproblems.com
+% entry #1216 credits [RePa70] with f(n) >= floor(log2 n + 4 - log2 7) for n >= 14).
+
+For $k=7$ the bounds $32 \le R(7) \le 54$ are due to
+Sanchez-Flores~\cite{SF98}.
+% TODO: confirm that both 32 and 54 are in [SF98] (NMH cite [5, 9] jointly for 32 <= R(7) <= 53).
+Lidick\'y and Pfender lowered the upper bound to $53$ with semidefinite
+programming~\cite{LP21}. Neiman, Mackey and Heule~\cite{NMH22} (``NMH'' below)
+proved $34 \le R(7) \le 47$ with the help of a SAT solver. Lohn, Lambert and
+Heule~\cite{LLH22} later found a further $\TT{7}$-free tournament on
+$33$ vertices; the bounds did not change.
+
+NMH's upper bound argument looks at one vertex $v$ of a hypothetical
+$\TT{7}$-free tournament $T$. Both neighbourhoods of $v$ are $\TT{6}$-free.
+NMH classified the $\TT{6}$-free tournaments on $23$, $24$ and $25$ vertices.
+They then used the SAT solver CaDiCaL~\cite{Bie18} to show that certain
+partial tournaments have no $\TT{7}$-free completion. Each such partial
+tournament consists of a large in-neighbourhood, the vertex $v$, and a small
+tournament that must occur in the out-neighbourhood. For $n=47$ this rules out
+every in-degree except $22$ and $24$, and a parity argument rules out those
+two. For $n=46$ the in/out-degree pairs $(24,21)$ and $(23,22)$ and their
+reverses survive, and parity says nothing. NMH remark that a catalogue of the
+$\TT{6}$-free tournaments with more than about $20$ vertices ``could likely be
+used to further reduce the upper bound on $R(7)$''~\cite[\S6]{NMH22}. We
+follow that suggestion.
+
+\begin{theorem}\label{thm:main}
+Every tournament on $46$ vertices contains $\TT{7}$. Hence $34 \le R(7) \le 46$.
+\end{theorem}
+
+\subsection*{What the proof uses}
+The proof (Section~\ref{sec:reduction}) excludes every possible in-degree of
+one vertex. Two catalogue facts drive it. Every $\TT{6}$-free tournament on
+$22$ vertices contains a fixed $8$-vertex tournament $Y_8$ that NMH used.
+Every $\TT{6}$-free tournament on $21$ vertices contains $Y_8$, except the
+copies of one particular tournament, which we call $\Ostar$. With these facts, NMH's $25$ instances close the
+$(23,22)$ case, and the $(24,21)$ case reduces to five new SAT instances
+$\Piv{\cl{24X}}{\Ostar}$, one for each of the five $\TT{6}$-free tournaments on
+$24$ vertices. Each new instance has all $46$ vertices and $504$ free arcs.
+
+We say that an unsatisfiability result is \emph{certified} if the SAT solver
+emitted a proof in the LRAT format~\cite{CHHKS17} and the checker
+\texttt{lrat-check} from the drat-trim distribution~\cite{WHH14} accepted it.
+Every unsatisfiability result used in the proof is certified in this sense:
+\begin{itemize}
+\item the enumeration of the $\TT{6}$-free tournaments on $21$ to $25$
+  vertices (Section~\ref{sec:catalogue}), which also re-derives NMH's
+  classifications on $23$, $24$ and $25$ vertices;
+\item the five new instances (Section~\ref{sec:stage3});
+\item all $28$ computations of NMH that the proof needs
+  (Section~\ref{sec:stage4}). NMH published their inputs, encoder and solver
+  logs but no proofs.
+\end{itemize}
+The only published theorem that the proof uses without re-deriving it is the
+uniqueness of the $\TT{6}$-free tournament on $26$ vertices
+(Fact~\ref{fact:st26}). Section~\ref{sec:trust} lists everything else that
+lies outside the checked part: the mathematical argument, the encoders, the
+checker, and our bookkeeping code.
+
+\subsection*{Prior work}
+A literature and code search carried out on 3 November 2026 covered arXiv,
+Semantic Scholar and OpenAlex citation data, GitHub, Zenodo, the OEIS and
+several lists of open problems. Google Scholar, zbMATH and MathSciNet were
+not searched. The search found no improvement of $34 \le R(7) \le 47$ and no
+earlier statement of the reduction in Section~\ref{sec:reduction}. This is
+a search result, not a claim that nobody has made the observation. The
+repository of Lohn, Lambert and Heule contains files of $\TT{6}$-free
+tournaments on $20$ to $27$ vertices~\cite{LLHrepo}; no method or
+completeness claim is stated for them. Our lists agree with these files for
+$21$ to $25$ vertices (Section~\ref{sec:catalogue}).
+
+\subsection*{Organisation}
+Section~\ref{sec:prelim} fixes notation. Section~\ref{sec:reduction} proves
+Theorem~\ref{thm:main} from a list of named facts. Section~\ref{sec:catalogue}
+describes the enumeration of the catalogues and its certification.
+Section~\ref{sec:sat} describes the SAT encodings, the cube-and-conquer runs
+and the proof checking. Section~\ref{sec:results} reports the results.
+Section~\ref{sec:trust} lists the trust base.
+
+% =====================================================================
+\section{Preliminaries}\label{sec:prelim}
+
+\subsection{Tournaments}
+All tournaments are finite. For distinct vertices $u,v$ of a tournament $T$
+exactly one of the arcs $u\to v$, $v\to u$ is present; we then say that $u$
+\emph{beats} $v$. For $X \subseteq V(T)$, $T[X]$ is the induced
+subtournament. $T$ \emph{contains} $S$ if $T[X] \cong S$ for some $X$.
+$T$ is \emph{$\TT{k}$-free} if it does not contain $\TT{k}$. We write
+$\Np(v)$ and $\Nm(v)$ for the out- and in-neighbourhood of $v$, identified
+with the subtournaments they induce, and $\dpl(v)=|\Np(v)|$,
+$\dmi(v)=|\Nm(v)|$. So $\dpl(v)+\dmi(v)=|V(T)|-1$. The \emph{reversal}
+$T^{R}$ has every arc reversed. A tournament is transitive if and only if it
+has no $3$-cycle.
+
+For tournaments $A$ and $B$ on disjoint vertex sets, $A \dom B$ is the
+tournament on $V(A)\cup V(B)$ that contains $A$ and $B$ and in which every
+vertex of $A$ beats every vertex of $B$. Let $C_3$ be the $3$-cycle and let
+$\RT$ be the regular tournament on $\mathbb{Z}_5$ in which $i \to i+1$ and
+$i \to i+2$. Following NMH we use
+\[
+H_5 = \TT{2} \dom C_3,\quad G_6 = \TT{1} \dom \RT,\quad
+H_6 = \TT{3} \dom C_3,\quad G_7 = \TT{2} \dom \RT .
+\]
+NMH's files call $G_7$ ``W7''. The tournament $Y_8$ is the $8$-vertex
+tournament of \cite[Fig.~5]{NMH22}; its adjacency matrix is in
+Appendix~\ref{app:data}. It has $15$ three-cycles and is not isomorphic to its
+reversal.
+
+$\ST{27}$ is the Paley tournament on $\mathrm{GF}(27)$: $a \to b$ if and only if
+$b-a$ is a nonzero square. It is $\TT{6}$-free. All its subtournaments on
+$26$ vertices are isomorphic, and so are all its subtournaments on
+$25$ vertices (we checked both by computing canonical forms); we call them
+$\ST{26}$ and $\ST{25}$. We use NMH's names for the $\TT{6}$-free tournaments on
+$24$ and $23$ vertices: $\cl{24A},\dots,\cl{24E}$ are the five isomorphism
+classes of $24$-vertex subtournaments of $\ST{27}$, and
+$\cl{23A},\dots,\cl{23Y}$ are the $25$ classes on $23$ vertices
+($22$ subtournaments of $\ST{27}$ and three doubly regular tournaments).
+The tournament $\Ostar$ on $21$ vertices is defined by its digraph6 string in
+Appendix~\ref{app:data}. It is regular of out-degree $10$, has $385$
+three-cycles and largest transitive subtournament $\TT{5}$, is isomorphic to its
+reversal, and has an automorphism group of order $63$. It contains $H_6$ but
+neither $G_7$, $Y_8$ nor the reversal of $Y_8$. (None of these properties is
+used in the proof except that $\Ostar$ is a fixed tournament.)
+
+\subsection{Pivot instances}
+Let $X$ and $Z$ be tournaments. The \emph{pivot instance} $\Piv{X}{Z}$ is the
+partial tournament on $V(X) \cup \{p\} \cup V(Z)$ in which the arcs inside $X$
+and inside $Z$ are those of $X$ and $Z$, $x \to p$ for $x\in X$, $p \to z$ for
+$z \in Z$, and the $|X|\,|Z|$ pairs $\{x,z\}$ with $x \in X$, $z\in Z$ are
+\emph{free}. A \emph{completion} orients every free pair. Files and tables name
+$\Piv{X}{Z}$ as \texttt{X-p-Z}. Whether $\Piv{X}{Z}$ has a $\TT{7}$-free
+completion depends only on the isomorphism classes of $X$ and $Z$.
+
+\begin{lemma}\label{lem:pivot}
+Let $T$ be $\TT{7}$-free and $v \in V(T)$. Then $\Nm(v)$ and $\Np(v)$ are
+$\TT{6}$-free, and $T^{R}$ is $\TT{7}$-free. If $X' \subseteq \Nm(v)$ and
+$Z' \subseteq \Np(v)$, then $T[X' \cup \{v\} \cup Z']$ is a $\TT{7}$-free
+completion of a copy of $\Piv{T[X']}{T[Z']}$.
+\end{lemma}
+
+\begin{proof}
+A $\TT{6}$ in $\Nm(v)$ together with $v$ as its last vertex would be a $\TT{7}$;
+similarly, $v$ placed before a $\TT{6}$ in $\Np(v)$ gives a $\TT{7}$. Reversal maps transitive
+tournaments to transitive tournaments. The last claim holds because every
+vertex of $X'$ beats $v$ and $v$ beats every vertex of $Z'$, and a
+subtournament of a $\TT{7}$-free tournament is $\TT{7}$-free.
+\end{proof}
+
+\begin{lemma}\label{lem:double}
+$R(k) \le 2R(k-1)$ for $k \ge 2$.
+\end{lemma}
+
+\begin{proof}
+A tournament on $2R(k-1)$ vertices has a vertex $w$ with
+$\dpl(w) \ge \lceil (2R(k-1)-1)/2 \rceil = R(k-1)$. So $\Np(w)$ contains
+$\TT{k-1}$, and $w$ followed by it is a $\TT{k}$.
+\end{proof}
+
+The next lemma and its proof are from \cite[\S5.2.2]{NMH22}.
+
+\begin{lemma}[NMH]\label{lem:h6g7}
+Every tournament on at least $20$ vertices contains $\TT{6}$, $H_6$ or $G_7$.
+\end{lemma}
+
+\begin{proof}
+We begin by showing that every tournament $S$ on at least $10$ vertices contains
+$\TT{5}$, $H_5$ or $G_6$. Some vertex $v$ of $S$ has out-degree at least $5$;
+let $N$ be a set of $5$ out-neighbours of $v$. If $S[N]$ is regular, then
+$S[N] \cong \RT$, so $\{v\}\cup N$ induces $G_6$. (A regular tournament on five
+vertices is isomorphic to $\RT$: if $a$ beats $b,c$ with $b \to c$ and $a$ is
+beaten by $d,e$ with $d \to e$, then out-degree $2$ forces $c \to d$,
+$c \to e$, $b \to d$ and $e \to b$, and $a,b,c,d,e \mapsto 0,1,2,3,4$ is an
+isomorphism onto $\RT$.) Otherwise some $u \in N$ beats at least three
+vertices of $N$; let $M$ be three of them. If $S[M]$ is transitive, then
+$\{v,u\}\cup M$ induces $\TT{5}$. Otherwise $S[M] \cong C_3$ and
+$\{v,u\} \cup M$ induces $\TT{2} \dom C_3 = H_5$.
+
+Now let $T$ have at least $20$ vertices. Some vertex $w$ has
+$\dpl(w) \ge 10$. Apply the claim to $\Np(w)$. Since $w$ beats all of
+$\Np(w)$, $w$ together with a $\TT{5}$, $H_5$ or $G_6$ in $\Np(w)$ induces
+$\TT{6}$, $\TT{3}\dom C_3 = H_6$ or $\TT{2} \dom \RT = G_7$.
+\end{proof}
+
+% =====================================================================
+\section{The reduction for $46$ vertices}\label{sec:reduction}
+
+We state the facts the proof uses, then the lemmas. Facts~\ref{fact:tt5}
+and~\ref{fact:cat} are proved by the enumeration of
+Section~\ref{sec:catalogue}; Facts~\ref{fact:nmh} and~\ref{fact:new} are the
+SAT results of Section~\ref{sec:results}.
+
+\begin{fact}[literature]\label{fact:st26}
+Every $\TT{6}$-free tournament on $26$ vertices is isomorphic to $\ST{26}$
+\cite{SF94,SF98}; see also \cite[\S2]{NMH22}.
+\end{fact}
+% TODO: locate the precise statement (paper and theorem number) of the uniqueness of
+% ST26 in Sanchez-Flores [SF94]/[SF98]; NMH Sec. 2 states it with citation [8, 9].
+
+\begin{fact}\label{fact:tt5}
+There is no $\TT{5}$-free tournament on $14$ vertices; that is,
+$R(5) \le 14$. This is classical~\cite{RP70}; our catalogue of
+$\TT{5}$-free tournaments (Section~\ref{sec:tt5}) re-derives it.
+\end{fact}
+
+\begin{fact}[catalogues]\label{fact:cat}
+For $n=21,\dots,25$ let $\mathcal{C}_n$ be the set of isomorphism classes of
+$\TT{6}$-free tournaments on $n$ vertices.
+\begin{enumerate}[label=(\alph*)]
+\item\label{cat25} $\mathcal{C}_{25} = \{\ST{25}\}$.
+\item\label{cat24} $\mathcal{C}_{24} = \{\cl{24A},\dots,\cl{24E}\}$.
+\item\label{cat23} $\mathcal{C}_{23} = \{\cl{23A},\dots,\cl{23Y}\}$.
+\item\label{cat22} Every tournament in $\mathcal{C}_{22}$ contains $Y_8$.
+\item\label{cat21} Every tournament in $\mathcal{C}_{21}$ other than $\Ostar$
+  contains $Y_8$.
+\end{enumerate}
+\end{fact}
+
+\begin{fact}[NMH's instances, re-certified here]\label{fact:nmh}
+None of the following $28$ pivot instances has a $\TT{7}$-free completion:
+$\Piv{\ST{26}}{\TT{5}}$, $\Piv{\ST{25}}{H_6}$, $\Piv{\ST{25}}{G_7}$, and
+$\Piv{\cl{23X}}{Y_8}$ for $\cl{X}=\cl{A},\dots,\cl{Y}$.
+\end{fact}
+
+\begin{fact}[new instances]\label{fact:new}
+For $\cl{X}=\cl{A},\dots,\cl{E}$, the instance $\Piv{\cl{24X}}{\Ostar}$ has no
+$\TT{7}$-free completion.
+\end{fact}
+
+In the rest of this section $T$ is a $\TT{7}$-free tournament on $46$ vertices
+and $v$ is a vertex of $T$. So $\dmi(v)+\dpl(v)=45$.
+
+\begin{lemma}\label{lem:le27}
+$\dmi(v) \le 27$.
+\end{lemma}
+
+\begin{proof}
+By Fact~\ref{fact:tt5} and Lemma~\ref{lem:double}, $R(6) \le 28$. $\Nm(v)$ is
+$\TT{6}$-free by Lemma~\ref{lem:pivot}, so it has at most $27$ vertices.
+\end{proof}
+
+\begin{lemma}\label{lem:26}
+$\dmi(v) \notin \{26,27\}$.
+\end{lemma}
+
+\begin{proof}
+Suppose $\dmi(v) \in \{26,27\}$. Let $X' \subseteq \Nm(v)$ have $26$ vertices.
+$T[X']$ is $\TT{6}$-free, so $T[X'] \cong \ST{26}$ by Fact~\ref{fact:st26}.
+$\dpl(v) = 45-\dmi(v) \ge 18$, so by Fact~\ref{fact:tt5} $\Np(v)$ contains a
+$\TT{5}$ on some set $Z'$. By Lemma~\ref{lem:pivot},
+$\Piv{\ST{26}}{\TT{5}}$ has a $\TT{7}$-free completion. This contradicts
+Fact~\ref{fact:nmh}.
+\end{proof}
+
+\begin{lemma}\label{lem:25}
+$\dmi(v) \ne 25$.
+\end{lemma}
+
+\begin{proof}
+Suppose $\dmi(v)=25$. Then $\Nm(v) \cong \ST{25}$ by Fact~\ref{fact:cat}\ref{cat25},
+and $\Np(v)$ is a $\TT{6}$-free tournament on $20$ vertices. By
+Lemma~\ref{lem:h6g7} it contains $H_6$ or $G_7$. By Lemma~\ref{lem:pivot},
+$\Piv{\ST{25}}{H_6}$ or $\Piv{\ST{25}}{G_7}$ has a $\TT{7}$-free completion,
+contradicting Fact~\ref{fact:nmh}.
+\end{proof}
+
+\begin{lemma}\label{lem:23}
+$\dmi(v) \ne 23$.
+\end{lemma}
+
+\begin{proof}
+Suppose $\dmi(v)=23$. By Fact~\ref{fact:cat}\ref{cat23},
+$\Nm(v) \cong \cl{23X}$ for some $\cl{X} \in \{\cl{A},\dots,\cl{Y}\}$.
+$\Np(v)$ is a $\TT{6}$-free tournament on $22$ vertices, so it contains $Y_8$
+by Fact~\ref{fact:cat}\ref{cat22}. Lemma~\ref{lem:pivot} gives a $\TT{7}$-free
+completion of $\Piv{\cl{23X}}{Y_8}$, contradicting Fact~\ref{fact:nmh}.
+\end{proof}
+
+\begin{lemma}\label{lem:24}
+$\dmi(v) \ne 24$.
+\end{lemma}
+
+\begin{proof}
+Suppose $\dmi(v)=24$. By Fact~\ref{fact:cat}\ref{cat24},
+$\Nm(v) \cong \cl{24X}$ for some $\cl{X} \in \{\cl{A},\dots,\cl{E}\}$.
+$\Np(v)$ is a $\TT{6}$-free tournament on $21$ vertices. By
+Fact~\ref{fact:cat}\ref{cat21} there are two cases.
+
+\emph{$\Np(v)$ contains $Y_8$.} Let $X' \subseteq \Nm(v)$ have $23$ vertices.
+$T[X']$ is $\TT{6}$-free, so by Fact~\ref{fact:cat}\ref{cat23} it is isomorphic
+to $\cl{23Z}$ for some letter $\cl{Z} \in \{\cl{A},\dots,\cl{Y}\}$.
+Lemma~\ref{lem:pivot} gives a $\TT{7}$-free completion of
+$\Piv{\cl{23Z}}{Y_8}$, contradicting Fact~\ref{fact:nmh}.
+
+\emph{$\Np(v) \cong \Ostar$.} Then $T = T[\Nm(v) \cup \{v\} \cup \Np(v)]$ is a
+$\TT{7}$-free completion of a copy of $\Piv{\cl{24X}}{\Ostar}$, contradicting
+Fact~\ref{fact:new}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Suppose $T$ is a $\TT{7}$-free tournament on $46$ vertices and pick any vertex
+$v$. Since $\dmi(v)+\dpl(v)=45$, one of the two is at least $23$. If
+$\dpl(v) \ge 23$, replace $T$ by $T^{R}$; it is $\TT{7}$-free by
+Lemma~\ref{lem:pivot}, and in it $v$ has in-degree $\dpl(v)$. So we may assume
+$\dmi(v) \ge 23$. Lemmas~\ref{lem:le27}--\ref{lem:24} exclude every value
+$\dmi(v) \ge 23$. The lower bound $R(7) \ge 34$ is from~\cite{NMH22}.
+\end{proof}
+
+Table~\ref{tab:deps} lists which facts each step uses.
+
+\begin{table}[ht]
+\centering\small
+\caption{Facts used by each step of the proof of Theorem~\ref{thm:main}.}
+\label{tab:deps}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Step & Case & Facts used \\
+\midrule
+Lemma~\ref{lem:le27} & $\dmi(v) \ge 28$ & Fact~\ref{fact:tt5}, Lemma~\ref{lem:double} \\
+Lemma~\ref{lem:26} & $\dmi(v)\in\{26,27\}$ & Facts~\ref{fact:st26}, \ref{fact:tt5}; $\Piv{\ST{26}}{\TT{5}}$ \\
+Lemma~\ref{lem:25} & $\dmi(v)=25$ & Fact~\ref{fact:cat}\ref{cat25}, Lemma~\ref{lem:h6g7}; $\Piv{\ST{25}}{H_6}$, $\Piv{\ST{25}}{G_7}$ \\
+Lemma~\ref{lem:23} & $\dmi(v)=23$ & Fact~\ref{fact:cat}\ref{cat23},\ref{cat22}; $25\times\Piv{\cl{23X}}{Y_8}$ \\
+Lemma~\ref{lem:24} & $\dmi(v)=24$ & Fact~\ref{fact:cat}\ref{cat24},\ref{cat23},\ref{cat21}; $25\times\Piv{\cl{23X}}{Y_8}$; $5\times\Piv{\cl{24X}}{\Ostar}$ \\
+Theorem~\ref{thm:main} & $\dmi(v) \le 22$ & reversal (Lemma~\ref{lem:pivot}) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}
+The argument needs one vertex and no counting. For $n=46$ counting alone could
+not work: in-degree sequences with $23$ vertices of in-degree $21$ and $23$ of
+in-degree $24$, or $23$ of each of $22$ and $23$, sum to
+$\binom{46}{2}=1035$.
+\end{remark}
+
+\begin{remark}\label{rem:h6sat}
+The catalogue is needed in the case $\dmi(v)=24$. By Lemma~\ref{lem:h6g7},
+$\Np(v)$ contains $H_6$ or $G_7$, but this is not enough: in exploratory runs
+(not part of the proof) the solver found $\TT{7}$-free completions of
+$\Piv{\cl{24X}}{H_6}$ for $\cl{X}=\cl{A},\cl{B},\cl{C}$. We re-checked each of
+these $31$-vertex tournaments independently: it is a completion of the
+instance and its largest transitive subtournament has $6$ vertices.
+\end{remark}
+
+% =====================================================================
+\section{The catalogues and their certification}\label{sec:catalogue}
+
+\subsection{$\TT{5}$-free tournaments}\label{sec:tt5}
+We built the $\TT{5}$-free tournaments on $n \le 14$ vertices by one-vertex
+extension. Every $\TT{5}$-free tournament on $n+1$ vertices minus a vertex is
+$\TT{5}$-free on $n$ vertices. So the list for $n+1$ is obtained from the list
+for $n$ by adding a vertex in all $2^n$ ways, keeping the $\TT{5}$-free
+results, and reducing them to isomorphism classes with nauty's \texttt{labelg}
+\cite{MP14}. The numbers of classes for $n=1,\dots,14$ are
+\[
+1,\,1,\,2,\,4,\,11,\,35,\,121,\,376,\,692,\,369,\,45,\,1,\,1,\,0 .
+\]
+For $n \le 10$ the lists equal, class by class, the output of nauty's
+\texttt{gentourng} filtered for $\TT{5}$. For $n \le 13$ they equal the
+$\TT{5}$-free files in NMH's repository~\cite{NMHrepo}. The value $0$ at
+$n=14$ is Fact~\ref{fact:tt5}. This computation is exhaustive but it is not
+certified by a proof checker (Section~\ref{sec:trust}).
+
+\subsection{Pivot decomposition}
+
+\begin{proposition}\label{prop:pivotdec}
+Let $T$ be a $\TT{6}$-free tournament on $n$ vertices and let $w$ be a vertex of
+maximum out-degree $d$. Then $\lceil (n-1)/2 \rceil \le d \le 13$ and
+$n-1-d \le 13$. Let $A$ and $B$ be the members of the $\TT{5}$-free lists
+isomorphic to $\Nm(w)$ and $\Np(w)$. Then $T$ is isomorphic to a completion
+of $\Piv{A}{B}$ in which every vertex has out-degree at most $d$.
+\end{proposition}
+
+\begin{proof}
+The average out-degree is $(n-1)/2$. $\Nm(w)$ and $\Np(w)$ are $\TT{5}$-free
+(Lemma~\ref{lem:pivot} with $6$ in place of $7$), so they have at most $13$
+vertices by Fact~\ref{fact:tt5}. Relabel $T$ along isomorphisms
+$\Nm(w) \to A$ and $\Np(w) \to B$; the result is a completion of $\Piv{A}{B}$,
+and $d$ bounds all out-degrees because it is the maximum.
+\end{proof}
+
+For each $n$, a \emph{job} is a triple $(d,i,j)$ with
+$\lceil (n-1)/2 \rceil \le d \le 13$, $A_i$ in the $\TT{5}$-free list on
+$n-1-d$ vertices and $B_j$ in the list on $d$ vertices. The job asks for all
+$\TT{6}$-free completions of $\Piv{A_i}{B_j}$ with all out-degrees at most $d$.
+There are $46$, $414$, $3{,}086$, $17{,}673$ and $167{,}798$ jobs for
+$n=25,24,23,22,21$. For example, for $n=21$ the values $d=10,11,12,13$ give
+$369\cdot 369$, $692\cdot 45$, $376 \cdot 1$ and $121\cdot 1$ jobs.
+
+\subsection{The formula of a job}
+The variables of the job $(d,i,j)$ are one Boolean variable per free pair
+$\{x,y\}$, $x \in A_i$, $y\in B_j$, true if and only if $x \to y$, plus
+auxiliary variables. The clauses are:
+\begin{enumerate}[label=(\roman*)]
+\item the $\TT{6}$-exclusion clauses of Section~\ref{sec:encoding}. With
+  $k=6$ every $6$-set has at most $6!=720$ orderings, below the limit used
+  ($5900$), so all clauses are of the ``direct'' kind;
+\item cardinality constraints in Sinz's sequential-counter
+  encoding~\cite{Sinz05}: each $x \in A_i$ beats at most
+  $d-1-\dpl_{A_i}(x)$ vertices of $B_j$, and each $y \in B_j$ beats at most
+  $d-\dpl_{B_j}(y)$ vertices of $A_i$.
+\end{enumerate}
+Every $\TT{6}$-free completion with all out-degrees at most $d$ satisfies the
+formula, with the counter variables set to the partial sums
+(Lemma~\ref{lem:sound} and~\cite{Sinz05}).
+
+\subsection{Enumeration and certification}
+The enumerator (\path{src/pivenum.cpp}) solves each job with the CaDiCaL
+library in incremental mode. After each model it checks that the completed
+tournament is $\TT{6}$-free and respects the degree bound, records it, and adds
+a \emph{blocking clause} that excludes its assignment of the arc variables.
+
+A job is \emph{certified} when the job formula plus one blocking clause per
+recorded model is unsatisfiable and this is certified by a checked LRAT proof
+(\path{scripts/certify_enum.py}). Certification also re-checks, in separate
+code, that every recorded model is $\TT{6}$-free. A certified job therefore
+has no completion, in the sense of the job, other than the recorded ones.
+
+For $n=25$, $24$ and $22$ every job was enumerated and then certified. For
+$n=23$ and $21$ we used a shortcut (\path{scripts/certify_first.py}). In a
+sample of $168$ jobs for $n=21$ it needed $42\%$ of the solver time of the
+two-step path. Each job formula is solved once with
+LRAT output and the proof is checked. If the answer is unsatisfiable and the
+proof is accepted, the job has no models, and this one checked solve is both
+its enumeration and its certificate. Otherwise the job is enumerated as above
+and later certified with its blocking clauses. Of the $167{,}798$ jobs for
+$n=21$, $167{,}632$ were closed by the single checked solve and $166$ by the
+blocking-clause certificate; for $n=23$ the numbers are $3{,}052$ and $34$.
+
+The run for $n=21$ was interrupted once when its cloud instance was reclaimed.
+It was resumed on another instance from the synchronised records. In the
+synchronised files one job ($d=11$) had a completion record but no certificate
+record. The certification step treats every job without a certificate record
+as uncertified, and it certified this job again (unsatisfiable, proof
+accepted, no models).
+
+\begin{proposition}\label{prop:complete}
+Assume that the $\TT{5}$-free lists are complete, that every
+$\TT{6}$-free completion of a job with out-degrees at most $d$ satisfies the
+job formula, and that each recorded model agrees with the fixed arcs of its
+job. If every job for $n$ is certified, then every $\TT{6}$-free tournament on
+$n$ vertices is isomorphic to a recorded model.
+\end{proposition}
+
+\begin{proof}
+Let $T$ be $\TT{6}$-free on $n$ vertices. By
+Proposition~\ref{prop:pivotdec}, $T$ is isomorphic to a completion $T'$ of
+$\Piv{A_i}{B_j}$ with out-degrees at most $d$, for some job $(d,i,j)$. The arc
+assignment of $T'$ extends to a model of the job formula. Since the job
+formula plus the blocking clauses is unsatisfiable, the arc assignment of $T'$
+is blocked, so it equals the arc assignment of a recorded model $M$. $T'$ and
+$M$ agree on the fixed arcs and on the free arcs, so $T' = M$.
+\end{proof}
+
+\subsection{Classes and checks}
+The recorded models are reduced to isomorphism classes with \texttt{labelg}.
+Table~\ref{tab:cat} gives the numbers. The following checks were made on the
+class representatives (\path{scripts/stage12_check.py}).
+\begin{itemize}
+\item For each $n = 21,\dots,25$, the set of canonical forms equals the set of
+  canonical forms of the file \texttt{tt6free$n$.d6} of~\cite{LLHrepo}.
+\item For $n=23,24,25$ the classes equal NMH's: our $\ST{25}$ (from the Paley
+  construction), our $\cl{24A},\dots,\cl{24E}$ and $22$ sub-$\ST{27}$ classes
+  on $23$ vertices (matched to NMH's letters by canonical form), the doubly
+  regular $\cl{23W}$ and $\cl{23X}$ from NMH's repository (originally from
+  McKay's data~\cite{McKayDigraphs}), and $\cl{23Y}$, which is the
+  quadratic-residue tournament on $\mathbb{Z}_{23}$.
+\item All $89$ classes on $22$ vertices contain $Y_8$.
+\item All $17{,}040$ classes on $21$ vertices except one contain $Y_8$, and the
+  exception has the canonical form of $\Ostar$.
+\end{itemize}
+Containment of $Y_8$ is decided by a backtracking search for an induced
+embedding (\path{src/tourn.py}). Together with
+Proposition~\ref{prop:complete} these checks give Fact~\ref{fact:cat}. Only one
+property of \texttt{labelg} is needed for this: its output is a relabelling
+of its input. Equal canonical forms then imply isomorphism, and every recorded
+model is isomorphic to its class representative. The class counts and the
+comparison with the other catalogues also rely on canonicity.
+
+\begin{table}[ht]
+\centering\small
+\caption{Enumeration of the $\TT{6}$-free tournaments on $n$ vertices.
+``Jobs with models'' counts jobs with at least one $\TT{6}$-free completion;
+``models'' counts labelled completions. Solver hours are sums of per-job
+solver wall-clock times, enumeration and certification together. ``Single
+checked solve'': jobs without models were closed by one checked solve; the
+others were enumerated and certified with blocking clauses.}
+% Source: results/enum/k6n{21..25}/{summary,certify_summary}.json, records.jsonl,
+% certify.jsonl, certify_first.jsonl; results/stage12_check.json.
+\label{tab:cat}
+\begin{tabular}{@{}rrrrrlr@{}}
+\toprule
+$n$ & jobs & jobs with models & models & classes & certification path & solver h \\
+\midrule
+25 & 46 & 2 & 78 & 1 & enumerate, then certify & 0.1 \\
+24 & 414 & 10 & 390 & 5 & enumerate, then certify & 1.4 \\
+23 & 3{,}086 & 34 & 1{,}068 & 25 & single checked solve & 5.0 \\
+22 & 17{,}673 & 62 & 2{,}098 & 89 & enumerate, then certify & 507.5 \\
+21 & 167{,}798 & 165 & 200{,}677 & 17{,}040 & single checked solve & 1{,}146.4 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% =====================================================================
+\section{SAT encodings, cube-and-conquer and proof checking}\label{sec:sat}
+
+\subsection{The $\TT{k}$-exclusion encoding}\label{sec:encoding}
+Let $P$ be a partial tournament on vertices $0,\dots,n-1$: each pair is a
+fixed arc or free. Our encoder (\path{src/encode.c}; \path{src/ttenc.h} implements the same
+construction for the enumerator) produces the following CNF $F_L(P)$
+for $\TT{k}$-exclusion, with a parameter $L$.
+\begin{itemize}
+\item \emph{Arc variables.} One variable $x_{ij}$ per free pair $i<j$, true if
+  and only if $i \to j$.
+\item \emph{$k$-sets.} For every $k$-set $S$ that contains no $3$-cycle of fixed
+  arcs, list the orderings of $S$ compatible with the fixed arcs, that is, the
+  transitive orientations of $S$ that agree with them. If there are none, $S$
+  is skipped. If there are at most $L$, the set of assignments of the free
+  pairs inside $S$ that make $S$ transitive is reduced to its prime
+  implicants by Quine--McCluskey merging, and one clause excluding each prime
+  implicant is emitted (``direct'' clauses). If there are more than $L$, one
+  ``$3$-cycle clause'' is emitted: the disjunction, over the triples of $S$,
+  of a literal saying that the triple is cyclic.
+\item \emph{$3$-cycle literals.} For a triple with no free pair the literal is
+  constant. For a triple with exactly one free pair whose fixed arcs form a
+  path $a \to b \to c$, it is the arc literal for $c \to a$; if the two fixed
+  arcs do not form a path, the triple cannot be cyclic and the literal is
+  false. For a triple with
+  two or more free pairs it is a fresh variable $t_{abc}$ with the clauses
+  $\neg t_{abc} \vee \neg[u\to w] \vee [w\to y]$ for the three rotations
+  $(u,w,y)$ of each of the two cyclic orientations of $\{a,b,c\}$; clauses
+  that are satisfied by fixed arcs are dropped.
+\end{itemize}
+
+\begin{lemma}[soundness]\label{lem:sound}
+Let $T$ be a $\TT{k}$-free completion of $P$. Set $x_{ij}$ to the orientation
+of $\{i,j\}$ in $T$ and $t_{abc}$ to true if and only if $\{a,b,c\}$ is a
+$3$-cycle in $T$. This assignment satisfies $F_L(P)$ for every $L$. Hence, if
+$F_L(P)$ is unsatisfiable, $P$ has no $\TT{k}$-free completion.
+\end{lemma}
+
+\begin{proof}
+A clause $\neg t_{abc} \vee \neg[u\to w] \vee [w\to y]$ can only fail if
+$\{a,b,c\}$ is cyclic and $u \to w$; then the cycle is $u \to w \to y \to u$, so
+$w \to y$. A direct clause excludes a set of assignments of the free pairs of
+$S$ all of which make $S$ transitive, because Quine--McCluskey only merges
+cubes contained in that set. $T[S]$ is not transitive, so its assignment is
+not excluded. For a $3$-cycle clause, $T[S]$ is not transitive, so it has a
+cyclic triple. That triple is not fixed-cyclic (such sets are skipped), so its
+literal is an arc literal or a variable $t_{abc}$, and it is true.
+\end{proof}
+
+Lemma~\ref{lem:sound} is a statement about the construction. That the program
+implements it is a separate matter (Section~\ref{sec:trust}). The encoder was
+compared with brute force on $60$ random partial tournaments with $8$ to $10$
+vertices, $k\in\{4,5\}$, up to $13$ free pairs and $L \in \{1,3,10,5900\}$.
+The CNF was evaluated on all $74{,}944$ assignments of the free pairs, with the
+$t$-variables set as in Lemma~\ref{lem:sound}; it agreed with the brute-force
+answer every time (\path{tests/test_encode.py}).
+
+\subsection{The five new instances}\label{sec:stage3enc}
+Each instance $\Piv{\cl{24X}}{\Ostar}$ was built from the matrices
+\path{data/I24_X.txt} and \path{data/O21star.txt} (Appendix~\ref{app:data})
+in the vertex order: $\cl{24X}$ (vertices $0$--$23$), $p$ ($24$), $\Ostar$
+($25$--$45$). It was
+encoded with $k=7$ and $L=1$. Every $7$-set with exactly one compatible
+ordering gets one direct clause; all others get a $3$-cycle clause. Each
+formula has $504$ arc variables and $10{,}836$ variables $t_{abc}$, one for
+every triple with two vertices on one side of the pivot and one on the other.
+For $\cl{24A}$ there are $2{,}608{,}200$ direct clauses, $6{,}355{,}503$
+$3$-cycle clauses and $43{,}344$ definition clauses, $9{,}007{,}047$ clauses and
+$208{,}977{,}552$ literals in all. The other four formulas are of the same size
+(Table~\ref{tab:stage3}).
+
+\subsection{NMH's instances and the clause checker}\label{sec:stage4enc}
+For the $28$ instances of Fact~\ref{fact:nmh} we did not use our encoder. We
+used NMH's encoder \path{encoding/tour-encode.c}~\cite{NMHrepo}, compiled as in
+their Makefile, on NMH's own input matrices for the $27$ instances that have a
+log, with the limit $5040 = 7!$. With this limit every $7$-set gets direct
+clauses and there are no auxiliary variables. For $\Piv{\ST{26}}{\TT{5}}$,
+for which NMH published no input, the input is $\ST{27}$ minus a vertex, then
+$p$, then $\TT{5}$. For all $27$ logged instances, the header, the number of
+clauses and the size in bytes of our CNF equal those reported in NMH's
+CaDiCaL logs. NMH's CNF files are not published, so this is evidence that we
+solve the formulas NMH solved, not a byte-for-byte comparison. The inputs, the
+encoder source and all $28$ CNFs are pinned by SHA-256 in
+\path{data/stage4_manifest.json}; the cloud driver rebuilt every CNF and
+refused any mismatch.
+
+We do not rely on NMH's encoder for soundness. A separate program
+(\path{src/cnf_sound.c}, about $230$ lines of C) checks, for a partial
+tournament $P$ and a CNF $F$ over its arc variables, that every clause of $F$
+holds in every $\TT{7}$-free completion of $P$. It accepts a clause $C$ if
+\begin{enumerate}[label=(\alph*)]
+\item some literal of $C$ is true on a fixed arc of $P$ (this covers NMH's
+  unit clauses for the fixed arcs, which must agree with $P$); or
+\item $C$ contains a literal and its negation; or
+\item after the literals that are false on fixed arcs are removed, let
+  $\alpha$ be the orientation of the remaining free pairs that falsifies $C$;
+  there is a $7$-set $S$ containing every endpoint of $\alpha$ such that every
+  orientation of the free pairs of $S$ that extends $\alpha$ makes $S$
+  transitive.
+\end{enumerate}
+It also checks the clause count and the variable range against the header.
+In case~(c) every completion that falsifies $C$ contains a $\TT{7}$ on $S$, so
+$C$ holds in every $\TT{7}$-free completion. Hence, if the checker accepts all
+clauses and $F$ is unsatisfiable, $P$ has no $\TT{7}$-free completion,
+whatever program produced $F$. The checker accepted all $28$ CNFs with no
+failure. Its tests (\path{tests/test_cnf_sound.py}) compare it with brute force
+on $40$ random partial tournaments; of $240$ mutated clauses, $42$ were unsound
+by brute force, and the checker accepted none of them.
+
+Finally a structure check (\path{scripts/stage4_instances.py}) confirms that
+each input is a pivot instance with exactly the $X \times Z$ pairs free, that
+$X$ is isomorphic to our own representative of the class named by NMH (from
+our constructions, Section~\ref{sec:catalogue}), that the $25$ classes
+$\cl{23A},\dots,\cl{23Y}$ are pairwise non-isomorphic, and that $Z$ is
+isomorphic to our $Y_8$, $H_6$, $G_7$ or $\TT{5}$.
+
+\subsection{Cube-and-conquer}\label{sec:cnc}
+All $33$ instances were solved by cube-and-conquer~\cite{HKWB11} with the same
+scripts (\path{scripts/make_cubes.py}, \path{scripts/run_cubes.py}).
+\begin{itemize}
+\item \emph{Level $0$.} The $K=10$ arc variables that occur most often in the
+  formula are chosen, and the $2^{10}=1024$ cubes are all sign patterns on
+  them. In each new instance the ten variables are the arcs between one vertex
+  of $\cl{24X}$ and ten vertices of $\Ostar$.
+\item \emph{Conquer.} A cube $c$ is solved as $F \wedge c$ ($F$ plus one unit
+  clause per literal of $c$) by CaDiCaL with LRAT output and a time limit that
+  depends on the level.
+\item \emph{Splitting.} A cube that reaches its time limit is replaced by
+  $2^{S}=16$ children: the cube extended by all sign patterns on the $S=4$ most
+  frequent arc variables that it does not fix yet. The children run at the
+  next level. The last level has no time limit.
+\item \emph{SAT.} A satisfiable cube would stop the run and its model would be
+  checked independently (\path{scripts/verify_model.py}). No cube was
+  satisfiable.
+\end{itemize}
+
+\subsection{Streamed LRAT checking}\label{sec:lrat}
+Text LRAT proofs grew at $2$ to $6$ megabytes per second of solving in our
+measurements, so proofs for thousands of solver-hours cannot be stored. Every
+cube is therefore checked while it is solved (\path{scripts/stream_solve.py}). The
+script creates three named pipes. One carries the formula $F\wedge c$ to
+CaDiCaL. One carries a second copy of the same formula, written by the same
+code from the same header, clause file and unit clauses, to
+\texttt{lrat-check}. The third carries CaDiCaL's text LRAT proof to
+\texttt{lrat-check}. The checker thus reads the formula itself; it does not
+take it from the solver. A cube is recorded as closed only if CaDiCaL reports
+unsatisfiable and the checker prints \texttt{c VERIFIED}. \texttt{lrat-check}
+prints this only if it derived the empty clause and found no error. The proof
+is then discarded. Only the per-cube record is kept: identifier, literals,
+level, status, checker verdict and times.
+
+\subsection{Cover check}
+At the end, \path{scripts/cnc_summary.py} checks three things for each
+instance.
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Level-$0$ cover.} The formula $\bigwedge_{c} \neg c$ over the $1024$
+  level-$0$ cubes is unsatisfiable. This is shown by CaDiCaL with a checked LRAT
+  proof, from the cubes alone, without the instance formula.
+\item \emph{Splits.} For every cube with children, the children are exactly
+  the $2^{S}$ sign patterns on one common sequence of $S$ variables not fixed by
+  the parent, each appended to the parent's literals.
+\item \emph{Leaves.} Every cube without children is recorded as unsatisfiable
+  with checker verdict \texttt{VERIFIED}; no cube is open and none is
+  satisfiable.
+\end{enumerate}
+It prints \texttt{ALL CLOSED} only if all three hold.
+
+\begin{lemma}\label{lem:cover}
+If (1)--(3) hold, then $F$ is unsatisfiable.
+\end{lemma}
+
+\begin{proof}
+Let $\beta$ be an assignment. By (1), $\beta$ satisfies some level-$0$ cube.
+If a cube satisfied by $\beta$ has children, then by (2) $\beta$ satisfies the
+child whose sign pattern agrees with $\beta$ on the split variables. The cubes
+get longer, so this descent ends at a leaf $c$ satisfied by $\beta$. By (3),
+$F \wedge c$ is unsatisfiable, so $\beta$ falsifies $F$.
+\end{proof}
+
+Lemma~\ref{lem:cover} does not depend on the time limits, on the depth of the
+splits, or on the order in which cubes were run. This matters for the run history of NMH's instances in
+Section~\ref{sec:stage4}.
+
+\subsection{Tools}\label{sec:tools}
+We used CaDiCaL~3.0.1~\cite{Bie18,CaDiCaL2}, built from the release tarball
+(SHA-256 \texttt{0a8ea563\ldots{}7e11}). The checker \texttt{lrat-check} is the
+file \path{lrat-check.c} of the drat-trim distribution, with the header
+``Copyright (c) 2017--2023 Marijn Heule'' and ``last edit July 2023''
+(SHA-256 \texttt{bf07c2ac\ldots{}4a95}). It was compiled with
+\texttt{gcc -O2 -std=c99 -DLONGTYPE}.
+% TODO: record the upstream drat-trim commit from which lrat-check.c was taken.
+nauty~2.9.3~\cite{MP14} was used for \texttt{labelg} and \texttt{gentourng}
+(tarball SHA-256 \texttt{9fc4edae\ldots{}1b5b}). The scripts are in Python~3.
+The cloud instances ran Ubuntu 24.04 (arm64). The development machine (Apple
+M5) had the same versions of CaDiCaL and nauty.
+
+% =====================================================================
+\section{Results}\label{sec:results}
+
+\subsection{Catalogues}
+All jobs for $n=21,\dots,25$ were completed and certified. Table~\ref{tab:cat}
+gives the counts. The classes equal the files of~\cite{LLHrepo}, and for
+$n=23,24,25$ also NMH's classes. Fact~\ref{fact:cat} holds.
+
+\subsection{The five new instances}\label{sec:stage3}
+All five instances are \texttt{ALL CLOSED} (Table~\ref{tab:stage3}). The time
+limits were $600$\,s at level $0$ and $1800$\,s at level $1$, with no limit at
+level $2$. Of the $5 \times 1024$ level-$0$ cubes, $2{,}195$ were closed
+directly and $2{,}925$ were split into $16$ children each. All $46{,}800$
+level-$1$ cubes were closed within the level-$1$ limit, so level $2$ was never
+used. In total $48{,}995$ leaves were closed by checked proofs; no cube was
+satisfiable, no check failed, and no leaf is open. This proves
+Fact~\ref{fact:new}.
+
+The five instances ran side by side on one cloud instance with $96$ vCPUs, with
+$15$ workers each, from 18:42 UTC on 3 November to 06:07 UTC on 5 November 2026.
+The summaries were recomputed on a second machine from the synchronised
+records, including the level-$0$ cover check, with the same result
+(\path{summary.mac.json}). This recomputation does not re-check the leaves,
+whose proofs were not kept.
+
+\begin{table}[ht]
+\centering\small
+\caption{The five new instances $\Piv{\cl{24X}}{\Ostar}$ ($46$ vertices,
+$504$ arc variables, $11{,}340$ variables in all). ``Split vertex'' is the
+vertex of $\cl{24X}$ (numbered from $0$) whose arcs carry the level-$0$ split.
+``L0'', ``L1'': level $0$, level $1$. ``Max s'' is the longest single cube in
+seconds.}
+% Source: results/stage3/24X-p-O21s/run/{summary.json,results.jsonl}, results/stage3-ABCDE.log.
+\label{tab:stage3}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lrcrrrrrr@{}}
+\toprule
+Instance & clauses & split vertex & L0 closed & L0 split & L1 cubes & leaves & max s & solver h \\
+\midrule
+\texttt{24A-p-O21*} & 9{,}007{,}047 & 21 & 434 & 590 & 9{,}440 & 9{,}874 & 1{,}330 & 510.8 \\
+\texttt{24B-p-O21*} & 8{,}988{,}168 & 22 & 429 & 595 & 9{,}520 & 9{,}949 & 1{,}402 & 523.7 \\
+\texttt{24C-p-O21*} & 8{,}988{,}168 & 3 & 461 & 563 & 9{,}008 & 9{,}469 & 1{,}431 & 513.5 \\
+\texttt{24D-p-O21*} & 9{,}007{,}047 & 8 & 439 & 585 & 9{,}360 & 9{,}799 & 1{,}683 & 525.8 \\
+\texttt{24E-p-O21*} & 9{,}007{,}047 & 20 & 432 & 592 & 9{,}472 & 9{,}904 & 1{,}544 & 530.2 \\
+\midrule
+Total & & & 2{,}195 & 2{,}925 & 46{,}800 & 48{,}995 & & 2{,}604.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{NMH's instances}\label{sec:stage4}
+All $28$ instances are \texttt{ALL CLOSED} (Table~\ref{tab:stage4}), with
+$31{,}942$ leaves closed by checked proofs, no satisfiable cube and no failed
+check. This proves Fact~\ref{fact:nmh} without relying on NMH's runs. The
+summaries recomputed on a second machine are identical for all $28$ instances.
+
+\emph{Run history.} The run used two successive cloud instances with $96$ vCPUs
+each. On the original machine, from 12:21 UTC on 4 November, the driver ran six instances
+at a time with $15$ workers each and time limits $(1800, 3600, \infty)$ seconds
+for levels $0$, $1$, $2$. At 18:00 UTC a second driver process was started on
+the same machine for the $22$ instances that had not started yet, with $4$
+workers each and the same limits; the two drivers worked on disjoint
+instances. At about 01:27 UTC on 5 November the original machine was lost to a
+spot interruption. The run was resumed at 02:12 UTC on a second machine from the
+synchronised records, with all $28$ instances side by side, $6$ workers each,
+and the time limits changed to $(1800, 3600, 1800, 7200, \infty)$ for levels $0$
+to $4$. Eight instances were already closed. The last instance closed at 10:03
+UTC.
+% NOTE (for the author): the commit message of 7bae8ed says "two spot reclaims". The
+% repository logs show one spot interruption of a Stage 4 machine (01:27 UTC, 5 Nov)
+% and one of the enumeration machine (about 10:16 UTC, 4 Nov); the 18:00 UTC event was
+% an additional driver on the same machine. Please confirm this account.
+
+The change of time limits does not affect correctness. Time limits only
+decide which cubes are split. A cube recorded as closed stays a leaf. A cube
+recorded as timed out has children. Work that was running at the interruption
+left no record and was redone. Lemma~\ref{lem:cover} needs only the checks
+(1)--(3), which \path{cnc_summary.py} applies to the final records whatever
+the depth: the children of every split must be all $2^{S}$ sign patterns on
+fresh variables, and every leaf must carry its own accepted proof. The deepest
+cubes are at level $4$ ($26$ literals).
+
+\begin{table}[ht]
+\centering\small
+\caption{NMH's instances, rebuilt with NMH's encoder and re-run with checked
+LRAT proofs. ``Free'': free arcs. NMH columns: CaDiCaL version, run time in
+hours and conflicts in millions, from NMH's logs (no log was published for
+$\Piv{\ST{26}}{\TT{5}}$). ``Splits'': cubes that timed out and were split;
+``depth'': deepest level.}
+% Source: data/stage4_manifest.json (sizes, NMH log data), results/stage4/NAME/run/{summary.json,results.jsonl}.
+\label{tab:stage4}
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}lrrcrrrrrr@{}}
+\toprule
+ & & & \multicolumn{3}{c}{NMH (logs)} & \multicolumn{4}{c}{this work} \\
+\cmidrule(lr){4-6}\cmidrule(l){7-10}
+Instance & free & clauses & CaDiCaL & h & $10^6$ confl. & splits & depth & leaves & solver h \\
+\midrule
+\texttt{ST26-p-TT5} & 130 & 1{,}099{,}282 & -- & -- & -- & 0 & 0 & 1{,}024 & 5.6 \\
+\texttt{ST25-p-H6} & 150 & 1{,}687{,}063 & 1.5.2 & 23.9 & 88 & 1 & 1 & 1{,}039 & 10.8 \\
+\texttt{ST25-p-G7} & 175 & 2{,}603{,}275 & 1.5.2 & 33.5 & 96 & 0 & 0 & 1{,}024 & 11.4 \\
+\texttt{23A-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 121.0 & 354 & 12 & 4 & 1{,}204 & 53.8 \\
+\texttt{23B-p-Y8} & 184 & 2{,}364{,}374 & 1.3.1 & 79.4 & 265 & 12 & 4 & 1{,}204 & 47.9 \\
+\texttt{23C-p-Y8} & 184 & 2{,}364{,}374 & 1.3.1 & 97.5 & 308 & 12 & 4 & 1{,}204 & 47.5 \\
+\texttt{23D-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 157.1 & 427 & 7 & 4 & 1{,}129 & 50.1 \\
+\texttt{23E-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 203.9 & 543 & 8 & 4 & 1{,}144 & 53.0 \\
+\texttt{23F-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 230.9 & 609 & 8 & 4 & 1{,}144 & 52.7 \\
+\texttt{23G-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 212.2 & 560 & 11 & 4 & 1{,}189 & 55.4 \\
+\texttt{23H-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 249.9 & 650 & 10 & 4 & 1{,}174 & 55.0 \\
+\texttt{23I-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 203.7 & 495 & 7 & 4 & 1{,}129 & 46.0 \\
+\texttt{23J-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 240.0 & 589 & 5 & 2 & 1{,}099 & 44.9 \\
+\texttt{23K-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 138.5 & 383 & 9 & 4 & 1{,}159 & 48.5 \\
+\texttt{23L-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 242.6 & 618 & 9 & 4 & 1{,}159 & 53.8 \\
+\texttt{23M-p-Y8} & 184 & 2{,}364{,}374 & 1.3.1 & 94.3 & 300 & 10 & 4 & 1{,}174 & 46.5 \\
+\texttt{23N-p-Y8} & 184 & 2{,}364{,}374 & 1.2.1 & 235.5 & 390 & 10 & 4 & 1{,}174 & 45.9 \\
+\texttt{23O-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 310.1 & 460 & 12 & 4 & 1{,}204 & 52.3 \\
+\texttt{23P-p-Y8} & 184 & 2{,}364{,}374 & 1.2.1 & 198.8 & 342 & 10 & 4 & 1{,}174 & 45.4 \\
+\texttt{23Q-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 247.8 & 394 & 12 & 4 & 1{,}204 & 51.4 \\
+\texttt{23R-p-Y8} & 184 & 2{,}364{,}374 & 1.2.1 & 158.6 & 293 & 10 & 4 & 1{,}174 & 46.9 \\
+\texttt{23S-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 431.6 & 643 & 6 & 2 & 1{,}114 & 47.1 \\
+\texttt{23T-p-Y8} & 184 & 2{,}364{,}374 & 1.2.1 & 164.9 & 312 & 12 & 4 & 1{,}204 & 48.4 \\
+\texttt{23U-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 242.6 & 401 & 12 & 4 & 1{,}204 & 53.5 \\
+\texttt{23V-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 327.4 & 483 & 13 & 4 & 1{,}219 & 52.1 \\
+\texttt{23W-p-Y8} & 184 & 2{,}196{,}265 & 1.2.1 & 68.1 & 139 & 0 & 0 & 1{,}024 & 9.4 \\
+\texttt{23X-p-Y8} & 184 & 2{,}196{,}265 & 1.2.1 & 72.2 & 144 & 0 & 0 & 1{,}024 & 9.6 \\
+\texttt{23Y-p-Y8} & 184 & 2{,}219{,}145 & 1.2.1 & 14.5 & 48 & 0 & 0 & 1{,}024 & 4.7 \\
+\midrule
+Total & & & & 4{,}800.7 & 10{,}336 & 218 & & 31{,}942 & 1{,}149.9 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Resources}\label{sec:resources}
+All cloud computations ran on Amazon Web Services Graviton4 spot instances in
+the region eu-north-1, each with $96$ vCPUs: one c8g.24xlarge for the
+enumeration and three m8g.24xlarge (one for the new instances, two in
+succession for NMH's instances). The remainder of the $n=21$ enumeration,
+$5{,}259$ jobs, ran on the machine later used for NMH's instances, after the
+enumeration machine was lost to a spot interruption. Solver time was about
+$1{,}660$ hours for the catalogues, $2{,}604$ hours for the new instances and
+$1{,}150$ hours for NMH's instances, about $5{,}400$ hours in all. These are
+sums of per-job or per-cube solver wall-clock times. At times the number of
+workers exceeded the number of vCPUs, so they are not CPU-hours. The cost,
+metered from public spot prices, was about US\$39.
+% TODO: replace by the final figure from the AWS bill. The meter's last reading
+% (results/aws_cost.json, 10:02 UTC on 5 Nov) was US$38.65 with the last machine still
+% running until its scheduled power-off.
+For comparison, NMH report about $8$ days of CaDiCaL time on average for their
+$25$ instances with $Y_8$, on one core each~\cite[\S5.2.3]{NMH22}; their logs give
+$4{,}801$ hours for the $27$ logged instances, without proofs.
+
+% =====================================================================
+\section{Trust base}\label{sec:trust}
+
+The proof checker covers the unsatisfiability of every formula that the proof
+uses. The following parts are \emph{not} checked by it. A reader who accepts
+these items and the checked computations can accept
+Theorem~\ref{thm:main}.
+
+\begin{enumerate}[label=\textbf{T\arabic*.},leftmargin=*]
+\item \textbf{The mathematical argument.} Lemmas~\ref{lem:pivot}--\ref{lem:h6g7},
+  the reduction of Section~\ref{sec:reduction}, and
+  Propositions~\ref{prop:pivotdec} and~\ref{prop:complete} and
+  Lemmas~\ref{lem:sound} and~\ref{lem:cover}. They are short and checked by
+  hand only; nothing is formalised.
+
+\item \textbf{One theorem from the literature.} The uniqueness of the
+  $\TT{6}$-free tournament on $26$ vertices (Fact~\ref{fact:st26}). Everything
+  else we take from the literature is re-derived: $R(5) \le 14$ by our
+  $\TT{5}$-free lists, $R(6) \le 28$ from it by Lemma~\ref{lem:double},
+  NMH's classifications on $23$--$25$ vertices by our certified enumeration, and
+  NMH's $28$ SAT results by our certified runs. Lemma~\ref{lem:h6g7} has a
+  short proof. Fact~\ref{fact:st26} could be re-derived with the same
+  pipeline: for $n=26$ the degree bounds force $d=13$, and there is one
+  $\TT{5}$-free tournament on $12$ vertices and one on $13$, so the enumeration
+  is a single pivot job. We have not run it.
+  % TODO (author): decide whether to run and certify the single n = 26 job before submission.
+
+\item \textbf{The $\TT{5}$-free lists.} Their completeness (Section~\ref{sec:tt5})
+  rests on our extension program and on \texttt{labelg}; it is not certified.
+  It was cross-checked against \texttt{gentourng} for $n\le 10$ and against
+  NMH's files for $n \le 13$.
+
+\item \textbf{Soundness of the enumeration formulas.} That every
+  $\TT{6}$-free completion of a job with out-degrees at most $d$ satisfies the
+  job formula. This is Lemma~\ref{lem:sound} plus the correctness of the
+  sequential counter, \emph{as implemented} in \path{src/ttenc.h} and
+  \path{src/pivenum.cpp}. These formulas were not checked clause by clause.
+  The evidence is the brute-force tests, a test that the enumerator's
+  $\TT{k}$ clauses equal those of \path{src/encode.c}, the reproduction of the
+  $\TT{5}$-free lists for $n=10,\dots,13$ by pivot enumeration, and the exact
+  agreement of the final lists with two independent sources.
+
+\item \textbf{Enumeration bookkeeping.} That the job list is complete, that
+  each blocking clause is built from the recorded model, and that each recorded
+  model agrees with the fixed arcs of its job. The certification step checks
+  that recorded models are $\TT{6}$-free but not that they agree with the fixed
+  arcs; the enumerator builds them from those arcs.
+  % NOTE (author): a one-line check in scripts/certify_enum.py would remove this item.
+
+\item \textbf{Catalogue analysis.} The $Y_8$-containment search and the
+  identification of $\Ostar$ (Python, \path{src/tourn.py}); and the property
+  of \texttt{labelg} that its output is a relabelling of its input.
+
+\item \textbf{Soundness of the five new formulas.} They were produced by our
+  encoder in its $3$-cycle mode ($L=1$). The clause checker of
+  Section~\ref{sec:stage4enc} handles only direct encodings and was \emph{not}
+  run on them. Their soundness therefore rests on Lemma~\ref{lem:sound} and on
+  \path{src/encode.c} implementing it, which is supported by the brute-force
+  tests (which include $L=1$). Also trusted: the construction of the instance
+  matrices (\path{src/instances.py}) from \path{data/I24_X.txt} and
+  \path{data/O21star.txt}, and the identification of these files with
+  $\cl{24X}$ and $\Ostar$ by canonical form.
+  % TODO (author): extending src/cnf_sound.c to 3-cycle variables and running it on the
+  % five CNFs (a few seconds each) would move most of this item into the checked part.
+
+\item \textbf{Soundness of NMH's formulas.} This rests on the clause checker
+  \path{src/cnf_sound.c} and on the structure check of the inputs, not on NMH's
+  encoder.
+
+\item \textbf{The LRAT checker.} \texttt{lrat-check} is an unverified C
+  program. A formally verified checker was not used.
+
+\item \textbf{The streaming harness and cube bookkeeping.} That
+  \path{scripts/stream_solve.py} gives the checker the same formula $F \wedge c$
+  as the solver and reads its verdict correctly; that
+  \path{scripts/run_cubes.py} records the literals of the cube that was
+  actually solved; and the structural split check and leaf tally in
+  \path{scripts/cnc_summary.py}. (That script compares every child with its
+  parent's literals, but it does not compare a level-$0$ record with the cube
+  file; the two agree by construction in \path{run_cubes.py}.) The level-$0$ cover itself is checked by
+  LRAT.
+
+\item \textbf{Proofs are not kept.} Each LRAT proof was checked once, while it
+  was produced, and then discarded. The published record consists of per-cube
+  and per-job verdicts. An independent re-check means re-running the solver,
+  about $3{,}750$ solver-hours for the $33$ pivot instances and about
+  $1{,}660$ for the catalogues.
+
+\item \textbf{Faults.} The runs used ordinary cloud hardware. A fault in a
+  solver run is caught by the checker. A fault in the checker or in the
+  bookkeeping is not, except where the recomputation of the summaries on a
+  second machine would expose it.
+\end{enumerate}
+
+The following are \emph{not} trusted: CaDiCaL (its unsatisfiability claims are
+checked and its models are re-checked), NMH's encoder, NMH's runs and
+classifications, and the catalogue files of~\cite{LLHrepo}, which serve only as
+a cross-check.
+
+% =====================================================================
+\section{Data and code availability}\label{sec:data}
+
+The code, the input data, the result files and the notes are in a public
+repository (TODO: URL).
+% TODO: repository URL and an archived snapshot with DOI (e.g. Zenodo) will be added.
+An archived snapshot will be deposited with a DOI (TODO). The repository
+contains, for every enumeration job, the completion record and the certificate
+record; for every cube, its literals, status, checker verdict and times; the
+per-instance summaries from the cloud machines and from the second machine;
+and the SHA-256 manifest of NMH's instances. It does not contain LRAT proofs
+(Section~\ref{sec:trust}, item T11) or third-party files. NMH's repository and
+the catalogue files of~\cite{LLHrepo} are fetched by
+\path{scripts/fetch_refs.sh}; the SHA-256 values of the files we used are in
+\path{refs/SHA256SUMS.txt}. The SHA-256 values of the input matrices of the
+five new instances are in Appendix~\ref{app:data}. The main programs are:
+{\raggedright
+\begin{itemize}
+\item enumeration: \path{src/pivenum.cpp}, \path{src/ttenc.h},
+  \path{scripts/pivot_enum.py}, \path{scripts/certify_enum.py},
+  \path{scripts/certify_first.py}, \path{scripts/stage12_check.py};
+\item encoding and checking of formulas: \path{src/encode.c},
+  \path{src/instances.py}, \path{src/cnf_sound.c},
+  \path{scripts/stage4_instances.py};
+\item cube-and-conquer: \path{scripts/make_cubes.py},
+  \path{scripts/run_cubes.py}, \path{scripts/stream_solve.py},
+  \path{scripts/cnc_summary.py}, and the cloud drivers in
+  \path{scripts/cloud/};
+\item tournament utilities: \path{src/tourn.py}.
+\end{itemize}}
+
+% =====================================================================
+% DRAFT — the author must review and rewrite this section
+\section{Use of AI tools}\label{sec:ai}
+
+The code in the repository, the preparation and monitoring of the cloud runs,
+the working notes and the initial draft of this text were produced with an AI
+assistant (Claude, Anthropic) working under the author's direction. The
+commit messages of the repository name the assistant. The author chose the problem
+and approved each computational stage and its budget. The AI system is not an
+author of this paper. The author takes responsibility for its content.
+
+% =====================================================================
+\section*{Acknowledgements}
+We thank David Neiman, John Mackey and Marijn Heule for publishing their code,
+inputs and solver logs, and Evan Lohn, Chris Lambert and Marijn Heule for
+publishing their catalogue files. This work would not have been possible
+without them. We also thank the developers of CaDiCaL, drat-trim and nauty for
+making their tools freely available.
+
+\bibliographystyle{amsplain}
+\bibliography{refs}
+
+% =====================================================================
+\appendix
+\section{Data}\label{app:data}
+
+Adjacency matrices have entry $1$ in row $i$, column $j$ if and only if
+$i \to j$ (vertices numbered from $0$). These are the matrices of
+\path{data/Y8.txt}, \path{data/H6.txt} and \path{data/W7.txt}; $Y_8$ is the
+matrix of \cite[Fig.~5]{NMH22}.
+{\small\setlength{\arraycolsep}{2pt}\renewcommand{\arraystretch}{0.9}
+\[
+Y_8:\ \begin{matrix}
+0&0&1&1&1&1&1&1\\
+1&0&0&0&1&0&1&1\\
+0&1&0&0&1&1&0&1\\
+0&1&1&0&0&1&1&0\\
+0&0&0&1&0&1&0&1\\
+0&1&0&0&0&0&1&1\\
+0&0&1&0&1&0&0&0\\
+0&0&0&1&0&0&1&0
+\end{matrix}
+\qquad
+H_6:\ \begin{matrix}
+0&1&1&1&1&1\\
+0&0&1&1&1&1\\
+0&0&0&1&1&1\\
+0&0&0&0&1&0\\
+0&0&0&0&0&1\\
+0&0&0&1&0&0
+\end{matrix}
+\qquad
+G_7:\ \begin{matrix}
+0&1&1&1&1&1&1\\
+0&0&1&1&1&1&1\\
+0&0&0&1&1&0&0\\
+0&0&0&0&1&1&0\\
+0&0&0&0&0&1&1\\
+0&0&1&0&0&0&1\\
+0&0&1&1&0&0&0
+\end{matrix}
+\]}
+
+The tournament $\Ostar$, as labelled in \path{data/O21star.txt}, in nauty's
+digraph6 format (the adjacency matrix row by row, six bits per character):
+\begin{verbatim}
+&T^}?@Z\GEmsQMySCw[xQdZPLFhCtfDQViPXZB_N|ZQSenHEMsakhTUgkUyOxdqIdxCw]dKX{@}?
+\end{verbatim}
+
+SHA-256 of the input files of the five new instances:
+\begin{center}\footnotesize
+\begin{tabular}{@{}ll@{}}
+\path{data/I24_A.txt} & \texttt{7e027dfd8cde62f9b866fb05f8e8225449c3e218dd23efa361fe8e59b3b518d1} \\
+\path{data/I24_B.txt} & \texttt{4bbbdb4138e61a164dd583d4a1c4a750504b54a15fe95a230aac5644c7ba37b3} \\
+\path{data/I24_C.txt} & \texttt{eb94d398672fd48006d1319c01c48c0cdafcb23ebb22bdebe3e111368b4dc87c} \\
+\path{data/I24_D.txt} & \texttt{fb94bdde12356261fc2a698c4fe37b8b64bacdecdcae81f68310a6aa6b7a8f2c} \\
+\path{data/I24_E.txt} & \texttt{73a635a9bd95129cc13d50f4b34e311ad45abf97a405d81995653f045cfe7c35} \\
+\path{data/O21star.txt} & \texttt{1823ac5f5d77c1244622be79d66743100a8306c4fc554b6f3db9f09d1a6f641b} \\
+\end{tabular}
+\end{center}
+% TODO: the SHA-256 values of the five Stage 3 CNFs were not recorded on the server;
+% the clause and literal counts in results/stage3-ABCDE.log are the only fingerprint.
+
+\end{document}
