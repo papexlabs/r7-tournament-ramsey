@@ -4,3 +4,12 @@ import R7lean.Pivot
 import R7lean.Facts
 import R7lean.Lemma20
 import R7lean.Reduction
+import R7lean.Enc.Basic
+import R7lean.Enc.NMH
+import R7lean.Enc.Tri
+import R7lean.Enc.Dimacs
+import R7lean.Enc.Instances
+import R7lean.EncSound
+import R7lean.NMHIso
+import R7lean.FactsCNF
+import R7lean.CubeCover

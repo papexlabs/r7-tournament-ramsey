@@ -17,3 +17,7 @@ rev = "v4.36.0-rc2"
 
 [[lean_lib]]
 name = "R7lean"
+
+[[lean_exe]]
+name = "r7encode"
+root = "R7Encode"

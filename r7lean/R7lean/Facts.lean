@@ -124,8 +124,12 @@ that the input matrix is a pivot instance `X → p → Z` with exactly the `X ×
 that its `X` and `Z` blocks are isomorphic (by canonical form) to the tournaments named here
 (`X_iso_reference`, `Z_iso_reference`), and that the CNF is sound for TT₇ exclusion
 (`build/cnf_sound`: SOUND). The passage from NMH's labelling to ours is
-`HasTTFreeCompletion.of_iso` (proved in `R7lean/Pivot.lean`). Connecting these axioms to the
-CNF files themselves is left to a later milestone. -/
+`HasTTFreeCompletion.of_iso` (proved in `R7lean/Pivot.lean`).
+
+Milestone 2: the main theorem no longer uses these five axioms. `R7lean/FactsCNF.lean` states
+F7 as "this concrete CNF is unsatisfiable" and derives the five statements below from it
+(`PivotFacts.ofCNF`); they are kept here for milestone 1's route
+(`every_tournament_46_has_TT7_semantic`). -/
 
 /-- **F7** `ST26 -p- TT5` has no TT₇-free completion.
 
