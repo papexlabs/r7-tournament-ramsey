@@ -12,6 +12,8 @@ Checks:
  3. rerun of the same stage resumes: no new cube records, still DONE = 0; a stage with two
     instances and one slot runs the open one and skips the closed one;
  3b. a failed LRAT check is logged and the stage ends NOT CLOSED with DONE = 1;
+ 3c. without SLOTS / TIMEOUTS the driver runs all instances side by side with the timeouts
+     1800,3600,1800,7200,0 (the defaults since 5 Nov 2026);
  4. stage on test-s + test-u: the SAT cube is found, verify_model.py confirms a TT5-free model,
     results/STAGE.SAT is written and DONE = 1; a rerun refuses to start;
  5. a CNF whose sha256 differs from the manifest is refused (PREPARE FAILED, DONE = 1);
@@ -104,6 +106,14 @@ def main():
         check(done == "0" and "test-u-k5 already ALL CLOSED" in p.stdout and "conquer test-v-k5 finished" in p.stdout
               and "test-v-k5 ALL CLOSED" in p.stdout and "test-u-k5 ALL CLOSED" in p.stdout,
               f"queue through one slot: DONE={done}")
+        # 3c. defaults: all instances side by side, timeouts 1800,3600,1800,7200,0 (both instances closed already)
+        envd = {k: v for k, v in os.environ.items() if k not in ("SLOTS", "TIMEOUTS")}
+        envd.update(POLL="1", STAGE4_NAMES="test-u-k5 test-v-k5")
+        p = subprocess.run(drv + ["stage4-td", "4", "1"], cwd=r, env=envd, capture_output=True, text=True)
+        done = (r / "results/stage4-td.DONE").read_text().strip()
+        check(done == "0" and "2 instances, 2 side by side with 2 workers each, timeouts 1800,3600,1800,7200,0" in p.stdout,
+              f"defaults: all instances side by side, timeouts 1800,3600,1800,7200,0 (DONE={done}): "
+              + next((l for l in p.stdout.splitlines() if "instances," in l), p.stdout[-300:]))
         # 2c. failed LRAT checks are reported and the stage does not close
         p = run(drv + ["stage4-te", "2", "1"], r, dict(env, STAGE4_NAMES="test-e-k5"))
         done = (r / "results/stage4-te.DONE").read_text().strip()

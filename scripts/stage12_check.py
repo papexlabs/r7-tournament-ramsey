@@ -1,13 +1,17 @@
 """After Stages 1-2 (on the Mac, after sync): go/no-go 1 and 2.
 
-For n = 25, 24, 23, 22, 21 (whatever results/enum/k6n{n} exists):
+For n = 26, 25, 24, 23, 22, 21 (whatever results/enum/k6n{n} exists):
  - the enumeration is complete (all jobs status complete) and certified
    (every job LRAT VERIFIED);
  - its classes (re-canonicalised here with labelg) equal the Lohn file
-   tt6free{n}.d6 and, for n = 23..25, NMH's classes;
+   tt6free{n}.d6 (if present) and, for n = 23..25, NMH's classes;
+ - n = 26: exactly one class, isomorphic to ST27 minus a vertex (every one of
+   the 27 vertex-deleted subtournaments of ST27 is checked to be that class):
+   ST26 is the unique TT6-free tournament on 26 vertices;
  - S22: every class on 22 vertices contains Y8;
  - S21: every class on 21 vertices contains Y8 except exactly O21*.
 Writes results/stage12_check.json and prints GO / NO-GO lines.
+usage: stage12_check.py [ENUM_DIR [OUT_JSON]]   (defaults results/enum, results/stage12_check.json)
 """
 import json
 import sys
@@ -20,9 +24,12 @@ import tourn as T  # noqa: E402
 LOHN = ROOT / "refs/digraph-isolators-src/digraph_isolators-HEAD/tt6free_tournaments"
 Y8 = T.matrix_to_out(T.read_matrix(ROOT / "data/Y8.txt"))
 O21 = T.matrix_to_out(T.read_matrix(ROOT / "data/O21star.txt"))
+ENUM = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "results/enum"
+OUT = Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "results/stage12_check.json"
 res = {}
-for n in (25, 24, 23, 22, 21):
-    d = ROOT / f"results/enum/k6n{n}"
+ST27 = T.matrix_to_out(T.read_matrix(ROOT / "data/ST27.txt"))
+for n in (26, 25, 24, 23, 22, 21):
+    d = ENUM / f"k6n{n}"
     if not (d / "summary.json").exists():
         continue
     s = json.loads((d / "summary.json").read_text())
@@ -31,7 +38,8 @@ for n in (25, 24, 23, 22, 21):
     can = set(T.canon_many(ours)) if ours else set()
     r = {"jobs": s["jobs_total"], "enum_complete": s["all_complete"], "certified": c.get("all_jobs_verified", False),
          "classes": len(can)}
-    lohn = [T.from_d6(l) for l in (LOHN / f"tt6free{n}.d6").read_text().split()] if LOHN.exists() else []
+    lf = LOHN / f"tt6free{n}.d6"
+    lohn = [T.from_d6(l) for l in lf.read_text().split()] if lf.exists() else []
     if lohn:
         lc = set(T.canon_many(lohn))
         r["equals_lohn"] = lc == can
@@ -41,8 +49,11 @@ for n in (25, 24, 23, 22, 21):
         nmh = set(T.canon_many([T.matrix_to_out(T.read_matrix(p)) for p in sorted((ROOT / "data").glob(f"I{n}_*.txt"))]))
         r["equals_nmh"] = nmh == can
     if n == 25:
-        st = T.matrix_to_out(T.read_matrix(ROOT / "data/ST27.txt"))
-        r["equals_nmh"] = can == {T.canon(T.induced(st, list(range(25))))}
+        r["equals_nmh"] = can == {T.canon(T.induced(ST27, list(range(25))))}
+    if n == 26:
+        dels = set(T.canon_many([T.induced(ST27, [u for u in range(27) if u != v]) for v in range(27)]))
+        r["st27_minus_vertex_classes"] = len(dels)
+        r["equals_st27_minus_vertex"] = len(dels) == 1 and can == dels
     if n in (21, 22):
         noy = [o for o in ours if not T.contains(o, Y8)]
         r["without_Y8"] = len(noy)
@@ -50,8 +61,13 @@ for n in (25, 24, 23, 22, 21):
             r["without_Y8_is_exactly_O21star"] = len(noy) == 1 and T.canon(noy[0]) == T.canon(O21)
     res[n] = r
     print(n, json.dumps(r), flush=True)
-(ROOT / "results/stage12_check.json").write_text(json.dumps(res, indent=1))
+OUT.write_text(json.dumps(res, indent=1))
 ok = lambda n: n in res and res[n]["enum_complete"] and res[n]["certified"]
+if 26 in res:
+    u = ok(26) and res[26]["classes"] == 1 and res[26]["equals_st27_minus_vertex"] and res[26].get("equals_lohn", True)
+    print("ST26 unique:", "CERTIFIED (one class on 26 vertices, = ST27 minus a vertex"
+          + (", = Lohn's tt6free26)" if "equals_lohn" in res[26] else "; Lohn's file not present)") if u
+          else "NO (see results/stage12_check.json)")
 if 22 in res:
     g1 = ok(22) and res[22]["without_Y8"] == 0 and all(res[m].get("equals_nmh", False) for m in (23, 24, 25) if m in res)
     print("GO/NO-GO 1:", "GO ((23,22) closed modulo NMH's Y8 runs)" if g1 else "NO-GO (see results/stage12_check.json)")

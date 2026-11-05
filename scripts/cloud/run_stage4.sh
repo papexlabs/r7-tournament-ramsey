@@ -6,8 +6,9 @@
 #        stage4-<codes>   a subset, one letter per instance:
 #                           A..Y = 23X-p-Y8,  t = ST26-p-TT5,  h = ST25-p-H6,  w = ST25-p-W7
 #                         e.g. stage4-SHLFGEOt and stage4-ABCDIJKMNPQRTUVWXYhw on two boxes
-# Environment (optional): SLOTS (instances side by side, default 6; WORKERS/SLOTS workers each),
-#   TIMEOUTS (run_cubes levels, default 1800,3600,0), MINFREE (GB, default 8),
+# Environment (optional): SLOTS (instances side by side, default: all of the stage's instances;
+#   WORKERS/SLOTS workers each), TIMEOUTS (run_cubes levels, default 1800,3600,1800,7200,0, the
+#   schedule that finished run 1), MINFREE (GB, default 8),
 #   POLL (scheduler poll seconds, default 20), STAGE4_NAMES (explicit instance names; tests only).
 # Steps: fetch NMH's repository if missing; build every CNF with NMH's encoder and require the
 # sha256 recorded in data/stage4_manifest.json; static 2^K cubes; run_cubes.py per instance,
@@ -20,7 +21,7 @@
 set -uo pipefail
 cd "$(dirname "$0")/../.."
 STAGE="$1"; W="$2"; GRACE="${3:-60}"
-SLOTS="${SLOTS:-6}"; TIMEOUTS="${TIMEOUTS:-1800,3600,0}"; MINFREE="${MINFREE:-8}"
+SLOTS="${SLOTS:-0}"; TIMEOUTS="${TIMEOUTS:-1800,3600,1800,7200,0}"; MINFREE="${MINFREE:-8}"   # SLOTS 0 = all
 ulimit -n 65536 2>/dev/null || ulimit -n "$(ulimit -Hn)"
 mkdir -p results/stage4 cnf/stage4
 log() { echo "$(date -u '+%F %T') $*"; }
@@ -52,8 +53,8 @@ else
   ONLY="${ONLY#,}"
 fi
 NAMES=$(python3 -I scripts/stage4_instances.py list --only "$ONLY") || exit 2   # longest expected first
-NX=$(echo $NAMES | wc -w)
-[ "$SLOTS" -gt "$NX" ] && SLOTS=$NX
+NX=$(echo $NAMES | wc -w | tr -d " ")   # tr: BSD wc pads with spaces
+{ [ "$SLOTS" -le 0 ] || [ "$SLOTS" -gt "$NX" ]; } && SLOTS=$NX
 WX=$(( W / SLOTS )); [ "$WX" -lt 1 ] && WX=1
 log "stage $STAGE: $NX instances, $SLOTS side by side with $WX workers each, timeouts $TIMEOUTS: $NAMES"
 

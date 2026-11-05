@@ -5,6 +5,13 @@ For every recorded job (d, ia, ib) the formula is pivenum's CNF for the job
 of that job.  If CaDiCaL proves it UNSAT and lrat-check VERIFIES the streamed
 proof, the job has no TT_k-free completion besides the recorded models.  The
 models themselves are re-checked TT_k-free here (independently of pivenum).
+Every recorded model must also fit its job (scripts/audit/modelfix.py, an
+independent audit check): a tournament with exactly the job's fixed arcs
+(A = catalogue line ia on 0..a-1, pivot a, B = line ib on a+1..n-1, A -> pivot
+-> B) and all out-degrees <= d; only then does its blocking clause (its A x B
+arcs) exclude that completion.  A job with a model that does not fit is
+recorded as MODEL_MISMATCH (not VERIFIED, no solve), and models filed under a
+job without a record make all_jobs_verified false.
 Together with complete catalogues of TT_{k-1}-free tournaments this certifies
 the enumeration.
 
@@ -23,8 +30,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(ROOT / "scripts" / "audit"))
 import tourn as T  # noqa: E402
 from stream_solve import stream_solve  # noqa: E402
+from modelfix import job_mismatch  # noqa: E402  (independent audit check, kept separate)
 
 PIV = str(ROOT / "build/pivenum")
 
@@ -55,6 +64,18 @@ def main():
     for key, r in recs.items():
         if r["models"] != len(models.get(key, [])):
             raise SystemExit(f"job {key}: {r['models']} models recorded, {len(models.get(key, []))} found")
+    # every model must fit its job (fixed arcs of A, pivot and B; degree bound); see modelfix.py
+    mismatch = {}
+    for key, ms in models.items():
+        for m in ms:
+            why = job_mismatch(k, n, key[0], key[1], key[2], m)
+            if why:
+                mismatch[key] = why
+                break
+    orphans = sorted(key for key in models if key not in recs)
+    if mismatch or orphans:
+        print(f"MODEL MISMATCH: {len(mismatch)} job(s), e.g. {sorted(mismatch.items())[:3]}; "
+              f"models without a job record: {len(orphans)} job(s) {orphans[:3]}", flush=True)
     cert_path = out / "certify.jsonl"
     done = set()
     if cert_path.exists():
@@ -62,7 +83,7 @@ def main():
             c = json.loads(line)
             if c.get("check") == "VERIFIED":
                 done.add((c["d"], c["ia"], c["ib"]))
-    todo = sorted(k_ for k_ in recs if k_ not in done)
+    todo = sorted(k_ for k_ in recs if k_ not in done or k_ in mismatch)
     if a.limit:
         if a.seed:
             import random
@@ -75,6 +96,12 @@ def main():
     def run(key):
         d, ia, ib = key
         asz = n - 1 - d
+        if key in mismatch:
+            rec = {"d": d, "ia": ia, "ib": ib, "models": len(models.get(key, [])), "status": "MODEL_MISMATCH",
+                   "check": "FAILED", "problem": mismatch[key], "secs": 0.0}
+            with lock, open(cert_path, "a") as fh:
+                fh.write(json.dumps(rec) + "\n")
+            return rec
         ca = ROOT / f"data/tt{k-1}free/tt{k-1}free{asz}.d6"
         cb = ROOT / f"data/tt{k-1}free/tt{k-1}free{d}.d6"
         cnf = subprocess.run([PIV, "dumpcnf", str(k), str(ca), str(cb), str(ia), str(ib), "--maxdeg"],
@@ -107,11 +134,13 @@ def main():
     with ThreadPoolExecutor(a.workers) as ex:
         res = [f.result() for f in as_completed([ex.submit(run, key) for key in todo])]
     allc = [json.loads(l) for l in cert_path.read_text().splitlines()]
-    ver = {(c["d"], c["ia"], c["ib"]) for c in allc if c.get("check") == "VERIFIED"}
+    ver = {(c["d"], c["ia"], c["ib"]) for c in allc if c.get("check") == "VERIFIED"} - set(mismatch)
     s = {"jobs": len(recs), "verified": len(ver & set(recs)), "this_run": len(res),
          "failed_this_run": sum(r["check"] != "VERIFIED" for r in res),
          "solve_seconds_this_run": round(sum(r["secs"] for r in res), 1),
-         "all_jobs_verified": set(recs) <= ver}
+         "models_checked": sum(len(v) for v in models.values()),
+         "model_mismatch_jobs": len(mismatch), "orphan_model_jobs": len(orphans),
+         "all_jobs_verified": set(recs) <= ver and not orphans}
     (out / "certify_summary.json").write_text(json.dumps(s, indent=1))
     print(json.dumps(s))
 
