@@ -9,7 +9,11 @@ Checks, from DIR/results.jsonl:
  2. Every split cube was replaced by children that are exactly the 2^S sign
     patterns of S fresh variables appended to the parent (structural check).
  3. Every leaf (cube without children) has status UNSAT with check VERIFIED.
-Prints ALL CLOSED only if 1-3 hold and no SAT cube exists.
+ 4. Every level-0 record solved exactly its cube: its literals equal the matching 'a' line of
+    ICNF (the record of cube i has id "i").
+ 5. If DIR/body.sha256 exists (written by run_cubes.py with body.cnf), it is reported as
+    body_sha256, and body.cnf, if present, must still have that hash.
+Prints ALL CLOSED only if 1-5 hold and no SAT cube exists.
 usage: cnc_summary.py CNF ICNF DIR
 """
 import json
@@ -22,7 +26,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from stream_solve import stream_solve  # noqa: E402
-from run_cubes import read_cubes  # noqa: E402
+from run_cubes import read_cubes, sha256_file  # noqa: E402
 
 
 def cover_check(cubes, nvars, cnf_body=None, ncnf=0):
@@ -63,6 +67,8 @@ def main():
         if r is None:
             open_leaves += 1
             return
+        if r.get("lits") != lits:  # level 0: lits is the ICNF cube (deeper ids pass their own lits)
+            problems.append(f"{cid}: record literals differ from cube {cid} of the ICNF")
         if r["status"] == "SAT":
             sat.append(cid)
             return
@@ -98,11 +104,17 @@ def main():
 
     for i, c in enumerate(cubes):
         visit(str(i), c)
+    body_sha = None
+    if (d / "body.sha256").exists():
+        body_sha = (d / "body.sha256").read_text().split()[0]
+        if (d / "body.cnf").exists() and sha256_file(d / "body.cnf") != body_sha:
+            problems.append("body.cnf does not match body.sha256")
     secs = sum(r["secs"] for r in latest.values())
     ok = cov.startswith("VERIFIED") and not problems and not sat and open_leaves == 0
     s = {"level0_cubes": len(cubes), "cover": cov, "verified_leaves": verified_leaves,
          "open_leaves": open_leaves, "sat_cubes": sat, "problems": problems[:20],
-         "solver_hours": round(secs / 3600, 2), "verdict": "ALL CLOSED" if ok else "NOT CLOSED"}
+         "solver_hours": round(secs / 3600, 2), "body_sha256": body_sha, "cubes_sha256": sha256_file(icnf),
+         "verdict": "ALL CLOSED" if ok else "NOT CLOSED"}
     (d / "summary.json").write_text(json.dumps(s, indent=1))
     print(json.dumps(s))
 

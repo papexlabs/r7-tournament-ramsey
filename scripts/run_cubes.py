@@ -10,6 +10,8 @@ children run at the next level; the last level has no time limit.  A SAT cube
 stops new work, and its model is saved for independent checking
 (scripts/verify_model.py).
 
+DIR/body.cnf is the CNF without its header (written once; DIR/body.meta holds "nvars nclauses"
+and DIR/body.sha256 its sha256, which scripts/cnc_summary.py reports and re-checks).
 Records go to DIR/results.jsonl, one JSON line per finished cube:
   {"id": "17.3.0", "lits": [...], "level": L, "status": ..., "check": ..., "secs": ...}
 The run is resumable (finished ids are skipped; ids of split cubes are re-derived).
@@ -19,6 +21,7 @@ usage: run_cubes.py CNF ICNF DIR [--workers W] [--timeouts 600,1800,0]
 """
 import argparse
 import collections
+import hashlib
 import json
 import os
 import resource
@@ -41,6 +44,14 @@ def mem_available_gb():
     except OSError:
         pass
     return float("inf")
+
+
+def sha256_file(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as fh:
+        for chunk in iter(lambda: fh.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 def read_cubes(path):
@@ -76,8 +87,9 @@ def main():
     if not body.exists():
         tmp = out / "body.cnf.tmp"
         nv, nc = split_cnf(a.cnf, tmp)
-        os.replace(tmp, body)
         (out / "body.meta").write_text(f"{nv} {nc}\n")
+        (out / "body.sha256").write_text(f"{sha256_file(tmp)}  body.cnf\n")
+        os.replace(tmp, body)
     nv, nc = map(int, (out / "body.meta").read_text().split())
     # variable frequency for splitting (arc variables only if --maxvar)
     freq = collections.Counter()

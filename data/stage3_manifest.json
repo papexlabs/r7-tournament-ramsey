@@ -1,0 +1,86 @@
+{
+ "description": "Stage 3 CNFs (I24X -p- O21*, TT7 exclusion, 3-cycle mode), built on the Mac on 5 Nov 2026 from data/ by the commands of scripts/cloud/run_stage.sh, twice (two encode binaries), with identical sha256; 24A also equals the CNF built on 3 Nov 2026. build/tri_sound (src/tri_sound.c) said SOUND on each. run_stage.sh stage3 refuses an instance whose matrix or CNF sha256 differs, and checks run/body.sha256 (the CNF without its header line) against body_sha256.",
+ "commands": [
+  "python3 -I src/instances.py data/I24_X.txt data/O21star.txt cnf/24X-p-O21s.txt",
+  "build/encode cnf/24X-p-O21s.txt 7 1 cnf/24X-p-O21s.tri.cnf"
+ ],
+ "encoder_sha256": "193796a79ace909c446aa9a2581931746cd54895aa332c9714970a7611228b5d",
+ "instances_py_sha256": "becc78bcd869d1631250a8453419b997204f0c8a28d4b28c75099b8bd7017937",
+ "instances": {
+  "24A-p-O21s": {
+   "inputs": {
+    "data/I24_A.txt": "7e027dfd8cde62f9b866fb05f8e8225449c3e218dd23efa361fe8e59b3b518d1",
+    "data/O21star.txt": "1823ac5f5d77c1244622be79d66743100a8306c4fc554b6f3db9f09d1a6f641b"
+   },
+   "matrix": "cnf/24A-p-O21s.txt",
+   "matrix_sha256": "f2388d83dbfb07e3c9231af0bff12c6b63adc89faf4dfa1353ff69e6752cd6e9",
+   "cnf": "cnf/24A-p-O21s.tri.cnf",
+   "cnf_sha256": "b6a67cd97445f2ce7a5a37c56235158a5dd09f8512febcfc52788f9f054f6970",
+   "body_sha256": "8fa750886bc6f0874bdeb81f6036b5755a1b7206917b4578794d4ead3609534c",
+   "vars": 11340,
+   "clauses": 9007047,
+   "bytes": 1071472145,
+   "tri_sound": "n=46 k=7 F=504 header=11340/9007047 clauses=9007047 maxvar=11340 tvars: triple=10836 consttrue=0 bad=0 complex_neg_clauses=0 | satisfied=0 tautologies=0 ok=9007047 (shortcut=8963703 brute=54545778 vacuous=43344 extended=2608200) fail=0 | SOUND"
+  },
+  "24B-p-O21s": {
+   "inputs": {
+    "data/I24_B.txt": "4bbbdb4138e61a164dd583d4a1c4a750504b54a15fe95a230aac5644c7ba37b3",
+    "data/O21star.txt": "1823ac5f5d77c1244622be79d66743100a8306c4fc554b6f3db9f09d1a6f641b"
+   },
+   "matrix": "cnf/24B-p-O21s.txt",
+   "matrix_sha256": "49133dedd5c69b1e37058648ccf560311d00ce20fbc33718ea837fd9edcdcc0f",
+   "cnf": "cnf/24B-p-O21s.tri.cnf",
+   "cnf_sha256": "cb1402940fa2ab147762605fbd521f8fbe782c0627c35d437e0c8d8a75d5bdc1",
+   "body_sha256": "2e92c26aee96ca240b7ce800b9a873cf30e82064c5f04212a3f433a013301689",
+   "vars": 11340,
+   "clauses": 8988168,
+   "bytes": 1069270739,
+   "tri_sound": "n=46 k=7 F=504 header=11340/8988168 clauses=8988168 maxvar=11340 tvars: triple=10836 consttrue=0 bad=0 complex_neg_clauses=0 | satisfied=0 tautologies=0 ok=8988168 (shortcut=8944824 brute=54475953 vacuous=43344 extended=2604735) fail=0 | SOUND"
+  },
+  "24C-p-O21s": {
+   "inputs": {
+    "data/I24_C.txt": "eb94d398672fd48006d1319c01c48c0cdafcb23ebb22bdebe3e111368b4dc87c",
+    "data/O21star.txt": "1823ac5f5d77c1244622be79d66743100a8306c4fc554b6f3db9f09d1a6f641b"
+   },
+   "matrix": "cnf/24C-p-O21s.txt",
+   "matrix_sha256": "5278a642d15e5e77271b2545ac518cf1181e50d9afa4615f1614336396d1d467",
+   "cnf": "cnf/24C-p-O21s.tri.cnf",
+   "cnf_sha256": "8c53b09c90b032e087d88085247e5ad13c4d3c3cc25abec4b00f353af4dd738f",
+   "body_sha256": "5e430529f7988897fc31abbb582b66f056fbf930a08acaddc33b455f7d995f6f",
+   "vars": 11340,
+   "clauses": 8988168,
+   "bytes": 1069477076,
+   "tri_sound": "n=46 k=7 F=504 header=11340/8988168 clauses=8988168 maxvar=11340 tvars: triple=10836 consttrue=0 bad=0 complex_neg_clauses=0 | satisfied=0 tautologies=0 ok=8988168 (shortcut=8944824 brute=54475953 vacuous=43344 extended=2604735) fail=0 | SOUND"
+  },
+  "24D-p-O21s": {
+   "inputs": {
+    "data/I24_D.txt": "fb94bdde12356261fc2a698c4fe37b8b64bacdecdcae81f68310a6aa6b7a8f2c",
+    "data/O21star.txt": "1823ac5f5d77c1244622be79d66743100a8306c4fc554b6f3db9f09d1a6f641b"
+   },
+   "matrix": "cnf/24D-p-O21s.txt",
+   "matrix_sha256": "01284f350732b981f3af234890f08e2a8a54d6cf1b0d81cd0f91066f3d2f1be2",
+   "cnf": "cnf/24D-p-O21s.tri.cnf",
+   "cnf_sha256": "0facb5da175e9dd3162085f00fbfaf298e48da737299e42d04b5a5941af8397a",
+   "body_sha256": "5e9a01a8df454f838716e6cac4ec2b7d51359e9398af63cc7dd9d6dfc2de091d",
+   "vars": 11340,
+   "clauses": 9007047,
+   "bytes": 1071388345,
+   "tri_sound": "n=46 k=7 F=504 header=11340/9007047 clauses=9007047 maxvar=11340 tvars: triple=10836 consttrue=0 bad=0 complex_neg_clauses=0 | satisfied=0 tautologies=0 ok=9007047 (shortcut=8963703 brute=54545778 vacuous=43344 extended=2608200) fail=0 | SOUND"
+  },
+  "24E-p-O21s": {
+   "inputs": {
+    "data/I24_E.txt": "73a635a9bd95129cc13d50f4b34e311ad45abf97a405d81995653f045cfe7c35",
+    "data/O21star.txt": "1823ac5f5d77c1244622be79d66743100a8306c4fc554b6f3db9f09d1a6f641b"
+   },
+   "matrix": "cnf/24E-p-O21s.txt",
+   "matrix_sha256": "bf1b49c78361ac2b523a7003e41fd6ca63db69c098c5ffb7e05031cde0b8457e",
+   "cnf": "cnf/24E-p-O21s.tri.cnf",
+   "cnf_sha256": "94489f5dd54b029e7a96fb545ba1d18cb170576d640ccb03a7800023ea681059",
+   "body_sha256": "43c025d43ff1b09c64595dd296d42a980f927eecdb39a20ebfddf17461c54869",
+   "vars": 11340,
+   "clauses": 9007047,
+   "bytes": 1071487684,
+   "tri_sound": "n=46 k=7 F=504 header=11340/9007047 clauses=9007047 maxvar=11340 tvars: triple=10836 consttrue=0 bad=0 complex_neg_clauses=0 | satisfied=0 tautologies=0 ok=9007047 (shortcut=8963703 brute=54545778 vacuous=43344 extended=2608200) fail=0 | SOUND"
+  }
+ }
+}

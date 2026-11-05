@@ -6,6 +6,11 @@
 #        stage12 (stage1 then stage2 on the same instance)
 #        stage3 (the five instances I24X -p- O21*, cube-and-conquer with streamed LRAT checks)
 #        stage3-XYZ (only instances X, Y, Z of A..E, e.g. stage3-ABC and stage3-DE on two boxes)
+#        Stage 3 prepares each instance first (results/stage3/24X-p-O21s/prep.log): it builds the CNF
+#        if missing, requires the matrix and CNF sha256 recorded in data/stage3_manifest.json
+#        (written to cnf.sha256), requires build/tri_sound (independent soundness check of 3-cycle-mode
+#        CNFs) to say SOUND (tri_sound.log), and makes the cubes.  An instance that fails is not run
+#        (rc 1).  After cube-and-conquer, run/body.sha256 must equal the manifest's body_sha256.
 # When the stage ends (success or failure) it writes results/<STAGE>.DONE and moves the
 # power-off to GRACE_MIN minutes from now (default 60) -- never later than the hard stop
 # armed by user-data -- so the Mac has time to sync results back.
@@ -47,16 +52,45 @@ case "$STAGE" in
     # stage3 = all five; stage3-ABC = instances A, B, C only (e.g. one of two 96-vCPU boxes)
     LIST="A B C D E"; [ "$STAGE" != stage3 ] && LIST=$(echo "${STAGE#stage3-}" | sed 's/./& /g')
     NX=$(echo $LIST | wc -w); WX=$(( W / NX ))
-    for X in $LIST; do   # prepare all instances first (encode ~5 s each, 1 GB CNF each)
-      d="results/stage3/24$X-p-O21s"; mkdir -p "$d"
-      if [ ! -f "cnf/24$X-p-O21s.tri.cnf" ]; then
-        python3 -I src/instances.py "data/I24_$X.txt" data/O21star.txt "cnf/24$X-p-O21s.txt"
-        build/encode "cnf/24$X-p-O21s.txt" 7 1 "cnf/24$X-p-O21s.tri.cnf"
+    MAN=data/stage3_manifest.json
+    man_get() {  # instance key -> value from the manifest
+      python3 -I -c 'import json, sys; print(json.load(open(sys.argv[1]))["instances"][sys.argv[2]][sys.argv[3]])' "$MAN" "$1" "$2"
+    }
+    sha() { if command -v sha256sum > /dev/null; then sha256sum "$1"; else shasum -a 256 "$1"; fi | cut -d' ' -f1; }
+    prep3() {  # X: CNF (built if missing), sha256 against the manifest, tri_sound, cubes -> $d/prep.ok
+      local X=$1 name="24$1-p-O21s" d="results/stage3/24$1-p-O21s" m="cnf/24$1-p-O21s.txt" cnf="cnf/24$1-p-O21s.tri.cnf" want got
+      rm -f "$d/prep.ok"
+      if [ ! -f "$cnf" ]; then   # encode ~5 s, 1 GB CNF
+        python3 -I src/instances.py "data/I24_$X.txt" data/O21star.txt "$m" || return 1
+        build/encode "$m" 7 1 "$cnf.tmp" && mv "$cnf.tmp" "$cnf" || return 1
       fi
-      [ -f "$d/cubes.icnf" ] || python3 -I scripts/make_cubes.py "cnf/24$X-p-O21s.tri.cnf" "$d/cubes.icnf" --k 10 --maxvar 504
+      want=$(man_get "$name" matrix_sha256) || { echo "$name: no manifest entry"; return 1; }
+      got=$(sha "$m"); [ "$got" = "$want" ] || { echo "$name: matrix sha256 MISMATCH $got != $want"; return 1; }
+      want=$(man_get "$name" cnf_sha256) || return 1
+      got=$(sha "$cnf"); echo "$got  $cnf" > "$d/cnf.sha256"
+      [ "$got" = "$want" ] || { echo "$name: CNF sha256 MISMATCH $got != $want: refusing (delete $cnf to rebuild)"; return 1; }
+      echo "$name: CNF sha256 OK $got"
+      build/tri_sound "$m" 7 "$cnf" > "$d/tri_sound.log" 2>&1
+      [ "$(tail -1 "$d/tri_sound.log")" = SOUND ] || { echo "$name: tri_sound did not say SOUND: $(tail -3 "$d/tri_sound.log" | tr '\n' ' ')"; return 1; }
+      echo "$name: tri_sound SOUND"
+      if [ ! -f "$d/cubes.icnf" ]; then
+        python3 -I scripts/make_cubes.py "$cnf" "$d/cubes.icnf.tmp" --k 10 --maxvar 504 && mv "$d/cubes.icnf.tmp" "$d/cubes.icnf" || return 1
+      fi
+      touch "$d/prep.ok"
+    }
+    for X in $LIST; do   # prepare all instances first, side by side
+      d="results/stage3/24$X-p-O21s"; mkdir -p "$d"
+      prep3 "$X" > "$d/prep.log" 2>&1 &
+    done
+    wait
+    RUN=""
+    for X in $LIST; do
+      d="results/stage3/24$X-p-O21s"
+      if [ -f "$d/prep.ok" ]; then RUN="$RUN $X"; log "24$X prepared: $(tr '\n' ' ' < "$d/prep.log")"
+      else log "PREPARE FAILED for 24$X (not run): $(tail -3 "$d/prep.log" | tr '\n' ' ')"; rc=1; fi
     done
     pids=""
-    for X in $LIST; do   # the instances run side by side, W/NX workers each
+    for X in $RUN; do   # the instances run side by side, W/NX workers each
       d="results/stage3/24$X-p-O21s"
       log "conquer 24$X with $WX workers"
       python3 -I scripts/run_cubes.py "cnf/24$X-p-O21s.tri.cnf" "$d/cubes.icnf" "$d/run" \
@@ -65,10 +99,14 @@ case "$STAGE" in
       pids="$pids $!"
     done
     for p in $pids; do wait "$p" || rc=1; done
-    for X in $LIST; do
+    for X in $RUN; do
       d="results/stage3/24$X-p-O21s"
       python3 -I scripts/cnc_summary.py "cnf/24$X-p-O21s.tri.cnf" "$d/cubes.icnf" "$d/run" || rc=1
-      grep -q '"ALL CLOSED"' "$d/run/summary.json" && log "24$X ALL CLOSED" || { log "24$X NOT CLOSED"; rc=1; }
+      want=$(man_get "24$X-p-O21s" body_sha256); got=$(cut -d' ' -f1 "$d/run/body.sha256" 2>/dev/null)
+      if [ -z "$got" ] || [ "$got" != "$want" ]; then
+        log "24$X NOT CLOSED: run/body.sha256 '$got' != manifest body_sha256 $want"; rc=1
+      elif grep -q '"ALL CLOSED"' "$d/run/summary.json"; then log "24$X ALL CLOSED"
+      else log "24$X NOT CLOSED"; rc=1; fi
     done
     ;;
   *) echo "unknown stage $STAGE"; exit 2 ;;
