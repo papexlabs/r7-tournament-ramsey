@@ -1,0 +1,37 @@
+c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=9007047 literals=208977552
+c ksets: direct=2608200 tri=6355503 zero-orderings=0 prunes-by-fixed-cycle=9466496
+c clauses: direct=2608200 tri=6355503 tdef=43344
+1024 cubes on vars [442, 443, 444, 445, 446, 447, 448, 449, 450, 451]
+c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=8988168 literals=208508727
+c ksets: direct=2604735 tri=6340089 zero-orderings=0 prunes-by-fixed-cycle=9459628
+c clauses: direct=2604735 tri=6340089 tdef=43344
+1024 cubes on vars [463, 464, 465, 466, 467, 468, 469, 470, 471, 472]
+c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=8988168 literals=208508727
+c ksets: direct=2604735 tri=6340089 zero-orderings=0 prunes-by-fixed-cycle=9459880
+c clauses: direct=2604735 tri=6340089 tdef=43344
+1024 cubes on vars [64, 65, 66, 67, 68, 69, 70, 71, 72, 73]
+c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=9007047 literals=208977552
+c ksets: direct=2608200 tri=6355503 zero-orderings=0 prunes-by-fixed-cycle=9466819
+c clauses: direct=2608200 tri=6355503 tdef=43344
+1024 cubes on vars [169, 170, 171, 172, 173, 174, 175, 176, 177, 178]
+c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=9007047 literals=208977552
+c ksets: direct=2608200 tri=6355503 zero-orderings=0 prunes-by-fixed-cycle=9466652
+c clauses: direct=2608200 tri=6355503 tdef=43344
+1024 cubes on vars [421, 422, 423, 424, 425, 426, 427, 428, 429, 430]
+2026-11-03 18:42:45 conquer 24A with 15 workers
+2026-11-03 18:42:45 conquer 24B with 15 workers
+2026-11-03 18:42:45 conquer 24C with 15 workers
+2026-11-03 18:42:45 conquer 24D with 15 workers
+2026-11-03 18:42:45 conquer 24E with 15 workers
+{"level0_cubes": 1024, "cover": "VERIFIED (cubes alone)", "verified_leaves": 9874, "open_leaves": 0, "sat_cubes": [], "problems": [], "solver_hours": 510.84, "verdict": "ALL CLOSED"}
+2026-11-05 06:07:44 24A ALL CLOSED
+{"level0_cubes": 1024, "cover": "VERIFIED (cubes alone)", "verified_leaves": 9949, "open_leaves": 0, "sat_cubes": [], "problems": [], "solver_hours": 523.71, "verdict": "ALL CLOSED"}
+2026-11-05 06:07:44 24B ALL CLOSED
+{"level0_cubes": 1024, "cover": "VERIFIED (cubes alone)", "verified_leaves": 9469, "open_leaves": 0, "sat_cubes": [], "problems": [], "solver_hours": 513.49, "verdict": "ALL CLOSED"}
+2026-11-05 06:07:44 24C ALL CLOSED
+{"level0_cubes": 1024, "cover": "VERIFIED (cubes alone)", "verified_leaves": 9799, "open_leaves": 0, "sat_cubes": [], "problems": [], "solver_hours": 525.77, "verdict": "ALL CLOSED"}
+2026-11-05 06:07:44 24D ALL CLOSED
+{"level0_cubes": 1024, "cover": "VERIFIED (cubes alone)", "verified_leaves": 9904, "open_leaves": 0, "sat_cubes": [], "problems": [], "solver_hours": 530.24, "verdict": "ALL CLOSED"}
+2026-11-05 06:07:44 24E ALL CLOSED
+2026-11-05 06:07:44 stage stage3-ABCDE finished rc=0
+Shutdown scheduled for Thu 2026-11-05 07:07:44 UTC, use 'shutdown -c' to cancel.
