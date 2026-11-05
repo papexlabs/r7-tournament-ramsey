@@ -1,0 +1,10 @@
+2026-11-04 12:21:23 stage stage4: 28 instances, 6 side by side with 15 workers each, timeouts 1800,3600,0: 23H-p-Y8 23F-p-Y8 23J-p-Y8 23G-p-Y8 23E-p-Y8 23S-p-Y8 23L-p-Y8 23I-p-Y8 23V-p-Y8 23Q-p-Y8 23D-p-Y8 23O-p-Y8 23K-p-Y8 23B-p-Y8 23U-p-Y8 23N-p-Y8 23A-p-Y8 23P-p-Y8 23T-p-Y8 23C-p-Y8 23M-p-Y8 23R-p-Y8 ST25-p-H6 23W-p-Y8 ST25-p-W7 23X-p-Y8 ST26-p-TT5 23Y-p-Y8
+2026-11-04 12:21:23 fetching NMH's repository (encoder and inputs; every file used is checked against the manifest)
+2026-11-04 12:21:24 prepare (NMH encoder, sha256 against the manifest, cubes)
+/home/ubuntu/tr/build/nmh-tour-encode
+2026-11-04 12:22:09 conquer 23H-p-Y8 with 15 workers
+2026-11-04 12:22:09 conquer 23F-p-Y8 with 15 workers
+2026-11-04 12:22:09 conquer 23J-p-Y8 with 15 workers
+2026-11-04 12:22:09 conquer 23G-p-Y8 with 15 workers
+2026-11-04 12:22:09 conquer 23E-p-Y8 with 15 workers
+2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers

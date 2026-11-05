@@ -1,0 +1,10 @@
+{
+ "level0_cubes": 1024,
+ "cover": "VERIFIED (cubes alone)",
+ "verified_leaves": 1129,
+ "open_leaves": 0,
+ "sat_cubes": [],
+ "problems": [],
+ "solver_hours": 50.14,
+ "verdict": "ALL CLOSED"
+}

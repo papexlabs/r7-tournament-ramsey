@@ -1,0 +1,31 @@
+2026-11-04 18:00:28 stage stage4-ABCDIKLMNOPQRTUVWXYthw: 22 instances, 22 side by side with 4 workers each, timeouts 1800,3600,0: 23L-p-Y8 23I-p-Y8 23V-p-Y8 23Q-p-Y8 23D-p-Y8 23O-p-Y8 23K-p-Y8 23B-p-Y8 23U-p-Y8 23N-p-Y8 23A-p-Y8 23P-p-Y8 23T-p-Y8 23C-p-Y8 23M-p-Y8 23R-p-Y8 ST25-p-H6 23W-p-Y8 ST25-p-W7 23X-p-Y8 ST26-p-TT5 23Y-p-Y8
+2026-11-04 18:00:28 prepare (NMH encoder, sha256 against the manifest, cubes)
+/home/ubuntu/tr/build/nmh-tour-encode
+2026-11-04 18:00:28 conquer 23L-p-Y8 with 4 workers
+2026-11-04 18:00:28 conquer 23I-p-Y8 with 4 workers
+2026-11-04 18:00:28 conquer 23V-p-Y8 with 4 workers
+2026-11-04 18:00:28 conquer 23Q-p-Y8 with 4 workers
+2026-11-04 18:00:28 conquer 23D-p-Y8 with 4 workers
+2026-11-04 18:00:28 conquer 23O-p-Y8 with 4 workers
+2026-11-04 18:00:28 conquer 23K-p-Y8 with 4 workers
+2026-11-04 18:00:28 conquer 23B-p-Y8 with 4 workers
+2026-11-04 18:00:28 conquer 23U-p-Y8 with 4 workers
+2026-11-04 18:00:29 conquer 23N-p-Y8 with 4 workers
+2026-11-04 18:00:29 conquer 23A-p-Y8 with 4 workers
+2026-11-04 18:00:29 conquer 23P-p-Y8 with 4 workers
+2026-11-04 18:00:29 conquer 23T-p-Y8 with 4 workers
+2026-11-04 18:00:29 conquer 23C-p-Y8 with 4 workers
+2026-11-04 18:00:29 conquer 23M-p-Y8 with 4 workers
+2026-11-04 18:00:29 conquer 23R-p-Y8 with 4 workers
+2026-11-04 18:00:29 conquer ST25-p-H6 with 4 workers
+2026-11-04 18:00:29 conquer 23W-p-Y8 with 4 workers
+2026-11-04 18:00:29 conquer ST25-p-W7 with 4 workers
+2026-11-04 18:00:29 conquer 23X-p-Y8 with 4 workers
+2026-11-04 18:00:29 conquer ST26-p-TT5 with 4 workers
+2026-11-04 18:00:29 conquer 23Y-p-Y8 with 4 workers
+2026-11-04 19:10:50 conquer 23Y-p-Y8 finished
+2026-11-04 19:24:50 conquer ST26-p-TT5 finished
+2026-11-04 20:21:30 conquer 23W-p-Y8 finished
+2026-11-04 20:25:10 conquer 23X-p-Y8 finished
+2026-11-04 20:42:30 conquer ST25-p-H6 finished
+2026-11-04 20:51:50 conquer ST25-p-W7 finished
