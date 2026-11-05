@@ -33,6 +33,11 @@ Environment (all optional):
                         output.  The file is named after the CNF's directory (stream_solve's
                         ss_<tag>_<random>), else after the CNF file name, plus .json.
   DUALCHECK_KEEP_GOING  1: let the other checker finish after one has failed.
+  DUALCHECK_REQUIRE     both (default): VERIFIED only if both checkers verify.  lrat: the verdict
+                        is lrat-check's alone (strict rule); cake_lpr still runs to the end and
+                        its verdict is only logged (use with DUALCHECK_LOG_DIR), so a cake_lpr
+                        failure such as an exhausted heap never stops a long run; the logs are
+                        checked afterwards and failed items re-checked.
 """
 import json
 import os
@@ -167,7 +172,11 @@ def main(argv):
         cake_flags.append(f"--CML_HEAP_SIZE={int(os.environ['DUALCHECK_CAKE_HEAP'])}")
     if os.environ.get("DUALCHECK_CAKE_STACK"):
         cake_flags.append(f"--CML_STACK_SIZE={int(os.environ['DUALCHECK_CAKE_STACK'])}")
-    keep_going = os.environ.get("DUALCHECK_KEEP_GOING") == "1"
+    require = os.environ.get("DUALCHECK_REQUIRE", "both")
+    if require not in ("both", "lrat"):
+        print(f"c NOT VERIFIED: unknown DUALCHECK_REQUIRE={require}", flush=True)
+        return 1
+    keep_going = os.environ.get("DUALCHECK_KEEP_GOING") == "1" or require == "lrat"
     ntail = int(os.environ.get("DUALCHECK_TAIL", "20"))
 
     names = ("lrat-check", "cake_lpr")
@@ -248,10 +257,14 @@ def main(argv):
     # formula writer) would otherwise wait forever.  After we exit, its writes get EPIPE.
     for t in tees:
         t.opened.wait()
-    ok = all(info[k]["verdict"] == "VERIFIED" for k in names)
+    both_ok = all(info[k]["verdict"] == "VERIFIED" for k in names)
+    ok = both_ok if require == "both" else info["lrat-check"]["verdict"] == "VERIFIED"
     for k in names:
         extra = f" (killed after {info[k]['killed_after']})" if "killed_after" in info[k] else ""
-        if ok:
+        if require == "lrat" and k == "cake_lpr":
+            # log-only: never print a failure word here, stream_solve's strict rule would read it
+            print(f"c cake_lpr: logged only ({'ok' if info[k]['verdict'] == 'VERIFIED' else 'see log'})")
+        elif info[k]["verdict"] == "VERIFIED":
             print(f"c {k}: VERIFIED (exit {info[k]['exit']})")
         else:
             print(f"c {k}: {info[k]['verdict']} (exit {info[k]['exit']}){extra}: {info[k]['said']}")
@@ -259,7 +272,8 @@ def main(argv):
 
     logdir = os.environ.get("DUALCHECK_LOG_DIR")
     if logdir:
-        rec = {"verdict": "VERIFIED" if ok else "NOT VERIFIED", "secs": round(time.time() - t0, 2),
+        rec = {"verdict": "VERIFIED" if ok else "NOT VERIFIED", "require": require, "both_verified": both_ok,
+               "secs": round(time.time() - t0, 2),
                "cnf": cnf, "proof": proof, "first_failure": failed_first,
                "bytes": {t.name: t.total for t in tees},
                "bytes_sent": {t.name: t.sent for t in tees},

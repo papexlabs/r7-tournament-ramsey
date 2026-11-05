@@ -26,7 +26,10 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-LRAT_CHECK = str(ROOT / "build/lrat-check")
+# TR_LRAT_CHECK: optional replacement checker with the same interface, e.g.
+# scripts/audit/dualcheck.sh (lrat-check and cake_lpr side by side).  The verdict rule below
+# (lrat_verdict) applies to whatever it prints.
+LRAT_CHECK = os.environ.get("TR_LRAT_CHECK") or str(ROOT / "build/lrat-check")
 CADICAL = os.environ.get("CADICAL", "cadical")
 
 
