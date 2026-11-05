@@ -116,7 +116,7 @@ Let T be TT7-free on 46 vertices and v any vertex, so d⁻(v) + d⁺(v) = 45. Bo
 
 ### 3.1 Exclusions from NMH's results
 
-1. **d⁻ ≥ 26 is impossible.** N⁻ contains ST26 (unique). d⁺ ≥ 18 ≥ 14, so N⁺ contains a TT5. That contradicts `ST26 -p- TT5` being UNSAT.
+1. **d⁻ ≥ 26 is impossible.** N⁻ is TT6-free, so d⁻ ≥ 28 is excluded by R(6) ≤ 28. For d⁻ ∈ {26, 27}, N⁻ contains a TT6-free tournament on 26 vertices, which is ST26 (unique). Also d⁺ = 45 − d⁻ ∈ {18, 19}, and 18 ≥ 14 = R(5), so N⁺ contains a TT5. That contradicts `ST26 -p- TT5` being UNSAT. *(Corrected 5 Nov 2026. This item used to say "d⁺ ≥ 18" for every d⁻ ≥ 26, which is false for d⁻ ≥ 28; that case is excluded by R(6) ≤ 28. Since run 2, the uniqueness of ST26 is also derived by our own certified enumeration (n = 26, §14).)*
 2. **d⁻ = 25 is impossible.** N⁻ is ST25 (unique, NMH). N⁺ has 20 vertices, so it contains TT6, H6 or W7. TT6 is impossible because N⁺ is TT6-free. Both `ST25 -p- H6` and `ST25 -p- W7` are UNSAT.
 3. **Reversal.** By reversal, d⁺ ≤ 24, so d⁻ ∈ {21, 22, 23, 24}.
 
@@ -607,3 +607,59 @@ So §5's figure of 5,000–10,000 vCPU-hours for Stage 4 was far too high. Cube-
 - Any SAT cube stops the stage. A SAT would contradict NMH.
 
 Launch commands: `notes/STAGE4.md` §6.
+
+## 14. Checker bug and re-run (5 Nov 2026)
+
+**The bug.** An independent audit found that `build/lrat-check` (`tools/drat-trim/lrat-check.c`; upstream drat-trim master has the same code) accepts an empty-clause lemma whose hints end without a conflict.
+
+- In `checkClause`, when the positive hints are used up without a conflict and there are no RAT hints, the guard `if (res == SUCCESS) return FAILED;` is commented out. A lemma is then accepted if `intro[pivot ^ 1]` is 0, which is meant for a fresh pivot literal.
+- For the empty clause, `pivot = convertLit(0) = 0`, and `intro[1]` is never set. So the lemma is accepted. With RAT hints it is accepted too: no clause contains "literal 1", so the RAT check has nothing to cover and passes once each RAT-hint clause is satisfied by the propagated units.
+- Reproduction: the satisfiable formula `p cnf 2 2 / 1 2 0 / -1 2 0` with the proof `3 0 0` prints `c VERIFIED` and exits 0.
+- Every lemma before the empty clause was checked correctly. The gap is the final step only.
+
+**The fix.**
+
+- `checkClause` now rejects an empty clause unless its hints end in a conflict (`c FAILED: empty clause without conflict`), before both the RAT and the non-RAT paths.
+- `getClause` now treats an index outside the allocated table as a deleted clause. Upstream read outside its arrays there, which is undefined behaviour.
+- `tests/test_lrat_check.py` covers this:
+  - bogus empty clauses are rejected: no hints, unit hints without a conflict, a RAT hint, after valid lemmas, a hint to a missing clause, and genuine CaDiCaL proofs whose final line lost its conflicting hint;
+  - genuine CaDiCaL proofs are accepted;
+  - `stream_solve.py` with a fake solver that answers `N 0 0` does not give VERIFIED.
+- The unpatched binary fails 15 of the test's checks. The patched one passes all of them.
+- The verdict (`stream_solve.lrat_verdict`, also used by `run_sat.py`) now needs three things: exit code 0, a `c VERIFIED` line, and no `FAILED` or `NOT VERIFIED` in the output.
+- `setup.sh` builds the patched checker and fails unless `test_lrat_check.py` and `test_tri_sound.py` pass.
+
+**What run 1 establishes.** Run 1 (3–5 Nov) is archived in `results/run1/` (see its README).
+
+- It ran every computation: the enumerations n = 21–25, Stage 3 (five instances, 48,995 leaves) and Stage 4 (28 instances). The answers matched Lohn's files and NMH's results.
+- Every lemma of every proof except the final empty clause was checked.
+- The audit's independent checks found nothing wrong in run 1:
+  - the cube trees of all 33 cube-and-conquer runs close (`scripts/audit/closure.py`);
+  - every recorded model fits its job (`scripts/audit/modelfix.py`; 204,311 models for n = 21–25 and 5,147 for the TT5-free runs);
+  - the five Stage 3 CNFs are SOUND under the new 3-cycle-mode checker `src/tri_sound.c`. Before this, they had no clause-soundness check, because `cnf_sound` cannot read 3-cycle variables.
+- The Mac copies of `k6n24`/`k6n25` hold 12 stale model files in the old one-field format, left over from a local run before the format change. They are git-ignored and were never on the server.
+
+**What run 1 does not establish.** "The solver is not trusted" was false for run 1. Each UNSAT still relied on CaDiCaL for its last step: that the empty clause follows from its hints. Run 1 is strong evidence, not a certificate.
+
+**Run 2.** Run 2 repeats everything with the patched checker. It adds:
+
+- n = 26 to the enumeration, so that the uniqueness of ST26, used in §3.1, is derived by our own pipeline. Locally this is 1 job, 39 models and one class, equal to ST27 minus a vertex and to Lohn's `tt6free26`.
+- a check that every enumeration model fits its job's fixed arcs and degree bound (`certify_enum.py`).
+- level-0 record = cube checks, and the body and cube sha256, in `cnc_summary.py`.
+- for Stage 3, `data/stage3_manifest.json`, a `tri_sound` gate and a `body.sha256` check in `run_stage.sh`.
+
+The five Stage 3 CNFs were rebuilt on the Mac from `data/` with two encoder builds. All sha256 values agree, and 24A also equals the 3 Nov build.
+
+Plan, with two 96-vCPU boxes:
+
+- **Box A:** `run_stage12c.sh` (n = 26, 25, 24, 23, 22, 21: certify-first, aggregation, certification), then `run_stage4.sh stage4`. Stage 4 now runs all 28 instances side by side with timeouts 1800,3600,1800,7200,0.
+- **Box B:** `run_stage.sh stage3`.
+
+In run-1 terms the work is about 19 h for stage12 (on 93 workers), about 1,150 solver-hours for Stage 4 and about 2,600 for Stage 3.
+
+After syncing, on the Mac:
+
+- `stage12_check.py` must print GO 1, GO 2 and "ST26 unique: CERTIFIED";
+- every `run/summary.json` must say ALL CLOSED;
+- `scripts/audit/closure.py` must report no problem for each instance;
+- `scripts/audit/modelfix.py results/enum/k6n*` must report no mismatch.

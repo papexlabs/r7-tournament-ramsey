@@ -111,8 +111,10 @@ On the server, `run_stage4.sh` rebuilds each CNF from the fetched NMH repository
 ```
 nohup bash scripts/cloud/run_stage4.sh STAGE WORKERS [GRACE_MIN] > results/STAGE.log 2>&1 < /dev/null &
 STAGE = stage4 (all 28) | stage4-<codes>: A..Y = 23X-p-Y8, t = ST26-p-TT5, h = ST25-p-H6, w = ST25-p-W7
-env (optional): SLOTS=6  TIMEOUTS=1800,3600,0  MINFREE=8  POLL=20
+env (optional): SLOTS=all instances  TIMEOUTS=1800,3600,1800,7200,0  MINFREE=8  POLL=20
 ```
+
+*(Defaults changed on 5 Nov 2026 for run 2 to the schedule that finished run 1: all instances side by side, five levels. Run 1 started with SLOTS=6 and TIMEOUTS=1800,3600,0, the values described below.)*
 
 The steps are:
 

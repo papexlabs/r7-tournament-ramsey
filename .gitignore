@@ -21,3 +21,9 @@ results/stage3/*/run/body.cnf
 results/stage3/*/run/tmp/
 results/stage4/*/run/body.cnf
 results/stage4/*/run/tmp/
+# run 1, archived on 5 Nov 2026 (same exclusions as above)
+results/run1/enum/*/models/
+results/run1/stage3/*/run/body.cnf
+results/run1/stage3/*/run/tmp/
+results/run1/stage4/*/run/body.cnf
+results/run1/stage4/*/run/tmp/
