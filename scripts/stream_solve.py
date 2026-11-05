@@ -12,6 +12,9 @@ API: stream_solve(body_path, nvars, nbody, extra_lines, workdir, tag,
   body_path : file with clause lines only (no 'p cnf' header), nbody clauses
   extra_lines: list of clause strings "l1 l2 ... 0"
 CLI (one-off): stream_solve.py CNF [--timeout S] [--units "l1 l2 ..."]
+
+check is "VERIFIED" only if lrat-check exited 0 AND printed the line "c VERIFIED" AND printed
+neither "FAILED" nor "NOT VERIFIED" (lrat_verdict below); anything else is "FAILED".
 """
 import os
 import shutil
@@ -25,6 +28,24 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 LRAT_CHECK = str(ROOT / "build/lrat-check")
 CADICAL = os.environ.get("CADICAL", "cadical")
+
+
+# Exit codes of build/lrat-check (tools/drat-trim/lrat-check.c, main), checked 5 Nov 2026:
+#   0    "c VERIFIED": the proof derived the empty clause and every lemma before it checked
+#   1    "c NOT VERIFIED" (a lemma failed, e.g. "c FAILED: empty clause without conflict", or the
+#        proof ended without an empty clause); also: CNF or proof file not readable, or a failed
+#        memory allocation (no verdict line in those cases)
+#   0    WITHOUT any verdict line: the usage message (too few arguments), or a CNF comment line
+#        longer than 1024 characters before the header ("c ERROR: comment longer than ...")
+#   -6   (killed by SIGABRT, shell status 134) on a failed assert, e.g. RAT hints out of order
+# Neither the exit code nor the text alone is enough, so both are required.
+def lrat_verdict(returncode, output):
+    """'VERIFIED' iff lrat-check exited 0, printed 'c VERIFIED', and printed no 'FAILED' / 'NOT VERIFIED'."""
+    ok = (returncode == 0
+          and any(line.strip() == "c VERIFIED" for line in output.splitlines())
+          and "FAILED" not in output
+          and "NOT VERIFIED" not in output)
+    return "VERIFIED" if ok else "FAILED"
 
 
 def _writer(fifo, header, body_path, extra):
@@ -75,7 +96,7 @@ def stream_solve(body_path, nvars, nbody, extra_lines, workdir, tag, timeout=0, 
         out, _ = chk.communicate()
         rec["check_secs"] = round(time.time() - t0, 2)
         if status == "UNSAT":
-            rec["check"] = "VERIFIED" if "c VERIFIED" in out else "FAILED"
+            rec["check"] = lrat_verdict(chk.returncode, out)
     for t in threads:
         t.join(timeout=5)
     shutil.rmtree(d, ignore_errors=True)

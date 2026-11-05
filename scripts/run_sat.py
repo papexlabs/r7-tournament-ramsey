@@ -15,10 +15,13 @@ import os
 import platform
 import re
 import subprocess
+import sys
 import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from stream_solve import lrat_verdict  # noqa: E402  (exit code AND output, see its comment)
 LOGS = ROOT / "results/logs"
 LOGS.mkdir(parents=True, exist_ok=True)
 (ROOT / "proofs").mkdir(exist_ok=True)
@@ -66,8 +69,8 @@ def main():
             t1 = time.time()
             r = subprocess.run(["nice", "-n", "10", str(ROOT / "build/lrat-check"), a.cnf, str(proof)],
                                capture_output=True, text=True)
-            ok = "c VERIFIED" in r.stdout or "s VERIFIED" in r.stdout
-            check = f"{'VERIFIED' if ok else 'FAILED'}({time.time()-t1:.1f}s)"
+            verdict = lrat_verdict(r.returncode, r.stdout + r.stderr)
+            check = f"{verdict}({time.time()-t1:.1f}s)"
             with open(log, "a") as fh:
                 fh.write("c lrat-check output:\n" + r.stdout[-2000:] + r.stderr[-2000:])
         if not a.keep_proof:
