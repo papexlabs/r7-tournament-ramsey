@@ -354,6 +354,20 @@ def main():
         check(r.returncode == 0 and s.get("ALL VERIFIED BY BOTH") is True and s.get("sampled") == s.get("jobs") == 12,
               f"cake_sample enum k=5 n=10: {s.get('verified_by_both')}/{s.get('sampled')} jobs verified by both "
               f"({s.get('jobs_with_models')} with models)")
+        ids = Path(td) / "ids.json"
+        recs10 = [json.loads(l) for l in (en / "records.jsonl").read_text().splitlines()]
+        two = sorted([r_["d"], r_["ia"], r_["ib"]] for r_ in recs10)[:2]
+        ids.write_text(json.dumps(two))
+        out = Path(td) / "cs_enum_ids"
+        r = subprocess.run(sample + ["enum", str(en), "--out", str(out), "--n", "0", "--ids", str(ids), "--workers", "2"],
+                           capture_output=True, text=True, timeout=300)
+        s = json.loads((out / "summary.json").read_text()) if (out / "summary.json").exists() else {}
+        check(r.returncode == 0 and s.get("ALL VERIFIED BY BOTH") is True and s.get("sampled") == 2,
+              f"cake_sample enum --n 0 --ids (2 listed jobs): {s.get('verified_by_both')}/{s.get('sampled')}")
+        ids.write_text(json.dumps(two + [[99, 0, 0]]))
+        r = subprocess.run(sample + ["enum", str(en), "--out", str(Path(td) / "cs_enum_ids_bad"), "--n", "0", "--ids",
+                                     str(ids), "--workers", "2"], capture_output=True, text=True, timeout=300)
+        check(r.returncode != 0 and "--ids" in r.stderr, "cake_sample enum refuses an --ids job that is not a job")
         neg = Path(td) / "k5n10neg"
         shutil.copytree(en, neg)
         recs = [json.loads(l) for l in (neg / "records.jsonl").read_text().splitlines()]

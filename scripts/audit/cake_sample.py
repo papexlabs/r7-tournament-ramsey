@@ -15,7 +15,8 @@ Modes
   enum ENUM_DIR   a pivot enumeration directory (results/enum/k6n<n>): records.jsonl,
                   models/*.d6, certify.jsonl.  Sample: --n random jobs (seeded), plus the
                   --slowest M jobs (by certified secs) and --with-models W random jobs that have
-                  recorded models.  Each job's formula is rebuilt exactly as
+                  recorded models; --ids FILE (a JSON list of [d, ia, ib]) adds exactly those jobs
+                  (with --n 0: only those, e.g. the jobs whose proofs only lrat-check saw).  Each job's formula is rebuilt exactly as
                   scripts/certify_enum.py builds it: build/pivenum dumpcnf k A B ia ib --maxdeg,
                   plus one blocking clause per recorded model of the job (models re-checked:
                   TT_k-free, and fitting the job by scripts/audit/modelfix.py).  It must be UNSAT.
@@ -40,7 +41,7 @@ New items wait while MemAvailable < --min-free-gb (Linux).
 usage: cake_sample.py cubes RUN_DIR --out OUT [--cnf CNF] [--n 40] [--slowest 10] [--max-secs 0]
                       [--seed 1] [--workers 2] [--heap auto|MiB] [--timeout 0] [--nice 10]
                       [--min-free-gb 16] [--retry-failed] [--dry-run]
-       cake_sample.py enum ENUM_DIR --out OUT [--n 40] [--slowest 0] [--with-models 0] [same options]
+       cake_sample.py enum ENUM_DIR --out OUT [--n 40] [--slowest 0] [--with-models 0] [--ids FILE] [same options]
 """
 import argparse
 import hashlib
@@ -193,8 +194,15 @@ def enum_items(a, out):
     withm = [j for j in jobs if recs[j]["models"] > 0]
     wm = rng.sample(withm, min(a.with_models, len(withm)))
     slow = sorted((j for j in jobs if j in secs), key=lambda j: (-secs[j], j))[: a.slowest]
+    listed = []
+    if a.ids:   # e.g. the jobs whose proofs only lrat-check saw; every listed job must be a complete job
+        want = {tuple(x) for x in json.loads(Path(a.ids).read_text())}
+        missing = sorted(want - set(jobs))
+        if missing:
+            raise SystemExit(f"--ids: {len(missing)} listed jobs are not complete jobs of {d}, e.g. {missing[:3]}")
+        listed = sorted(want)
     items = {}
-    for pick, js in (("slowest", slow), ("random", rnd), ("with-models", wm)):
+    for pick, js in (("slowest", slow), ("random", rnd), ("with-models", wm), ("listed", listed)):
         for j in js:
             key = f"{j[0]}_{j[1]}_{j[2]}"
             it = items.setdefault(key, {"kind": "enum", "id": key, "pick": [], "d": j[0], "ia": j[1], "ib": j[2],
@@ -318,6 +326,7 @@ def main():
     ap.add_argument("--slowest", type=int, default=None, help="slowest items (default: cubes 10, enum 0)")
     ap.add_argument("--max-secs", type=float, default=0, help="cubes: leave out leaves slower than this")
     ap.add_argument("--with-models", type=int, default=0, help="enum: random jobs that have models")
+    ap.add_argument("--ids", default="", help="enum: JSON file, a list of [d, ia, ib]; all of these jobs too")
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--heap", default="auto", help="cake_lpr heap in MiB, or auto")
