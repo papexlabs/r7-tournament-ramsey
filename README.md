@@ -4,6 +4,9 @@ Every tournament on 46 vertices contains a transitive subtournament on 7 vertice
 directed Ramsey number satisfies 34 ≤ R(7) ≤ 46 (previous upper bound 47, Neiman, Mackey and
 Heule 2022).
 
+Papex record: [PXP-4R8D2GQ8XEDH](https://papex.org/id/PXP-4R8D2GQ8XEDH) ·
+archived snapshot: [doi:10.5281/zenodo.24050255](https://doi.org/10.5281/zenodo.24050255)
+
 This repository contains the proof's code, inputs, result records and paper:
 
 - `paper/r7le46.tex`: the paper (build with `tectonic paper/r7le46.tex`).
