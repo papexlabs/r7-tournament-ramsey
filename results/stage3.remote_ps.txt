@@ -1,0 +1,69 @@
+   01:20:06  6.5 33140 python3 -I scripts/run_cubes.py cnf/24A-p-O21s.tri.cnf results/stage3/24A-p-O21s/cubes.icnf results/stage3/24A-p-O21s/run --workers 7 --timeouts 600,1800,0 --split 4 --maxvar 504 --nice 5 --min-free-gb 24
+   01:20:06  5.7 49096 python3 -I scripts/run_cubes.py cnf/24B-p-O21s.tri.cnf results/stage3/24B-p-O21s/cubes.icnf results/stage3/24B-p-O21s/run --workers 7 --timeouts 600,1800,0 --split 4 --maxvar 504 --nice 5 --min-free-gb 24
+   01:20:06  5.9 32336 python3 -I scripts/run_cubes.py cnf/24C-p-O21s.tri.cnf results/stage3/24C-p-O21s/cubes.icnf results/stage3/24C-p-O21s/run --workers 7 --timeouts 600,1800,0 --split 4 --maxvar 504 --nice 5 --min-free-gb 24
+   01:20:06  5.7 36388 python3 -I scripts/run_cubes.py cnf/24D-p-O21s.tri.cnf results/stage3/24D-p-O21s/cubes.icnf results/stage3/24D-p-O21s/run --workers 7 --timeouts 600,1800,0 --split 4 --maxvar 504 --nice 5 --min-free-gb 24
+   01:20:06  5.6 33132 python3 -I scripts/run_cubes.py cnf/24E-p-O21s.tri.cnf results/stage3/24E-p-O21s/cubes.icnf results/stage3/24E-p-O21s/run --workers 7 --timeouts 600,1800,0 --split 4 --maxvar 504 --nice 5 --min-free-gb 24
+      08:57 87.6 3029892 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24E-p-O21s/run/tmp/ss_203_6_8m1irmti/in.cnf /home/ubuntu/tr/results/stage3/24E-p-O21s/run/tmp/ss_203_6_8m1irmti/proof.lrat
+      08:57  3.8 1084300 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      07:21 84.9 4074948 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24A-p-O21s/run/tmp/ss_213_12_27h8ohp7/in.cnf /home/ubuntu/tr/results/stage3/24A-p-O21s/run/tmp/ss_213_12_27h8ohp7/proof.lrat
+      07:21  4.5 1083816 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      06:38 84.3 3077036 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24D-p-O21s/run/tmp/ss_205_10_8bkr2drw/in.cnf /home/ubuntu/tr/results/stage3/24D-p-O21s/run/tmp/ss_205_10_8bkr2drw/proof.lrat
+      06:38  4.8 1081108 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      05:16 79.6 3964712 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24B-p-O21s/run/tmp/ss_205_10_rcc3u650/in.cnf /home/ubuntu/tr/results/stage3/24B-p-O21s/run/tmp/ss_205_10_rcc3u650/proof.lrat
+      05:16  6.0 1078772 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      04:14 75.7 4015396 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24C-p-O21s/run/tmp/ss_224_8_r87bo3ae/in.cnf /home/ubuntu/tr/results/stage3/24C-p-O21s/run/tmp/ss_224_8_r87bo3ae/proof.lrat
+      04:14  7.1 1081320 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      03:43 70.8 3995144 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24D-p-O21s/run/tmp/ss_206_0_ofytkg22/in.cnf /home/ubuntu/tr/results/stage3/24D-p-O21s/run/tmp/ss_206_0_ofytkg22/proof.lrat
+      03:43  8.8 1086664 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      03:39 70.1 3985580 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24B-p-O21s/run/tmp/ss_206_0_dli_8k4b/in.cnf /home/ubuntu/tr/results/stage3/24B-p-O21s/run/tmp/ss_206_0_dli_8k4b/proof.lrat
+      03:39  8.7 1084108 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      03:11 66.5 3837264 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24E-p-O21s/run/tmp/ss_203_14_g6l6dfaf/in.cnf /home/ubuntu/tr/results/stage3/24E-p-O21s/run/tmp/ss_203_14_g6l6dfaf/proof.lrat
+      03:11  9.6 1079940 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      02:48 62.2 4008420 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24C-p-O21s/run/tmp/ss_224_10_owjdhiby/in.cnf /home/ubuntu/tr/results/stage3/24C-p-O21s/run/tmp/ss_224_10_owjdhiby/proof.lrat
+      02:48 10.9 1083744 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      02:47 60.0 3386148 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24B-p-O21s/run/tmp/ss_206_2_v5qzpx3v/in.cnf /home/ubuntu/tr/results/stage3/24B-p-O21s/run/tmp/ss_206_2_v5qzpx3v/proof.lrat
+      02:47 11.5 1080300 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      02:46 62.6 2998696 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24C-p-O21s/run/tmp/ss_224_11_656ehto9/in.cnf /home/ubuntu/tr/results/stage3/24C-p-O21s/run/tmp/ss_224_11_656ehto9/proof.lrat
+      02:46 10.9 1079364 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      02:42 61.2 4022008 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24C-p-O21s/run/tmp/ss_224_12_dop3hv0o/in.cnf /home/ubuntu/tr/results/stage3/24C-p-O21s/run/tmp/ss_224_12_dop3hv0o/proof.lrat
+      02:42 11.3 1081232 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      02:23 57.1 3117108 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24D-p-O21s/run/tmp/ss_206_4_kw7px6vw/in.cnf /home/ubuntu/tr/results/stage3/24D-p-O21s/run/tmp/ss_206_4_kw7px6vw/proof.lrat
+      02:23 12.9 1082524 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      02:15 53.1 4041344 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24E-p-O21s/run/tmp/ss_204_0_12ea569d/in.cnf /home/ubuntu/tr/results/stage3/24E-p-O21s/run/tmp/ss_204_0_12ea569d/proof.lrat
+      02:15 13.6 1084416 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      02:06 50.4 4070400 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24A-p-O21s/run/tmp/ss_214_8_wlqvvwx4/in.cnf /home/ubuntu/tr/results/stage3/24A-p-O21s/run/tmp/ss_214_8_wlqvvwx4/proof.lrat
+      02:06 14.4 1082028 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      02:00 46.5 3900652 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24E-p-O21s/run/tmp/ss_204_1_zbu6pn3a/in.cnf /home/ubuntu/tr/results/stage3/24E-p-O21s/run/tmp/ss_204_1_zbu6pn3a/proof.lrat
+      02:00 15.3 1077580 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:48 42.4 3411516 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24A-p-O21s/run/tmp/ss_214_9_ymllt27h/in.cnf /home/ubuntu/tr/results/stage3/24A-p-O21s/run/tmp/ss_214_9_ymllt27h/proof.lrat
+      01:48 16.8 1082560 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:39 35.9 2893256 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24B-p-O21s/run/tmp/ss_206_4_tdng60oz/in.cnf /home/ubuntu/tr/results/stage3/24B-p-O21s/run/tmp/ss_206_4_tdng60oz/proof.lrat
+      01:39 18.4 1078852 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:32 32.3 2929384 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24E-p-O21s/run/tmp/ss_204_2_zudaj7d3/in.cnf /home/ubuntu/tr/results/stage3/24E-p-O21s/run/tmp/ss_204_2_zudaj7d3/proof.lrat
+      01:32 19.4 1084620 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:21 32.3 2975496 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24D-p-O21s/run/tmp/ss_206_6_vbblnzi4/in.cnf /home/ubuntu/tr/results/stage3/24D-p-O21s/run/tmp/ss_206_6_vbblnzi4/proof.lrat
+      01:21 20.3 1037440 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:19 25.5 2945640 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24E-p-O21s/run/tmp/ss_204_3_iixzhqwb/in.cnf /home/ubuntu/tr/results/stage3/24E-p-O21s/run/tmp/ss_204_3_iixzhqwb/proof.lrat
+      01:19 21.6 1066804 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:19 28.2 2924136 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24C-p-O21s/run/tmp/ss_224_14_a4u2iesw/in.cnf /home/ubuntu/tr/results/stage3/24C-p-O21s/run/tmp/ss_224_14_a4u2iesw/proof.lrat
+      01:19 21.2 1052904 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:56 22.7 1897380 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24D-p-O21s/run/tmp/ss_206_8_sb4dmrsj/in.cnf /home/ubuntu/tr/results/stage3/24D-p-O21s/run/tmp/ss_206_8_sb4dmrsj/proof.lrat
+      00:56 24.8 937632 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:51 24.3 1866492 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24A-p-O21s/run/tmp/ss_214_10_ynjmlh6s/in.cnf /home/ubuntu/tr/results/stage3/24A-p-O21s/run/tmp/ss_214_10_ynjmlh6s/proof.lrat
+      00:51 27.2 937628 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:46 28.6 1872988 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24A-p-O21s/run/tmp/ss_214_12_r0ccz5oe/in.cnf /home/ubuntu/tr/results/stage3/24A-p-O21s/run/tmp/ss_214_12_r0ccz5oe/proof.lrat
+      00:46 29.8 937652 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:34 34.3 796588 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:31 41.4 1884724 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24B-p-O21s/run/tmp/ss_206_6_o9qeynol/in.cnf /home/ubuntu/tr/results/stage3/24B-p-O21s/run/tmp/ss_206_6_o9qeynol/proof.lrat
+      00:31 35.6 743700 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:25 51.0 1849472 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24C-p-O21s/run/tmp/ss_225_0_691abj5x/in.cnf /home/ubuntu/tr/results/stage3/24C-p-O21s/run/tmp/ss_225_0_691abj5x/proof.lrat
+      00:25 37.1 639808 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:18 62.2 1836112 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24E-p-O21s/run/tmp/ss_204_4_0ifb8wk0/in.cnf /home/ubuntu/tr/results/stage3/24E-p-O21s/run/tmp/ss_204_4_0ifb8wk0/proof.lrat
+      00:18 39.1 504252 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:16 76.6 1892528 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24D-p-O21s/run/tmp/ss_206_10_oya3nfmu/in.cnf /home/ubuntu/tr/results/stage3/24D-p-O21s/run/tmp/ss_206_10_oya3nfmu/proof.lrat
+      00:16 39.6 451192 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:13 40.5 374984 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:06 99.7 1078424 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24B-p-O21s/run/tmp/ss_206_7_q4gt2q9j/in.cnf /home/ubuntu/tr/results/stage3/24B-p-O21s/run/tmp/ss_206_7_q4gt2q9j/proof.lrat
+      00:06 41.3 216064 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:01 98.6 240888 cadical -q -t 1800 --lrat=true --binary=false /home/ubuntu/tr/results/stage3/24B-p-O21s/run/tmp/ss_206_8_2slc5jno/in.cnf /home/ubuntu/tr/results/stage3/24B-p-O21s/run/tmp/ss_206_8_2slc5jno/proof.lrat
+      00:01 44.2 75724 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5

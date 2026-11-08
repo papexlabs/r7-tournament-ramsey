@@ -43,9 +43,9 @@
 
 \author{Ahmet Tahir Mat}
 \address{Papex Labs}
-% TODO: full postal address; no e-mail address in this draft.
+\email{ahmet@papex.org}
 
-\date{Draft, 5 November 2026}
+\date{Draft, 8 November 2026}
 
 % TODO: check the MSC codes.
 \subjclass[2020]{05C20, 05C55, 68V05}
@@ -58,16 +58,19 @@ contains a transitive subtournament on $k$ vertices. In 2022 Neiman, Mackey
 and Heule proved $34 \le R(7) \le 47$. We prove $R(7) \le 46$. The argument
 looks at the in-degree of a single vertex of a hypothetical counterexample.
 It uses three computations. (i)~Complete lists of the tournaments on $21$ to
-$25$ vertices that contain no transitive subtournament on $6$ vertices. We
+$26$ vertices that contain no transitive subtournament on $6$ vertices. We
 obtain them by a SAT-based enumeration in which every job carries a checked
 LRAT certificate; the lists agree with previously published, uncertified
 files. (ii)~Five new SAT instances on $46$ vertices with $504$ free arcs each.
-We solve them by cube-and-conquer; each of the $48{,}995$ leaf cubes is closed
+We solve them by cube-and-conquer; each of the $47{,}495$ leaf cubes is closed
 by an LRAT proof that is checked while it is produced, and the cube cover is
 checked as well. (iii)~The $28$ SAT computations of Neiman, Mackey and Heule.
 They were published without proofs; we re-ran all of them with the same
-checked method ($31{,}942$ leaf cubes). We list explicitly the parts of the
-argument that the proof checker does not cover.
+checked method ($32{,}692$ leaf cubes). Every proof was accepted by two
+checkers, one of which is formally verified. In Lean~4 we derive the theorem
+from twelve axioms: $R(5) \le 14$ and eleven statements of the computational
+results above. We list explicitly the parts of the argument that the proof
+checkers do not cover.
 \end{abstract}
 
 \maketitle
@@ -124,23 +127,30 @@ $\Piv{\cl{24X}}{\Ostar}$, one for each of the five $\TT{6}$-free tournaments on
 $24$ vertices. Each new instance has all $46$ vertices and $504$ free arcs.
 
 We say that an unsatisfiability result is \emph{certified} if the SAT solver
-emitted a proof in the LRAT format~\cite{CHHKS17} and the checker
-\texttt{lrat-check} from the drat-trim distribution~\cite{WHH14} accepted it.
-Every unsatisfiability result used in the proof is certified in this sense:
+emitted a proof in the LRAT format~\cite{CHHKS17} and two checkers accepted
+it: \texttt{lrat-check} from the drat-trim distribution~\cite{WHH14}, with
+the patch of Section~\ref{sec:lrat}, and \texttt{cake\_lpr}~\cite{THM21},
+which is formally verified in HOL4 and compiled by the verified CakeML
+compiler. Every unsatisfiability result used in the proof is certified in
+this sense:
 \begin{itemize}
-\item the enumeration of the $\TT{6}$-free tournaments on $21$ to $25$
+\item the enumeration of the $\TT{6}$-free tournaments on $21$ to $26$
   vertices (Section~\ref{sec:catalogue}), which also re-derives NMH's
-  classifications on $23$, $24$ and $25$ vertices;
+  classifications on $23$, $24$ and $25$ vertices and the uniqueness of the
+  $\TT{6}$-free tournament on $26$ vertices;
 \item the five new instances (Section~\ref{sec:stage3});
 \item all $28$ computations of NMH that the proof needs
   (Section~\ref{sec:stage4}). NMH published their inputs, encoder and solver
   logs but no proofs.
 \end{itemize}
-The only published theorem that the proof uses without re-deriving it is the
-uniqueness of the $\TT{6}$-free tournament on $26$ vertices
-(Fact~\ref{fact:st26}). Section~\ref{sec:trust} lists everything else that
-lies outside the checked part: the mathematical argument, the encoders, the
-checker, and our bookkeeping code.
+Every theorem from the literature that the proof uses is re-derived here; for
+$R(5) \le 14$ the re-derivation is an exhaustive computation without a proof
+certificate (Section~\ref{sec:tt5}). A Lean~4 formalisation proves
+Theorem~\ref{thm:main} from twelve axioms, each of which states one of the
+computational results; it does not check the SAT proofs
+(Section~\ref{sec:lean}). Section~\ref{sec:trust} lists everything that
+lies outside the checked part: the mathematical argument where it is not
+formalised, the encoders, the $\TT{5}$-free lists, and our bookkeeping code.
 
 \subsection*{Prior work}
 A literature and code search carried out on 3 November 2026 covered arXiv,
@@ -152,7 +162,7 @@ a search result, not a claim that nobody has made the observation. The
 repository of Lohn, Lambert and Heule contains files of $\TT{6}$-free
 tournaments on $20$ to $27$ vertices~\cite{LLHrepo}; no method or
 completeness claim is stated for them. Our lists agree with these files for
-$21$ to $25$ vertices (Section~\ref{sec:catalogue}).
+$21$ to $26$ vertices (Section~\ref{sec:catalogue}).
 
 \subsection*{Organisation}
 Section~\ref{sec:prelim} fixes notation. Section~\ref{sec:reduction} proves
@@ -160,7 +170,8 @@ Theorem~\ref{thm:main} from a list of named facts. Section~\ref{sec:catalogue}
 describes the enumeration of the catalogues and its certification.
 Section~\ref{sec:sat} describes the SAT encodings, the cube-and-conquer runs
 and the proof checking. Section~\ref{sec:results} reports the results.
-Section~\ref{sec:trust} lists the trust base.
+Section~\ref{sec:trust} describes the Lean formalisation and lists the trust
+base.
 
 % =====================================================================
 \section{Preliminaries}\label{sec:prelim}
@@ -269,14 +280,15 @@ $\TT{6}$, $\TT{3}\dom C_3 = H_6$ or $\TT{2} \dom \RT = G_7$.
 % =====================================================================
 \section{The reduction for $46$ vertices}\label{sec:reduction}
 
-We state the facts the proof uses, then the lemmas. Facts~\ref{fact:tt5}
-and~\ref{fact:cat} are proved by the enumeration of
+We state the facts the proof uses, then the lemmas. Facts~\ref{fact:st26},
+\ref{fact:tt5} and~\ref{fact:cat} are proved by the enumeration of
 Section~\ref{sec:catalogue}; Facts~\ref{fact:nmh} and~\ref{fact:new} are the
 SAT results of Section~\ref{sec:results}.
 
-\begin{fact}[literature]\label{fact:st26}
-Every $\TT{6}$-free tournament on $26$ vertices is isomorphic to $\ST{26}$
-\cite{SF94,SF98}; see also \cite[\S2]{NMH22}.
+\begin{fact}\label{fact:st26}
+Every $\TT{6}$-free tournament on $26$ vertices is isomorphic to $\ST{26}$.
+This is known~\cite{SF94,SF98}; see also \cite[\S2]{NMH22}. Our certified
+enumeration (Section~\ref{sec:catalogue}) re-derives it.
 \end{fact}
 % TODO: locate the precise statement (paper and theorem number) of the uniqueness of
 % ST26 in Sanchez-Flores [SF94]/[SF98]; NMH Sec. 2 states it with citation [8, 9].
@@ -467,9 +479,11 @@ For each $n$, a \emph{job} is a triple $(d,i,j)$ with
 $\lceil (n-1)/2 \rceil \le d \le 13$, $A_i$ in the $\TT{5}$-free list on
 $n-1-d$ vertices and $B_j$ in the list on $d$ vertices. The job asks for all
 $\TT{6}$-free completions of $\Piv{A_i}{B_j}$ with all out-degrees at most $d$.
-There are $46$, $414$, $3{,}086$, $17{,}673$ and $167{,}798$ jobs for
-$n=25,24,23,22,21$. For example, for $n=21$ the values $d=10,11,12,13$ give
-$369\cdot 369$, $692\cdot 45$, $376 \cdot 1$ and $121\cdot 1$ jobs.
+There are $1$, $46$, $414$, $3{,}086$, $17{,}673$ and $167{,}798$ jobs for
+$n=26,25,24,23,22,21$. For example, for $n=21$ the values $d=10,11,12,13$ give
+$369\cdot 369$, $692\cdot 45$, $376 \cdot 1$ and $121\cdot 1$ jobs. For
+$n=26$ the bounds force $d=13$, and there is one $\TT{5}$-free tournament on
+$12$ vertices and one on $13$, so there is a single job.
 
 \subsection{The formula of a job}
 The variables of the job $(d,i,j)$ are one Boolean variable per free pair
@@ -497,26 +511,21 @@ a \emph{blocking clause} that excludes its assignment of the arc variables.
 A job is \emph{certified} when the job formula plus one blocking clause per
 recorded model is unsatisfiable and this is certified by a checked LRAT proof
 (\path{scripts/certify_enum.py}). Certification also re-checks, in separate
-code, that every recorded model is $\TT{6}$-free. A certified job therefore
-has no completion, in the sense of the job, other than the recorded ones.
+code, that every recorded model is $\TT{6}$-free and that it fits its job: a
+tournament on $n$ vertices with exactly the fixed arcs of $\Piv{A_i}{B_j}$
+and all out-degrees at most $d$ (\path{scripts/audit/modelfix.py}, written
+apart from the enumerator, with its own digraph6 decoder). A job with a model
+that does not fit is not certified. A certified job therefore has no
+completion, in the sense of the job, other than the recorded ones.
 
-For $n=25$, $24$ and $22$ every job was enumerated and then certified. For
-$n=23$ and $21$ we used a shortcut (\path{scripts/certify_first.py}). In a
+For every $n$ we used a shortcut (\path{scripts/certify_first.py}). In a
 sample of $168$ jobs for $n=21$ it needed $42\%$ of the solver time of the
 two-step path. Each job formula is solved once with
 LRAT output and the proof is checked. If the answer is unsatisfiable and the
 proof is accepted, the job has no models, and this one checked solve is both
 its enumeration and its certificate. Otherwise the job is enumerated as above
-and later certified with its blocking clauses. Of the $167{,}798$ jobs for
-$n=21$, $167{,}632$ were closed by the single checked solve and $166$ by the
-blocking-clause certificate; for $n=23$ the numbers are $3{,}052$ and $34$.
-
-The run for $n=21$ was interrupted once when its cloud instance was reclaimed.
-It was resumed on another instance from the synchronised records. In the
-synchronised files one job ($d=11$) had a completion record but no certificate
-record. The certification step treats every job without a certificate record
-as uncertified, and it certified this job again (unsatisfiable, proof
-accepted, no models).
+and later certified with its blocking clauses. Table~\ref{tab:cat} gives the
+number of jobs closed each way; for $n=21$ they are $167{,}633$ and $165$.
 
 \begin{proposition}\label{prop:complete}
 Assume that the $\TT{5}$-free lists are complete, that every
@@ -541,8 +550,10 @@ The recorded models are reduced to isomorphism classes with \texttt{labelg}.
 Table~\ref{tab:cat} gives the numbers. The following checks were made on the
 class representatives (\path{scripts/stage12_check.py}).
 \begin{itemize}
-\item For each $n = 21,\dots,25$, the set of canonical forms equals the set of
+\item For each $n = 21,\dots,26$, the set of canonical forms equals the set of
   canonical forms of the file \texttt{tt6free$n$.d6} of~\cite{LLHrepo}.
+\item For $n=26$ there is one class, and it has the canonical form of
+  $\ST{27}$ minus a vertex, that is, of $\ST{26}$.
 \item For $n=23,24,25$ the classes equal NMH's: our $\ST{25}$ (from the Paley
   construction), our $\cl{24A},\dots,\cl{24E}$ and $22$ sub-$\ST{27}$ classes
   on $23$ vertices (matched to NMH's letters by canonical form), the doubly
@@ -555,7 +566,8 @@ class representatives (\path{scripts/stage12_check.py}).
 \end{itemize}
 Containment of $Y_8$ is decided by a backtracking search for an induced
 embedding (\path{src/tourn.py}). Together with
-Proposition~\ref{prop:complete} these checks give Fact~\ref{fact:cat}. Only one
+Proposition~\ref{prop:complete} these checks give Facts~\ref{fact:st26}
+and~\ref{fact:cat}. Only one
 property of \texttt{labelg} is needed for this: its output is a relabelling
 of its input. Equal canonical forms then imply isomorphism, and every recorded
 model is isomorphic to its class representative. The class counts and the
@@ -564,23 +576,28 @@ comparison with the other catalogues also rely on canonicity.
 \begin{table}[ht]
 \centering\small
 \caption{Enumeration of the $\TT{6}$-free tournaments on $n$ vertices.
-``Jobs with models'' counts jobs with at least one $\TT{6}$-free completion;
-``models'' counts labelled completions. Solver hours are sums of per-job
-solver wall-clock times, enumeration and certification together. ``Single
-checked solve'': jobs without models were closed by one checked solve; the
-others were enumerated and certified with blocking clauses.}
-% Source: results/enum/k6n{21..25}/{summary,certify_summary}.json, records.jsonl,
-% certify.jsonl, certify_first.jsonl; results/stage12_check.json.
+``One solve'': jobs closed by a single checked solve (they have no models).
+``With models'': jobs with at least one $\TT{6}$-free completion; they were
+enumerated and then certified with blocking clauses. ``Models'' counts
+labelled completions. Solver hours are sums of per-job solver wall-clock
+times: checked solves, enumeration and certification together.}
+% Source: results/enum/k6n{21..26}/{summary,certify_summary}.json, records.jsonl,
+% certify.jsonl, certify_first.jsonl (solver h = sum of secs over certify_first.jsonl,
+% records.jsonl entries not "via certify-first", and certify.jsonl entries not
+% "via certify-first"); results/stage12_check.json.
 \label{tab:cat}
-\begin{tabular}{@{}rrrrrlr@{}}
+\begin{tabular}{@{}rrrrrrr@{}}
 \toprule
-$n$ & jobs & jobs with models & models & classes & certification path & solver h \\
+$n$ & jobs & one solve & with models & models & classes & solver h \\
 \midrule
-25 & 46 & 2 & 78 & 1 & enumerate, then certify & 0.1 \\
-24 & 414 & 10 & 390 & 5 & enumerate, then certify & 1.4 \\
-23 & 3{,}086 & 34 & 1{,}068 & 25 & single checked solve & 5.0 \\
-22 & 17{,}673 & 62 & 2{,}098 & 89 & enumerate, then certify & 507.5 \\
-21 & 167{,}798 & 165 & 200{,}677 & 17{,}040 & single checked solve & 1{,}146.4 \\
+26 & 1 & 0 & 1 & 39 & 1 & 0.0 \\
+25 & 46 & 44 & 2 & 78 & 1 & 0.1 \\
+24 & 414 & 404 & 10 & 390 & 5 & 1.0 \\
+23 & 3{,}086 & 3{,}052 & 34 & 1{,}068 & 25 & 4.9 \\
+22 & 17{,}673 & 17{,}611 & 62 & 2{,}098 & 89 & 260.4 \\
+21 & 167{,}798 & 167{,}633 & 165 & 200{,}677 & 17{,}040 & 1{,}223.8 \\
+\midrule
+Total & 189{,}018 & 188{,}744 & 274 & 204{,}350 & & 1{,}490.1 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -654,7 +671,26 @@ every triple with two vertices on one side of the pivot and one on the other.
 For $\cl{24A}$ there are $2{,}608{,}200$ direct clauses, $6{,}355{,}503$
 $3$-cycle clauses and $43{,}344$ definition clauses, $9{,}007{,}047$ clauses and
 $208{,}977{,}552$ literals in all. The other four formulas are of the same size
-(Table~\ref{tab:stage3}).
+(Table~\ref{tab:stage3}). The five formulas were built twice, with two builds
+of the encoder, with identical SHA-256 values; these are recorded in
+\path{data/stage3_manifest.json} and in Appendix~\ref{app:data}, and the cloud
+driver refused a formula with any other value.
+
+The soundness of these formulas was checked by a separate program,
+\path{src/tri_sound.c} (about $270$ lines of C, written apart from
+\path{src/encode.c} and \path{src/cnf_sound.c}). It reads the matrix and the
+CNF, and gives each auxiliary variable a meaning from the clauses in which it
+occurs negatively: if these contain, besides it, only arc literals on one
+triple $\{a,b,c\}$, the variable means ``$\{a,b,c\}$ is a $3$-cycle''; any
+other pattern is a failure. Under these meanings it checks that every clause
+holds in every $\TT{7}$-free completion: a clause is accepted if it is
+satisfied by a fixed arc, is a tautology, holds under every orientation of
+the free pairs among its vertices, or if every completion that falsifies it
+contains a $\TT{7}$ on some $7$-set containing its vertices. It also checks
+the header. It said \texttt{SOUND} for all five formulas, and the cloud
+driver refused to solve a formula without this verdict. Its tests compare it
+with brute force on random partial tournaments, including mutated clauses
+(\path{tests/test_tri_sound.py}).
 
 \subsection{NMH's instances and the clause checker}\label{sec:stage4enc}
 For the $28$ instances of Fact~\ref{fact:nmh} we did not use our encoder. We
@@ -724,17 +760,65 @@ scripts (\path{scripts/make_cubes.py}, \path{scripts/run_cubes.py}).
 \subsection{Streamed LRAT checking}\label{sec:lrat}
 Text LRAT proofs grew at $2$ to $6$ megabytes per second of solving in our
 measurements, so proofs for thousands of solver-hours cannot be stored. Every
-cube is therefore checked while it is solved (\path{scripts/stream_solve.py}). The
-script creates three named pipes. One carries the formula $F\wedge c$ to
-CaDiCaL. One carries a second copy of the same formula, written by the same
-code from the same header, clause file and unit clauses, to
-\texttt{lrat-check}. The third carries CaDiCaL's text LRAT proof to
-\texttt{lrat-check}. The checker thus reads the formula itself; it does not
-take it from the solver. A cube is recorded as closed only if CaDiCaL reports
-unsatisfiable and the checker prints \texttt{c VERIFIED}. \texttt{lrat-check}
-prints this only if it derived the empty clause and found no error. The proof
-is then discarded. Only the per-cube record is kept: identifier, literals,
-level, status, checker verdict and times.
+cube and every enumeration job is therefore checked while it is solved
+(\path{scripts/stream_solve.py}). The script creates three named pipes. One
+carries the formula $F\wedge c$ to CaDiCaL. One carries a second copy of the
+same formula, written by the same code from the same header, clause file and
+unit clauses, to the checking program. The third carries CaDiCaL's text LRAT
+proof to the checking program, \path{scripts/audit/dualcheck.py}. This
+program reads each of the two streams once and copies it, unchanged and in
+lock step, to two checkers that run side by side: the patched
+\texttt{lrat-check} and \texttt{cake\_lpr} (Section~\ref{sec:tools}). The checkers thus read the formula itself; they do
+not take it from the solver. For each proof the program writes a JSON log with
+both verdicts, the number of bytes each checker received and the last lines
+of each checker's output.
+
+The verdict used during the runs was that of \texttt{lrat-check}, under a
+strict rule: exit code $0$, a line \texttt{c VERIFIED}, and no output
+containing \texttt{FAILED}. The patched \texttt{lrat-check} prints
+\texttt{c VERIFIED} only if it derived the empty clause, with hints that end
+in a conflict, and found no error.
+A cube is recorded as closed only if CaDiCaL reports unsatisfiable and this
+verdict is \texttt{VERIFIED}. The verdict of \texttt{cake\_lpr} was logged
+but did not stop a run, so that a failure of \texttt{cake\_lpr}, such as an
+exhausted heap, could not halt a computation of many hours. It counts as
+acceptance only if \texttt{cake\_lpr} exits with code $0$, prints exactly the
+line \texttt{s VERIFIED UNSAT} and nothing on its error stream
+(\texttt{cake\_lpr} exits with code $0$ also when a check fails). After the
+runs an audit
+(\path{scripts/audit/union_audit.py}) matches every leaf with the log of its
+proof and requires that both checkers accepted it. A proof that only
+\texttt{lrat-check} saw was replaced: the same formula was solved again by
+CaDiCaL and the new proof was checked by both checkers
+(\path{scripts/audit/cake_sample.py}). Section~\ref{sec:results} gives the
+counts. Every proof was discarded after it had been checked. Only the
+per-cube and per-job records (identifier, literals, level, status, verdict and
+times) and the logs are kept.
+
+\texttt{cake\_lpr} keeps the parsed formula in a heap of fixed size, about
+$11$ to $13$ bytes per byte of formula text. We used $1024$\,MiB for the
+enumeration jobs, $2048$\,MiB for NMH's instances and $14{,}336$\,MiB for the
+new instances, whose formulas have $1.07$\,GB.
+
+\emph{The \texttt{lrat-check} patch and the first run.} The unpatched
+\texttt{lrat-check} accepts a final empty-clause step whose hints end
+without a conflict. For example, it accepts the proof \texttt{3 0 0} for the
+satisfiable formula with the clauses $x_1 \vee x_2$ and $\neg x_1 \vee x_2$.
+This was already known upstream: it is reported in drat-trim issue~\#42, with
+a fix proposed in pull request~\#43~\cite{drattrim42}. Our patch (commit
+\texttt{13b6c5a} of our repository) rejects an empty clause unless its hints
+end in a conflict, and treats a hint to a clause index outside the clause
+table as a hint to a deleted clause instead of reading outside the table.
+\path{tests/test_lrat_check.py} checks that the patched checker rejects such
+bogus proofs and accepts genuine CaDiCaL proofs. \texttt{cake\_lpr} rejects
+the example as well. A first complete run of all computations (``run~1'',
+3--5 November 2026) used the unpatched checker. Its checks covered every
+lemma of every proof except the final empty-clause step, which therefore
+rested on CaDiCaL. We repeated every computation with both checkers
+(``run~2'', 5--8 November 2026). All numbers in this paper are from run~2.
+Run~1 is archived in \path{results/run1/}; its results agree with those of
+run~2: the same catalogues for $n=21,\dots,25$, and every instance closed
+with no satisfiable cube.
 
 \subsection{Cover check}
 At the end, \path{scripts/cnc_summary.py} checks three things for each
@@ -750,7 +834,9 @@ instance.
   with checker verdict \texttt{VERIFIED}; no cube is open and none is
   satisfiable.
 \end{enumerate}
-It prints \texttt{ALL CLOSED} only if all three hold.
+It also checks that each level-$0$ record carries exactly the literals of its
+cube in the cube file, and that the formula that was solved has the SHA-256
+recorded for it. It prints \texttt{ALL CLOSED} only if all of this holds.
 
 \begin{lemma}\label{lem:cover}
 If (1)--(3) hold, then $F$ is unsatisfiable.
@@ -765,17 +851,31 @@ $F \wedge c$ is unsatisfiable, so $\beta$ falsifies $F$.
 \end{proof}
 
 Lemma~\ref{lem:cover} does not depend on the time limits, on the depth of the
-splits, or on the order in which cubes were run. This matters for the run history of NMH's instances in
-Section~\ref{sec:stage4}.
+splits, or on the order in which cubes were run. This matters for the run
+history of the new instances in Section~\ref{sec:stage3}.
 
 \subsection{Tools}\label{sec:tools}
 We used CaDiCaL~3.0.1~\cite{Bie18,CaDiCaL2}, built from the release tarball
 (SHA-256 \texttt{0a8ea563\ldots{}7e11}). The checker \texttt{lrat-check} is the
 file \path{lrat-check.c} of the drat-trim distribution, with the header
 ``Copyright (c) 2017--2023 Marijn Heule'' and ``last edit July 2023''
-(SHA-256 \texttt{bf07c2ac\ldots{}4a95}). It was compiled with
-\texttt{gcc -O2 -std=c99 -DLONGTYPE}.
-% TODO: record the upstream drat-trim commit from which lrat-check.c was taken.
+(SHA-256 \texttt{bf07c2ac\ldots{}4a95}), with our patch of
+Section~\ref{sec:lrat} (patched file: SHA-256 \texttt{6ef54b2c\ldots{}d1ca}).
+It was compiled with \texttt{gcc -O2 -std=c99 -DLONGTYPE}.
+% TODO (author): the repository does not record the upstream drat-trim commit from which
+% lrat-check.c was taken. notes/drat-trim-pr43-comment.md names upstream master's last
+% change as 28c864a; confirm that the unpatched file (SHA-256 bf07c2ac...4a95) equals
+% lrat-check.c at that commit before citing it.
+The second checker, \texttt{cake\_lpr}, is by Tan, Heule and
+Myreen~\cite{THM21}; we used its release of 1~November 2026~\cite{cakelprrepo}.
+The checker is verified in HOL4 and compiled by the verified CakeML compiler;
+we used the compiler's ARMv8 output \path{cake_lpr_arm8.S} (SHA-256
+\texttt{50b63e18\ldots{}852b}), linked with the C wrapper \path{basis_ffi.c}
+(SHA-256 \texttt{bd498883\ldots{}cbbc}) by \texttt{cc -O2}. Both values equal
+those published with the release. The build script checks them and runs a
+self-test, which includes the bogus proof above.
+% TODO (author): the upstream commit hashes of the cake_lpr release are not recorded in
+% the repository (tools/cake_lpr/README.md).
 nauty~2.9.3~\cite{MP14} was used for \texttt{labelg} and \texttt{gentourng}
 (tarball SHA-256 \texttt{9fc4edae\ldots{}1b5b}). The scripts are in Python~3.
 The cloud instances ran Ubuntu 24.04 (arm64). The development machine (Apple
@@ -784,27 +884,70 @@ M5) had the same versions of CaDiCaL and nauty.
 % =====================================================================
 \section{Results}\label{sec:results}
 
-\subsection{Catalogues}
-All jobs for $n=21,\dots,25$ were completed and certified. Table~\ref{tab:cat}
-gives the counts. The classes equal the files of~\cite{LLHrepo}, and for
-$n=23,24,25$ also NMH's classes. Fact~\ref{fact:cat} holds.
+\subsection{Catalogues}\label{sec:catres}
+All jobs for $n=21,\dots,26$ were completed and certified (Table~\ref{tab:cat}).
+The classes equal the files of~\cite{LLHrepo}; for $n=23,24,25$ they also equal
+NMH's classes, and for $n=26$ the one class is $\ST{26}$.
+Facts~\ref{fact:st26} and~\ref{fact:cat} hold. All $204{,}350$ recorded models
+fit their jobs; a separate run of \path{scripts/audit/modelfix.py} over the
+final files confirms this.
+
+The enumeration ran on one cloud machine from 11:17 UTC on 5 November to
+03:31 UTC on 6 November 2026, without interruption. Checking with both
+checkers started at 12:56 UTC on 5 November. The $14{,}125$ jobs certified
+before that (all jobs for $n=26,25,24,23$ and $10{,}578$ jobs for $n=22$) were
+checked by \texttt{lrat-check} alone. All of them were solved again afterwards,
+and both checkers accepted every new proof (\path{results/cake/enum/}). The
+other $174{,}893$ jobs were checked by both during the run. So every job has a
+certificate accepted by both checkers. No proof was accepted by one checker
+and rejected by the other.
 
 \subsection{The five new instances}\label{sec:stage3}
 All five instances are \texttt{ALL CLOSED} (Table~\ref{tab:stage3}). The time
 limits were $600$\,s at level $0$ and $1800$\,s at level $1$, with no limit at
-level $2$. Of the $5 \times 1024$ level-$0$ cubes, $2{,}195$ were closed
-directly and $2{,}925$ were split into $16$ children each. All $46{,}800$
+level $2$. Of the $5 \times 1024$ level-$0$ cubes, $2{,}295$ were closed
+directly and $2{,}825$ were split into $16$ children each. All $45{,}200$
 level-$1$ cubes were closed within the level-$1$ limit, so level $2$ was never
-used. In total $48{,}995$ leaves were closed by checked proofs; no cube was
+used. In total $47{,}495$ leaves were closed by checked proofs; no cube was
 satisfiable, no check failed, and no leaf is open. This proves
 Fact~\ref{fact:new}.
 
-The five instances ran side by side on one cloud instance with $96$ vCPUs, with
-$15$ workers each, from 18:42 UTC on 3 November to 06:07 UTC on 5 November 2026.
-The summaries were recomputed on a second machine from the synchronised
-records, including the level-$0$ cover check, with the same result
-(\path{summary.mac.json}). This recomputation does not re-check the leaves,
-whose proofs were not kept.
+Three level-$0$ cubes (cube $58$ of $\cl{24A}$, $13$ of $\cl{24B}$ and $83$ of
+$\cl{24C}$) were recorded as unknown after $257$, $221$ and $525$\,s, before
+the limit of $600$\,s. They were split like the cubes that reached the limit;
+Lemma~\ref{lem:cover} does not depend on why a cube was split.
+
+\emph{Run history.} The instances ran on cloud spot machines
+(Section~\ref{sec:resources}) from 5 November to 03:36 UTC on 8 November 2026.
+A first machine with $96$ vCPUs checked with \texttt{lrat-check} only, until
+13:10 UTC on 5 November; from then on every machine checked with both
+checkers. \texttt{cake\_lpr} needed about $14$\,GiB of memory per worker for
+these formulas, which limited a $96$-vCPU machine to $35$ workers. The
+machines were interrupted $15$ times by the provider for lack of capacity.
+After each interruption the affected instances were resumed on another machine
+from the records synchronised to the development machine; from 7 November the
+five instances ran on several smaller machines. They closed between 01:39 and
+03:36 UTC on 8 November.
+
+The interruptions do not affect correctness. A cube gets a record only when
+its run has ended: as unsatisfiable with an accepted proof, or as unknown, and
+then it is split. Work that was running at an interruption left no record and
+was redone. Lemma~\ref{lem:cover} needs only the checks (1)--(3), which
+\path{cnc_summary.py} applies to the final records, whatever machine produced
+them. A separately written audit (\path{scripts/audit/closure.py}) repeats
+them on the synchronised records and finds the cube trees of all $33$
+instances closed, with no cube recorded twice. Whether a cube reaches its time
+limit depends on the machine and its load, so the leaves differ from those of
+run~1 ($48{,}995$ leaves), which used the same level-$0$ cubes.
+
+\emph{Second checker.} Of the $47{,}495$ leaves, $47{,}236$ were checked by both
+checkers during the run. The other $259$ ($52$, $49$, $57$, $53$ and $48$ for
+$\cl{24A},\dots,\cl{24E}$) are level-$0$ leaves from the first machine. They
+were solved again, with a \texttt{cake\_lpr} heap of $16{,}640$\,MiB, and both
+checkers accepted every new proof. The per-leaf audit
+(Section~\ref{sec:lrat}) finds every leaf checked by both, and no proof
+accepted by one checker and rejected by the other. The five level-$0$ cover
+proofs were also accepted by both.
 
 \begin{table}[ht]
 \centering\small
@@ -813,55 +956,47 @@ $504$ arc variables, $11{,}340$ variables in all). ``Split vertex'' is the
 vertex of $\cl{24X}$ (numbered from $0$) whose arcs carry the level-$0$ split.
 ``L0'', ``L1'': level $0$, level $1$. ``Max s'' is the longest single cube in
 seconds.}
-% Source: results/stage3/24X-p-O21s/run/{summary.json,results.jsonl}, results/stage3-ABCDE.log.
+% Source: results/stage3/24X-p-O21s/run/{summary.json,results.jsonl} (latest record of each
+% id; no id occurs twice), results/stage3-*.log, data/stage3_manifest.json (clauses);
+% cubes.icnf is identical to run 1's, so the split vertices are unchanged.
 \label{tab:stage3}
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{@{}lrcrrrrrr@{}}
 \toprule
 Instance & clauses & split vertex & L0 closed & L0 split & L1 cubes & leaves & max s & solver h \\
 \midrule
-\texttt{24A-p-O21*} & 9{,}007{,}047 & 21 & 434 & 590 & 9{,}440 & 9{,}874 & 1{,}330 & 510.8 \\
-\texttt{24B-p-O21*} & 8{,}988{,}168 & 22 & 429 & 595 & 9{,}520 & 9{,}949 & 1{,}402 & 523.7 \\
-\texttt{24C-p-O21*} & 8{,}988{,}168 & 3 & 461 & 563 & 9{,}008 & 9{,}469 & 1{,}431 & 513.5 \\
-\texttt{24D-p-O21*} & 9{,}007{,}047 & 8 & 439 & 585 & 9{,}360 & 9{,}799 & 1{,}683 & 525.8 \\
-\texttt{24E-p-O21*} & 9{,}007{,}047 & 20 & 432 & 592 & 9{,}472 & 9{,}904 & 1{,}544 & 530.2 \\
+\texttt{24A-p-O21*} & 9{,}007{,}047 & 21 & 460 & 564 & 9{,}024 & 9{,}484 & 1{,}210 & 541.3 \\
+\texttt{24B-p-O21*} & 8{,}988{,}168 & 22 & 445 & 579 & 9{,}264 & 9{,}709 & 1{,}312 & 571.3 \\
+\texttt{24C-p-O21*} & 8{,}988{,}168 & 3 & 481 & 543 & 8{,}688 & 9{,}169 & 1{,}188 & 503.3 \\
+\texttt{24D-p-O21*} & 9{,}007{,}047 & 8 & 452 & 572 & 9{,}152 & 9{,}604 & 1{,}468 & 530.4 \\
+\texttt{24E-p-O21*} & 9{,}007{,}047 & 20 & 457 & 567 & 9{,}072 & 9{,}529 & 1{,}360 & 528.4 \\
 \midrule
-Total & & & 2{,}195 & 2{,}925 & 46{,}800 & 48{,}995 & & 2{,}604.1 \\
+Total & & & 2{,}295 & 2{,}825 & 45{,}200 & 47{,}495 & & 2{,}674.7 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{NMH's instances}\label{sec:stage4}
 All $28$ instances are \texttt{ALL CLOSED} (Table~\ref{tab:stage4}), with
-$31{,}942$ leaves closed by checked proofs, no satisfiable cube and no failed
-check. This proves Fact~\ref{fact:nmh} without relying on NMH's runs. The
-summaries recomputed on a second machine are identical for all $28$ instances.
+$32{,}692$ leaves closed by checked proofs, no satisfiable cube and no failed
+check. This proves Fact~\ref{fact:nmh} without relying on NMH's runs.
 
-\emph{Run history.} The run used two successive cloud instances with $96$ vCPUs
-each. On the original machine, from 12:21 UTC on 4 November, the driver ran six instances
-at a time with $15$ workers each and time limits $(1800, 3600, \infty)$ seconds
-for levels $0$, $1$, $2$. At 18:00 UTC a second driver process was started on
-the same machine for the $22$ instances that had not started yet, with $4$
-workers each and the same limits; the two drivers worked on disjoint
-instances. At about 01:27 UTC on 5 November the original machine was lost to a
-spot interruption. The run was resumed at 02:12 UTC on a second machine from the
-synchronised records, with all $28$ instances side by side, $6$ workers each,
-and the time limits changed to $(1800, 3600, 1800, 7200, \infty)$ for levels $0$
-to $4$. Eight instances were already closed. The last instance closed at 10:03
-UTC.
-% NOTE (for the author): the commit message of 7bae8ed says "two spot reclaims". The
-% repository logs show one spot interruption of a Stage 4 machine (01:27 UTC, 5 Nov)
-% and one of the enumeration machine (about 10:16 UTC, 4 Nov); the 18:00 UTC event was
-% an additional driver on the same machine. Please confirm this account.
+\emph{Run history.} The instances ran on the machine of the enumeration
+($96$ vCPUs), from 03:31 UTC on 6 November to 00:47 UTC on 7 November 2026,
+without interruption: all $28$ side by side with $3$ workers each, and time
+limits $(1800, 3600, 1800, 7200, \infty)$ seconds for levels $0$ to $4$. The
+deepest cubes are at level $4$ ($26$ literals). The audit of
+Section~\ref{sec:stage3} finds every cube tree closed.
 
-The change of time limits does not affect correctness. Time limits only
-decide which cubes are split. A cube recorded as closed stays a leaf. A cube
-recorded as timed out has children. Work that was running at the interruption
-left no record and was redone. Lemma~\ref{lem:cover} needs only the checks
-(1)--(3), which \path{cnc_summary.py} applies to the final records whatever
-the depth: the children of every split must be all $2^{S}$ sign patterns on
-fresh variables, and every leaf must carry its own accepted proof. The deepest
-cubes are at level $4$ ($26$ literals).
+\emph{Second checker.} Of the $32{,}692$ leaves, $32{,}684$ were checked by both
+checkers during the run. For the other eight, all at level $4$ (solver times
+$10{,}533$ to $15{,}885$\,s, proofs of $4.3$ to $7.0$\,GB), \texttt{cake\_lpr}
+stopped because its heap of $2048$\,MiB was exhausted; \texttt{lrat-check} had
+accepted them. With that heap \texttt{cake\_lpr} accepted every other proof of
+these instances, the largest of $3.6$\,GB. The eight leaves were solved again,
+and both checkers accepted the new proofs, \texttt{cake\_lpr} with a heap of
+$16{,}384$\,MiB. The per-leaf audit finds every leaf checked by both, with no
+disagreement. The $28$ cover proofs were also accepted by both.
 
 \begin{table}[ht]
 \centering\small
@@ -870,7 +1005,8 @@ LRAT proofs. ``Free'': free arcs. NMH columns: CaDiCaL version, run time in
 hours and conflicts in millions, from NMH's logs (no log was published for
 $\Piv{\ST{26}}{\TT{5}}$). ``Splits'': cubes that timed out and were split;
 ``depth'': deepest level.}
-% Source: data/stage4_manifest.json (sizes, NMH log data), results/stage4/NAME/run/{summary.json,results.jsonl}.
+% Source: data/stage4_manifest.json (sizes, NMH log data), results/stage4/NAME/run/{summary.json,results.jsonl}
+% (run 2; latest record of each id, no id occurs twice); python3 scripts/stage4_progress.py results/stage4.
 \label{tab:stage4}
 \setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{@{}lrrcrrrrrr@{}}
@@ -879,55 +1015,60 @@ $\Piv{\ST{26}}{\TT{5}}$). ``Splits'': cubes that timed out and were split;
 \cmidrule(lr){4-6}\cmidrule(l){7-10}
 Instance & free & clauses & CaDiCaL & h & $10^6$ confl. & splits & depth & leaves & solver h \\
 \midrule
-\texttt{ST26-p-TT5} & 130 & 1{,}099{,}282 & -- & -- & -- & 0 & 0 & 1{,}024 & 5.6 \\
-\texttt{ST25-p-H6} & 150 & 1{,}687{,}063 & 1.5.2 & 23.9 & 88 & 1 & 1 & 1{,}039 & 10.8 \\
-\texttt{ST25-p-G7} & 175 & 2{,}603{,}275 & 1.5.2 & 33.5 & 96 & 0 & 0 & 1{,}024 & 11.4 \\
-\texttt{23A-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 121.0 & 354 & 12 & 4 & 1{,}204 & 53.8 \\
-\texttt{23B-p-Y8} & 184 & 2{,}364{,}374 & 1.3.1 & 79.4 & 265 & 12 & 4 & 1{,}204 & 47.9 \\
-\texttt{23C-p-Y8} & 184 & 2{,}364{,}374 & 1.3.1 & 97.5 & 308 & 12 & 4 & 1{,}204 & 47.5 \\
-\texttt{23D-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 157.1 & 427 & 7 & 4 & 1{,}129 & 50.1 \\
-\texttt{23E-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 203.9 & 543 & 8 & 4 & 1{,}144 & 53.0 \\
-\texttt{23F-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 230.9 & 609 & 8 & 4 & 1{,}144 & 52.7 \\
-\texttt{23G-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 212.2 & 560 & 11 & 4 & 1{,}189 & 55.4 \\
-\texttt{23H-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 249.9 & 650 & 10 & 4 & 1{,}174 & 55.0 \\
-\texttt{23I-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 203.7 & 495 & 7 & 4 & 1{,}129 & 46.0 \\
-\texttt{23J-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 240.0 & 589 & 5 & 2 & 1{,}099 & 44.9 \\
-\texttt{23K-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 138.5 & 383 & 9 & 4 & 1{,}159 & 48.5 \\
-\texttt{23L-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 242.6 & 618 & 9 & 4 & 1{,}159 & 53.8 \\
-\texttt{23M-p-Y8} & 184 & 2{,}364{,}374 & 1.3.1 & 94.3 & 300 & 10 & 4 & 1{,}174 & 46.5 \\
-\texttt{23N-p-Y8} & 184 & 2{,}364{,}374 & 1.2.1 & 235.5 & 390 & 10 & 4 & 1{,}174 & 45.9 \\
-\texttt{23O-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 310.1 & 460 & 12 & 4 & 1{,}204 & 52.3 \\
-\texttt{23P-p-Y8} & 184 & 2{,}364{,}374 & 1.2.1 & 198.8 & 342 & 10 & 4 & 1{,}174 & 45.4 \\
-\texttt{23Q-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 247.8 & 394 & 12 & 4 & 1{,}204 & 51.4 \\
-\texttt{23R-p-Y8} & 184 & 2{,}364{,}374 & 1.2.1 & 158.6 & 293 & 10 & 4 & 1{,}174 & 46.9 \\
-\texttt{23S-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 431.6 & 643 & 6 & 2 & 1{,}114 & 47.1 \\
-\texttt{23T-p-Y8} & 184 & 2{,}364{,}374 & 1.2.1 & 164.9 & 312 & 12 & 4 & 1{,}204 & 48.4 \\
-\texttt{23U-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 242.6 & 401 & 12 & 4 & 1{,}204 & 53.5 \\
-\texttt{23V-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 327.4 & 483 & 13 & 4 & 1{,}219 & 52.1 \\
-\texttt{23W-p-Y8} & 184 & 2{,}196{,}265 & 1.2.1 & 68.1 & 139 & 0 & 0 & 1{,}024 & 9.4 \\
-\texttt{23X-p-Y8} & 184 & 2{,}196{,}265 & 1.2.1 & 72.2 & 144 & 0 & 0 & 1{,}024 & 9.6 \\
-\texttt{23Y-p-Y8} & 184 & 2{,}219{,}145 & 1.2.1 & 14.5 & 48 & 0 & 0 & 1{,}024 & 4.7 \\
+\texttt{ST26-p-TT5} & 130 & 1{,}099{,}282 & -- & -- & -- & 0 & 0 & 1{,}024 & 6.3 \\
+\texttt{ST25-p-H6} & 150 & 1{,}687{,}063 & 1.5.2 & 23.9 & 88 & 1 & 1 & 1{,}039 & 12.0 \\
+\texttt{ST25-p-G7} & 175 & 2{,}603{,}275 & 1.5.2 & 33.5 & 96 & 0 & 0 & 1{,}024 & 13.8 \\
+\texttt{23A-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 121.0 & 354 & 12 & 4 & 1{,}204 & 56.5 \\
+\texttt{23B-p-Y8} & 184 & 2{,}364{,}374 & 1.3.1 & 79.4 & 265 & 14 & 4 & 1{,}234 & 52.4 \\
+\texttt{23C-p-Y8} & 184 & 2{,}364{,}374 & 1.3.1 & 97.5 & 308 & 14 & 4 & 1{,}234 & 52.2 \\
+\texttt{23D-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 157.1 & 427 & 9 & 4 & 1{,}159 & 55.7 \\
+\texttt{23E-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 203.9 & 543 & 13 & 4 & 1{,}219 & 59.6 \\
+\texttt{23F-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 230.9 & 609 & 11 & 4 & 1{,}189 & 58.8 \\
+\texttt{23G-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 212.2 & 560 & 13 & 4 & 1{,}219 & 59.8 \\
+\texttt{23H-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 249.9 & 650 & 14 & 4 & 1{,}234 & 60.9 \\
+\texttt{23I-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 203.7 & 495 & 11 & 4 & 1{,}189 & 52.7 \\
+\texttt{23J-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 240.0 & 589 & 9 & 4 & 1{,}159 & 51.8 \\
+\texttt{23K-p-Y8} & 184 & 2{,}353{,}250 & 1.3.1 & 138.5 & 383 & 13 & 4 & 1{,}219 & 54.6 \\
+\texttt{23L-p-Y8} & 184 & 2{,}343{,}727 & 1.3.1 & 242.6 & 618 & 11 & 4 & 1{,}189 & 58.1 \\
+\texttt{23M-p-Y8} & 184 & 2{,}364{,}374 & 1.3.1 & 94.3 & 300 & 12 & 4 & 1{,}204 & 50.8 \\
+\texttt{23N-p-Y8} & 184 & 2{,}364{,}374 & 1.2.1 & 235.5 & 390 & 12 & 4 & 1{,}204 & 50.3 \\
+\texttt{23O-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 310.1 & 460 & 12 & 4 & 1{,}204 & 55.1 \\
+\texttt{23P-p-Y8} & 184 & 2{,}364{,}374 & 1.2.1 & 198.8 & 342 & 12 & 4 & 1{,}204 & 50.1 \\
+\texttt{23Q-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 247.8 & 394 & 12 & 4 & 1{,}204 & 54.7 \\
+\texttt{23R-p-Y8} & 184 & 2{,}364{,}374 & 1.2.1 & 158.6 & 293 & 12 & 4 & 1{,}204 & 51.4 \\
+\texttt{23S-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 431.6 & 643 & 12 & 4 & 1{,}204 & 56.8 \\
+\texttt{23T-p-Y8} & 184 & 2{,}364{,}374 & 1.2.1 & 164.9 & 312 & 12 & 4 & 1{,}204 & 51.5 \\
+\texttt{23U-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 242.6 & 401 & 12 & 4 & 1{,}204 & 56.4 \\
+\texttt{23V-p-Y8} & 184 & 2{,}353{,}250 & 1.2.1 & 327.4 & 483 & 15 & 4 & 1{,}249 & 55.9 \\
+\texttt{23W-p-Y8} & 184 & 2{,}196{,}265 & 1.2.1 & 68.1 & 139 & 0 & 0 & 1{,}024 & 10.8 \\
+\texttt{23X-p-Y8} & 184 & 2{,}196{,}265 & 1.2.1 & 72.2 & 144 & 0 & 0 & 1{,}024 & 11.1 \\
+\texttt{23Y-p-Y8} & 184 & 2{,}219{,}145 & 1.2.1 & 14.5 & 48 & 0 & 0 & 1{,}024 & 5.9 \\
 \midrule
-Total & & & & 4{,}800.7 & 10{,}336 & 218 & & 31{,}942 & 1{,}149.9 \\
+Total & & & & 4{,}800.7 & 10{,}336 & 268 & & 32{,}692 & 1{,}265.7 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Resources}\label{sec:resources}
-All cloud computations ran on Amazon Web Services Graviton4 spot instances in
-the region eu-north-1, each with $96$ vCPUs: one c8g.24xlarge for the
-enumeration and three m8g.24xlarge (one for the new instances, two in
-succession for NMH's instances). The remainder of the $n=21$ enumeration,
-$5{,}259$ jobs, ran on the machine later used for NMH's instances, after the
-enumeration machine was lost to a spot interruption. Solver time was about
-$1{,}660$ hours for the catalogues, $2{,}604$ hours for the new instances and
-$1{,}150$ hours for NMH's instances, about $5{,}400$ hours in all. These are
-sums of per-job or per-cube solver wall-clock times. At times the number of
-workers exceeded the number of vCPUs, so they are not CPU-hours. The cost,
-metered from public spot prices, was about US\$39.
-% TODO: replace by the final figure from the AWS bill. The meter's last reading
-% (results/aws_cost.json, 10:02 UTC on 5 Nov) was US$38.65 with the last machine still
-% running until its scheduled power-off.
+All cloud computations of run~2 ran on Amazon Web Services spot instances in
+the region eu-north-1, with Graviton4 (m8g, r8g) and Graviton3 (r7g)
+processors. The enumeration and then NMH's instances ran on one m8g.24xlarge
+with $96$ vCPUs. The new instances used $20$ machines, in turn or side by
+side: the first m8g.24xlarge, then three r8g.24xlarge in turn, and from
+7~November r8g.16xlarge, r8g.12xlarge, r8g.8xlarge, r7g.12xlarge and
+r7g.8xlarge machines (\path{results/aws_ledger.csv}). Solver time was about
+$1{,}490$ hours for the catalogues, $2{,}675$ hours for the new instances and
+$1{,}266$ hours for NMH's instances, about $5{,}430$ hours in all. Solving again
+the proofs that only \texttt{lrat-check} had seen took about $200$ more hours
+($161$ for the catalogues, $16$ for the new instances and $24$ for NMH's).
+These are sums of per-job or per-cube solver wall-clock times, not CPU-hours:
+the two checkers ran as separate processes beside each solver. The cost of
+run~2, metered from public spot prices, was US\$88.08; with run~1
+(US\$39.22) the total was US\$127.30. Storage volumes and data transfer are
+not included.
+% Source: results/aws_cost.json, results/aws_ledger.csv (run 1 = instances launched before
+% 2026-11-05T11:00Z); solver hours from Tables 1-3; re-solve hours = solver_seconds in
+% results/cake/{enum,stage3-recheck,stage4-heapretry}/*/summary.json.
 For comparison, NMH report about $8$ days of CaDiCaL time on average for their
 $25$ instances with $Y_8$, on one core each~\cite[\S5.2.3]{NMH22}; their logs give
 $4{,}801$ hours for the $27$ logged instances, without proofs.
@@ -935,29 +1076,71 @@ $4{,}801$ hours for the $27$ logged instances, without proofs.
 % =====================================================================
 \section{Trust base}\label{sec:trust}
 
-The proof checker covers the unsatisfiability of every formula that the proof
-uses. The following parts are \emph{not} checked by it. A reader who accepts
-these items and the checked computations can accept
-Theorem~\ref{thm:main}.
+\subsection{The Lean formalisation}\label{sec:lean}
+The directory \path{r7lean/} of the repository contains a Lean~4 project
+(Lean and Mathlib v4.36.0-rc2). It proves
+{\small
+\begin{verbatim}
+theorem R7.every_tournament_46_has_TT7 (T : Tournament (Fin 46)) :
+    T.ContainsTT 7
+\end{verbatim}}
+\noindent that is, Theorem~\ref{thm:main}, from Lean's three standard axioms and
+twelve further axioms. Each of the twelve states one computational result:
+$R(5) \le 14$ (Fact~\ref{fact:tt5}); six catalogue statements for
+$n=21,\dots,26$ (Facts~\ref{fact:st26} and~\ref{fact:cat}); and five
+statements that concrete CNFs are unsatisfiable (Facts~\ref{fact:nmh}
+and~\ref{fact:new}): one for $\Piv{\ST{26}}{\TT{5}}$, one each for
+$\Piv{\ST{25}}{H_6}$ and $\Piv{\ST{25}}{G_7}$, one for the $25$ instances
+$\Piv{\cl{23X}}{Y_8}$, and one for the five new instances. The project has no
+unfinished proof (\texttt{sorry}) and does not use \texttt{native\_decide}. The
+following are proved in Lean's kernel:
+\begin{itemize}
+\item the reduction of Section~\ref{sec:reduction}, with
+  Lemmas~\ref{lem:pivot}--\ref{lem:h6g7} and the reversal step;
+\item the soundness of Lean versions of both encoders, NMH's with the limit
+  $5040$ and ours with $L=1$: if the instance has a $\TT{7}$-free completion,
+  then the CNF is satisfiable. The CNF keeps only clauses that pass a local
+  check, and the check is proved sound;
+\item the isomorphisms between NMH's labelled inputs and our representatives,
+  given as explicit permutations and checked by \texttt{decide};
+\item Lemma~\ref{lem:cover}, in general form.
+\end{itemize}
+A compiled Lean program evaluates the Lean definitions of the $33$ CNFs and
+writes them in DIMACS format. For every instance the output has exactly the
+SHA-256, the clause count and the byte count recorded in
+\path{data/stage3_manifest.json} and \path{data/stage4_manifest.json}, and no
+clause failed the local check. This step trusts the Lean compiler and runtime,
+an unproved writer of about $80$ lines, and \texttt{shasum}. The Lean project
+does not check the SAT proofs, does not apply Lemma~\ref{lem:cover} to the
+actual cube trees, and does not formalise the enumeration
+(Propositions~\ref{prop:pivotdec} and~\ref{prop:complete}). These enter only
+through the twelve axioms. A reader of the Lean statement must still check
+that its definitions mean what is intended.
+
+\subsection{What is not checked}
+Two proof checkers, one of them formally verified, cover the unsatisfiability
+of every formula that the proof uses (Section~\ref{sec:lrat}). The following
+parts are \emph{not} checked by them. A reader who accepts these items and the
+checked computations can accept Theorem~\ref{thm:main}.
 
 \begin{enumerate}[label=\textbf{T\arabic*.},leftmargin=*]
 \item \textbf{The mathematical argument.} Lemmas~\ref{lem:pivot}--\ref{lem:h6g7},
-  the reduction of Section~\ref{sec:reduction}, and
-  Propositions~\ref{prop:pivotdec} and~\ref{prop:complete} and
-  Lemmas~\ref{lem:sound} and~\ref{lem:cover}. They are short and checked by
-  hand only; nothing is formalised.
+  the reduction of Section~\ref{sec:reduction},
+  Propositions~\ref{prop:pivotdec} and~\ref{prop:complete}, and
+  Lemmas~\ref{lem:sound} and~\ref{lem:cover}. They are short. The reduction,
+  Lemmas~\ref{lem:pivot}--\ref{lem:h6g7}, Lemma~\ref{lem:cover} and the
+  soundness of the $33$ pivot formulas are proved in Lean
+  (Section~\ref{sec:lean}). Propositions~\ref{prop:pivotdec}
+  and~\ref{prop:complete} and the soundness of the enumeration formulas are
+  checked by hand only.
 
-\item \textbf{One theorem from the literature.} The uniqueness of the
-  $\TT{6}$-free tournament on $26$ vertices (Fact~\ref{fact:st26}). Everything
-  else we take from the literature is re-derived: $R(5) \le 14$ by our
-  $\TT{5}$-free lists, $R(6) \le 28$ from it by Lemma~\ref{lem:double},
-  NMH's classifications on $23$--$25$ vertices by our certified enumeration, and
-  NMH's $28$ SAT results by our certified runs. Lemma~\ref{lem:h6g7} has a
-  short proof. Fact~\ref{fact:st26} could be re-derived with the same
-  pipeline: for $n=26$ the degree bounds force $d=13$, and there is one
-  $\TT{5}$-free tournament on $12$ vertices and one on $13$, so the enumeration
-  is a single pivot job. We have not run it.
-  % TODO (author): decide whether to run and certify the single n = 26 job before submission.
+\item \textbf{Results from the literature.} None is used without
+  re-derivation. $R(5) \le 14$ is re-derived by our $\TT{5}$-free lists (item
+  T3), $R(6) \le 28$ from it by Lemma~\ref{lem:double}, NMH's classifications
+  on $23$--$25$ vertices and the uniqueness of the $\TT{6}$-free tournament on
+  $26$ vertices (Fact~\ref{fact:st26}) by our certified enumeration, and NMH's
+  $28$ SAT results by our certified runs. Lemma~\ref{lem:h6g7} has a short
+  proof, which is also checked in Lean.
 
 \item \textbf{The $\TT{5}$-free lists.} Their completeness (Section~\ref{sec:tt5})
   rests on our extension program and on \texttt{labelg}; it is not certified.
@@ -972,58 +1155,71 @@ Theorem~\ref{thm:main}.
   The evidence is the brute-force tests, a test that the enumerator's
   $\TT{k}$ clauses equal those of \path{src/encode.c}, the reproduction of the
   $\TT{5}$-free lists for $n=10,\dots,13$ by pivot enumeration, and the exact
-  agreement of the final lists with two independent sources.
+  agreement of the final lists with independent sources.
 
-\item \textbf{Enumeration bookkeeping.} That the job list is complete, that
-  each blocking clause is built from the recorded model, and that each recorded
-  model agrees with the fixed arcs of its job. The certification step checks
-  that recorded models are $\TT{6}$-free but not that they agree with the fixed
-  arcs; the enumerator builds them from those arcs.
-  % NOTE (author): a one-line check in scripts/certify_enum.py would remove this item.
+\item \textbf{Enumeration bookkeeping.} That the job list is complete and that
+  each blocking clause is built from the recorded model. That each recorded
+  model fits its job (its fixed arcs and the degree bound) is checked by the
+  certification step, with a separately written check
+  (\path{scripts/audit/modelfix.py}); all $204{,}350$ models fit.
 
 \item \textbf{Catalogue analysis.} The $Y_8$-containment search and the
   identification of $\Ostar$ (Python, \path{src/tourn.py}); and the property
   of \texttt{labelg} that its output is a relabelling of its input.
 
 \item \textbf{Soundness of the five new formulas.} They were produced by our
-  encoder in its $3$-cycle mode ($L=1$). The clause checker of
-  Section~\ref{sec:stage4enc} handles only direct encodings and was \emph{not}
-  run on them. Their soundness therefore rests on Lemma~\ref{lem:sound} and on
-  \path{src/encode.c} implementing it, which is supported by the brute-force
-  tests (which include $L=1$). Also trusted: the construction of the instance
-  matrices (\path{src/instances.py}) from \path{data/I24_X.txt} and
-  \path{data/O21star.txt}, and the identification of these files with
-  $\cl{24X}$ and $\Ostar$ by canonical form.
-  % TODO (author): extending src/cnf_sound.c to 3-cycle variables and running it on the
-  % five CNFs (a few seconds each) would move most of this item into the checked part.
+  encoder in its $3$-cycle mode ($L=1$). Two checks that do not use
+  \path{src/encode.c} cover them: \path{src/tri_sound.c}
+  (Section~\ref{sec:stage3enc}) said \texttt{SOUND} for all five, and the Lean
+  encoder, whose soundness is proved, reproduces the five files byte for byte
+  (Section~\ref{sec:lean}). It suffices to trust one of the two:
+  \path{src/tri_sound.c} (tested against brute force), or the Lean compiler,
+  runtime and writer. With \path{src/tri_sound.c}, the construction of the
+  instance matrices (\path{src/instances.py}) from \path{data/I24_X.txt} and
+  \path{data/O21star.txt} is also trusted; the Lean route builds the instances
+  from these files itself. Both rely on the identification of these files with
+  $\cl{24X}$ and $\Ostar$ by canonical form (item T6).
 
 \item \textbf{Soundness of NMH's formulas.} This rests on the clause checker
   \path{src/cnf_sound.c} and on the structure check of the inputs, not on NMH's
-  encoder.
+  encoder. The Lean version of NMH's encoder is a second, independent route:
+  it reproduces all $28$ files byte for byte, its soundness is proved, and the
+  isomorphisms of NMH's inputs with our representatives are checked in Lean.
 
-\item \textbf{The LRAT checker.} \texttt{lrat-check} is an unverified C
-  program. A formally verified checker was not used.
+\item \textbf{The LRAT checkers.} Every proof that the results rest on was
+  accepted by both checkers (Section~\ref{sec:lrat}), so it suffices to trust
+  one of them. \texttt{cake\_lpr} is verified in HOL4 and compiled by the
+  verified CakeML compiler; its C wrapper (command line, file reads, heap
+  allocation), the C compiler, the operating system and the hardware are not
+  verified. The patched \texttt{lrat-check} is an unverified C program; a
+  reader who trusts \texttt{cake\_lpr} does not need it.
 
-\item \textbf{The streaming harness and cube bookkeeping.} That
-  \path{scripts/stream_solve.py} gives the checker the same formula $F \wedge c$
-  as the solver and reads its verdict correctly; that
-  \path{scripts/run_cubes.py} records the literals of the cube that was
-  actually solved; and the structural split check and leaf tally in
-  \path{scripts/cnc_summary.py}. (That script compares every child with its
-  parent's literals, but it does not compare a level-$0$ record with the cube
-  file; the two agree by construction in \path{run_cubes.py}.) The level-$0$ cover itself is checked by
-  LRAT.
+\item \textbf{The streaming harness and the bookkeeping.} That
+  \path{scripts/stream_solve.py} gives the checkers the same formula
+  $F \wedge c$ as the solver; that \path{scripts/audit/dualcheck.py} passes the
+  formula and the proof unchanged to both checkers and reads their verdicts
+  correctly; that \path{scripts/run_cubes.py} records the literals of the cube
+  that was actually solved; the structural split check and leaf tally in
+  \path{scripts/cnc_summary.py}, which \path{scripts/audit/closure.py} repeats
+  independently; and the per-leaf audit \path{scripts/audit/union_audit.py},
+  which matches each leaf with the log of its proof by the cube identifier in
+  the name of the proof's working directory, or with a record of
+  \path{scripts/audit/cake_sample.py}. The level-$0$ cover itself is checked
+  by LRAT, with both checkers.
 
-\item \textbf{Proofs are not kept.} Each LRAT proof was checked once, while it
-  was produced, and then discarded. The published record consists of per-cube
-  and per-job verdicts. An independent re-check means re-running the solver,
-  about $3{,}750$ solver-hours for the $33$ pivot instances and about
-  $1{,}660$ for the catalogues.
+\item \textbf{Proofs are not kept.} Each LRAT proof was checked while it was
+  produced and then discarded. The published record consists of per-cube and
+  per-job verdicts and the per-proof logs of both checkers. An independent
+  re-check means re-running the solver, about $3{,}940$ solver-hours for the
+  $33$ pivot instances and about $1{,}490$ for the catalogues.
 
 \item \textbf{Faults.} The runs used ordinary cloud hardware. A fault in a
-  solver run is caught by the checker. A fault in the checker or in the
-  bookkeeping is not, except where the recomputation of the summaries on a
-  second machine would expose it.
+  solver run is caught by the checkers. A checker fault that accepts a wrong
+  proof would have to occur in both checkers on the same proof; no proof was
+  accepted by one checker and rejected by the other, apart from the eight heap
+  exhaustions of \texttt{cake\_lpr} (Section~\ref{sec:stage4}). A fault in the
+  bookkeeping is not caught, except where the separately written audits would
+  expose it.
 \end{enumerate}
 
 The following are \emph{not} trusted: CaDiCaL (its unsatisfiability claims are
@@ -1040,9 +1236,12 @@ repository (TODO: URL).
 An archived snapshot will be deposited with a DOI (TODO). The repository
 contains, for every enumeration job, the completion record and the certificate
 record; for every cube, its literals, status, checker verdict and times; the
-per-instance summaries from the cloud machines and from the second machine;
-and the SHA-256 manifest of NMH's instances. It does not contain LRAT proofs
-(Section~\ref{sec:trust}, item T11) or third-party files. NMH's repository and
+per-proof logs of both checkers and the records of the proofs that were
+solved again; the per-instance summaries; the SHA-256 manifests of NMH's
+instances and of the five new formulas; the archived records of run~1
+(\path{results/run1/}); and the Lean project. It does not contain LRAT proofs
+(Section~\ref{sec:trust}, item T11) or third-party files other than the
+checker sources in \path{tools/}. NMH's repository and
 the catalogue files of~\cite{LLHrepo} are fetched by
 \path{scripts/fetch_refs.sh}; the SHA-256 values of the files we used are in
 \path{refs/SHA256SUMS.txt}. The SHA-256 values of the input matrices of the
@@ -1059,6 +1258,12 @@ five new instances are in Appendix~\ref{app:data}. The main programs are:
   \path{scripts/run_cubes.py}, \path{scripts/stream_solve.py},
   \path{scripts/cnc_summary.py}, and the cloud drivers in
   \path{scripts/cloud/};
+\item proof checking and audits: \path{tools/drat-trim/lrat-check.c}
+  (patched), \path{tools/cake_lpr/}, \path{scripts/audit/dualcheck.py},
+  \path{scripts/audit/cake_sample.py}, \path{scripts/audit/union_audit.py},
+  \path{scripts/audit/closure.py}, \path{scripts/audit/modelfix.py},
+  \path{src/tri_sound.c};
+\item Lean formalisation: \path{r7lean/};
 \item tournament utilities: \path{src/tourn.py}.
 \end{itemize}}
 
@@ -1072,14 +1277,31 @@ assistant (Claude, Anthropic) working under the author's direction. The
 commit messages of the repository name the assistant. The author chose the problem
 and approved each computational stage and its budget. The AI system is not an
 author of this paper. The author takes responsibility for its content.
+% NOTE (author): facts from the repository that you may want to state here (not written
+% into the section, which is yours to write):
+% - commit trailers name "Claude Opus 5.5" as co-author of the run-2 work: the lrat-check
+%   patch (13b6c5a), the dual-check tooling (567df7c, ab818ca, 1653e71), the Lean project
+%   r7lean (8caaf77, af9f29b) and the archive of run 1 (85f8c25);
+% - run 2 (machines, interruptions, resumptions, re-checks) was supervised by the assistant
+%   (as stated in the request for this revision; notes/RUN2.md does not say who ran it);
+% - the checker gap was found by an "independent audit" (notes/FEASIBILITY.md §14), and
+%   src/tri_sound.c, scripts/audit/closure.py and scripts/audit/modelfix.py are described in
+%   their headers as written "by an external auditor"; the repository does not say who
+%   the auditor was;
+% - this revision of the draft (run-2 numbers) was also prepared with the assistant.
 
 % =====================================================================
 \section*{Acknowledgements}
 We thank David Neiman, John Mackey and Marijn Heule for publishing their code,
 inputs and solver logs, and Evan Lohn, Chris Lambert and Marijn Heule for
 publishing their catalogue files. This work would not have been possible
-without them. We also thank the developers of CaDiCaL, drat-trim and nauty for
-making their tools freely available.
+without them. We also thank the developers of CaDiCaL, drat-trim, CakeML and
+\texttt{cake\_lpr}, and nauty for making their tools freely available.
+
+\section*{Competing interests}
+The author is the founder of Papex Labs, which operates Papex
+(\url{https://papex.org}), the research-record service on which the records of
+these computations are published.
 
 \bibliographystyle{amsplain}
 \bibliography{refs}
@@ -1142,7 +1364,18 @@ SHA-256 of the input files of the five new instances:
 \path{data/O21star.txt} & \texttt{1823ac5f5d77c1244622be79d66743100a8306c4fc554b6f3db9f09d1a6f641b} \\
 \end{tabular}
 \end{center}
-% TODO: the SHA-256 values of the five Stage 3 CNFs were not recorded on the server;
-% the clause and literal counts in results/stage3-ABCDE.log are the only fingerprint.
+
+SHA-256 of the five new formulas, built by \path{src/instances.py} and
+\texttt{encode} with $k=7$ and $L=1$ (\path{data/stage3_manifest.json};
+the files have $1.07$\,GB each):
+\begin{center}\footnotesize
+\begin{tabular}{@{}ll@{}}
+\path{24A-p-O21s.tri.cnf} & \texttt{b6a67cd97445f2ce7a5a37c56235158a5dd09f8512febcfc52788f9f054f6970} \\
+\path{24B-p-O21s.tri.cnf} & \texttt{cb1402940fa2ab147762605fbd521f8fbe782c0627c35d437e0c8d8a75d5bdc1} \\
+\path{24C-p-O21s.tri.cnf} & \texttt{8c53b09c90b032e087d88085247e5ad13c4d3c3cc25abec4b00f353af4dd738f} \\
+\path{24D-p-O21s.tri.cnf} & \texttt{0facb5da175e9dd3162085f00fbfaf298e48da737299e42d04b5a5941af8397a} \\
+\path{24E-p-O21s.tri.cnf} & \texttt{94489f5dd54b029e7a96fb545ba1d18cb170576d640ccb03a7800023ea681059} \\
+\end{tabular}
+\end{center}
 
 \end{document}

@@ -1,0 +1,12 @@
+2026-11-07 13:35:10 alive=yes done=- tracebacks=0 0 progress_age_min=47 load=2.72 mem_avail_gb=244 
+2026-11-07 13:50:30 ssh failed (1): ssh: connect to host 13.61.155.166 port 22: Operation timed out
+2026-11-07 14:05:50 ssh failed (2): ssh: connect to host 13.61.155.166 port 22: Operation timed out
+2026-11-07 14:21:10 ssh failed (3): ssh: connect to host 13.61.155.166 port 22: Operation timed out
+WATCH: server unreachable 3 times (spot reclaim, timer, or IP change)
+2026-11-07 14:24:20 alive=yes done=- tracebacks=0 0 progress_age_min=37 load=1.66 mem_avail_gb=244 
+2026-11-07 14:39:24 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.68 mem_avail_gb=37 2026-11-07 11:24:22 conquer 24D with 12 workers 
+2026-11-07 14:54:52 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=12.68 mem_avail_gb=41 2026-11-07 11:24:22 conquer 24D with 12 workers 
+2026-11-07 15:09:54 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.92 mem_avail_gb=63 2026-11-07 11:24:22 conquer 24D with 12 workers 
+2026-11-07 15:24:57 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.37 mem_avail_gb=38 2026-11-07 11:24:22 conquer 24D with 12 workers 
+2026-11-07 15:40:17 ssh failed (1): ssh: connect to host 13.48.30.195 port 22: Operation timed out
+2026-11-07 15:55:37 ssh failed (2): ssh: connect to host 13.48.30.195 port 22: Operation timed out

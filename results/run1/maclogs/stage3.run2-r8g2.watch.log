@@ -1,0 +1,68 @@
+2026-11-05 20:56:26 alive=yes done=- tracebacks=0 0 progress_age_min=38 load=33.48 mem_avail_gb=95 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-05 21:12:28 alive=yes done=- tracebacks=0 0 progress_age_min=2 load=35.28 mem_avail_gb=74 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-05 21:28:14 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=35.73 mem_avail_gb=101 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-05 21:44:30 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=37.19 mem_avail_gb=113 2026-11-05 17:53:33 conquer 24E with 7 workers Timeout, server 13.60.30.218 not responding. 
+2026-11-05 22:35:25 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=37.08 mem_avail_gb=85 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-05 22:50:27 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=37.81 mem_avail_gb=88 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-05 23:05:29 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=37.19 mem_avail_gb=83 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 10:28:13 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.92 mem_avail_gb=117 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 10:44:14 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=40.34 mem_avail_gb=96 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 11:00:10 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.92 mem_avail_gb=92 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 11:15:56 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.28 mem_avail_gb=83 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 11:32:08 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=40.43 mem_avail_gb=130 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 11:48:00 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.77 mem_avail_gb=115 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 12:03:53 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=40.09 mem_avail_gb=121 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 12:19:41 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=40.19 mem_avail_gb=118 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 12:35:41 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=40.37 mem_avail_gb=104 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 12:51:30 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.32 mem_avail_gb=121 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 13:43:13 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.14 mem_avail_gb=117 2026-11-05 17:53:33 conquer 24E with 7 workers Timeout, server 13.60.30.218 not responding. 
+2026-11-06 13:59:29 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.14 mem_avail_gb=106 2026-11-05 17:53:33 conquer 24E with 7 workers Timeout, server 13.60.30.218 not responding. 
+2026-11-06 14:15:17 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.45 mem_avail_gb=108 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 14:31:19 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=40.33 mem_avail_gb=99 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 14:47:09 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.05 mem_avail_gb=103 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 15:03:00 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.71 mem_avail_gb=99 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 15:18:47 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.43 mem_avail_gb=154 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 15:34:34 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.67 mem_avail_gb=96 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 15:50:22 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=40.87 mem_avail_gb=98 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 16:06:11 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.97 mem_avail_gb=118 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 16:21:59 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.65 mem_avail_gb=116 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 16:37:50 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.57 mem_avail_gb=97 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 16:53:38 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.10 mem_avail_gb=97 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 17:09:27 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.92 mem_avail_gb=96 2026-11-05 17:53:33 conquer 24E with 7 workers Read from remote host 13.60.30.218: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 18:00:24 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.35 mem_avail_gb=122 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 18:15:26 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.73 mem_avail_gb=135 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 18:30:27 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.27 mem_avail_gb=96 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 18:45:29 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.33 mem_avail_gb=102 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 19:00:30 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=37.75 mem_avail_gb=119 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 19:15:32 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.53 mem_avail_gb=112 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 19:30:33 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.56 mem_avail_gb=135 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 19:45:35 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=41.31 mem_avail_gb=128 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 20:00:36 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.23 mem_avail_gb=109 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 20:15:38 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=43.00 mem_avail_gb=140 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 20:30:39 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.73 mem_avail_gb=117 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 20:45:41 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.69 mem_avail_gb=100 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 21:00:42 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.80 mem_avail_gb=100 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 21:15:44 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=40.58 mem_avail_gb=104 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 21:30:45 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.25 mem_avail_gb=94 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 21:45:47 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=40.15 mem_avail_gb=122 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 22:00:48 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=37.42 mem_avail_gb=86 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 22:15:50 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=37.74 mem_avail_gb=136 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 22:30:52 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.03 mem_avail_gb=113 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 22:45:54 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.98 mem_avail_gb=108 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 23:00:55 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.46 mem_avail_gb=121 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 23:15:57 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=37.91 mem_avail_gb=129 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 23:30:59 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.86 mem_avail_gb=114 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-06 23:46:00 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=37.65 mem_avail_gb=106 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-07 00:01:02 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.41 mem_avail_gb=137 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-07 00:16:04 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.69 mem_avail_gb=113 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-07 00:31:05 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.59 mem_avail_gb=118 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-07 00:46:07 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.85 mem_avail_gb=118 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-07 01:01:09 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.48 mem_avail_gb=111 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-07 01:16:10 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=37.88 mem_avail_gb=88 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-07 01:31:12 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=40.87 mem_avail_gb=122 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-07 01:46:14 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=38.52 mem_avail_gb=99 2026-11-05 17:53:33 conquer 24E with 7 workers 
+2026-11-07 02:01:34 ssh failed (1): ssh: connect to host 13.60.30.218 port 22: Operation timed out
+2026-11-07 02:16:54 ssh failed (2): ssh: connect to host 13.60.30.218 port 22: Operation timed out
+2026-11-07 02:32:14 ssh failed (3): ssh: connect to host 13.60.30.218 port 22: Operation timed out
+WATCH: server unreachable 3 times (spot reclaim, timer, or IP change)
+2026-11-07 02:35:14 alive=yes done=- tracebacks=0 0 progress_age_min=50 load=1.36 mem_avail_gb=737 

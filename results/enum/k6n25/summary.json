@@ -1,0 +1,30 @@
+{
+ "k": 6,
+ "n": 25,
+ "jobs_total": 46,
+ "jobs_selected": 46,
+ "jobs_recorded": 46,
+ "all_complete": true,
+ "raw_models": 78,
+ "classes": 1,
+ "solver_seconds": 267.7,
+ "per_d": {
+  "12": {
+   "jobs": 1,
+   "secs": 2.14,
+   "max_secs": 2.14,
+   "sat_jobs": 0,
+   "models": 0,
+   "not_complete": 0
+  },
+  "13": {
+   "jobs": 45,
+   "secs": 265.551,
+   "max_secs": 10.3,
+   "sat_jobs": 2,
+   "models": 78,
+   "not_complete": 0
+  }
+ },
+ "wall_seconds_this_run": 0.0
+}

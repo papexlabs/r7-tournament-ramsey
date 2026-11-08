@@ -171,16 +171,15 @@ A wrong row, a wrong generator or a wrong writer shows up as a sha256 mismatch.
 
 **External**: the unsatisfiability of the 33 DIMACS files, by cube-and-conquer
 (`paper/r7le46.tex` §7): every cube `F ∧ c` refuted by CaDiCaL with its LRAT proof checked
-while it is solved by the patched `lrat-check`; in run 2 the LRAT proofs of the enumeration and
-of Stage 4 are also checked by the formally verified `cake_lpr`, those of Stage 3 by
-`lrat-check` with a `cake_lpr` sample; the level-0 cover formula has its own checked LRAT
+while it is solved by the patched `lrat-check`; in run 2 every LRAT proof of the enumeration, of Stage 3 and of Stage 4 is also checked by the
+formally verified `cake_lpr` (during the run, or by re-solving afterwards; `notes/RUN2.md`); the level-0 cover formula has its own checked LRAT
 proof, and `scripts/cnc_summary.py` checks the split structure and prints `ALL CLOSED`
 (conditions (1)–(3) of `unsat_of_cover`). Results: Stage 4 `results/stage4/NAME/run/` (run 2),
 `results/run1/stage4/` (run 1); Stage 3 `results/stage3/NAME/run/` (run 2),
 `results/run1/stage3/` (run 1). Run 1's `lrat-check` did not check the final empty clause
 (`notes/FEASIBILITY.md` §14), so each F7-CNF axiom is justified once the run-2 summary of its
 instances says `ALL CLOSED`. When this milestone was written, run 2 of Stage 3 was in progress
-(no `summary.json` yet) and the run-2 Stage 4 results were not in this checkout.
+(no `summary.json` yet) and the run-2 Stage 4 results were not in this checkout. Run 2 has since finished (8 Nov 2026): all 33 run-2 summaries say `ALL CLOSED`, and every leaf was checked by both checkers (`notes/RUN2.md`).
 
 ## The executable runs
 

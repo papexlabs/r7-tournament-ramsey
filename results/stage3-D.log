@@ -1,0 +1,2 @@
+2026-11-07 11:24:22 24D prepared: c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=9007047 literals=208977552 c ksets: direct=2608200 tri=6355503 zero-orderings=0 prunes-by-fixed-cycle=9466819 c clauses: direct=2608200 tri=6355503 tdef=43344 24D-p-O21s: CNF sha256 OK 0facb5da175e9dd3162085f00fbfaf298e48da737299e42d04b5a5941af8397a 24D-p-O21s: tri_sound SOUND 
+2026-11-07 11:24:22 conquer 24D with 12 workers

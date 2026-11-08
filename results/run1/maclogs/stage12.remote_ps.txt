@@ -1,0 +1,187 @@
+   11:08:24  5.6 2389916 python3 -I scripts/certify_first.py 6 21 results/enum/k6n21 --workers 93 --nice 5
+      03:22  1.9 47960 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_582_41_9_2b62ce/chk.cnf /tmp/cf_paqcrrqa/ss_11_582_41_9_2b62ce/proof.lrat
+      03:22 98.2 68944 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_582_41_9_2b62ce/in.cnf /tmp/cf_paqcrrqa/ss_11_582_41_9_2b62ce/proof.lrat
+      02:53  2.0 46668 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_583_29_fr4hjsbk/chk.cnf /tmp/cf_paqcrrqa/ss_11_583_29_fr4hjsbk/proof.lrat
+      02:53 98.1 59648 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_583_29_fr4hjsbk/in.cnf /tmp/cf_paqcrrqa/ss_11_583_29_fr4hjsbk/proof.lrat
+      02:42  2.0 46448 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_583_41_64pqgroq/chk.cnf /tmp/cf_paqcrrqa/ss_11_583_41_64pqgroq/proof.lrat
+      02:42 98.1 63996 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_583_41_64pqgroq/in.cnf /tmp/cf_paqcrrqa/ss_11_583_41_64pqgroq/proof.lrat
+      02:28  2.0 45052 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_584_14_c_qj_6_x/chk.cnf /tmp/cf_paqcrrqa/ss_11_584_14_c_qj_6_x/proof.lrat
+      02:28 98.1 52872 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_584_14_c_qj_6_x/in.cnf /tmp/cf_paqcrrqa/ss_11_584_14_c_qj_6_x/proof.lrat
+      02:16  2.1 45724 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_584_29_tuxt1207/chk.cnf /tmp/cf_paqcrrqa/ss_11_584_29_tuxt1207/proof.lrat
+      02:16 98.1 60844 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_584_29_tuxt1207/in.cnf /tmp/cf_paqcrrqa/ss_11_584_29_tuxt1207/proof.lrat
+      02:16  2.0 45752 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_584_30_7oh803wf/chk.cnf /tmp/cf_paqcrrqa/ss_11_584_30_7oh803wf/proof.lrat
+      02:16 98.2 54456 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_584_30_7oh803wf/in.cnf /tmp/cf_paqcrrqa/ss_11_584_30_7oh803wf/proof.lrat
+      02:15  1.9 46168 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_584_31_d9f3d9dj/chk.cnf /tmp/cf_paqcrrqa/ss_11_584_31_d9f3d9dj/proof.lrat
+      02:15 98.3 68168 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_584_31_d9f3d9dj/in.cnf /tmp/cf_paqcrrqa/ss_11_584_31_d9f3d9dj/proof.lrat
+      02:11  2.1 45336 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_584_38_0iwu03z9/chk.cnf /tmp/cf_paqcrrqa/ss_11_584_38_0iwu03z9/proof.lrat
+      02:11 98.2 52264 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_584_38_0iwu03z9/in.cnf /tmp/cf_paqcrrqa/ss_11_584_38_0iwu03z9/proof.lrat
+      02:10  2.0 45096 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_584_39_x53kfhxi/chk.cnf /tmp/cf_paqcrrqa/ss_11_584_39_x53kfhxi/proof.lrat
+      02:10 98.2 68580 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_584_39_x53kfhxi/in.cnf /tmp/cf_paqcrrqa/ss_11_584_39_x53kfhxi/proof.lrat
+      02:09  2.0 45756 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_584_41_s8vhjtzw/chk.cnf /tmp/cf_paqcrrqa/ss_11_584_41_s8vhjtzw/proof.lrat
+      02:09 98.1 64464 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_584_41_s8vhjtzw/in.cnf /tmp/cf_paqcrrqa/ss_11_584_41_s8vhjtzw/proof.lrat
+      01:32  2.2 44524 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_585_29_744vw2sj/chk.cnf /tmp/cf_paqcrrqa/ss_11_585_29_744vw2sj/proof.lrat
+      01:32 98.0 58316 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_585_29_744vw2sj/in.cnf /tmp/cf_paqcrrqa/ss_11_585_29_744vw2sj/proof.lrat
+      01:32  2.1 43988 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_585_30_r0aw6fj2/chk.cnf /tmp/cf_paqcrrqa/ss_11_585_30_r0aw6fj2/proof.lrat
+      01:32 98.1 46608 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_585_30_r0aw6fj2/in.cnf /tmp/cf_paqcrrqa/ss_11_585_30_r0aw6fj2/proof.lrat
+      01:30  2.2 42860 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_585_31_oja6m14h/chk.cnf /tmp/cf_paqcrrqa/ss_11_585_31_oja6m14h/proof.lrat
+      01:30 98.0 35660 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_585_31_oja6m14h/in.cnf /tmp/cf_paqcrrqa/ss_11_585_31_oja6m14h/proof.lrat
+      01:30  2.1 43808 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_585_33_y3uhb1j1/chk.cnf /tmp/cf_paqcrrqa/ss_11_585_33_y3uhb1j1/proof.lrat
+      01:30 98.1 47380 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_585_33_y3uhb1j1/in.cnf /tmp/cf_paqcrrqa/ss_11_585_33_y3uhb1j1/proof.lrat
+      01:23  2.2 43068 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_585_38_gr9bpsje/chk.cnf /tmp/cf_paqcrrqa/ss_11_585_38_gr9bpsje/proof.lrat
+      01:23 98.0 52336 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_585_38_gr9bpsje/in.cnf /tmp/cf_paqcrrqa/ss_11_585_38_gr9bpsje/proof.lrat
+      01:22  2.2 43112 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_585_39_dvx8m465/chk.cnf /tmp/cf_paqcrrqa/ss_11_585_39_dvx8m465/proof.lrat
+      01:22 97.9 56284 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_585_39_dvx8m465/in.cnf /tmp/cf_paqcrrqa/ss_11_585_39_dvx8m465/proof.lrat
+      01:19  2.1 44564 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_585_41_qoogd5y0/chk.cnf /tmp/cf_paqcrrqa/ss_11_585_41_qoogd5y0/proof.lrat
+      01:19 98.0 48496 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_585_41_qoogd5y0/in.cnf /tmp/cf_paqcrrqa/ss_11_585_41_qoogd5y0/proof.lrat
+      01:17  2.2 44212 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_585_43_1q949bpf/chk.cnf /tmp/cf_paqcrrqa/ss_11_585_43_1q949bpf/proof.lrat
+      01:17 98.0 46132 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_585_43_1q949bpf/in.cnf /tmp/cf_paqcrrqa/ss_11_585_43_1q949bpf/proof.lrat
+      01:11  2.4 43476 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_6_3thn2f4w/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_6_3thn2f4w/proof.lrat
+      01:11 97.9 44880 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_6_3thn2f4w/in.cnf /tmp/cf_paqcrrqa/ss_11_586_6_3thn2f4w/proof.lrat
+      01:07  2.4 42388 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_9_x7x4xdhj/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_9_x7x4xdhj/proof.lrat
+      01:07 97.8 51028 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_9_x7x4xdhj/in.cnf /tmp/cf_paqcrrqa/ss_11_586_9_x7x4xdhj/proof.lrat
+      01:05  2.5 42756 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_10_h3xt2ent/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_10_h3xt2ent/proof.lrat
+      01:05 97.8 39408 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_10_h3xt2ent/in.cnf /tmp/cf_paqcrrqa/ss_11_586_10_h3xt2ent/proof.lrat
+      01:05  2.4 42860 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_12_f5vysgwr/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_12_f5vysgwr/proof.lrat
+      01:05 97.8 49424 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_12_f5vysgwr/in.cnf /tmp/cf_paqcrrqa/ss_11_586_12_f5vysgwr/proof.lrat
+      01:04  2.5 42764 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_13_rsv63h37/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_13_rsv63h37/proof.lrat
+      01:04 97.7 49272 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_13_rsv63h37/in.cnf /tmp/cf_paqcrrqa/ss_11_586_13_rsv63h37/proof.lrat
+      01:04  2.4 42228 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_14_en0xrzam/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_14_en0xrzam/proof.lrat
+      01:04 97.9 51812 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_14_en0xrzam/in.cnf /tmp/cf_paqcrrqa/ss_11_586_14_en0xrzam/proof.lrat
+      01:00  2.5 43084 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_18_gen8eskm/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_18_gen8eskm/proof.lrat
+      01:00 97.7 46188 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_18_gen8eskm/in.cnf /tmp/cf_paqcrrqa/ss_11_586_18_gen8eskm/proof.lrat
+      00:58  2.2 43120 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_21_w__xjo1s/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_21_w__xjo1s/proof.lrat
+      00:58 98.1 48244 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_21_w__xjo1s/in.cnf /tmp/cf_paqcrrqa/ss_11_586_21_w__xjo1s/proof.lrat
+      00:57  2.5 43452 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_22_gnxsep0t/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_22_gnxsep0t/proof.lrat
+      00:57 97.6 43192 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_22_gnxsep0t/in.cnf /tmp/cf_paqcrrqa/ss_11_586_22_gnxsep0t/proof.lrat
+      00:56  2.4 42420 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_27_xoukceqc/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_27_xoukceqc/proof.lrat
+      00:56 97.8 46972 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_27_xoukceqc/in.cnf /tmp/cf_paqcrrqa/ss_11_586_27_xoukceqc/proof.lrat
+      00:55  2.3 43256 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_29_dg41q3ud/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_29_dg41q3ud/proof.lrat
+      00:55 97.9 51844 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_29_dg41q3ud/in.cnf /tmp/cf_paqcrrqa/ss_11_586_29_dg41q3ud/proof.lrat
+      00:53  2.4 42592 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_30_dm_a3m1k/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_30_dm_a3m1k/proof.lrat
+      00:53 97.9 42612 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_30_dm_a3m1k/in.cnf /tmp/cf_paqcrrqa/ss_11_586_30_dm_a3m1k/proof.lrat
+      00:52  2.5 43552 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_31_7l0r0j20/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_31_7l0r0j20/proof.lrat
+      00:52 97.7 44200 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_31_7l0r0j20/in.cnf /tmp/cf_paqcrrqa/ss_11_586_31_7l0r0j20/proof.lrat
+      00:51  2.3 42176 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_32_a2t3xzwl/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_32_a2t3xzwl/proof.lrat
+      00:51 97.9 38672 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_32_a2t3xzwl/in.cnf /tmp/cf_paqcrrqa/ss_11_586_32_a2t3xzwl/proof.lrat
+      00:50  2.4 42112 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_33_a9czem7r/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_33_a9czem7r/proof.lrat
+      00:50 97.8 41352 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_33_a9czem7r/in.cnf /tmp/cf_paqcrrqa/ss_11_586_33_a9czem7r/proof.lrat
+      00:45  2.6 42404 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_38_2meek97y/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_38_2meek97y/proof.lrat
+      00:45 97.6 40740 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_38_2meek97y/in.cnf /tmp/cf_paqcrrqa/ss_11_586_38_2meek97y/proof.lrat
+      00:45  2.6 42844 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_39_2q7oy5de/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_39_2q7oy5de/proof.lrat
+      00:45 97.5 43216 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_39_2q7oy5de/in.cnf /tmp/cf_paqcrrqa/ss_11_586_39_2q7oy5de/proof.lrat
+      00:43  2.6 41944 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_41_vumsrnuo/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_41_vumsrnuo/proof.lrat
+      00:43 97.7 37072 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_41_vumsrnuo/in.cnf /tmp/cf_paqcrrqa/ss_11_586_41_vumsrnuo/proof.lrat
+      00:43  2.5 42120 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_586_43_d9hh_tco/chk.cnf /tmp/cf_paqcrrqa/ss_11_586_43_d9hh_tco/proof.lrat
+      00:43 97.7 48248 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_586_43_d9hh_tco/in.cnf /tmp/cf_paqcrrqa/ss_11_586_43_d9hh_tco/proof.lrat
+      00:42  2.5 41328 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_0_hcood_u7/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_0_hcood_u7/proof.lrat
+      00:42 97.8 49932 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_0_hcood_u7/in.cnf /tmp/cf_paqcrrqa/ss_11_587_0_hcood_u7/proof.lrat
+      00:40  2.5 41880 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_1_0ct20aue/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_1_0ct20aue/proof.lrat
+      00:40 97.7 46848 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_1_0ct20aue/in.cnf /tmp/cf_paqcrrqa/ss_11_587_1_0ct20aue/proof.lrat
+      00:40  2.5 41972 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_2_9q679rcm/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_2_9q679rcm/proof.lrat
+      00:40 97.7 35008 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_2_9q679rcm/in.cnf /tmp/cf_paqcrrqa/ss_11_587_2_9q679rcm/proof.lrat
+      00:39  2.5 41708 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_5_7yj84obo/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_5_7yj84obo/proof.lrat
+      00:39 97.8 39464 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_5_7yj84obo/in.cnf /tmp/cf_paqcrrqa/ss_11_587_5_7yj84obo/proof.lrat
+      00:39  2.5 41632 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_6_w97pa38u/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_6_w97pa38u/proof.lrat
+      00:39 97.7 42108 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_6_w97pa38u/in.cnf /tmp/cf_paqcrrqa/ss_11_587_6_w97pa38u/proof.lrat
+      00:36  2.5 41736 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_8_8nttg2ka/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_8_8nttg2ka/proof.lrat
+      00:36 97.8 39628 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_8_8nttg2ka/in.cnf /tmp/cf_paqcrrqa/ss_11_587_8_8nttg2ka/proof.lrat
+      00:36  2.8 41308 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_9_kx5sm0s6/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_9_kx5sm0s6/proof.lrat
+      00:36 97.6 43208 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_9_kx5sm0s6/in.cnf /tmp/cf_paqcrrqa/ss_11_587_9_kx5sm0s6/proof.lrat
+      00:35  2.6 41780 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_10_zcd84htb/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_10_zcd84htb/proof.lrat
+      00:35 97.5 36204 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_10_zcd84htb/in.cnf /tmp/cf_paqcrrqa/ss_11_587_10_zcd84htb/proof.lrat
+      00:32  2.7 41440 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_11_ghs_angs/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_11_ghs_angs/proof.lrat
+      00:32 97.5 35652 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_11_ghs_angs/in.cnf /tmp/cf_paqcrrqa/ss_11_587_11_ghs_angs/proof.lrat
+      00:31  2.7 41164 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_12_wkgm30pr/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_12_wkgm30pr/proof.lrat
+      00:31 97.6 35944 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_12_wkgm30pr/in.cnf /tmp/cf_paqcrrqa/ss_11_587_12_wkgm30pr/proof.lrat
+      00:31  2.6 40956 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_13_prjs4h9u/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_13_prjs4h9u/proof.lrat
+      00:31 97.6 36844 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_13_prjs4h9u/in.cnf /tmp/cf_paqcrrqa/ss_11_587_13_prjs4h9u/proof.lrat
+      00:30  2.5 40812 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_14_4cgfcgas/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_14_4cgfcgas/proof.lrat
+      00:30 97.8 34520 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_14_4cgfcgas/in.cnf /tmp/cf_paqcrrqa/ss_11_587_14_4cgfcgas/proof.lrat
+      00:30  2.7 41060 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_15_h8oh01d3/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_15_h8oh01d3/proof.lrat
+      00:30 97.5 37536 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_15_h8oh01d3/in.cnf /tmp/cf_paqcrrqa/ss_11_587_15_h8oh01d3/proof.lrat
+      00:29  2.6 40972 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_16_9tu5t75o/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_16_9tu5t75o/proof.lrat
+      00:29 97.6 42172 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_16_9tu5t75o/in.cnf /tmp/cf_paqcrrqa/ss_11_587_16_9tu5t75o/proof.lrat
+      00:28  2.6 41028 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_17_vds7_v55/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_17_vds7_v55/proof.lrat
+      00:28 97.8 35576 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_17_vds7_v55/in.cnf /tmp/cf_paqcrrqa/ss_11_587_17_vds7_v55/proof.lrat
+      00:28  2.8 40712 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_18_49_1e5q0/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_18_49_1e5q0/proof.lrat
+      00:28 97.5 33852 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_18_49_1e5q0/in.cnf /tmp/cf_paqcrrqa/ss_11_587_18_49_1e5q0/proof.lrat
+      00:27  2.6 41312 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_20_k54y6mbk/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_20_k54y6mbk/proof.lrat
+      00:27 97.7 37112 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_20_k54y6mbk/in.cnf /tmp/cf_paqcrrqa/ss_11_587_20_k54y6mbk/proof.lrat
+      00:26  2.8 41036 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_21_4u3ji57j/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_21_4u3ji57j/proof.lrat
+      00:26 97.3 37348 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_21_4u3ji57j/in.cnf /tmp/cf_paqcrrqa/ss_11_587_21_4u3ji57j/proof.lrat
+      00:26  2.9 41100 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_22_407tabm_/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_22_407tabm_/proof.lrat
+      00:26 97.5 42684 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_22_407tabm_/in.cnf /tmp/cf_paqcrrqa/ss_11_587_22_407tabm_/proof.lrat
+      00:25  2.9 40088 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_23_3wb36m7s/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_23_3wb36m7s/proof.lrat
+      00:25 97.4 40140 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_23_3wb36m7s/in.cnf /tmp/cf_paqcrrqa/ss_11_587_23_3wb36m7s/proof.lrat
+      00:23  2.6 40468 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_24_19xkdf26/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_24_19xkdf26/proof.lrat
+      00:23 97.7 32840 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_24_19xkdf26/in.cnf /tmp/cf_paqcrrqa/ss_11_587_24_19xkdf26/proof.lrat
+      00:23  2.6 40440 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_25_0ccb2h2t/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_25_0ccb2h2t/proof.lrat
+      00:23 97.6 34800 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_25_0ccb2h2t/in.cnf /tmp/cf_paqcrrqa/ss_11_587_25_0ccb2h2t/proof.lrat
+      00:21  2.7 40408 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_26_7cyu5gs2/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_26_7cyu5gs2/proof.lrat
+      00:21 97.6 29184 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_26_7cyu5gs2/in.cnf /tmp/cf_paqcrrqa/ss_11_587_26_7cyu5gs2/proof.lrat
+      00:21  2.9 40724 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_27_wpug9sp0/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_27_wpug9sp0/proof.lrat
+      00:21 97.6 41680 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_27_wpug9sp0/in.cnf /tmp/cf_paqcrrqa/ss_11_587_27_wpug9sp0/proof.lrat
+      00:20  2.9 40160 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_28_djf7g03p/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_28_djf7g03p/proof.lrat
+      00:20 97.5 32768 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_28_djf7g03p/in.cnf /tmp/cf_paqcrrqa/ss_11_587_28_djf7g03p/proof.lrat
+      00:20  2.7 40168 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_29_ys5pj8_2/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_29_ys5pj8_2/proof.lrat
+      00:20 97.5 32672 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_29_ys5pj8_2/in.cnf /tmp/cf_paqcrrqa/ss_11_587_29_ys5pj8_2/proof.lrat
+      00:20  2.8 40520 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_30_jmmfmejz/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_30_jmmfmejz/proof.lrat
+      00:20 97.4 31768 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_30_jmmfmejz/in.cnf /tmp/cf_paqcrrqa/ss_11_587_30_jmmfmejz/proof.lrat
+      00:19  2.7 40492 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_31_e_v6fwue/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_31_e_v6fwue/proof.lrat
+      00:19 97.6 33328 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_31_e_v6fwue/in.cnf /tmp/cf_paqcrrqa/ss_11_587_31_e_v6fwue/proof.lrat
+      00:19  3.0 40428 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_33_flzubzfd/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_33_flzubzfd/proof.lrat
+      00:19  2.9 40312 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_32_qd7mvh70/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_32_qd7mvh70/proof.lrat
+      00:19 97.3 31160 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_33_flzubzfd/in.cnf /tmp/cf_paqcrrqa/ss_11_587_33_flzubzfd/proof.lrat
+      00:19 97.3 32248 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_32_qd7mvh70/in.cnf /tmp/cf_paqcrrqa/ss_11_587_32_qd7mvh70/proof.lrat
+      00:17  3.1 40036 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_34_zk9gpqhf/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_34_zk9gpqhf/proof.lrat
+      00:17 97.3 41976 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_34_zk9gpqhf/in.cnf /tmp/cf_paqcrrqa/ss_11_587_34_zk9gpqhf/proof.lrat
+      00:15  3.0 40028 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_35__1tt5rnw/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_35__1tt5rnw/proof.lrat
+      00:15 97.4 35428 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_35__1tt5rnw/in.cnf /tmp/cf_paqcrrqa/ss_11_587_35__1tt5rnw/proof.lrat
+      00:14  3.0 40096 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_36_j7kinem2/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_36_j7kinem2/proof.lrat
+      00:14 97.2 30108 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_36_j7kinem2/in.cnf /tmp/cf_paqcrrqa/ss_11_587_36_j7kinem2/proof.lrat
+      00:14  3.1 40568 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_37_7qool3x4/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_37_7qool3x4/proof.lrat
+      00:14 97.1 31576 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_37_7qool3x4/in.cnf /tmp/cf_paqcrrqa/ss_11_587_37_7qool3x4/proof.lrat
+      00:12  3.3 39596 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_38_om_fe8wi/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_38_om_fe8wi/proof.lrat
+      00:12 96.8 28504 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_38_om_fe8wi/in.cnf /tmp/cf_paqcrrqa/ss_11_587_38_om_fe8wi/proof.lrat
+      00:11  2.9 39508 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_39_pvqjqh5v/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_39_pvqjqh5v/proof.lrat
+      00:11 97.5 31708 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_39_pvqjqh5v/in.cnf /tmp/cf_paqcrrqa/ss_11_587_39_pvqjqh5v/proof.lrat
+      00:10  3.4 39740 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_40_yaplvrxd/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_40_yaplvrxd/proof.lrat
+      00:10 96.9 28208 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_40_yaplvrxd/in.cnf /tmp/cf_paqcrrqa/ss_11_587_40_yaplvrxd/proof.lrat
+      00:09  3.2 39260 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_41_4hl1rrhe/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_41_4hl1rrhe/proof.lrat
+      00:09 97.3 26656 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_41_4hl1rrhe/in.cnf /tmp/cf_paqcrrqa/ss_11_587_41_4hl1rrhe/proof.lrat
+      00:08  3.5 39324 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_42_xkepkfbz/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_42_xkepkfbz/proof.lrat
+      00:08 97.1 29412 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_42_xkepkfbz/in.cnf /tmp/cf_paqcrrqa/ss_11_587_42_xkepkfbz/proof.lrat
+      00:08  3.4 39480 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_43_bfh8bauo/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_43_bfh8bauo/proof.lrat
+      00:08 97.0 27324 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_43_bfh8bauo/in.cnf /tmp/cf_paqcrrqa/ss_11_587_43_bfh8bauo/proof.lrat
+      00:08  3.8 39496 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_587_44_68j_zdft/chk.cnf /tmp/cf_paqcrrqa/ss_11_587_44_68j_zdft/proof.lrat
+      00:08 96.8 27340 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_587_44_68j_zdft/in.cnf /tmp/cf_paqcrrqa/ss_11_587_44_68j_zdft/proof.lrat
+      00:05  3.7 39416 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_0_vox_tdlr/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_0_vox_tdlr/proof.lrat
+      00:05 96.6 26888 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_0_vox_tdlr/in.cnf /tmp/cf_paqcrrqa/ss_11_588_0_vox_tdlr/proof.lrat
+      00:05  3.8 39520 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_1_hoephgyn/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_1_hoephgyn/proof.lrat
+      00:05 96.9 27692 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_1_hoephgyn/in.cnf /tmp/cf_paqcrrqa/ss_11_588_1_hoephgyn/proof.lrat
+      00:05  4.0 39568 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_2_a3332xgr/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_2_a3332xgr/proof.lrat
+      00:05 96.2 26696 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_2_a3332xgr/in.cnf /tmp/cf_paqcrrqa/ss_11_588_2_a3332xgr/proof.lrat
+      00:05  3.8 39220 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_3_7mw1mm5i/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_3_7mw1mm5i/proof.lrat
+      00:05 96.9 26196 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_3_7mw1mm5i/in.cnf /tmp/cf_paqcrrqa/ss_11_588_3_7mw1mm5i/proof.lrat
+      00:04  4.4 39072 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_4_f03ib8np/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_4_f03ib8np/proof.lrat
+      00:04 96.4 27596 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_4_f03ib8np/in.cnf /tmp/cf_paqcrrqa/ss_11_588_4_f03ib8np/proof.lrat
+      00:04  3.9 38952 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_5__m7ti0tn/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_5__m7ti0tn/proof.lrat
+      00:04 96.5 25704 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_5__m7ti0tn/in.cnf /tmp/cf_paqcrrqa/ss_11_588_5__m7ti0tn/proof.lrat
+      00:03  4.4 38740 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_6_a0j7v8l9/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_6_a0j7v8l9/proof.lrat
+      00:03 96.1 32864 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_6_a0j7v8l9/in.cnf /tmp/cf_paqcrrqa/ss_11_588_6_a0j7v8l9/proof.lrat
+      00:02  4.3 38536 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_7_fpmr6tqm/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_7_fpmr6tqm/proof.lrat
+      00:02 96.3 27344 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_7_fpmr6tqm/in.cnf /tmp/cf_paqcrrqa/ss_11_588_7_fpmr6tqm/proof.lrat
+      00:02  5.1 38532 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_8_jaoo1zk3/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_8_jaoo1zk3/proof.lrat
+      00:02 95.2 26912 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_8_jaoo1zk3/in.cnf /tmp/cf_paqcrrqa/ss_11_588_8_jaoo1zk3/proof.lrat
+      00:02  4.8 38396 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_9__3l3ux_c/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_9__3l3ux_c/proof.lrat
+      00:02 95.6 26604 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_9__3l3ux_c/in.cnf /tmp/cf_paqcrrqa/ss_11_588_9__3l3ux_c/proof.lrat
+      00:01  5.9 38208 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_10_47mtkxdu/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_10_47mtkxdu/proof.lrat
+      00:01 95.2 26832 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_10_47mtkxdu/in.cnf /tmp/cf_paqcrrqa/ss_11_588_10_47mtkxdu/proof.lrat
+      00:01  7.1 38020 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_11_s2ipi77c/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_11_s2ipi77c/proof.lrat
+      00:01 93.7 26424 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_11_s2ipi77c/in.cnf /tmp/cf_paqcrrqa/ss_11_588_11_s2ipi77c/proof.lrat
+      00:00  8.2 37992 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_12_rr9_5c4q/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_12_rr9_5c4q/proof.lrat
+      00:00 91.6 26212 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_12_rr9_5c4q/in.cnf /tmp/cf_paqcrrqa/ss_11_588_12_rr9_5c4q/proof.lrat
+      00:00  9.2 37880 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_13_ghjummif/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_13_ghjummif/proof.lrat
+      00:00 92.1 26612 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_13_ghjummif/in.cnf /tmp/cf_paqcrrqa/ss_11_588_13_ghjummif/proof.lrat
+      00:00 31.5 37740 /home/ubuntu/tr/build/lrat-check /tmp/cf_paqcrrqa/ss_11_588_14_jc7n38pz/chk.cnf /tmp/cf_paqcrrqa/ss_11_588_14_jc7n38pz/proof.lrat
+      00:00 78.9 20448 cadical -q --lrat=true --binary=false /tmp/cf_paqcrrqa/ss_11_588_14_jc7n38pz/in.cnf /tmp/cf_paqcrrqa/ss_11_588_14_jc7n38pz/proof.lrat

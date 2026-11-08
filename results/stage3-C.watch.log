@@ -1,0 +1,103 @@
+2026-11-07 04:01:42 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=1.02 mem_avail_gb=244 
+2026-11-07 04:16:44 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=12.71 mem_avail_gb=31 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 04:31:45 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.54 mem_avail_gb=36 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 04:46:47 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.33 mem_avail_gb=32 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 05:01:48 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.65 mem_avail_gb=28 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 05:16:50 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.05 mem_avail_gb=22 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 05:31:51 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.34 mem_avail_gb=33 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 05:46:53 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=12.77 mem_avail_gb=43 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 06:01:54 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=12.54 mem_avail_gb=21 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 06:16:55 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=12.73 mem_avail_gb=24 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 06:31:57 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.08 mem_avail_gb=39 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 06:46:58 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.40 mem_avail_gb=33 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 07:02:00 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=12.77 mem_avail_gb=38 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 07:17:01 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=12.53 mem_avail_gb=19 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 07:32:03 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.45 mem_avail_gb=34 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 07:47:04 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=12.89 mem_avail_gb=38 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 08:02:06 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=12.83 mem_avail_gb=35 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 08:17:07 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.08 mem_avail_gb=46 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 08:32:08 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.30 mem_avail_gb=29 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 08:47:10 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.15 mem_avail_gb=43 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 09:02:11 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.08 mem_avail_gb=25 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 09:17:13 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=12.97 mem_avail_gb=40 2026-11-07 01:01:51 conquer 24C with 12 workers 
+2026-11-07 09:32:33 ssh failed (1): ssh: connect to host 16.16.123.251 port 22: Operation timed out
+2026-11-07 09:47:53 ssh failed (2): ssh: connect to host 16.16.123.251 port 22: Operation timed out
+2026-11-07 10:03:13 ssh failed (3): ssh: connect to host 16.16.123.251 port 22: Operation timed out
+WATCH: server unreachable 3 times (spot reclaim, timer, or IP change)
+2026-11-07 10:05:55 alive=yes done=- tracebacks=0 0 progress_age_min=41 load=2.43 mem_avail_gb=244 
+2026-11-07 10:20:56 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.22 mem_avail_gb=32 2026-11-07 07:06:00 conquer 24C with 12 workers 
+2026-11-07 12:16:11 ssh failed (1): ssh: connect to host 16.171.6.219 port 22: Operation timed out
+2026-11-07 12:31:31 ssh failed (2): ssh: connect to host 16.171.6.219 port 22: Operation timed out
+2026-11-07 12:46:32 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.40 mem_avail_gb=30 2026-11-07 07:06:00 conquer 24C with 12 workers 
+2026-11-07 13:01:34 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.47 mem_avail_gb=46 2026-11-07 07:06:00 conquer 24C with 12 workers 
+2026-11-07 13:16:35 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.07 mem_avail_gb=44 2026-11-07 07:06:00 conquer 24C with 12 workers 
+2026-11-07 13:31:37 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.15 mem_avail_gb=23 2026-11-07 07:06:00 conquer 24C with 12 workers 
+2026-11-07 13:46:38 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.94 mem_avail_gb=30 2026-11-07 07:06:00 conquer 24C with 12 workers 
+2026-11-07 14:01:40 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=15.18 mem_avail_gb=53 2026-11-07 07:06:00 conquer 24C with 12 workers 
+2026-11-07 14:16:41 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.38 mem_avail_gb=32 2026-11-07 07:06:00 conquer 24C with 12 workers 
+2026-11-07 14:31:46 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=15.35 mem_avail_gb=34 2026-11-07 07:06:00 conquer 24C with 12 workers 
+2026-11-07 14:46:50 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.38 mem_avail_gb=36 2026-11-07 07:06:00 conquer 24C with 12 workers 
+2026-11-07 15:01:53 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.64 mem_avail_gb=28 2026-11-07 07:06:00 conquer 24C with 12 workers 
+2026-11-07 15:16:55 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.14 mem_avail_gb=31 2026-11-07 07:06:00 conquer 24C with 12 workers 
+2026-11-07 15:31:57 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.94 mem_avail_gb=25 2026-11-07 07:06:00 conquer 24C with 12 workers 
+2026-11-07 15:47:17 ssh failed (1): ssh: connect to host 16.171.6.219 port 22: Operation timed out
+2026-11-07 15:57:02 ssh failed (1): ssh: connect to host 16.170.232.159 port 22: Operation timed out
+2026-11-07 16:12:22 ssh failed (2): ssh: connect to host 16.170.232.159 port 22: Operation timed out
+2026-11-07 16:27:42 ssh failed (3): ssh: connect to host 16.170.232.159 port 22: Operation timed out
+WATCH: server unreachable 3 times (spot reclaim, timer, or IP change)
+2026-11-07 16:30:59 alive=yes done=- tracebacks=0 0 progress_age_min=59 load=1.69 mem_avail_gb=244 
+2026-11-07 16:46:00 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.63 mem_avail_gb=34 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 17:51:00 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.62 mem_avail_gb=36 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 18:06:02 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.49 mem_avail_gb=36 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 18:21:03 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.97 mem_avail_gb=29 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 18:36:05 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.37 mem_avail_gb=28 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 18:51:06 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.66 mem_avail_gb=30 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 19:06:09 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.69 mem_avail_gb=52 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 19:21:10 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.87 mem_avail_gb=45 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 19:36:12 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.75 mem_avail_gb=38 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 19:51:13 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.96 mem_avail_gb=27 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 20:06:14 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.16 mem_avail_gb=30 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 20:21:15 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=15.85 mem_avail_gb=49 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 20:36:17 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=15.26 mem_avail_gb=41 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 20:51:18 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.21 mem_avail_gb=33 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 21:06:19 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.88 mem_avail_gb=35 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 21:21:21 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.70 mem_avail_gb=34 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 21:36:22 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.21 mem_avail_gb=74 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 21:51:24 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.74 mem_avail_gb=37 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 22:06:26 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.53 mem_avail_gb=30 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 22:21:28 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.69 mem_avail_gb=32 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 22:36:29 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.40 mem_avail_gb=25 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 22:51:30 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.50 mem_avail_gb=34 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 23:06:32 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.36 mem_avail_gb=53 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 23:21:33 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.72 mem_avail_gb=28 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 23:36:34 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.46 mem_avail_gb=24 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-07 23:51:35 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.25 mem_avail_gb=40 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-08 00:06:36 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=12.94 mem_avail_gb=42 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-08 00:21:38 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=15.18 mem_avail_gb=68 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-08 00:36:40 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.12 mem_avail_gb=46 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-08 00:51:41 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.71 mem_avail_gb=32 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-08 01:06:43 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=15.03 mem_avail_gb=32 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-08 01:21:44 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.58 mem_avail_gb=38 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-08 01:36:45 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.01 mem_avail_gb=30 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-08 01:51:46 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.66 mem_avail_gb=34 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-08 02:06:47 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.59 mem_avail_gb=30 2026-11-07 13:31:11 conquer 24C with 12 workers 
+2026-11-08 02:22:08 ssh failed (1): ssh: connect to host 13.51.70.214 port 22: Operation timed out
+2026-11-08 02:37:28 ssh failed (2): ssh: connect to host 13.51.70.214 port 22: Operation timed out
+2026-11-08 02:52:48 ssh failed (3): ssh: connect to host 13.51.70.214 port 22: Operation timed out
+WATCH: server unreachable 3 times (spot reclaim, timer, or IP change)
+2026-11-08 02:55:24 alive=yes done=- tracebacks=0 0 progress_age_min=36 load=2.60 mem_avail_gb=244 
+2026-11-08 03:10:25 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.54 mem_avail_gb=25 2026-11-07 23:55:29 conquer 24C with 12 workers 
+2026-11-08 03:25:27 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.52 mem_avail_gb=30 2026-11-07 23:55:29 conquer 24C with 12 workers 
+2026-11-08 03:40:28 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=15.21 mem_avail_gb=32 2026-11-07 23:55:29 conquer 24C with 12 workers 
+2026-11-08 03:55:30 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.01 mem_avail_gb=44 2026-11-07 23:55:29 conquer 24C with 12 workers 
+2026-11-08 04:10:31 alive=yes done=- tracebacks=0 0 progress_age_min=1 load=12.88 mem_avail_gb=18 2026-11-07 23:55:29 conquer 24C with 12 workers 
+2026-11-08 04:25:33 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=15.22 mem_avail_gb=42 2026-11-07 23:55:29 conquer 24C with 12 workers 
+2026-11-08 04:40:34 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.69 mem_avail_gb=54 2026-11-07 23:55:29 conquer 24C with 12 workers 
+2026-11-08 04:55:35 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.24 mem_avail_gb=33 2026-11-07 23:55:29 conquer 24C with 12 workers 
+2026-11-08 05:10:37 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.17 mem_avail_gb=26 2026-11-07 23:55:29 conquer 24C with 12 workers 
+2026-11-08 05:25:38 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=15.41 mem_avail_gb=55 2026-11-07 23:55:29 conquer 24C with 12 workers 
+2026-11-08 05:40:39 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=14.64 mem_avail_gb=31 2026-11-07 23:55:29 conquer 24C with 12 workers 
+2026-11-08 05:55:40 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=16.00 mem_avail_gb=51 2026-11-07 23:55:29 conquer 24C with 12 workers 
+2026-11-08 06:10:42 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=13.81 mem_avail_gb=51 2026-11-07 23:55:29 conquer 24C with 12 workers 
+2026-11-08 06:25:43 alive=no done=0 tracebacks=0 0 progress_age_min=3 load=0.15 mem_avail_gb=244 Shutdown scheduled for Sun 2026-11-08 04:22:43 UTC, use 'shutdown -c' to cancel. 
+WATCH: stage3-C finished OK

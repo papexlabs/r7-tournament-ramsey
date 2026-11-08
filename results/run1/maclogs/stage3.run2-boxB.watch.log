@@ -1,0 +1,7 @@
+2026-11-05 14:20:34 ssh failed (1): bash: line 1: (1793877634 - ) / 60 : syntax error: operand expected (error token is ") / 60 ")
+2026-11-05 14:36:51 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=77.87 mem_avail_gb=27 2026-11-05 11:19:45 conquer 24E with 16 workers Timeout, server 16.192.187.60 not responding. 
+2026-11-05 14:52:42 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=81.67 mem_avail_gb=6 2026-11-05 11:19:45 conquer 24E with 16 workers Read from remote host 16.192.187.60: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-05 15:08:58 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=81.43 mem_avail_gb=6 2026-11-05 11:19:45 conquer 24E with 16 workers Timeout, server 16.192.187.60 not responding. 
+2026-11-05 15:24:57 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=80.33 mem_avail_gb=9 2026-11-05 11:19:45 conquer 24E with 16 workers Read from remote host 16.192.187.60: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-05 15:41:13 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=81.18 mem_avail_gb=6 2026-11-05 11:19:45 conquer 24E with 16 workers Timeout, server 16.192.187.60 not responding. 
+2026-11-05 15:57:06 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=78.72 mem_avail_gb=61 2026-11-05 11:19:45 conquer 24E with 16 workers Read from remote host 16.192.187.60: Operation timed out client_loop: send disconnect: Broken pipe 

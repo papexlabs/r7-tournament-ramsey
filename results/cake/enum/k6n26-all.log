@@ -1,0 +1,4 @@
+enum results/enum/k6n26: 1 items ({'jobs': 1, 'complete_jobs': 1, 'jobs_with_models': 1, 'certified': 1, 'k': 6, 'n': 26}), cake heap 1024 MiB, 16 workers
+to do: 1 (already recorded: 0)
+{"id": "13_0_0", "pick": ["random"], "status": "UNSAT", "verdict": "VERIFIED", "lrat": "VERIFIED", "cake": "VERIFIED", "secs": 12.66, "orig_secs": 4.61, "cake_cpu": 1.13, "cake_rss_gb": 1.005}  [1/1, 13s]
+{"sampled": 1, "done": 1, "unsat": 1, "lrat_verified": 1, "cake_verified": 1, "verified_by_both": 1, "ALL VERIFIED BY BOTH": true}

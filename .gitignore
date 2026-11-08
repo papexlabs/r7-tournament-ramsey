@@ -27,3 +27,9 @@ results/run1/stage3/*/run/body.cnf
 results/run1/stage3/*/run/tmp/
 results/run1/stage4/*/run/body.cnf
 results/run1/stage4/*/run/tmp/
+# run 2: per-proof checker logs are archived, not committed (results/run2-cakelogs.tar.gz, see notes/RUN2.md)
+results/*/cakelog/
+results/cake/**/dualcheck/
+results/run2-cakelogs.tar.gz
+results/.hardstop_usec
+results/.sync.log

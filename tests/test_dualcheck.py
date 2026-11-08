@@ -322,6 +322,21 @@ def main():
         r = subprocess.run(sample + ["cubes", str(run), "--out", str(out), "--n", "5", "--slowest", "2"],
                            capture_output=True, text=True, timeout=300)
         check(r.returncode == 0 and "to do: 0" in r.stdout, "cake_sample cubes resumes (nothing to do)")
+        leaf_ids = sorted(json.loads(l)["id"] for l in (run / "results.jsonl").read_text().splitlines()
+                          if json.loads(l)["status"] == "UNSAT")[:3]
+        cids = Path(td) / "cube_ids.json"
+        cids.write_text(json.dumps(leaf_ids))
+        out = Path(td) / "cs_cubes_ids"
+        r = subprocess.run(sample + ["cubes", str(run), "--out", str(out), "--n", "0", "--slowest", "0", "--ids",
+                                     str(cids), "--workers", "2", "--heap", "256"],
+                           capture_output=True, text=True, timeout=300)
+        s = json.loads((out / "summary.json").read_text()) if (out / "summary.json").exists() else {}
+        check(r.returncode == 0 and s.get("ALL VERIFIED BY BOTH") is True and s.get("sampled") == len(leaf_ids) == 3,
+              f"cake_sample cubes --n 0 --slowest 0 --ids (3 listed leaves): {s.get('verified_by_both')}/{s.get('sampled')}")
+        cids.write_text(json.dumps(leaf_ids + ["999.9"]))
+        r = subprocess.run(sample + ["cubes", str(run), "--out", str(Path(td) / "cs_cubes_ids_bad"), "--n", "0",
+                                     "--slowest", "0", "--ids", str(cids)], capture_output=True, text=True, timeout=300)
+        check(r.returncode != 0 and "--ids" in r.stderr, "cake_sample cubes refuses an --ids id that is not an UNSAT leaf")
         bad_run = Path(td) / "badrun" / "run"
         shutil.copytree(run, bad_run, ignore=shutil.ignore_patterns("tmp"))
         with open(bad_run / "body.cnf", "a") as fh:

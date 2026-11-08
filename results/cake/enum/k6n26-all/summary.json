@@ -1,0 +1,42 @@
+{
+ "mode": "enum",
+ "dir": "/home/ubuntu/tr/results/enum/k6n26",
+ "seed": 1,
+ "n_random": 999999,
+ "n_slowest": 0,
+ "n_with_models": 0,
+ "jobs": 1,
+ "complete_jobs": 1,
+ "jobs_with_models": 1,
+ "certified": 1,
+ "k": 6,
+ "n": 26,
+ "cake_heap_mib": 1024,
+ "workers": 16,
+ "timeout": 0,
+ "host": "ip-172-31-11-185",
+ "cake_lpr_sha256": "130816693a5392bbba02cf0c382ac3569542dcbb482ad0b409e8a1136ab4126d",
+ "lrat_check_sha256": "ddb65dc2cae063aed1bd27ca971c89154afdeb4b2133c72880d3b9a5fa321822",
+ "cadical": "3.0.1",
+ "sampled": 1,
+ "done": 1,
+ "missing": 0,
+ "unsat": 1,
+ "lrat_verified": 1,
+ "cake_verified": 1,
+ "verified_by_both": 1,
+ "not_verified": [],
+ "cake_heap_exhausted": 0,
+ "solver_seconds": 12.7,
+ "orig_seconds": 4.6,
+ "cpu_seconds": {
+  "lrat-check": 0.4,
+  "cake_lpr": 1.1
+ },
+ "max_rss_gb": {
+  "lrat-check": 0.044,
+  "cake_lpr": 1.005
+ },
+ "ALL VERIFIED BY BOTH": true,
+ "t": "2026-11-06T07:59:01"
+}

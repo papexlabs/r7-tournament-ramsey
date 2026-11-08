@@ -1,0 +1,10 @@
+2026-11-07 12:55:23 24D prepared: c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=9007047 literals=208977552 c ksets: direct=2608200 tri=6355503 zero-orderings=0 prunes-by-fixed-cycle=9466819 c clauses: direct=2608200 tri=6355503 tdef=43344 24D-p-O21s: CNF sha256 OK 0facb5da175e9dd3162085f00fbfaf298e48da737299e42d04b5a5941af8397a 24D-p-O21s: tri_sound SOUND 
+2026-11-07 12:55:23 24E prepared: c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=9007047 literals=208977552 c ksets: direct=2608200 tri=6355503 zero-orderings=0 prunes-by-fixed-cycle=9466652 c clauses: direct=2608200 tri=6355503 tdef=43344 24E-p-O21s: CNF sha256 OK 94489f5dd54b029e7a96fb545ba1d18cb170576d640ccb03a7800023ea681059 24E-p-O21s: tri_sound SOUND 
+2026-11-07 12:55:23 conquer 24D with 13 workers
+2026-11-07 12:55:23 conquer 24E with 13 workers
+{"level0_cubes": 1024, "cover": "VERIFIED (cubes alone)", "verified_leaves": 9604, "open_leaves": 0, "sat_cubes": [], "problems": [], "solver_hours": 530.42, "body_sha256": "5e9a01a8df454f838716e6cac4ec2b7d51359e9398af63cc7dd9d6dfc2de091d", "cubes_sha256": "1439445b105614e03acd27a4c3a31ea83e05111d706eeb2e9ab0bf11ac1f9134", "verdict": "ALL CLOSED"}
+2026-11-08 03:23:47 24D ALL CLOSED
+{"level0_cubes": 1024, "cover": "VERIFIED (cubes alone)", "verified_leaves": 9529, "open_leaves": 0, "sat_cubes": [], "problems": [], "solver_hours": 528.37, "body_sha256": "43c025d43ff1b09c64595dd296d42a980f927eecdb39a20ebfddf17461c54869", "cubes_sha256": "70b95234a55c08fa024624b6ff2efc7e8b99b436cd8816d847457cad95dc59af", "verdict": "ALL CLOSED"}
+2026-11-08 03:23:48 24E ALL CLOSED
+2026-11-08 03:23:48 stage stage3-DE finished rc=0
+Shutdown scheduled for Sun 2026-11-08 04:23:48 UTC, use 'shutdown -c' to cancel.

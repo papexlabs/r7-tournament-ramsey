@@ -1,0 +1,65 @@
+2026-11-06 10:28:35 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=77.68 mem_avail_gb=179 2026-11-06 07:18:43 conquer 23X-p-Y8 finished Read from remote host 16.170.133.54: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 10:44:51 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=104.16 mem_avail_gb=174 2026-11-06 07:32:43 conquer ST25-p-H6 finished Read from remote host 16.170.133.54: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 11:01:07 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=84.33 mem_avail_gb=186 2026-11-06 07:32:43 conquer ST25-p-H6 finished Timeout, server 16.170.133.54 not responding. 
+2026-11-06 11:17:18 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=96.32 mem_avail_gb=174 2026-11-06 08:08:03 conquer ST25-p-W7 finished Read from remote host 16.170.133.54: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 11:33:34 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=97.67 mem_avail_gb=175 2026-11-06 08:08:03 conquer ST25-p-W7 finished Timeout, server 16.170.133.54 not responding. 
+2026-11-06 11:49:49 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=100.46 mem_avail_gb=177 2026-11-06 08:08:03 conquer ST25-p-W7 finished Read from remote host 16.170.133.54: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 12:06:04 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=100.39 mem_avail_gb=177 2026-11-06 08:08:03 conquer ST25-p-W7 finished Timeout, server 16.170.133.54 not responding. 
+2026-11-06 12:22:20 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=98.35 mem_avail_gb=176 2026-11-06 08:08:03 conquer ST25-p-W7 finished Timeout, server 16.170.133.54 not responding. 
+2026-11-06 12:38:33 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=97.99 mem_avail_gb=175 2026-11-06 08:08:03 conquer ST25-p-W7 finished Read from remote host 16.170.133.54: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 13:01:09 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=98.56 mem_avail_gb=177 2026-11-06 08:08:03 conquer ST25-p-W7 finished Timeout, server 16.170.133.54 not responding. 
+2026-11-06 13:46:34 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=97.27 mem_avail_gb=179 2026-11-06 08:08:03 conquer ST25-p-W7 finished Timeout, server 16.170.133.54 not responding. 
+2026-11-06 14:02:50 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=96.71 mem_avail_gb=175 2026-11-06 08:08:03 conquer ST25-p-W7 finished Timeout, server 16.170.133.54 not responding. 
+2026-11-06 14:19:06 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=98.13 mem_avail_gb=175 2026-11-06 08:08:03 conquer ST25-p-W7 finished Timeout, server 16.170.133.54 not responding. 
+2026-11-06 14:35:21 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=99.86 mem_avail_gb=178 2026-11-06 08:08:03 conquer ST25-p-W7 finished Read from remote host 16.170.133.54: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 14:51:35 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=99.29 mem_avail_gb=176 2026-11-06 08:08:03 conquer ST25-p-W7 finished Read from remote host 16.170.133.54: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 15:07:47 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=100.16 mem_avail_gb=179 2026-11-06 08:08:03 conquer ST25-p-W7 finished Read from remote host 16.170.133.54: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 15:24:03 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=99.17 mem_avail_gb=177 2026-11-06 08:08:03 conquer ST25-p-W7 finished Timeout, server 16.170.133.54 not responding. 
+2026-11-06 15:40:15 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=100.71 mem_avail_gb=184 2026-11-06 08:08:03 conquer ST25-p-W7 finished Read from remote host 16.170.133.54: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 15:56:27 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=98.05 mem_avail_gb=180 2026-11-06 08:08:03 conquer ST25-p-W7 finished Read from remote host 16.170.133.54: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 16:12:39 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=100.54 mem_avail_gb=176 2026-11-06 08:08:03 conquer ST25-p-W7 finished Read from remote host 16.170.133.54: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 16:28:55 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=100.98 mem_avail_gb=179 2026-11-06 08:08:03 conquer ST25-p-W7 finished Timeout, server 16.170.133.54 not responding. 
+2026-11-06 16:45:10 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=100.05 mem_avail_gb=174 2026-11-06 08:08:03 conquer ST25-p-W7 finished Read from remote host 16.170.133.54: Operation timed out client_loop: send disconnect: Broken pipe 
+2026-11-06 17:01:26 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=101.70 mem_avail_gb=177 2026-11-06 08:08:03 conquer ST25-p-W7 finished Timeout, server 16.170.133.54 not responding. 
+2026-11-06 17:52:24 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=101.95 mem_avail_gb=181 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 18:07:25 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=98.75 mem_avail_gb=181 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 18:22:27 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=98.72 mem_avail_gb=180 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 18:37:29 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=95.13 mem_avail_gb=181 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 18:52:31 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=99.53 mem_avail_gb=180 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 19:07:32 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=98.87 mem_avail_gb=179 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 19:22:34 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=94.18 mem_avail_gb=181 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 19:37:36 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=96.86 mem_avail_gb=184 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 19:52:38 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=96.52 mem_avail_gb=183 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 20:07:40 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=99.91 mem_avail_gb=184 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 20:22:41 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=90.14 mem_avail_gb=194 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 20:37:43 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=90.80 mem_avail_gb=194 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 20:52:45 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=63.00 mem_avail_gb=208 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 21:07:47 alive=yes done=- tracebacks=0 0 progress_age_min=1 load=59.27 mem_avail_gb=218 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 21:22:49 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=61.54 mem_avail_gb=210 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 21:37:50 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=60.15 mem_avail_gb=219 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 21:52:52 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=61.86 mem_avail_gb=211 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 22:07:54 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=59.21 mem_avail_gb=216 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 22:22:55 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=59.26 mem_avail_gb=216 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 22:37:57 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=60.60 mem_avail_gb=214 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 22:52:59 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=63.77 mem_avail_gb=206 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 23:08:01 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=66.44 mem_avail_gb=201 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 23:23:03 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=67.02 mem_avail_gb=199 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 23:38:05 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=63.59 mem_avail_gb=207 2026-11-06 08:08:03 conquer ST25-p-W7 finished 
+2026-11-06 23:53:07 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=59.22 mem_avail_gb=217 2026-11-06 20:41:30 conquer 23M-p-Y8 finished 
+2026-11-07 00:08:10 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=54.63 mem_avail_gb=230 2026-11-06 20:41:30 conquer 23M-p-Y8 finished 
+2026-11-07 00:23:11 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=46.67 mem_avail_gb=251 2026-11-06 21:21:51 conquer 23T-p-Y8 finished 
+2026-11-07 00:38:13 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=41.84 mem_avail_gb=260 2026-11-06 21:36:31 conquer 23R-p-Y8 finished 
+2026-11-07 00:53:15 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=39.90 mem_avail_gb=268 2026-11-06 21:36:31 conquer 23R-p-Y8 finished 
+2026-11-07 01:08:18 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=32.95 mem_avail_gb=284 2026-11-06 22:00:11 conquer 23O-p-Y8 finished 
+2026-11-07 01:23:20 alive=yes done=- tracebacks=0 0 progress_age_min=1 load=25.66 mem_avail_gb=302 2026-11-06 22:16:11 conquer 23V-p-Y8 finished 
+2026-11-07 01:38:22 alive=yes done=- tracebacks=0 0 progress_age_min=1 load=19.62 mem_avail_gb=321 2026-11-06 22:31:31 conquer 23A-p-Y8 finished 
+2026-11-07 01:53:24 alive=yes done=- tracebacks=0 0 progress_age_min=6 load=19.31 mem_avail_gb=323 2026-11-06 22:31:31 conquer 23A-p-Y8 finished 
+2026-11-07 02:08:25 alive=yes done=- tracebacks=0 0 progress_age_min=3 load=17.16 mem_avail_gb=332 2026-11-06 23:00:11 conquer 23I-p-Y8 finished 
+2026-11-07 02:23:27 alive=yes done=- tracebacks=0 0 progress_age_min=2 load=11.26 mem_avail_gb=348 2026-11-06 23:09:11 conquer 23K-p-Y8 finished 
+2026-11-07 02:38:29 alive=yes done=- tracebacks=0 0 progress_age_min=3 load=7.04 mem_avail_gb=359 2026-11-06 23:28:51 conquer 23F-p-Y8 finished 
+2026-11-07 02:53:31 alive=yes done=- tracebacks=0 0 progress_age_min=9 load=5.02 mem_avail_gb=362 2026-11-06 23:44:11 conquer 23J-p-Y8 finished 
+2026-11-07 03:08:33 alive=yes done=- tracebacks=0 0 progress_age_min=11 load=4.00 mem_avail_gb=364 2026-11-06 23:56:51 conquer 23E-p-Y8 finished 
+2026-11-07 03:23:35 alive=yes done=- tracebacks=0 0 progress_age_min=6 load=2.00 mem_avail_gb=366 2026-11-07 00:17:31 conquer 23S-p-Y8 finished 
+2026-11-07 03:38:37 alive=yes done=- tracebacks=0 0 progress_age_min=3 load=1.10 mem_avail_gb=366 2026-11-07 00:35:11 conquer 23H-p-Y8 finished 
+2026-11-07 03:53:39 alive=no done=0 tracebacks=0 0 progress_age_min=6 load=0.01 mem_avail_gb=367 Shutdown scheduled for Sat 2026-11-07 01:47:16 UTC, use 'shutdown -c' to cancel. 
+WATCH: stage4 finished OK

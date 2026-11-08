@@ -1,0 +1,3 @@
+n=46 k=7 F=504 header=11340/9007047 clauses=9007047 maxvar=11340 tvars: triple=10836 consttrue=0 bad=0 complex_neg_clauses=0
+satisfied=0 tautologies=0 ok=9007047 (shortcut=8963703 brute=54545778 vacuous=43344 extended=2608200) fail=0
+SOUND

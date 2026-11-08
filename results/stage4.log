@@ -1,0 +1,90 @@
+2026-11-06 03:30:54 stage stage4: 28 instances, 28 side by side with 3 workers each, timeouts 1800,3600,1800,7200,0: 23H-p-Y8 23F-p-Y8 23J-p-Y8 23G-p-Y8 23E-p-Y8 23S-p-Y8 23L-p-Y8 23I-p-Y8 23V-p-Y8 23Q-p-Y8 23D-p-Y8 23O-p-Y8 23K-p-Y8 23B-p-Y8 23U-p-Y8 23N-p-Y8 23A-p-Y8 23P-p-Y8 23T-p-Y8 23C-p-Y8 23M-p-Y8 23R-p-Y8 ST25-p-H6 23W-p-Y8 ST25-p-W7 23X-p-Y8 ST26-p-TT5 23Y-p-Y8
+2026-11-06 03:30:54 fetching NMH's repository (encoder and inputs; every file used is checked against the manifest)
+2026-11-06 03:30:56 prepare (NMH encoder, sha256 against the manifest, cubes)
+/home/ubuntu/tr/build/nmh-tour-encode
+2026-11-06 03:31:40 conquer 23H-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23F-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23J-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23G-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23E-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23S-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23L-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23I-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23V-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23Q-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23D-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23O-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23K-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23B-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23U-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23N-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23A-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23P-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23T-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23C-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23M-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer 23R-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer ST25-p-H6 with 3 workers
+2026-11-06 03:31:40 conquer 23W-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer ST25-p-W7 with 3 workers
+2026-11-06 03:31:40 conquer 23X-p-Y8 with 3 workers
+2026-11-06 03:31:40 conquer ST26-p-TT5 with 3 workers
+2026-11-06 03:31:40 conquer 23Y-p-Y8 with 3 workers
+2026-11-06 05:36:42 conquer 23Y-p-Y8 finished
+2026-11-06 05:38:02 conquer ST26-p-TT5 finished
+2026-11-06 07:13:23 conquer 23W-p-Y8 finished
+2026-11-06 07:18:43 conquer 23X-p-Y8 finished
+2026-11-06 07:32:43 conquer ST25-p-H6 finished
+2026-11-06 08:08:03 conquer ST25-p-W7 finished
+2026-11-06 20:41:30 conquer 23M-p-Y8 finished
+2026-11-06 21:15:31 conquer 23C-p-Y8 finished
+2026-11-06 21:17:11 conquer 23N-p-Y8 finished
+2026-11-06 21:21:11 conquer 23P-p-Y8 finished
+2026-11-06 21:21:51 conquer 23T-p-Y8 finished
+2026-11-06 21:28:31 conquer 23B-p-Y8 finished
+2026-11-06 21:36:31 conquer 23R-p-Y8 finished
+2026-11-06 21:53:51 conquer 23Q-p-Y8 finished
+2026-11-06 22:00:11 conquer 23O-p-Y8 finished
+2026-11-06 22:16:11 conquer 23V-p-Y8 finished
+2026-11-06 22:24:11 conquer 23U-p-Y8 finished
+2026-11-06 22:31:31 conquer 23A-p-Y8 finished
+2026-11-06 23:00:11 conquer 23I-p-Y8 finished
+2026-11-06 23:09:11 conquer 23K-p-Y8 finished
+2026-11-06 23:24:11 conquer 23L-p-Y8 finished
+2026-11-06 23:28:51 conquer 23F-p-Y8 finished
+2026-11-06 23:44:11 conquer 23J-p-Y8 finished
+2026-11-06 23:56:51 conquer 23E-p-Y8 finished
+2026-11-07 00:14:11 conquer 23D-p-Y8 finished
+2026-11-07 00:17:31 conquer 23S-p-Y8 finished
+2026-11-07 00:35:11 conquer 23H-p-Y8 finished
+2026-11-07 00:47:11 conquer 23G-p-Y8 finished
+2026-11-07 00:47:12 23H-p-Y8 ALL CLOSED
+2026-11-07 00:47:12 23F-p-Y8 ALL CLOSED
+2026-11-07 00:47:12 23J-p-Y8 ALL CLOSED
+2026-11-07 00:47:12 23G-p-Y8 ALL CLOSED
+2026-11-07 00:47:12 23E-p-Y8 ALL CLOSED
+2026-11-07 00:47:12 23S-p-Y8 ALL CLOSED
+2026-11-07 00:47:13 23L-p-Y8 ALL CLOSED
+2026-11-07 00:47:13 23I-p-Y8 ALL CLOSED
+2026-11-07 00:47:13 23V-p-Y8 ALL CLOSED
+2026-11-07 00:47:13 23Q-p-Y8 ALL CLOSED
+2026-11-07 00:47:13 23D-p-Y8 ALL CLOSED
+2026-11-07 00:47:13 23O-p-Y8 ALL CLOSED
+2026-11-07 00:47:13 23K-p-Y8 ALL CLOSED
+2026-11-07 00:47:14 23B-p-Y8 ALL CLOSED
+2026-11-07 00:47:14 23U-p-Y8 ALL CLOSED
+2026-11-07 00:47:14 23N-p-Y8 ALL CLOSED
+2026-11-07 00:47:14 23A-p-Y8 ALL CLOSED
+2026-11-07 00:47:14 23P-p-Y8 ALL CLOSED
+2026-11-07 00:47:14 23T-p-Y8 ALL CLOSED
+2026-11-07 00:47:15 23C-p-Y8 ALL CLOSED
+2026-11-07 00:47:15 23M-p-Y8 ALL CLOSED
+2026-11-07 00:47:15 23R-p-Y8 ALL CLOSED
+2026-11-07 00:47:15 ST25-p-H6 ALL CLOSED
+2026-11-07 00:47:15 23W-p-Y8 ALL CLOSED
+2026-11-07 00:47:15 ST25-p-W7 ALL CLOSED
+2026-11-07 00:47:15 23X-p-Y8 ALL CLOSED
+2026-11-07 00:47:16 ST26-p-TT5 ALL CLOSED
+2026-11-07 00:47:16 23Y-p-Y8 ALL CLOSED
+2026-11-07 00:47:16 stage stage4 finished rc=0
+Shutdown scheduled for Sat 2026-11-07 01:47:16 UTC, use 'shutdown -c' to cancel.

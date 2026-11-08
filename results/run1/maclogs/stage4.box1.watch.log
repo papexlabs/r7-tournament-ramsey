@@ -1,0 +1,61 @@
+2026-11-04 14:07:57 alive=yes done=- tracebacks=0 progress_age_min=0 load=102.59 mem_avail_gb=359 tail: cannot open 'results/stage4.log' for reading: No such file or directory 
+2026-11-04 14:22:58 alive=yes done=- tracebacks=0 progress_age_min=0 load=103.15 mem_avail_gb=358 tail: cannot open 'results/stage4.log' for reading: No such file or directory 
+2026-11-04 14:38:00 alive=yes done=- tracebacks=0 progress_age_min=0 load=104.06 mem_avail_gb=358 tail: cannot open 'results/stage4.log' for reading: No such file or directory 
+2026-11-04 14:53:01 alive=yes done=- tracebacks=0 progress_age_min=0 load=104.57 mem_avail_gb=358 tail: cannot open 'results/stage4.log' for reading: No such file or directory 
+2026-11-04 15:08:02 alive=yes done=- tracebacks=0 progress_age_min=0 load=103.82 mem_avail_gb=357 tail: cannot open 'results/stage4.log' for reading: No such file or directory 
+2026-11-04 15:23:03 alive=yes done=- tracebacks=0 0 progress_age_min=1 load=61.42 mem_avail_gb=307 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 15:38:05 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=94.84 mem_avail_gb=311 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 15:53:07 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=94.70 mem_avail_gb=310 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 16:08:08 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=96.40 mem_avail_gb=311 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 16:23:09 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=96.61 mem_avail_gb=313 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 16:38:10 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=97.00 mem_avail_gb=313 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 16:53:12 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=95.86 mem_avail_gb=310 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 17:08:14 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=95.93 mem_avail_gb=312 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 17:23:15 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=95.44 mem_avail_gb=313 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 17:38:17 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=59.79 mem_avail_gb=332 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 17:53:18 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=29.79 mem_avail_gb=351 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 18:08:20 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=19.02 mem_avail_gb=356 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 18:23:21 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=12.47 mem_avail_gb=360 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 18:38:23 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=23.01 mem_avail_gb=348 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 18:53:24 alive=yes done=- tracebacks=0 0 progress_age_min=2 load=11.14 mem_avail_gb=360 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 19:08:26 alive=yes done=- tracebacks=0 0 progress_age_min=3 load=10.03 mem_avail_gb=361 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 19:23:27 alive=yes done=- tracebacks=0 0 progress_age_min=18 load=10.00 mem_avail_gb=361 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 19:38:29 alive=yes done=- tracebacks=0 0 progress_age_min=33 load=10.14 mem_avail_gb=360 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 19:53:30 alive=yes done=- tracebacks=0 0 progress_age_min=48 load=10.00 mem_avail_gb=361 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 20:08:32 alive=yes done=- tracebacks=0 0 progress_age_min=63 load=10.08 mem_avail_gb=360 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 20:23:34 alive=yes done=- tracebacks=0 0 progress_age_min=78 load=10.00 mem_avail_gb=360 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 20:52:24 alive=yes done=- tracebacks=0 0 progress_age_min=6 load=9.00 mem_avail_gb=361 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 21:07:25 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=102.02 mem_avail_gb=309 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 21:22:26 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=101.10 mem_avail_gb=309 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 21:37:27 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=101.00 mem_avail_gb=308 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 21:52:29 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=104.76 mem_avail_gb=310 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 22:07:30 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=101.80 mem_avail_gb=312 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 22:22:31 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=96.42 mem_avail_gb=314 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 22:37:33 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=89.37 mem_avail_gb=314 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 22:52:35 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=88.98 mem_avail_gb=313 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 23:07:36 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=91.60 mem_avail_gb=314 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 23:22:38 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=87.82 mem_avail_gb=317 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 23:37:39 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=78.62 mem_avail_gb=317 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-04 23:52:41 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=72.06 mem_avail_gb=322 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 00:07:43 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=70.23 mem_avail_gb=322 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 00:22:44 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=70.92 mem_avail_gb=322 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 00:37:46 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=71.15 mem_avail_gb=321 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 00:52:48 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=70.43 mem_avail_gb=322 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 01:07:49 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=70.18 mem_avail_gb=322 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 01:22:51 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=70.36 mem_avail_gb=321 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 01:37:52 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=70.20 mem_avail_gb=322 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 01:52:54 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=71.68 mem_avail_gb=322 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 02:07:56 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=71.64 mem_avail_gb=321 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 02:22:57 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=70.31 mem_avail_gb=322 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 02:37:59 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=70.32 mem_avail_gb=320 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 02:53:00 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=70.32 mem_avail_gb=323 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 03:08:02 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=69.57 mem_avail_gb=322 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 03:23:04 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=70.76 mem_avail_gb=324 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 03:38:06 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=69.55 mem_avail_gb=324 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 03:53:07 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=69.95 mem_avail_gb=322 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 04:08:09 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=68.60 mem_avail_gb=323 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 04:23:10 alive=yes done=- tracebacks=0 0 progress_age_min=0 load=67.95 mem_avail_gb=326 2026-11-04 12:22:09 conquer 23S-p-Y8 with 15 workers 
+2026-11-05 04:38:30 ssh failed (1): ssh: connect to host 16.171.16.179 port 22: Operation timed out
+2026-11-05 04:53:50 ssh failed (2): ssh: connect to host 16.171.16.179 port 22: Operation timed out
+2026-11-05 05:09:10 ssh failed (3): ssh: connect to host 16.171.16.179 port 22: Operation timed out
+WATCH: server unreachable 3 times (spot reclaim, timer, or IP change)

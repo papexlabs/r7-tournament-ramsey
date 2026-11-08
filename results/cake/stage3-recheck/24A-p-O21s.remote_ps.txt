@@ -1,0 +1,24 @@
+   01:15:23  0.0 22712 python3 -I scripts/audit/cake_sample.py cubes results/stage4/23D-p-Y8/run --cnf cnf/stage4/23D-p-Y8.cnf --out results/cake/stage4-heapretry/23D-p-Y8 --n 0 --slowest 0 --ids ids/23D-p-Y8.json --workers 1 --heap 16384 --nice 5 --min-free-gb 8
+   01:15:23  0.0 21760 python3 -I scripts/audit/cake_sample.py cubes results/stage4/23E-p-Y8/run --cnf cnf/stage4/23E-p-Y8.cnf --out results/cake/stage4-heapretry/23E-p-Y8 --n 0 --slowest 0 --ids ids/23E-p-Y8.json --workers 1 --heap 16384 --nice 5 --min-free-gb 8
+   01:15:23  0.0 21672 python3 -I scripts/audit/cake_sample.py cubes results/stage4/23F-p-Y8/run --cnf cnf/stage4/23F-p-Y8.cnf --out results/cake/stage4-heapretry/23F-p-Y8 --n 0 --slowest 0 --ids ids/23F-p-Y8.json --workers 1 --heap 16384 --nice 5 --min-free-gb 8
+   01:15:23  0.0 21720 python3 -I scripts/audit/cake_sample.py cubes results/stage4/23G-p-Y8/run --cnf cnf/stage4/23G-p-Y8.cnf --out results/cake/stage4-heapretry/23G-p-Y8 --n 0 --slowest 0 --ids ids/23G-p-Y8.json --workers 1 --heap 16384 --nice 5 --min-free-gb 8
+   01:15:23  0.0 21740 python3 -I scripts/audit/cake_sample.py cubes results/stage4/23H-p-Y8/run --cnf cnf/stage4/23H-p-Y8.cnf --out results/cake/stage4-heapretry/23H-p-Y8 --n 0 --slowest 0 --ids ids/23H-p-Y8.json --workers 1 --heap 16384 --nice 5 --min-free-gb 8
+   01:15:23  0.0 22700 python3 -I scripts/audit/cake_sample.py cubes results/stage4/23I-p-Y8/run --cnf cnf/stage4/23I-p-Y8.cnf --out results/cake/stage4-heapretry/23I-p-Y8 --n 0 --slowest 0 --ids ids/23I-p-Y8.json --workers 1 --heap 16384 --nice 5 --min-free-gb 8
+   01:15:23  0.0 22708 python3 -I scripts/audit/cake_sample.py cubes results/stage4/23J-p-Y8/run --cnf cnf/stage4/23J-p-Y8.cnf --out results/cake/stage4-heapretry/23J-p-Y8 --n 0 --slowest 0 --ids ids/23J-p-Y8.json --workers 1 --heap 16384 --nice 5 --min-free-gb 8
+   01:15:23  0.0 22812 python3 -I scripts/audit/cake_sample.py cubes results/stage4/23S-p-Y8/run --cnf cnf/stage4/23S-p-Y8.cnf --out results/cake/stage4-heapretry/23S-p-Y8 --n 0 --slowest 0 --ids ids/23S-p-Y8.json --workers 1 --heap 16384 --nice 5 --min-free-gb 8
+   01:15:23 99.8 424724 cadical -q --lrat=true --binary=false /home/ubuntu/tr/results/cake/stage4-heapretry/23E-p-Y8/tmp/ss_c141-12-9-13-3x_6q4erjfe/in.cnf /home/ubuntu/tr/results/cake/stage4-heapretry/23E-p-Y8/tmp/ss_c141-12-9-13-3x_6q4erjfe/proof.lrat
+   01:15:23 99.8 439140 cadical -q --lrat=true --binary=false /home/ubuntu/tr/results/cake/stage4-heapretry/23F-p-Y8/tmp/ss_c364-8-7-9-5x_5qhbhg13/in.cnf /home/ubuntu/tr/results/cake/stage4-heapretry/23F-p-Y8/tmp/ss_c364-8-7-9-5x_5qhbhg13/proof.lrat
+   01:15:23 99.8 424956 cadical -q --lrat=true --binary=false /home/ubuntu/tr/results/cake/stage4-heapretry/23G-p-Y8/tmp/ss_c201-14-1-11-11x_eyudj5ph/in.cnf /home/ubuntu/tr/results/cake/stage4-heapretry/23G-p-Y8/tmp/ss_c201-14-1-11-11x_eyudj5ph/proof.lrat
+   01:15:23 99.8 452956 cadical -q --lrat=true --binary=false /home/ubuntu/tr/results/cake/stage4-heapretry/23H-p-Y8/tmp/ss_c397-8-6-13-3x_il3td7h3/in.cnf /home/ubuntu/tr/results/cake/stage4-heapretry/23H-p-Y8/tmp/ss_c397-8-6-13-3x_il3td7h3/proof.lrat
+   01:15:23 99.8 463376 cadical -q --lrat=true --binary=false /home/ubuntu/tr/results/cake/stage4-heapretry/23J-p-Y8/tmp/ss_c98-7-12-15-8x_we3a8dsr/in.cnf /home/ubuntu/tr/results/cake/stage4-heapretry/23J-p-Y8/tmp/ss_c98-7-12-15-8x_we3a8dsr/proof.lrat
+   01:15:23 99.8 435200 cadical -q --lrat=true --binary=false /home/ubuntu/tr/results/cake/stage4-heapretry/23D-p-Y8/tmp/ss_c381-0-8-15-3x_1vfrj1qu/in.cnf /home/ubuntu/tr/results/cake/stage4-heapretry/23D-p-Y8/tmp/ss_c381-0-8-15-3x_1vfrj1qu/proof.lrat
+   01:15:23 99.8 416356 cadical -q --lrat=true --binary=false /home/ubuntu/tr/results/cake/stage4-heapretry/23I-p-Y8/tmp/ss_c504-0-12-15-10x_sjc87qyv/in.cnf /home/ubuntu/tr/results/cake/stage4-heapretry/23I-p-Y8/tmp/ss_c504-0-12-15-10x_sjc87qyv/proof.lrat
+   01:15:23 99.8 568004 cadical -q --lrat=true --binary=false /home/ubuntu/tr/results/cake/stage4-heapretry/23S-p-Y8/tmp/ss_c225-7-8-7-3x_bxanvssc/in.cnf /home/ubuntu/tr/results/cake/stage4-heapretry/23S-p-Y8/tmp/ss_c225-7-8-7-3x_bxanvssc/proof.lrat
+   01:15:23  1.0 185468 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+   01:15:23  1.0 184820 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+   01:15:23  1.0 184240 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+   01:15:23  1.0 190444 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+   01:15:23  0.9 168620 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+   01:15:23  1.0 184568 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+   01:15:23  0.9 189560 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+   01:15:23  1.0 186672 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5

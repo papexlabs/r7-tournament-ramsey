@@ -38,7 +38,7 @@ byte of the formula (cubes: body.cnf; enum: the first sampled job's formula), ro
 256 MiB, at least 1024 MiB: Stage 3 (1.07 GB body) about 16.1 GiB, Stage 4 (0.1 GB) 1792 MiB.
 New items wait while MemAvailable < --min-free-gb (Linux).
 
-usage: cake_sample.py cubes RUN_DIR --out OUT [--cnf CNF] [--n 40] [--slowest 10] [--max-secs 0]
+usage: cake_sample.py cubes RUN_DIR --out OUT [--cnf CNF] [--n 40] [--slowest 10] [--max-secs 0] [--ids FILE]
                       [--seed 1] [--workers 2] [--heap auto|MiB] [--timeout 0] [--nice 10]
                       [--min-free-gb 16] [--retry-failed] [--dry-run]
        cake_sample.py enum ENUM_DIR --out OUT [--n 40] [--slowest 0] [--with-models 0] [--ids FILE] [same options]
@@ -119,8 +119,16 @@ def cube_items(a, out):
         leaves = [r for r in leaves if r["secs"] <= a.max_secs]
     rnd = random.Random(f"cubes:{a.seed}").sample(leaves, min(a.n, len(leaves)))
     slow = sorted(leaves, key=lambda r: (-r["secs"], r["id"]))[: a.slowest]
+    listed = []
+    if a.ids:   # e.g. the leaves whose proofs only lrat-check saw; every listed id must be an UNSAT leaf
+        unsat = {r["id"]: r for r in recs.values() if r["status"] == "UNSAT"}
+        want = {str(x) for x in json.loads(Path(a.ids).read_text())}
+        missing = sorted(want - set(unsat))
+        if missing:
+            raise SystemExit(f"--ids: {len(missing)} listed ids are not UNSAT leaves of {run}, e.g. {missing[:3]}")
+        listed = [unsat[i] for i in sorted(want)]
     items = {}
-    for pick, rs in (("slowest", slow), ("random", rnd)):
+    for pick, rs in (("slowest", slow), ("random", rnd), ("listed", listed)):
         for r in rs:
             it = items.setdefault(r["id"], {"kind": "cube", "id": r["id"], "pick": [], "level": r["level"],
                                             "lits": r["lits"], "orig_secs": r["secs"], "orig_check": r.get("check")})
@@ -326,7 +334,8 @@ def main():
     ap.add_argument("--slowest", type=int, default=None, help="slowest items (default: cubes 10, enum 0)")
     ap.add_argument("--max-secs", type=float, default=0, help="cubes: leave out leaves slower than this")
     ap.add_argument("--with-models", type=int, default=0, help="enum: random jobs that have models")
-    ap.add_argument("--ids", default="", help="enum: JSON file, a list of [d, ia, ib]; all of these jobs too")
+    ap.add_argument("--ids", default="", help="JSON file: enum, a list of [d, ia, ib]; cubes, a list of leaf ids; "
+                                              "all of these too")
     ap.add_argument("--seed", type=int, default=1)
     ap.add_argument("--workers", type=int, default=2)
     ap.add_argument("--heap", default="auto", help="cake_lpr heap in MiB, or auto")

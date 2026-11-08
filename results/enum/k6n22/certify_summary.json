@@ -1,0 +1,11 @@
+{
+ "jobs": 17673,
+ "verified": 17673,
+ "this_run": 62,
+ "failed_this_run": 0,
+ "solve_seconds_this_run": 920.1,
+ "models_checked": 2098,
+ "model_mismatch_jobs": 0,
+ "orphan_model_jobs": 0,
+ "all_jobs_verified": true
+}

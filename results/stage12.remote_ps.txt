@@ -1,0 +1,187 @@
+   05:57:30  9.3 2329276 python3 -I scripts/certify_first.py 6 21 results/enum/k6n21 --workers 93 --nice 5
+      01:20 91.5 39136 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_0_mljtp4t6/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_0_mljtp4t6/proof.lrat
+      01:20  2.4 42884 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:19 91.5 46832 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_6_t6w62e0g/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_6_t6w62e0g/proof.lrat
+      01:19  2.3 43744 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:18 92.0 52060 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_8_zf4wfm_e/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_8_zf4wfm_e/proof.lrat
+      01:18  2.2 46008 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:18 91.9 43352 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_9_7w81tsg2/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_9_7w81tsg2/proof.lrat
+      01:18  2.3 43592 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:17 91.5 55556 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_11_dskm47ur/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_11_dskm47ur/proof.lrat
+      01:17  2.3 42796 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:17 91.9 44500 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_13_m4yilupa/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_13_m4yilupa/proof.lrat
+      01:17  2.3 43812 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:17 92.2 45784 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_14_wj_d6cml/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_14_wj_d6cml/proof.lrat
+      01:17  2.3 43672 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:15 91.2 57520 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_18_c6b46ms9/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_18_c6b46ms9/proof.lrat
+      01:15  2.5 42844 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:10 91.2 43296 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_27_ink3_rx9/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_27_ink3_rx9/proof.lrat
+      01:10  2.5 42948 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:09 92.2 36688 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_29_artuv8ta/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_29_artuv8ta/proof.lrat
+      01:09  2.3 44608 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:08 92.2 48908 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_30_2bm0qhbs/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_30_2bm0qhbs/proof.lrat
+      01:08  2.2 44652 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:08 92.0 44664 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_31_b0591_cm/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_31_b0591_cm/proof.lrat
+      01:08  2.3 42948 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:08 91.8 54720 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_32_yxbiq93p/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_32_yxbiq93p/proof.lrat
+      01:08  2.3 43160 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:07 92.2 46944 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_33_okk4u42e/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_33_okk4u42e/proof.lrat
+      01:07  2.2 44376 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:06 91.3 40016 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_35_xrewtkgy/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_35_xrewtkgy/proof.lrat
+      01:06  2.5 42104 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:04 91.7 40548 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_38_m3a3r5k1/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_38_m3a3r5k1/proof.lrat
+      01:04  2.4 42644 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:02 91.5 41668 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_39_gs7cxqmc/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_39_gs7cxqmc/proof.lrat
+      01:02  2.5 42792 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:02 91.6 49772 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_40_09p4j67i/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_40_09p4j67i/proof.lrat
+      01:02  2.4 43220 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:01 91.9 45348 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_41_4_2xbzya/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_41_4_2xbzya/proof.lrat
+      01:01  2.3 43340 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      01:00 91.1 46240 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_60_43_in5b9x22/in.cnf /tmp/cf_2cwyvhjm/ss_11_60_43_in5b9x22/proof.lrat
+      01:00  2.5 43460 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:58 91.5 48028 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_1_66ni2zok/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_1_66ni2zok/proof.lrat
+      00:58  2.4 44824 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:58 91.4 42424 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_2_lc4zfjd4/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_2_lc4zfjd4/proof.lrat
+      00:58  2.5 42964 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:58 91.4 47848 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_3_wlbx6izq/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_3_wlbx6izq/proof.lrat
+      00:58  2.4 42552 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:57 91.5 42596 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_6_ua_nqj65/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_6_ua_nqj65/proof.lrat
+      00:57  2.5 42596 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:56 91.7 38624 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_7_a3y_ovs6/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_7_a3y_ovs6/proof.lrat
+      00:56  2.4 41692 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:55 91.8 43788 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_8_lyd82q1m/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_8_lyd82q1m/proof.lrat
+      00:55  2.4 42852 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:55 91.6 46412 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_9_x8b1oztp/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_9_x8b1oztp/proof.lrat
+      00:55  2.4 43636 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:54 92.0 41316 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_10_ixcaewd5/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_10_ixcaewd5/proof.lrat
+      00:54  2.4 42476 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:54 91.3 41816 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_11_f4a5wvb6/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_11_f4a5wvb6/proof.lrat
+      00:54  2.5 42920 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:54 92.0 43016 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_12_u5t57cuh/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_12_u5t57cuh/proof.lrat
+      00:54  2.3 43712 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:54 91.4 42140 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_13__y4vtuwy/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_13__y4vtuwy/proof.lrat
+      00:54  2.4 42516 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:53 91.6 44004 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_14_1r1fd52w/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_14_1r1fd52w/proof.lrat
+      00:53  2.4 43344 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:53 91.7 45700 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_15_a5sjmpww/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_15_a5sjmpww/proof.lrat
+      00:53  2.5 42700 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:53 91.8 40148 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_16_e4k2msv4/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_16_e4k2msv4/proof.lrat
+      00:53  2.4 42760 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:52 91.6 43460 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_17_lve6wzf_/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_17_lve6wzf_/proof.lrat
+      00:52  2.4 42264 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:51 91.6 40632 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_18_mmxejfub/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_18_mmxejfub/proof.lrat
+      00:51  2.4 42256 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:51 91.4 52416 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_19_g98ze8jw/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_19_g98ze8jw/proof.lrat
+      00:51  2.5 41404 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:50 91.0 38284 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_20_d45hkdjc/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_20_d45hkdjc/proof.lrat
+      00:50  2.5 41812 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:50 91.6 40324 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_21_kdq61ujj/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_21_kdq61ujj/proof.lrat
+      00:50  2.5 42364 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:49 91.5 56524 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_22_eobypw6h/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_22_eobypw6h/proof.lrat
+      00:49  2.4 42568 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:49 91.2 44284 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_24_l7qrvjgx/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_24_l7qrvjgx/proof.lrat
+      00:49  2.6 41500 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:46 91.1 44344 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_25_wx4dy4gq/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_25_wx4dy4gq/proof.lrat
+      00:46  2.5 41264 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:46 91.5 40948 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_26_v3lers1u/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_26_v3lers1u/proof.lrat
+      00:46  2.5 43116 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:46 91.1 37856 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_27_i766wmuy/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_27_i766wmuy/proof.lrat
+      00:46  2.6 42568 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:45 91.6 38384 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_28_3lw_p9_m/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_28_3lw_p9_m/proof.lrat
+      00:45  2.6 42472 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:45 91.4 40880 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_29_hv774v5q/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_29_hv774v5q/proof.lrat
+      00:45  2.5 42716 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:44 91.4 40100 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_30_h0u2txg7/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_30_h0u2txg7/proof.lrat
+      00:44  2.4 41988 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:44 91.4 34072 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_31_cco4_4ta/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_31_cco4_4ta/proof.lrat
+      00:44  2.6 42012 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:42 91.8 45816 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_32_46_vvjt7/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_32_46_vvjt7/proof.lrat
+      00:42  2.4 41744 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:39 90.9 45344 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_33_vet5wb_z/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_33_vet5wb_z/proof.lrat
+      00:39  2.6 41420 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:39 91.7 43164 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_34_y817xhe3/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_34_y817xhe3/proof.lrat
+      00:39  2.5 40956 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:38 91.7 42696 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_36_u4u0512g/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_36_u4u0512g/proof.lrat
+      00:38 91.0 37512 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_35_u9jebzhs/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_35_u9jebzhs/proof.lrat
+      00:38  2.7 41884 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:38  2.5 41772 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:36 91.2 39436 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_38_gbj0f21z/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_38_gbj0f21z/proof.lrat
+      00:36  2.6 42172 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:35 90.6 43892 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_39_v4h1j8nq/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_39_v4h1j8nq/proof.lrat
+      00:35  2.7 41348 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:35 90.6 37288 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_40_pgcas9ib/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_40_pgcas9ib/proof.lrat
+      00:35  2.7 41700 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:35 91.6 44584 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_41_ykl971rr/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_41_ykl971rr/proof.lrat
+      00:35  2.6 41200 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:34 91.1 40248 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_61_43_eby1hxp0/in.cnf /tmp/cf_2cwyvhjm/ss_11_61_43_eby1hxp0/proof.lrat
+      00:34  2.7 42380 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:34 90.7 38476 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_0_3gugnco4/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_0_3gugnco4/proof.lrat
+      00:34  2.7 41660 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:29 90.3 41364 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_1_kv38tfgy/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_1_kv38tfgy/proof.lrat
+      00:29  2.9 40832 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:28 91.0 38008 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_2_ayag5j4x/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_2_ayag5j4x/proof.lrat
+      00:28  2.7 40992 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:27 90.7 35640 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_4_pax3jutk/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_4_pax3jutk/proof.lrat
+      00:27  2.8 40824 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:27 90.4 43224 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_5_zwhi0trz/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_5_zwhi0trz/proof.lrat
+      00:27  2.9 40472 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:26 90.4 39356 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_6_w395k7m4/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_6_w395k7m4/proof.lrat
+      00:26  3.1 41552 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:25 91.1 37596 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_7_7gyiuh13/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_7_7gyiuh13/proof.lrat
+      00:25  2.6 40808 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:25 91.1 33164 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_8_oauz61nl/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_8_oauz61nl/proof.lrat
+      00:25  2.8 40920 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:25 90.9 33196 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_9_0ipi8xer/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_9_0ipi8xer/proof.lrat
+      00:25  2.9 40828 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:24 91.1 31560 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_10_ce2mrxvx/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_10_ce2mrxvx/proof.lrat
+      00:24  2.9 41532 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:21 90.5 30444 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_11_o0k6ikk5/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_11_o0k6ikk5/proof.lrat
+      00:21 90.1 33272 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_12_4tz_cn1c/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_12_4tz_cn1c/proof.lrat
+      00:21  2.8 40544 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:21  3.1 40720 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:20 90.2 31504 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_13_avaaclvy/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_13_avaaclvy/proof.lrat
+      00:20  3.0 40576 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:19 91.2 32448 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_14_84vx1afq/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_14_84vx1afq/proof.lrat
+      00:19  2.8 40412 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:19 90.7 33180 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_15_hs3pyn9b/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_15_hs3pyn9b/proof.lrat
+      00:19  2.8 40716 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:14 89.8 34472 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_16_ku8_g3zz/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_16_ku8_g3zz/proof.lrat
+      00:14  3.3 39520 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:14 90.7 29224 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_17_nt9_uphj/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_17_nt9_uphj/proof.lrat
+      00:14  3.0 39964 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:13 90.9 29888 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_18_t71hjrm9/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_18_t71hjrm9/proof.lrat
+      00:13  2.9 39868 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:13 90.8 27484 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_19_qlho9csv/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_19_qlho9csv/proof.lrat
+      00:13  3.0 39416 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:13 89.4 30788 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_20_cks32c4z/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_20_cks32c4z/proof.lrat
+      00:13  3.5 40144 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:13 90.3 29892 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_21_p1lvxum7/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_21_p1lvxum7/proof.lrat
+      00:12  3.1 39816 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:12 89.4 28412 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_22_a8_52gxp/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_22_a8_52gxp/proof.lrat
+      00:12  3.4 39848 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:10 90.3 32780 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_23_wmbi5o1s/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_23_wmbi5o1s/proof.lrat
+      00:10  3.4 39560 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:10 91.4 28448 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_24_i09prsiu/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_24_i09prsiu/proof.lrat
+      00:10  3.1 39568 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:09 90.3 29736 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_25_n5tucxuh/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_25_n5tucxuh/proof.lrat
+      00:09  3.5 39544 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:09 91.3 27676 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_26_uk_fsrn7/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_26_uk_fsrn7/proof.lrat
+      00:09  3.2 39728 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:08 90.2 27740 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_27_3nid9men/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_27_3nid9men/proof.lrat
+      00:08 89.7 28452 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_28_blhgi4a1/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_28_blhgi4a1/proof.lrat
+      00:08  3.6 39656 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:08  3.6 39528 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:07 91.0 27460 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_29_j7z6pf7q/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_29_j7z6pf7q/proof.lrat
+      00:07  3.4 39540 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:07 91.2 26288 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_30_ip61yeph/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_30_ip61yeph/proof.lrat
+      00:07  3.4 39532 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:06 91.9 26564 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_31_7f9zlg9z/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_31_7f9zlg9z/proof.lrat
+      00:06  3.3 39428 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:06 91.0 26328 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_32_ilack5qn/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_32_ilack5qn/proof.lrat
+      00:06  3.5 39380 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:05 91.0 26012 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_33_k_j56psy/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_33_k_j56psy/proof.lrat
+      00:05  3.7 39344 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:03 90.2 25264 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_34_ob0_3hxs/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_34_ob0_3hxs/proof.lrat
+      00:03  4.4 38788 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5
+      00:00 89.8 26556 cadical -q --lrat=true --binary=false /tmp/cf_2cwyvhjm/ss_11_62_35_2vnjzc5m/in.cnf /tmp/cf_2cwyvhjm/ss_11_62_35_2vnjzc5m/proof.lrat
+      00:00 10.5 37940 /home/ubuntu/tr/build/lrat-check /dev/fd/3 /dev/fd/5

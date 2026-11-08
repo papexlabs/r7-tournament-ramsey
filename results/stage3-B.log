@@ -1,0 +1,6 @@
+2026-11-07 07:09:42 24B prepared: c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=8988168 literals=208508727 c ksets: direct=2604735 tri=6340089 zero-orderings=0 prunes-by-fixed-cycle=9459628 c clauses: direct=2604735 tri=6340089 tdef=43344 24B-p-O21s: CNF sha256 OK cb1402940fa2ab147762605fbd521f8fbe782c0627c35d437e0c8d8a75d5bdc1 24B-p-O21s: tri_sound SOUND 
+2026-11-07 07:09:42 conquer 24B with 17 workers
+{"level0_cubes": 1024, "cover": "VERIFIED (cubes alone)", "verified_leaves": 9709, "open_leaves": 0, "sat_cubes": [], "problems": [], "solver_hours": 571.3, "body_sha256": "2e92c26aee96ca240b7ce800b9a873cf30e82064c5f04212a3f433a013301689", "cubes_sha256": "a2dcbabd8185e3299a3d07ca288d496224f755415fbbb4e1f76cb628cf23f963", "verdict": "ALL CLOSED"}
+2026-11-08 03:36:12 24B ALL CLOSED
+2026-11-08 03:36:12 stage stage3-B finished rc=0
+Shutdown scheduled for Sun 2026-11-08 04:36:12 UTC, use 'shutdown -c' to cancel.

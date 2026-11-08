@@ -1,0 +1,22 @@
+{
+ "k": 6,
+ "n": 26,
+ "jobs_total": 1,
+ "jobs_selected": 1,
+ "jobs_recorded": 1,
+ "all_complete": true,
+ "raw_models": 39,
+ "classes": 1,
+ "solver_seconds": 6.1,
+ "per_d": {
+  "13": {
+   "jobs": 1,
+   "secs": 6.051,
+   "max_secs": 6.051,
+   "sat_jobs": 1,
+   "models": 39,
+   "not_complete": 0
+  }
+ },
+ "wall_seconds_this_run": 0.0
+}

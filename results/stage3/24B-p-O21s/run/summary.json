@@ -1,0 +1,12 @@
+{
+ "level0_cubes": 1024,
+ "cover": "VERIFIED (cubes alone)",
+ "verified_leaves": 9709,
+ "open_leaves": 0,
+ "sat_cubes": [],
+ "problems": [],
+ "solver_hours": 571.3,
+ "body_sha256": "2e92c26aee96ca240b7ce800b9a873cf30e82064c5f04212a3f433a013301689",
+ "cubes_sha256": "a2dcbabd8185e3299a3d07ca288d496224f755415fbbb4e1f76cb628cf23f963",
+ "verdict": "ALL CLOSED"
+}

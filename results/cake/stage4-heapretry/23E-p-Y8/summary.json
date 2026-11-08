@@ -1,0 +1,43 @@
+{
+ "mode": "cubes",
+ "dir": "/home/ubuntu/tr/results/stage4/23E-p-Y8/run",
+ "seed": 1,
+ "n_random": 0,
+ "n_slowest": 0,
+ "max_secs": 0,
+ "leaves": 1219,
+ "records": 1232,
+ "instance": "23E-p-Y8",
+ "body": "results/cake/stage4-heapretry/23E-p-Y8/tmp/body.cnf",
+ "body_sha256": "a7dff1d8d1ebfdf4ee8d4feb76882a12988b739721b509364b01ffe26ab371c7",
+ "body_sha256_expected": "a7dff1d8d1ebfdf4ee8d4feb76882a12988b739721b509364b01ffe26ab371c7",
+ "sha_check": "OK",
+ "cake_heap_mib": 16384,
+ "workers": 1,
+ "timeout": 0,
+ "host": "ip-172-31-36-15",
+ "cake_lpr_sha256": "130816693a5392bbba02cf0c382ac3569542dcbb482ad0b409e8a1136ab4126d",
+ "lrat_check_sha256": "ddb65dc2cae063aed1bd27ca971c89154afdeb4b2133c72880d3b9a5fa321822",
+ "cadical": "3.0.1",
+ "sampled": 1,
+ "done": 1,
+ "missing": 0,
+ "unsat": 1,
+ "lrat_verified": 1,
+ "cake_verified": 1,
+ "verified_by_both": 1,
+ "not_verified": [],
+ "cake_heap_exhausted": 0,
+ "solver_seconds": 10453.8,
+ "orig_seconds": 13319.5,
+ "cpu_seconds": {
+  "lrat-check": 101.1,
+  "cake_lpr": 318.3
+ },
+ "max_rss_gb": {
+  "lrat-check": 0.215,
+  "cake_lpr": 16.015
+ },
+ "ALL VERIFIED BY BOTH": true,
+ "t": "2026-11-08T04:45:23"
+}

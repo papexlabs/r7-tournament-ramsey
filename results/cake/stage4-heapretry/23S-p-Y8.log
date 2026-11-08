@@ -1,0 +1,4 @@
+cubes results/stage4/23S-p-Y8/run: 1 items ({'leaves': 1204, 'records': 1216, 'instance': '23S-p-Y8'}), cake heap 16384 MiB, 1 workers
+to do: 1 (already recorded: 0)
+{"id": "225.7.8.7.3", "pick": ["listed"], "status": "UNSAT", "verdict": "VERIFIED", "lrat": "VERIFIED", "cake": "VERIFIED", "secs": 12490.66, "orig_secs": 15884.64, "cake_cpu": 382.23, "cake_rss_gb": 16.017}  [1/1, 12491s]
+{"sampled": 1, "done": 1, "unsat": 1, "lrat_verified": 1, "cake_verified": 1, "verified_by_both": 1, "ALL VERIFIED BY BOTH": true}

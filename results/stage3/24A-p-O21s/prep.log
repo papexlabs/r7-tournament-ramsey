@@ -1,0 +1,5 @@
+c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=9007047 literals=208977552
+c ksets: direct=2608200 tri=6355503 zero-orderings=0 prunes-by-fixed-cycle=9466496
+c clauses: direct=2608200 tri=6355503 tdef=43344
+24A-p-O21s: CNF sha256 OK b6a67cd97445f2ce7a5a37c56235158a5dd09f8512febcfc52788f9f054f6970
+24A-p-O21s: tri_sound SOUND

@@ -1,0 +1,397 @@
+2026-11-07 08:03:47 synced
+2026-11-07 08:13:50 synced
+2026-11-07 08:23:53 synced
+2026-11-07 08:33:56 synced
+2026-11-07 08:44:00 synced
+2026-11-07 08:54:03 synced
+2026-11-07 09:04:06 synced
+2026-11-07 09:14:10 synced
+2026-11-07 09:24:13 synced
+ssh: connect to host 16.16.123.251 port 22: Operation timed out
+rsync(25737): error: unexpected end of file
+ssh: connect to host 16.16.123.251 port 22: Operation timed out
+rsync(27521): error: unexpected end of file
+ssh: connect to host 16.16.123.251 port 22: Operation timed out
+rsync(29362): error: unexpected end of file
+2026-11-07 10:05:35 synced
+2026-11-07 10:09:36 synced
+2026-11-07 10:12:39 synced
+2026-11-07 10:15:42 synced
+2026-11-07 10:18:45 synced
+2026-11-07 10:21:48 synced
+2026-11-07 10:24:51 synced
+2026-11-07 10:27:54 synced
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(36919): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(37838): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(38546): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(39601): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(40454): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(44005): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(44820): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(46083): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(49269): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(52251): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(53322): error: unexpected end of file
+2026-11-07 12:47:54 synced
+2026-11-07 12:51:07 synced
+2026-11-07 12:54:11 synced
+2026-11-07 12:57:18 synced
+2026-11-07 13:00:21 synced
+2026-11-07 13:03:25 synced
+2026-11-07 13:06:29 synced
+2026-11-07 13:09:33 synced
+2026-11-07 13:12:36 synced
+2026-11-07 13:15:43 synced
+2026-11-07 13:20:42 synced
+2026-11-07 13:23:47 synced
+2026-11-07 13:26:50 synced
+2026-11-07 13:29:54 synced
+2026-11-07 13:32:58 synced
+2026-11-07 13:36:02 synced
+2026-11-07 13:39:06 synced
+2026-11-07 13:42:15 synced
+2026-11-07 13:45:19 synced
+2026-11-07 13:48:26 synced
+2026-11-07 13:51:34 synced
+2026-11-07 13:54:39 synced
+2026-11-07 13:57:43 synced
+2026-11-07 14:00:47 synced
+2026-11-07 14:03:51 synced
+2026-11-07 14:06:55 synced
+2026-11-07 14:09:59 synced
+2026-11-07 14:13:03 synced
+2026-11-07 14:16:07 synced
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(31373): error: unexpected end of file
+2026-11-07 14:22:38 synced
+2026-11-07 14:25:51 synced
+2026-11-07 14:29:02 synced
+2026-11-07 14:32:14 synced
+2026-11-07 14:35:25 synced
+2026-11-07 14:38:36 synced
+2026-11-07 14:41:49 synced
+2026-11-07 14:45:01 synced
+2026-11-07 14:48:13 synced
+2026-11-07 14:51:25 synced
+2026-11-07 14:55:21 synced
+ssh_dispatch_run_fatal: Connection to 16.171.6.219 port 22: Can't assign requested address
+2026-11-07 15:10:36 synced
+2026-11-07 15:13:40 synced
+2026-11-07 15:16:44 synced
+2026-11-07 15:19:48 synced
+2026-11-07 15:22:53 synced
+2026-11-07 15:25:57 synced
+2026-11-07 15:29:01 synced
+2026-11-07 15:32:04 synced
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(46900): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(47576): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Network is unreachable
+rsync(48361): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(49092): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(49786): error: unexpected end of file
+ssh: connect to host 16.171.6.219 port 22: Operation timed out
+rsync(50592): error: unexpected end of file
+2026-11-07 15:55:14 synced
+ssh: connect to host 16.170.232.159 port 22: Operation timed out
+rsync(52877): error: unexpected end of file
+ssh: connect to host 16.170.232.159 port 22: Operation timed out
+rsync(53864): error: unexpected end of file
+ssh: connect to host 16.170.232.159 port 22: Operation timed out
+rsync(55011): error: unexpected end of file
+ssh: connect to host 16.170.232.159 port 22: Operation timed out
+rsync(56912): error: unexpected end of file
+ssh: connect to host 16.170.232.159 port 22: Operation timed out
+rsync(58767): error: unexpected end of file
+ssh: connect to host 16.170.232.159 port 22: Operation timed out
+rsync(62208): error: unexpected end of file
+ssh: connect to host 16.170.232.159 port 22: Operation timed out
+rsync(63191): error: unexpected end of file
+ssh: connect to host 16.170.232.159 port 22: Operation timed out
+rsync(64215): error: unexpected end of file
+ssh: connect to host 16.170.232.159 port 22: Operation timed out
+rsync(71407): error: unexpected end of file
+ssh: connect to host 16.170.232.159 port 22: Operation timed out
+rsync(74036): error: unexpected end of file
+2026-11-07 16:30:39 synced
+2026-11-07 16:33:42 synced
+2026-11-07 16:36:45 synced
+2026-11-07 16:39:48 synced
+2026-11-07 16:42:51 synced
+2026-11-07 16:45:55 synced
+ssh: connect to host 13.51.70.214 port 22: Network is unreachable
+rsync(96327): error: unexpected end of file
+2026-11-07 17:41:58 synced
+2026-11-07 17:45:01 synced
+2026-11-07 17:48:04 synced
+2026-11-07 17:51:06 synced
+2026-11-07 17:54:09 synced
+2026-11-07 17:57:12 synced
+2026-11-07 18:00:15 synced
+2026-11-07 18:03:18 synced
+2026-11-07 18:06:20 synced
+2026-11-07 18:09:23 synced
+2026-11-07 18:12:26 synced
+2026-11-07 18:15:29 synced
+2026-11-07 18:18:32 synced
+2026-11-07 18:21:35 synced
+2026-11-07 18:24:38 synced
+2026-11-07 18:27:41 synced
+2026-11-07 18:30:44 synced
+2026-11-07 18:33:47 synced
+2026-11-07 18:36:50 synced
+2026-11-07 18:39:53 synced
+2026-11-07 18:42:57 synced
+2026-11-07 18:46:01 synced
+2026-11-07 18:49:04 synced
+2026-11-07 18:52:07 synced
+2026-11-07 18:55:10 synced
+2026-11-07 18:58:14 synced
+2026-11-07 19:01:17 synced
+2026-11-07 19:04:20 synced
+2026-11-07 19:07:24 synced
+2026-11-07 19:10:27 synced
+2026-11-07 19:13:30 synced
+2026-11-07 19:16:34 synced
+2026-11-07 19:19:37 synced
+2026-11-07 19:22:40 synced
+2026-11-07 19:25:44 synced
+2026-11-07 19:28:50 synced
+2026-11-07 19:31:53 synced
+2026-11-07 19:34:57 synced
+2026-11-07 19:38:00 synced
+2026-11-07 19:41:04 synced
+2026-11-07 19:44:07 synced
+2026-11-07 19:47:11 synced
+2026-11-07 19:50:14 synced
+2026-11-07 19:53:17 synced
+2026-11-07 19:56:21 synced
+2026-11-07 19:59:24 synced
+2026-11-07 20:02:27 synced
+2026-11-07 20:05:31 synced
+2026-11-07 20:08:34 synced
+2026-11-07 20:11:37 synced
+2026-11-07 20:14:40 synced
+2026-11-07 20:17:44 synced
+2026-11-07 20:20:47 synced
+2026-11-07 20:23:51 synced
+2026-11-07 20:26:54 synced
+2026-11-07 20:29:57 synced
+2026-11-07 20:33:00 synced
+2026-11-07 20:36:03 synced
+2026-11-07 20:39:06 synced
+2026-11-07 20:42:09 synced
+2026-11-07 20:45:12 synced
+2026-11-07 20:48:15 synced
+2026-11-07 20:51:18 synced
+2026-11-07 20:54:21 synced
+2026-11-07 20:57:24 synced
+2026-11-07 21:00:28 synced
+2026-11-07 21:03:31 synced
+2026-11-07 21:06:34 synced
+2026-11-07 21:09:38 synced
+2026-11-07 21:12:41 synced
+2026-11-07 21:15:45 synced
+2026-11-07 21:18:48 synced
+2026-11-07 21:21:50 synced
+2026-11-07 21:24:54 synced
+2026-11-07 21:27:57 synced
+2026-11-07 21:31:01 synced
+2026-11-07 21:34:04 synced
+2026-11-07 21:37:09 synced
+2026-11-07 21:40:12 synced
+2026-11-07 21:43:15 synced
+2026-11-07 21:46:19 synced
+2026-11-07 21:49:22 synced
+2026-11-07 21:52:26 synced
+2026-11-07 21:55:29 synced
+2026-11-07 21:58:33 synced
+2026-11-07 22:01:37 synced
+2026-11-07 22:04:41 synced
+2026-11-07 22:07:44 synced
+2026-11-07 22:10:48 synced
+2026-11-07 22:13:51 synced
+2026-11-07 22:16:55 synced
+2026-11-07 22:19:59 synced
+2026-11-07 22:23:02 synced
+2026-11-07 22:26:06 synced
+2026-11-07 22:29:10 synced
+2026-11-07 22:32:14 synced
+2026-11-07 22:35:17 synced
+2026-11-07 22:38:21 synced
+2026-11-07 22:41:25 synced
+2026-11-07 22:44:28 synced
+2026-11-07 22:47:32 synced
+2026-11-07 22:50:36 synced
+2026-11-07 22:53:39 synced
+2026-11-07 22:56:43 synced
+2026-11-07 22:59:47 synced
+2026-11-07 23:02:50 synced
+2026-11-07 23:05:54 synced
+2026-11-07 23:08:58 synced
+2026-11-07 23:12:01 synced
+2026-11-07 23:15:05 synced
+2026-11-07 23:18:09 synced
+2026-11-07 23:21:13 synced
+2026-11-07 23:24:17 synced
+2026-11-07 23:27:20 synced
+2026-11-07 23:30:23 synced
+2026-11-07 23:33:27 synced
+2026-11-07 23:36:31 synced
+2026-11-07 23:39:34 synced
+2026-11-07 23:42:38 synced
+2026-11-07 23:45:41 synced
+2026-11-07 23:48:45 synced
+2026-11-07 23:51:48 synced
+2026-11-07 23:54:52 synced
+2026-11-07 23:57:55 synced
+2026-11-08 00:00:58 synced
+2026-11-08 00:04:02 synced
+2026-11-08 00:07:05 synced
+2026-11-08 00:10:08 synced
+2026-11-08 00:13:12 synced
+2026-11-08 00:16:15 synced
+2026-11-08 00:19:19 synced
+2026-11-08 00:22:22 synced
+2026-11-08 00:25:26 synced
+2026-11-08 00:28:30 synced
+2026-11-08 00:31:33 synced
+2026-11-08 00:34:37 synced
+2026-11-08 00:37:40 synced
+2026-11-08 00:40:44 synced
+2026-11-08 00:43:48 synced
+2026-11-08 00:46:51 synced
+2026-11-08 00:49:55 synced
+2026-11-08 00:52:59 synced
+2026-11-08 00:56:03 synced
+2026-11-08 00:59:07 synced
+2026-11-08 01:02:11 synced
+2026-11-08 01:05:15 synced
+2026-11-08 01:08:19 synced
+2026-11-08 01:11:23 synced
+2026-11-08 01:14:27 synced
+2026-11-08 01:17:31 synced
+2026-11-08 01:20:35 synced
+2026-11-08 01:23:38 synced
+2026-11-08 01:26:42 synced
+2026-11-08 01:29:46 synced
+2026-11-08 01:32:49 synced
+2026-11-08 01:35:53 synced
+2026-11-08 01:38:57 synced
+2026-11-08 01:42:01 synced
+2026-11-08 01:45:06 synced
+2026-11-08 01:48:10 synced
+2026-11-08 01:51:14 synced
+2026-11-08 01:54:17 synced
+2026-11-08 01:57:23 synced
+2026-11-08 02:00:27 synced
+2026-11-08 02:03:30 synced
+2026-11-08 02:06:33 synced
+2026-11-08 02:09:37 synced
+2026-11-08 02:12:41 synced
+2026-11-08 02:15:44 synced
+2026-11-08 02:18:48 synced
+ssh: connect to host 13.51.70.214 port 22: Operation timed out
+rsync(48374): error: unexpected end of file
+ssh: connect to host 13.51.70.214 port 22: Operation timed out
+rsync(48992): error: unexpected end of file
+ssh: connect to host 13.51.70.214 port 22: Operation timed out
+rsync(49651): error: unexpected end of file
+ssh: connect to host 13.51.70.214 port 22: Operation timed out
+rsync(50284): error: unexpected end of file
+ssh: connect to host 13.51.70.214 port 22: Operation timed out
+rsync(50892): error: unexpected end of file
+ssh: connect to host 13.51.70.214 port 22: Operation timed out
+rsync(51546): error: unexpected end of file
+ssh: connect to host 13.51.70.214 port 22: Operation timed out
+rsync(52135): error: unexpected end of file
+ssh: connect to host 13.51.70.214 port 22: Operation timed out
+rsync(52737): error: unexpected end of file
+ssh: connect to host 13.51.70.214 port 22: Operation timed out
+rsync(53412): error: unexpected end of file
+ssh: connect to host 13.51.70.214 port 22: Operation timed out
+rsync(54061): error: unexpected end of file
+2026-11-08 02:55:03 synced
+2026-11-08 02:58:06 synced
+2026-11-08 03:01:10 synced
+2026-11-08 03:04:13 synced
+2026-11-08 03:07:16 synced
+2026-11-08 03:10:19 synced
+2026-11-08 03:13:23 synced
+2026-11-08 03:16:26 synced
+2026-11-08 03:19:29 synced
+2026-11-08 03:22:32 synced
+2026-11-08 03:25:35 synced
+2026-11-08 03:28:38 synced
+2026-11-08 03:31:41 synced
+2026-11-08 03:34:44 synced
+2026-11-08 03:37:47 synced
+2026-11-08 03:40:50 synced
+2026-11-08 03:43:53 synced
+2026-11-08 03:46:56 synced
+2026-11-08 03:49:59 synced
+2026-11-08 03:53:02 synced
+2026-11-08 03:56:05 synced
+2026-11-08 03:59:08 synced
+2026-11-08 04:02:11 synced
+2026-11-08 04:05:14 synced
+2026-11-08 04:08:18 synced
+2026-11-08 04:11:21 synced
+2026-11-08 04:14:24 synced
+2026-11-08 04:17:28 synced
+2026-11-08 04:20:31 synced
+2026-11-08 04:23:35 synced
+2026-11-08 04:26:38 synced
+2026-11-08 04:29:41 synced
+2026-11-08 04:32:45 synced
+2026-11-08 04:35:48 synced
+2026-11-08 04:38:51 synced
+2026-11-08 04:41:54 synced
+2026-11-08 04:44:58 synced
+2026-11-08 04:48:01 synced
+2026-11-08 04:51:04 synced
+2026-11-08 04:54:07 synced
+2026-11-08 04:57:11 synced
+2026-11-08 05:00:14 synced
+2026-11-08 05:03:18 synced
+2026-11-08 05:06:22 synced
+2026-11-08 05:09:25 synced
+2026-11-08 05:12:28 synced
+2026-11-08 05:15:31 synced
+2026-11-08 05:18:35 synced
+2026-11-08 05:21:38 synced
+2026-11-08 05:24:42 synced
+2026-11-08 05:27:45 synced
+2026-11-08 05:30:49 synced
+2026-11-08 05:33:52 synced
+2026-11-08 05:36:56 synced
+2026-11-08 05:39:59 synced
+2026-11-08 05:43:03 synced
+2026-11-08 05:46:07 synced
+2026-11-08 05:49:10 synced
+2026-11-08 05:52:13 synced
+2026-11-08 05:55:16 synced
+2026-11-08 05:58:19 synced
+2026-11-08 06:01:22 synced
+2026-11-08 06:04:26 synced
+2026-11-08 06:07:29 synced
+2026-11-08 06:10:33 synced
+2026-11-08 06:13:36 synced
+2026-11-08 06:16:39 synced
+2026-11-08 06:19:43 synced
+2026-11-08 06:22:46 synced
+2026-11-08 06:22:46 stage3-C.DONE synced (rc 0); stopping

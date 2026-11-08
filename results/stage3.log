@@ -1,0 +1,10 @@
+2026-11-06 23:35:34 24A prepared: c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=9007047 literals=208977552 c ksets: direct=2608200 tri=6355503 zero-orderings=0 prunes-by-fixed-cycle=9466496 c clauses: direct=2608200 tri=6355503 tdef=43344 24A-p-O21s: CNF sha256 OK b6a67cd97445f2ce7a5a37c56235158a5dd09f8512febcfc52788f9f054f6970 24A-p-O21s: tri_sound SOUND 
+2026-11-06 23:35:34 24B prepared: c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=8988168 literals=208508727 c ksets: direct=2604735 tri=6340089 zero-orderings=0 prunes-by-fixed-cycle=9459628 c clauses: direct=2604735 tri=6340089 tdef=43344 24B-p-O21s: CNF sha256 OK cb1402940fa2ab147762605fbd521f8fbe782c0627c35d437e0c8d8a75d5bdc1 24B-p-O21s: tri_sound SOUND 
+2026-11-06 23:35:34 24C prepared: c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=8988168 literals=208508727 c ksets: direct=2604735 tri=6340089 zero-orderings=0 prunes-by-fixed-cycle=9459880 c clauses: direct=2604735 tri=6340089 tdef=43344 24C-p-O21s: CNF sha256 OK 8c53b09c90b032e087d88085247e5ad13c4d3c3cc25abec4b00f353af4dd738f 24C-p-O21s: tri_sound SOUND 
+2026-11-06 23:35:34 24D prepared: c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=9007047 literals=208977552 c ksets: direct=2608200 tri=6355503 zero-orderings=0 prunes-by-fixed-cycle=9466819 c clauses: direct=2608200 tri=6355503 tdef=43344 24D-p-O21s: CNF sha256 OK 0facb5da175e9dd3162085f00fbfaf298e48da737299e42d04b5a5941af8397a 24D-p-O21s: tri_sound SOUND 
+2026-11-06 23:35:34 24E prepared: c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=9007047 literals=208977552 c ksets: direct=2608200 tri=6355503 zero-orderings=0 prunes-by-fixed-cycle=9466652 c clauses: direct=2608200 tri=6355503 tdef=43344 24E-p-O21s: CNF sha256 OK 94489f5dd54b029e7a96fb545ba1d18cb170576d640ccb03a7800023ea681059 24E-p-O21s: tri_sound SOUND 
+2026-11-06 23:35:34 conquer 24A with 7 workers
+2026-11-06 23:35:34 conquer 24B with 7 workers
+2026-11-06 23:35:34 conquer 24C with 7 workers
+2026-11-06 23:35:34 conquer 24D with 7 workers
+2026-11-06 23:35:34 conquer 24E with 7 workers

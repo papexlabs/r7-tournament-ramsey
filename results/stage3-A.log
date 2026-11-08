@@ -1,0 +1,6 @@
+2026-11-08 00:49:52 24A prepared: c n=46 k=7 limit=1 arcvars=504 totalvars=11340 clauses=9007047 literals=208977552 c ksets: direct=2608200 tri=6355503 zero-orderings=0 prunes-by-fixed-cycle=9466496 c clauses: direct=2608200 tri=6355503 tdef=43344 24A-p-O21s: CNF sha256 OK b6a67cd97445f2ce7a5a37c56235158a5dd09f8512febcfc52788f9f054f6970 24A-p-O21s: tri_sound SOUND 
+2026-11-08 00:49:52 conquer 24A with 17 workers
+{"level0_cubes": 1024, "cover": "VERIFIED (cubes alone)", "verified_leaves": 9484, "open_leaves": 0, "sat_cubes": [], "problems": [], "solver_hours": 541.26, "body_sha256": "8fa750886bc6f0874bdeb81f6036b5755a1b7206917b4578794d4ead3609534c", "cubes_sha256": "7df96a8799ce6eb1911a3789b3b67f9f3c9a44d0724d4f312cd2fb9dc7cb736d", "verdict": "ALL CLOSED"}
+2026-11-08 01:39:30 24A ALL CLOSED
+2026-11-08 01:39:30 stage stage3-A finished rc=0
+Shutdown scheduled for Sun 2026-11-08 02:39:30 UTC, use 'shutdown -c' to cancel.
