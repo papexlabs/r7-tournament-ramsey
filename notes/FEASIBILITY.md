@@ -462,7 +462,7 @@ ssh -i ~/.ssh/kobon-aws.pem ubuntu@$IP 'cd tr && nohup bash scripts/cloud/run_st
 # sync_back / cost_meter / watch with "stage3"; at the end results/stage3/*/run/summary.json must say ALL CLOSED
 ```
 
-If the home IP changes, the security group must allow it first. `curl checkip.amazonaws.com` shows the IP; the group currently lists [home IP range removed], [home IP removed] and [IP removed] (the IP today). Before a spot request in AZ 1a, check `describe-spot-price-history` again. If capacity is missing, use `--az eu-north-1b`.
+If the home IP changes, the security group must allow it first. `curl checkip.amazonaws.com` shows the IP. Before a spot request in AZ 1a, check `describe-spot-price-history` again. If capacity is missing, use `--az eu-north-1b`.
 
 ### 11.5 What changed in the plan
 

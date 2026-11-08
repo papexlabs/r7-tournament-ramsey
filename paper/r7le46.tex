@@ -821,7 +821,7 @@ without a conflict. For example, it accepts the proof \texttt{3 0 0} for the
 satisfiable formula with the clauses $x_1 \vee x_2$ and $\neg x_1 \vee x_2$.
 This was already known upstream: it is reported in drat-trim issue~\#42, with
 a fix proposed in pull request~\#43~\cite{drattrim42}. Our patch (commit
-\texttt{13b6c5a} of our repository) rejects an empty clause unless its hints
+\texttt{645ee78} of our repository) rejects an empty clause unless its hints
 end in a conflict, and treats a hint to a clause index outside the clause
 table as a hint to a deleted clause instead of reading outside the table.
 \path{tests/test_lrat_check.py} checks that the patched checker rejects such
@@ -884,7 +884,7 @@ The unpatched file is byte-identical to \path{lrat-check.c} at commit
 % source: git clone of https://github.com/marijnheule/drat-trim on 8 Nov 2026. lrat-check.c has
 % SHA-256 bf07c2ac96b9035da1ebcc578cb95e956a2b795629d613154cdb307f8a8f4a95 at commit
 % 28c864a6c0ffe6fb227010316237ceee1ea8d58d (the last commit touching it) and is unchanged up to
-% master head 2e3b2dc (25 Nov 2024); git show 0c6a52a:tools/drat-trim/lrat-check.c (our
+% master head 2e3b2dc (25 Nov 2024); git show bfa8f92:tools/drat-trim/lrat-check.c (our
 % pre-patch file) has the same SHA-256.
 The second checker, \texttt{cake\_lpr}, is by Tan, Heule and
 Myreen~\cite{THM21}; we used its release of 1~November 2026~\cite{cakelprrepo}.

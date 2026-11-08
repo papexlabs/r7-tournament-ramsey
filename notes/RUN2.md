@@ -21,7 +21,7 @@ Run 1 is archived in `results/run1/`. Everything below is run 2. All times are U
 ## Stages 1–2: enumeration, n = 21…26
 
 - One m8g.24xlarge (eu-north-1c, launched 11-05 11:13), `run_stage12c.sh`: n = 26, 25, 24, 23, 22, 21.
-- It switched to dual checking at 12:56 on 11-05 (commit ab818ca). Jobs before that were checked by
+- It switched to dual checking at 12:56 on 11-05 (commit f7fcb73). Jobs before that were checked by
   `lrat-check` only: all of n = 26…23 and the first 10,578 jobs of n = 22.
 - Done 11-06 03:30, rc 0. `scripts/stage12_check.py`: GO 1, GO 2, "ST26 unique: CERTIFIED".
   `scripts/audit/modelfix.py`: 204,350 models, 0 that do not fit their job.
