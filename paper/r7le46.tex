@@ -1256,13 +1256,15 @@ a cross-check.
 \section{Data and code availability}\label{sec:data}
 
 The code, the input data, the result files and the notes are in a public
-repository (TODO: URL).
-% TODO: repository URL and an archived snapshot with DOI (e.g. Zenodo) will be added.
-An archived snapshot will be deposited with a DOI (TODO). The repository
+repository, \url{https://github.com/papexlabs/r7-tournament-ramsey}. An
+archived snapshot is deposited at Zenodo with DOI
+\href{https://doi.org/10.5281/zenodo.24050255}{10.5281/zenodo.24050255}. The
+snapshot also holds the per-proof logs of both checkers
+(\path{run2-cakelogs.tar.gz}, $271{,}883$ files), which are too large for the
+repository. The repository
 contains, for every enumeration job, the completion record and the certificate
 record; for every cube, its literals, status, checker verdict and times; the
-per-proof logs of both checkers and the records of the proofs that were
-solved again; the per-instance summaries; the SHA-256 manifests of NMH's
+records of the proofs that were solved again; the per-instance summaries; the SHA-256 manifests of NMH's
 instances and of the five new formulas; the archived records of run~1
 (\path{results/run1/}); and the Lean project. It does not contain LRAT proofs
 (Section~\ref{sec:trust}, item T11) or third-party files other than the

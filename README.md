@@ -35,8 +35,10 @@ This repository contains the proof's code, inputs, result records and paper:
 | `tools/` | patched `lrat-check` (drat-trim, MIT) and `cake_lpr` (its own licence) |
 | `tests/` | tests of the checkers, encoders and tools |
 
-The per-proof logs of both checkers (271,883 JSON files) are too large for git. They are in the
-release archive `run2-cakelogs.tar.gz`; its SHA-256 is given in `notes/RUN2.md`. Unpack it at the
+The per-proof logs of both checkers (271,883 JSON files) are too large for git. They are in
+`run2-cakelogs.tar.gz` in the Zenodo record
+([doi:10.5281/zenodo.24050255](https://doi.org/10.5281/zenodo.24050255)); its SHA-256 is given in
+`notes/RUN2.md`. Unpack it at the
 repository root before running `scripts/audit/union_audit.py`. Third-party inputs (Neiman–Mackey–Heule's
 repository and the catalogue files of Lohn, Lambert and Heule) are fetched by
 `scripts/fetch_refs.sh`, not redistributed.
@@ -66,5 +68,5 @@ direction. Every commit names it as co-author. See Section 9 of the paper.
 
 ## Citation
 
-Ahmet Tahir Mat, *The directed Ramsey number R(7) is at most 46*, 2026. The DOI of the archived
-release will be added here.
+Ahmet Tahir Mat, *The directed Ramsey number R(7) is at most 46*, 2026. Archived snapshot:
+[doi:10.5281/zenodo.24050255](https://doi.org/10.5281/zenodo.24050255).

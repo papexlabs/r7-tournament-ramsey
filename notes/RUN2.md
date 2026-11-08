@@ -77,7 +77,7 @@ run 1 US$39.22, run 2 US$88.08, total US$127.30. EBS volumes and data transfer a
 
 The per-proof JSON logs of both checkers (`results/stage3/cakelog/`, `results/stage4/cakelog/`,
 `results/enum/cakelog/` and the `dualcheck/` directories of the re-checks in `results/cake/`;
-271,883 files, about 1.1 GB) are not in git. They are archived as `results/run2-cakelogs.tar.gz`
+271,883 files, about 1.1 GB) are not in git. They are archived as `results/run2-cakelogs.tar.gz` (Zenodo, doi:10.5281/zenodo.24050255)
 (51,525,521 bytes, SHA-256
-`98d937fea0f76d1271ec529ae8a4a0cfdcccdbfb1aab2daf8f08b6a35557881d`), to be deposited with the
+`98d937fea0f76d1271ec529ae8a4a0cfdcccdbfb1aab2daf8f08b6a35557881d`), deposited with the
 archived snapshot. `scripts/audit/union_audit.py` needs them unpacked in place.
