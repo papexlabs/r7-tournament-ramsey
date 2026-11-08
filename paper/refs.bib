@@ -3,24 +3,30 @@
 % confirmed from the repository (refs/, notes/, code headers).  They must be
 % checked against the publisher's records before submission.
 
+% source: MathSciNet MRef (MR0168494) and zbMATH Open (Zbl 0136.44901, which gives the
+% journal's English title "Publ. Math. Inst. Hung. Acad. Sci., Ser. A"), checked 8 Nov 2026.
 @article{EM64,
   author  = {Erd{\H o}s, Paul and Moser, Leo},
   title   = {On the representation of directed graphs as unions of orderings},
-  journal = {Math. Inst. Hung. Acad. Sci.},
+  journal = {Magyar Tud. Akad. Mat. Kutat\'o Int. K\"ozl.},
   volume  = {9},
   year    = {1964},
   pages   = {125--132},
-  note    = {Journal name as given in the reference list of \cite{NMH22};
-             TODO: verify the exact journal title (Magyar Tud.\ Akad.\ Mat.\ Kutat\'o Int.\ K\"ozl.?)}
+  note    = {MR 168494}
 }
 
+% source: Crossref (DOI 10.1016/S0021-9800(70)80061-8), MathSciNet MRef (MR0274328) and
+% zbMATH Open (Zbl 0204.24605), checked 8 Nov 2026.
 @article{RP70,
   author  = {Reid, K. B. and Parker, E. T.},
   title   = {Disproof of a conjecture of {E}rd{\H o}s and {M}oser on tournaments},
   journal = {J. Combinatorial Theory},
+  volume  = {9},
+  number  = {3},
   year    = {1970},
   pages   = {225--238},
-  note    = {MR 274328. TODO: volume number}
+  doi     = {10.1016/S0021-9800(70)80061-8},
+  note    = {MR 274328}
 }
 
 @article{SF94,
@@ -75,12 +81,17 @@
   note         = {Branch \texttt{master}; accessed 3 November 2026}
 }
 
+% source: DataCite record of DOI 10.34727/2022/isbn.978-3-85448-053-2_24 (TU Wien), checked
+% 8 Nov 2026; the 10 pages agree with refs/FMCAD22-lohn-lambert-heule.pdf.
 @inproceedings{LLH22,
   author    = {Lohn, Evan and Lambert, Chris and Heule, Marijn J. H.},
   title     = {Compact symmetry breaking for tournaments},
-  booktitle = {Formal Methods in Computer-Aided Design (FMCAD 2022)},
+  booktitle = {Proceedings of the 22nd Conference on Formal Methods in Computer-Aided Design -- {FMCAD} 2022},
+  editor    = {Griggio, Alberto and Rungta, Neha},
+  publisher = {TU Wien Academic Press},
   year      = {2022},
-  note      = {TODO: pages, publisher and DOI}
+  pages     = {179--188},
+  doi       = {10.34727/2022/isbn.978-3-85448-053-2_24}
 }
 
 @misc{LLHrepo,
@@ -108,61 +119,79 @@
   pages     = {13--14}
 }
 
+% source: Crossref (DOI 10.1007/978-3-031-65627-9_7; book: CAV 2024, Proceedings, Part I) and
+% the authors' BibTeX linked from the CaDiCaL README (volume 14681), checked 8 Nov 2026.
 @inproceedings{CaDiCaL2,
   author    = {Biere, Armin and Faller, Tobias and Fazekas, Katalin and Fleury, Mathias and Froleyks, Nils and Pollitt, Florian},
   title     = {{CaDiCaL} 2.0},
-  booktitle = {Computer Aided Verification (CAV 2024)},
+  booktitle = {Computer Aided Verification (CAV 2024), Part I},
   series    = {Lecture Notes in Comput. Sci.},
   volume    = {14681},
+  publisher = {Springer},
   year      = {2024},
   pages     = {133--152},
-  note      = {TODO: verify all bibliographic details}
+  doi       = {10.1007/978-3-031-65627-9_7}
 }
 
+% source: Crossref (DOI 10.1007/978-3-319-09284-3_31) and zbMATH Open (Zbl 1423.68475), checked
+% 8 Nov 2026.
 @inproceedings{WHH14,
   author    = {Wetzler, Nathan and Heule, Marijn J. H. and Hunt, Jr., Warren A.},
   title     = {{DRAT-trim}: Efficient checking and trimming using expressive clausal proofs},
   booktitle = {Theory and Applications of Satisfiability Testing (SAT 2014)},
   series    = {Lecture Notes in Comput. Sci.},
   volume    = {8561},
+  publisher = {Springer},
   year      = {2014},
   pages     = {422--429},
-  note      = {TODO: verify all bibliographic details}
+  doi       = {10.1007/978-3-319-09284-3_31}
 }
 
+% source: Crossref (DOI 10.1007/978-3-319-63046-5_14) and zbMATH Open (Zbl 1494.68284), checked
+% 8 Nov 2026.
 @inproceedings{CHHKS17,
   author    = {Cruz-Filipe, Lu{\'\i}s and Heule, Marijn J. H. and Hunt, Jr., Warren A. and Kaufmann, Matt and Schneider-Kamp, Peter},
   title     = {Efficient certified {RAT} verification},
   booktitle = {Automated Deduction (CADE 26)},
   series    = {Lecture Notes in Comput. Sci.},
   volume    = {10395},
+  publisher = {Springer},
   year      = {2017},
   pages     = {220--236},
-  note      = {Introduces the LRAT format. TODO: verify all bibliographic details}
+  doi       = {10.1007/978-3-319-63046-5_14},
+  note      = {Introduces the LRAT format}
 }
 
+% source: Crossref (DOI 10.1007/978-3-642-34188-5_8, pages, year) and zbMATH Open
+% (Zbl 1250.68025: the HVC 2011 proceedings, DOI 10.1007/978-3-642-34188-5, are LNCS 7261),
+% checked 8 Nov 2026.
 @inproceedings{HKWB11,
   author    = {Heule, Marijn J. H. and Kullmann, Oliver and Wieringa, Siert and Biere, Armin},
   title     = {Cube and conquer: guiding {CDCL} {SAT} solvers by lookaheads},
   booktitle = {Hardware and Software: Verification and Testing (HVC 2011)},
   series    = {Lecture Notes in Comput. Sci.},
   volume    = {7261},
+  publisher = {Springer},
   year      = {2012},
   pages     = {50--65},
-  note      = {TODO: verify all bibliographic details}
+  doi       = {10.1007/978-3-642-34188-5_8}
 }
 
+% source: Crossref (DOI 10.1007/11564751_73) and zbMATH Open (Zbl 1153.68488), checked 8 Nov 2026.
 @inproceedings{Sinz05,
   author    = {Sinz, Carsten},
   title     = {Towards an optimal {CNF} encoding of {B}oolean cardinality constraints},
   booktitle = {Principles and Practice of Constraint Programming (CP 2005)},
   series    = {Lecture Notes in Comput. Sci.},
   volume    = {3709},
+  publisher = {Springer},
   year      = {2005},
   pages     = {827--831},
-  note      = {TODO: verify all bibliographic details}
+  doi       = {10.1007/11564751_73}
 }
 
+% source: Crossref (DOI 10.1016/j.jsc.2013.09.003) and zbMATH Open (Zbl 1394.05079), checked
+% 8 Nov 2026.
 @article{MP14,
   author  = {McKay, Brendan D. and Piperno, Adolfo},
   title   = {Practical graph isomorphism, {II}},
@@ -170,33 +199,48 @@
   volume  = {60},
   year    = {2014},
   pages   = {94--112},
-  note    = {TODO: verify all bibliographic details}
+  doi     = {10.1016/j.jsc.2013.09.003}
 }
 
+% source: Crossref (DOI 10.1007/978-3-030-72013-1_12; book: TACAS 2021, Proceedings, Part II) and
+% zbMATH Open (Zbl 1474.68194: LNCS 12652, 223-241), checked 8 Nov 2026.
 @inproceedings{THM21,
   author    = {Tan, Yong Kiam and Heule, Marijn J. H. and Myreen, Magnus O.},
   title     = {{\texttt{cake\_lpr}}: Verified propagation redundancy checking in {CakeML}},
-  booktitle = {Tools and Algorithms for the Construction and Analysis of Systems (TACAS 2021)},
+  booktitle = {Tools and Algorithms for the Construction and Analysis of Systems (TACAS 2021), Part II},
   series    = {Lecture Notes in Comput. Sci.},
   volume    = {12652},
+  publisher = {Springer},
   year      = {2021},
   pages     = {223--241},
-  doi       = {10.1007/978-3-030-72013-1_12},
-  note      = {TODO: verify all bibliographic details}
+  doi       = {10.1007/978-3-030-72013-1_12}
 }
 
+% source: git clone of https://github.com/tanyongkiam/cake_lpr on 8 Nov 2026. The seven files in
+% tools/cake_lpr/ are byte-identical to those at the annotated tag cake_lpr/v1.0.0 (tagged
+% 1 Nov 2026 14:06 UTC), which points to commit 033aad53d1733bd4b8ca41cf6f1b5fb5d84f8de2. The
+% repository has no GitHub release objects; the tag is the release. Its README.md says that
+% cake_lpr.S and cake_lpr_arm8.S were built from HOL4 9783a49979c94c401ff8c0e51b2eefae7ea95ae3 and
+% CakeML 665f9b21712ad093e10a404ccc2f78e64a34aeef (also the submodule commits at that tag).
 @misc{cakelprrepo,
   key          = {cake_lpr},
   title        = {{\texttt{cake\_lpr}}: a verified checker for {LRAT} and {LPR} proofs},
   howpublished = {GitHub repository \url{https://github.com/tanyongkiam/cake_lpr}},
-  note         = {Release of 1 November 2026, downloaded on 5 November 2026 (tools/cake\_lpr/README.md)}
+  note         = {Tag \texttt{cake\_lpr/v1.0.0} (commit \texttt{033aad5}) of 1 November 2026,
+                  downloaded on 5 November 2026}
 }
 
+% source: GitHub API (gh api repos/marijnheule/drat-trim/issues/42 and .../pulls/43), checked
+% 8 Nov 2026: both opened by GitHub user haskiindahouse, the issue at 2026-09-29T16:56:49Z and
+% the pull request at 2026-09-29T17:03:58Z; both open, the pull request not merged.
 @misc{drattrim42,
-  key          = {drat-trim},
-  title        = {drat-trim, issue \#42 and pull request \#43},
-  howpublished = {GitHub repository \url{https://github.com/marijnheule/drat-trim}},
-  note         = {\url{https://github.com/marijnheule/drat-trim/issues/42} and
-                  \url{https://github.com/marijnheule/drat-trim/pull/43}, both opened on
-                  29 September 2026. TODO: check the titles and authors}
+  author       = {{haskiindahouse}},
+  title        = {drat-trim issue \#42, ``\texttt{lrat-check} says `{VERIFIED}' for a proof that
+                  proves nothing (regression \#31)'', and pull request \#43,
+                  ``\texttt{lrat-check}: reject an empty lemma that does not end in a conflict''},
+  howpublished = {\url{https://github.com/marijnheule/drat-trim/issues/42} and
+                  \url{https://github.com/marijnheule/drat-trim/pull/43}},
+  year         = {2026},
+  note         = {GitHub user \texttt{haskiindahouse}; both opened on 29 September 2026. The pull
+                  request was open and not merged on 8 November 2026}
 }

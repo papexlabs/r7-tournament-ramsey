@@ -47,8 +47,11 @@
 
 \date{Draft, 8 November 2026}
 
-% TODO: check the MSC codes.
-\subjclass[2020]{05C20, 05C55, 68V05}
+% source: MSC2020 titles from zbMATH Open, checked 8 Nov 2026: 05C55 generalized Ramsey theory;
+% 05C20 directed graphs (digraphs), tournaments; 68V05 computer assisted proofs of
+% proofs-by-exhaustion type; 68V15 theorem proving (automated and interactive theorem provers,
+% deduction, resolution, etc.). MathSciNet classifies [NMH22] as 05C55 (05C20).
+\subjclass[2020]{Primary 05C55; Secondary 05C20, 68V05, 68V15}
 \keywords{Tournament, transitive subtournament, directed Ramsey number,
   SAT solving, cube-and-conquer, LRAT proof checking}
 
@@ -85,13 +88,23 @@ $R(k)$ be the least $n$ such that every tournament on $n$ vertices contains
 $\TT{k}$ as a subtournament. These numbers go back to Erd\H{o}s and
 Moser~\cite{EM64}. The values $R(2),\dots,R(6)$ are $2,4,8,14,28$; see
 \cite[\S2]{NMH22} and the references there, in particular~\cite{RP70} for
-$R(5)=14$ and~\cite{SF94} for $R(6)=28$.
-% TODO: confirm that [RP70] is the right source for R(5) = 14 (the erdosproblems.com
-% entry #1216 credits [RePa70] with f(n) >= floor(log2 n + 4 - log2 7) for n >= 14).
+$R(5) \le 14$ and~\cite{SF94} for $R(6)=28$.
+% source: [RP70] proves that every tournament on n >= 7*2^(k-4) vertices contains TT_k for
+% k >= 5 (zbMATH review of Neumann-Lara, Graphs Combin. 10 (1994) 363-366, Zbl 0811.05028;
+% erdosproblems.com #1216), hence R(5) <= 14 and R(6) <= 28. [SF94] proves that the TT6-free
+% tournament on 27 vertices is unique (zbMATH review Zbl 0811.05029); NMH Sec. 2 cite it for
+% R(6) = 28. Not checked: whether [RP70] also gives the TT5-free tournament on 13 vertices
+% (R(5) >= 14); the text of [RP70] was not accessible, so the sentence credits it with R(5) <= 14.
 
-For $k=7$ the bounds $32 \le R(7) \le 54$ are due to
-Sanchez-Flores~\cite{SF98}.
-% TODO: confirm that both 32 and 54 are in [SF98] (NMH cite [5, 9] jointly for 32 <= R(7) <= 53).
+For $k=7$, Sanchez-Flores~\cite{SF98} proved $R(7) \le 54$; the lower bound
+$R(7) \ge 32$ is stated in~\cite{LP21} and~\cite[\S2]{NMH22}.
+% source: R(7) <= 54 is in the abstract of [SF98] ("all tournaments of order 54 contain TT7";
+% Springer page, zbMATH Zbl 0918.05058) and [LP21, Sec. 2.3] ("The previous best upper bound
+% was 54 from [SF98]"). [LP21, Thm. 11] states 32 <= R(TT7) <= 53.
+% TODO: find the original source of R(7) >= 32 (a TT7-free tournament on 31 vertices). [LP21]
+% gives no source for 32 and NMH cite [5, 9] = [LP21, SF98] jointly. The abstract of [SF98]
+% mentions a computer search of circulant tournaments of order at most 55, so [SF98] may
+% contain it; its full text was not accessible.
 Lidick\'y and Pfender lowered the upper bound to $53$ with semidefinite
 programming~\cite{LP21}. Neiman, Mackey and Heule~\cite{NMH22} (``NMH'' below)
 proved $34 \le R(7) \le 47$ with the help of a SAT solver. Lohn, Lambert and
@@ -287,11 +300,13 @@ SAT results of Section~\ref{sec:results}.
 
 \begin{fact}\label{fact:st26}
 Every $\TT{6}$-free tournament on $26$ vertices is isomorphic to $\ST{26}$.
-This is known~\cite{SF94,SF98}; see also \cite[\S2]{NMH22}. Our certified
+This is proved in~\cite{SF98}; see also \cite[\S2]{NMH22}. Our certified
 enumeration (Section~\ref{sec:catalogue}) re-derives it.
 \end{fact}
-% TODO: locate the precise statement (paper and theorem number) of the uniqueness of
-% ST26 in Sanchez-Flores [SF94]/[SF98]; NMH Sec. 2 states it with citation [8, 9].
+% source: abstract of [SF98] ("Here we prove that the tournaments of orders 12 and 26, free of
+% TT5 and TT6, respectively, are also unique"; Springer page, zbMATH Zbl 0918.05058). [SF94]
+% proves the uniqueness on 27 vertices, not on 26 (zbMATH Zbl 0811.05029).
+% TODO: the theorem number in [SF98]; only its abstract was accessible.
 
 \begin{fact}\label{fact:tt5}
 There is no $\TT{5}$-free tournament on $14$ vertices; that is,
@@ -862,10 +877,15 @@ file \path{lrat-check.c} of the drat-trim distribution, with the header
 (SHA-256 \texttt{bf07c2ac\ldots{}4a95}), with our patch of
 Section~\ref{sec:lrat} (patched file: SHA-256 \texttt{6ef54b2c\ldots{}d1ca}).
 It was compiled with \texttt{gcc -O2 -std=c99 -DLONGTYPE}.
-% TODO (author): the repository does not record the upstream drat-trim commit from which
-% lrat-check.c was taken. notes/drat-trim-pr43-comment.md names upstream master's last
-% change as 28c864a; confirm that the unpatched file (SHA-256 bf07c2ac...4a95) equals
-% lrat-check.c at that commit before citing it.
+The unpatched file is byte-identical to \path{lrat-check.c} at commit
+\texttt{28c864a} (21~April 2024) of
+\url{https://github.com/marijnheule/drat-trim}, the last commit on
+\texttt{master} that changes it.
+% source: git clone of https://github.com/marijnheule/drat-trim on 8 Nov 2026. lrat-check.c has
+% SHA-256 bf07c2ac96b9035da1ebcc578cb95e956a2b795629d613154cdb307f8a8f4a95 at commit
+% 28c864a6c0ffe6fb227010316237ceee1ea8d58d (the last commit touching it) and is unchanged up to
+% master head 2e3b2dc (25 Nov 2024); git show 0c6a52a:tools/drat-trim/lrat-check.c (our
+% pre-patch file) has the same SHA-256.
 The second checker, \texttt{cake\_lpr}, is by Tan, Heule and
 Myreen~\cite{THM21}; we used its release of 1~November 2026~\cite{cakelprrepo}.
 The checker is verified in HOL4 and compiled by the verified CakeML compiler;
@@ -874,8 +894,13 @@ we used the compiler's ARMv8 output \path{cake_lpr_arm8.S} (SHA-256
 (SHA-256 \texttt{bd498883\ldots{}cbbc}) by \texttt{cc -O2}. Both values equal
 those published with the release. The build script checks them and runs a
 self-test, which includes the bogus proof above.
-% TODO (author): the upstream commit hashes of the cake_lpr release are not recorded in
-% the repository (tools/cake_lpr/README.md).
+The files we used are byte-identical to those at the release tag
+\texttt{cake\_lpr/v1.0.0} (commit \texttt{033aad5}). According to the README
+there, the assembly files were built from HOL4 commit \texttt{9783a49} and
+CakeML commit \texttt{665f9b2}.
+% source: git clone of https://github.com/tanyongkiam/cake_lpr on 8 Nov 2026 (full hashes in
+% the comment above [cakelprrepo] in refs.bib). We did not rebuild the assembly files from
+% these commits.
 nauty~2.9.3~\cite{MP14} was used for \texttt{labelg} and \texttt{gentourng}
 (tarball SHA-256 \texttt{9fc4edae\ldots{}1b5b}). The scripts are in Python~3.
 The cloud instances ran Ubuntu 24.04 (arm64). The development machine (Apple
@@ -1268,27 +1293,33 @@ five new instances are in Appendix~\ref{app:data}. The main programs are:
 \end{itemize}}
 
 % =====================================================================
-% DRAFT — the author must review and rewrite this section
 \section{Use of AI tools}\label{sec:ai}
 
-The code in the repository, the preparation and monitoring of the cloud runs,
-the working notes and the initial draft of this text were produced with an AI
-assistant (Claude, Anthropic) working under the author's direction. The
-commit messages of the repository name the assistant. The author chose the problem
-and approved each computational stage and its budget. The AI system is not an
-author of this paper. The author takes responsibility for its content.
-% NOTE (author): facts from the repository that you may want to state here (not written
-% into the section, which is yours to write):
-% - commit trailers name "Claude Opus 5.5" as co-author of the run-2 work: the lrat-check
-%   patch (13b6c5a), the dual-check tooling (567df7c, ab818ca, 1653e71), the Lean project
-%   r7lean (8caaf77, af9f29b) and the archive of run 1 (85f8c25);
-% - run 2 (machines, interruptions, resumptions, re-checks) was supervised by the assistant
-%   (as stated in the request for this revision; notes/RUN2.md does not say who ran it);
-% - the checker gap was found by an "independent audit" (notes/FEASIBILITY.md §14), and
-%   src/tri_sound.c, scripts/audit/closure.py and scripts/audit/modelfix.py are described in
-%   their headers as written "by an external auditor"; the repository does not say who
-%   the auditor was;
-% - this revision of the draft (run-2 numbers) was also prepared with the assistant.
+This work was carried out with an AI assistant, Claude (Anthropic; the model
+Claude Opus~5.5, used through Claude Code), working under the author's
+direction. The assistant wrote all of the code in the repository: the
+enumeration and the encoders, the cube-and-conquer and checking scripts, the
+cloud drivers, the audit tools and the Lean project. It prepared, ran and
+monitored the cloud computations, including the resumptions after spot
+interruptions and the re-checks described in Section~\ref{sec:results}, and it
+wrote the working notes and the drafts of this paper. Every commit of the
+repository names the assistant as co-author.
+
+Separate instances of the assistant served as independent auditors. They wrote
+the soundness checker \path{src/tri_sound.c} and the checks
+\path{scripts/audit/closure.py} and \path{scripts/audit/modelfix.py}. One of
+these audits pointed to the gap in \texttt{lrat-check} described in
+Section~\ref{sec:lrat}, which had already been reported upstream.
+
+The author chose the problem, approved each computational stage and its
+budget, made the decisions about the runs (among them to repeat all
+computations with two proof checkers), and reviewed the results and this text.
+The correctness of the result does not rest on trust in the assistant beyond
+the trust base of Section~\ref{sec:trust}: every unsatisfiability claim is
+checked by two proof checkers, one of them formally verified, and the
+deduction of Theorem~\ref{thm:main} from the computational facts is checked in
+Lean (Section~\ref{sec:lean}). The AI system is not an author of this paper.
+The author takes responsibility for its content.
 
 % =====================================================================
 \section*{Acknowledgements}

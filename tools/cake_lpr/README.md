@@ -3,7 +3,7 @@
 The second proof checker of `scripts/audit/dualcheck.sh`, used on a sample of the pipeline's UNSAT results by `scripts/audit/cake_sample.py`.
 
 - **Source:** https://github.com/tanyongkiam/cake_lpr (Yong Kiam Tan, Marijn Heule, Magnus Myreen), the release of 1 Nov 2026 (its final release), downloaded on 5 Nov 2026.
-- **Upstream commits:** the upstream README names two commit hashes for the build. They are **unknown here**: the README was not part of the download, and none of the files below records them.
+- **Upstream release:** all seven files here are byte-identical to the tag `cake_lpr/v1.0.0` (commit 033aad5, tagged 1 Nov 2026) of the cake_lpr repository (checked 8 Nov 2026 by SHA-256). Its README names HOL4 commit 9783a49 and CakeML commit 665f9b2 for the build; we did not rebuild from those commits.
 - **What is verified:** the checker is verified in HOL4 and compiled by the verified CakeML compiler; `cake_lpr_arm8.S` is that compiler's ARMv8 output. Trusted, not verified: `basis_ffi.c` (the C wrapper: command line, file reads, heap allocation), the C toolchain, the OS and the hardware.
 - **License:** `LICENSE` (CakeML's BSD 3-Clause terms).
 
